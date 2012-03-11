@@ -133,18 +133,17 @@ public class MultiValuedField extends Composite implements MetaUnitFiller,MetaUn
 	private void rebuildJSON()
 	{
 		JSONObject obj = new JSONObject();
-		obj.put("name",new JSONString(dto.getUnique_name()));
-		obj.put("description",new JSONString(dto.getDesc()));
-		JSONArray arr = new JSONArray();
-		
-		for(int i = 0;i < subunits_table.getRowCount();i++)
-		{
-			MetaUnitFiller filler = (MetaUnitFiller)subunits_table.getWidget(i, 0);
-			filling.put(filler.getUniqueName(), filler.getFilledValue());
-			JSON_Representation cur_json = filler.getJSON();
-			arr.set(i, cur_json.getObj());
-		}
-		obj.put("meta_units",arr);
+	    for (int i = 0; i < this.subunits_table.getRowCount(); i++)
+	    {
+	      MetaUnitFiller filler = (MetaUnitFiller)this.subunits_table.getWidget(i, 0);
+	      this.filling.put(filler.getUniqueName(), filler.getFilledValue());
+	      JSON_Representation cur_json = filler.getJSON();
+	      for (String key : cur_json.getObj().keySet())
+	      {
+	        obj.put(this.dto.getUnique_name() + "_" + key, cur_json.getObj().get(key));
+	      }
+
+	    }
 		current_json = new JSON_Representation(obj);
 		//here to build JSON from children;
 	}

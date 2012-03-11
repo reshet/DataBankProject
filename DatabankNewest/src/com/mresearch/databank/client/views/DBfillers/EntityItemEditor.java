@@ -60,12 +60,14 @@ public class EntityItemEditor extends Composite {
 	@UiField TextBox name_field;
 	private PopupPanel par;
 	private Long entity_item_id;
-	public EntityItemEditor(MultiValuedField field,Long entity_item_id,String name_value,PopupPanel parent) {
+	 private MultiValuedEntity entity;
+	public EntityItemEditor(MultiValuedField field,MultiValuedEntity entity,Long entity_item_id,String name_value,PopupPanel parent) {
 		initWidget(uiBinder.createAndBindUi(this));
 		this.field = field;
 		this.par = parent;
 		this.entity_item_id = entity_item_id;
 		this.name_field.setText(name_value);
+		this.entity = entity;
 		initFields();
 	}
 	private void initFields()

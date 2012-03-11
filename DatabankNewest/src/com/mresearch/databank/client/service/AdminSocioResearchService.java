@@ -27,6 +27,7 @@ import com.google.gwt.user.client.rpc.RemoteServiceRelativePath;
 import com.mresearch.databank.shared.MetaUnitDTO;
 import com.mresearch.databank.shared.MetaUnitDateDTO;
 import com.mresearch.databank.shared.MetaUnitDoubleDTO;
+import com.mresearch.databank.shared.MetaUnitEntityItemDTO;
 import com.mresearch.databank.shared.MetaUnitIntegerDTO;
 import com.mresearch.databank.shared.MetaUnitMultivaluedDTO;
 import com.mresearch.databank.shared.MetaUnitMultivaluedEntityDTO;
@@ -79,8 +80,25 @@ public interface AdminSocioResearchService extends RemoteService {
   void addEntityItem(Long entity_id,String value,HashMap<String,String> filling);
   void deleteMetaUnit(Long id,Long unit_parent_id);
   void editEntityItem(Long entity_id,String value,HashMap<String,String> filling);
-  void deleteEntityItem(Long id);
   HashMap<String, String> getEntityItem(Long id);
+
+  void addSubEntityItem(Long paramLong, String paramString, HashMap<String, String> paramHashMap);
+  MetaUnitEntityItemDTO getEntityItemDTO(Long paramLong);
+  ArrayList<MetaUnitEntityItemDTO> getEntityItemSubitemsDTOs(Long paramLong);
+  void updateMetaUnitEntityItemLinks(MetaUnitEntityItemDTO paramMetaUnitEntityItemDTO1, MetaUnitEntityItemDTO paramMetaUnitEntityItemDTO2);
+  void updateMetaUnitEntityItemLinks(MetaUnitEntityItemDTO paramMetaUnitEntityItemDTO);
+
+
+MetaUnitMultivaluedEntityDTO getMetaUnitMultivaluedEntityDTO(long id);
+
+
+void deleteEntityItem(Long id, Long entity_id);
+
+
+MetaUnitMultivaluedStructureDTO getMetaUnitMultivaluedStructureDTO(long id);
+
+
+MetaUnitMultivaluedEntityDTO getMetaUnitMultivaluedEntityDTO_FlattenedItems(long id);
 
   //ArrayList<E>
 //  SocioResearchDTO addResearch(SocioResearchDTO research);

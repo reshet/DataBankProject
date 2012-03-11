@@ -58,15 +58,18 @@ public class ItemCreator extends Composite {
 	private AdminSocioResearchServiceAsync service = AdminSocioResearchService.Util.getInstance();
 	private MultiValuedField field;
 	private PopupPanel par;
+	 private MultiValuedEntity entity;
 	@UiField VerticalPanel host;
 	@UiField TextBox name_field;
 	//private MetaUnitFiller new_field;
-	public ItemCreator(MultiValuedField field,PopupPanel parent) {
-		initWidget(uiBinder.createAndBindUi(this));
-		this.field = field;
-		this.par = parent;
-		initFields();
-	}
+	  public ItemCreator(MultiValuedField field, MultiValuedEntity entity, PopupPanel parent)
+	  {
+	    initWidget((Widget)uiBinder.createAndBindUi(this));
+	    this.field = field;
+	    this.par = parent;
+	    this.entity = entity;
+	    initFields();
+	  }
 	private void initFields()
 	{
 		host.add(field);
@@ -91,6 +94,8 @@ public class ItemCreator extends Composite {
 			@Override
 			public void onSuccess(Void result) {
 				Window.alert("Экземпляр успешно добавлен!");
+				ItemCreator.this.entity.refreshMembersList();
+			    ItemCreator.this.par.hide();
 				par.hide();
 			}
 

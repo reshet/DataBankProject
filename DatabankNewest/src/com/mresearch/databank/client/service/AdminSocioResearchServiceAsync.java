@@ -7,6 +7,7 @@ import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.mresearch.databank.shared.MetaUnitDTO;
 import com.mresearch.databank.shared.MetaUnitDateDTO;
 import com.mresearch.databank.shared.MetaUnitDoubleDTO;
+import com.mresearch.databank.shared.MetaUnitEntityItemDTO;
 import com.mresearch.databank.shared.MetaUnitIntegerDTO;
 import com.mresearch.databank.shared.MetaUnitMultivaluedDTO;
 import com.mresearch.databank.shared.MetaUnitMultivaluedEntityDTO;
@@ -52,10 +53,29 @@ public interface AdminSocioResearchServiceAsync {
 			HashMap<String, String> filling, AsyncCallback<Void> callback);
 	void deleteMetaUnit(Long id, Long unit_parent_id,
 			AsyncCallback<Void> callback);
-	void deleteEntityItem(Long id, AsyncCallback<Void> callback);
+	void deleteEntityItem(Long id, Long entity_id, AsyncCallback<Void> callback);
 	void editEntityItem(Long entity_id, String value,
 			HashMap<String, String> filling, AsyncCallback<Void> callback);
 	void getEntityItem(Long id, AsyncCallback<HashMap<String, String>> callback);
+	void addSubEntityItem(Long paramLong, String paramString,
+			HashMap<String, String> paramHashMap, AsyncCallback<Void> callback);
+	void getEntityItemDTO(Long paramLong,
+			AsyncCallback<MetaUnitEntityItemDTO> callback);
+	void getEntityItemSubitemsDTOs(Long paramLong,
+			AsyncCallback<ArrayList<MetaUnitEntityItemDTO>> callback);
+	void updateMetaUnitEntityItemLinks(
+			MetaUnitEntityItemDTO paramMetaUnitEntityItemDTO1,
+			MetaUnitEntityItemDTO paramMetaUnitEntityItemDTO2,
+			AsyncCallback<Void> callback);
+	void updateMetaUnitEntityItemLinks(
+			MetaUnitEntityItemDTO paramMetaUnitEntityItemDTO,
+			AsyncCallback<Void> callback);
+	void getMetaUnitMultivaluedEntityDTO(long id,
+			AsyncCallback<MetaUnitMultivaluedEntityDTO> callback);
+	void getMetaUnitMultivaluedStructureDTO(long id,
+			AsyncCallback<MetaUnitMultivaluedStructureDTO> callback);
+	void getMetaUnitMultivaluedEntityDTO_FlattenedItems(long id,
+			AsyncCallback<MetaUnitMultivaluedEntityDTO> callback);
 	
 	
 }

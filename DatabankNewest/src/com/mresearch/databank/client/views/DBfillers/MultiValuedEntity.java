@@ -3,6 +3,7 @@ package com.mresearch.databank.client.views.DBfillers;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.LinkedList;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.ClickEvent;
@@ -32,11 +33,12 @@ import com.mresearch.databank.client.service.AdminSocioResearchServiceAsync;
 import com.mresearch.databank.shared.JSON_Representation;
 import com.mresearch.databank.shared.MetaUnitDTO;
 import com.mresearch.databank.shared.MetaUnitDateDTO;
+import com.mresearch.databank.shared.MetaUnitEntityItemDTO;
 import com.mresearch.databank.shared.MetaUnitMultivaluedDTO;
 import com.mresearch.databank.shared.MetaUnitMultivaluedEntityDTO;
 import com.mresearch.databank.shared.MetaUnitStringDTO;
 
-public class MultiValuedEntity extends Composite implements MetaUnitFiller{
+public class MultiValuedEntity extends Composite implements MetaUnitFiller,MetaUnitEntityItemRegistrator{
 
 	private static MultiValuedEntityUiBinder uiBinder = GWT
 			.create(MultiValuedEntityUiBinder.class);
@@ -54,33 +56,52 @@ public class MultiValuedEntity extends Composite implements MetaUnitFiller{
 	private MetaUnitMultivaluedEntityDTO dto;
 	private JSON_Representation current_json;
 	private HashMap<String,String> filling;
+	private long previous_item_id;
+	private String previous_item_name;
 	public MultiValuedEntity(MetaUnitMultivaluedEntityDTO dto,JSON_Representation represent,HashMap<String,String> filling) {
 		initWidget(uiBinder.createAndBindUi(this));
 		this.dto = dto;
 		entity_name.setText(dto.getDesc());
 		this.filling = filling;
 		items_list.setMultipleSelect(dto.isIsMultiselected());
-		items_list.setVisibleItemCount(1);
-		renderSubUnits();
+		//items_list.setVisibleItemCount(1);
+		//renderSubUnits();
+		refreshMembersList();
 	}
-	@UiHandler(value="add") 
-	public void addCmd(ClickEvent ev)
-	{
-		PopupPanel p = new PopupPanel();
-		p.setTitle("Добавление экземпляра сущности...");
-		p.setModal(true);
-		p.setPopupPosition(300, 300);
-		p.setSize("800px", "800px");
-		p.setWidget(new MultiValuedField(dto, null, new HashMap<String, String>()));
-		p.show();	
-	}
+	  @UiHandler({"add"})
+	  public void addCmd(ClickEvent ev) {
+	    PopupPanel p = new PopupPanel();
+	    p.setTitle("Добавление экземпляра сущности...");
+	    p.setModal(true);
+	    p.setPopupPosition(200, 200);
+	    p.setSize("300px", "400px");
+	    p.setWidget(new ItemCreator(new MultiValuedField(this.dto, null, new HashMap()), this, p));
+	    p.show();
+	  }
+	 @UiHandler({"addsub"})
+	  public void addCmdSub(ClickEvent ev) {
+	    PopupPanel p = new PopupPanel();
+	    p.setTitle("Добавление подэкземпляра сущности...");
+	    p.setModal(true);
+	    p.setPopupPosition(200, 200);
+	    p.setSize("300px", "400px");
+	    int ind = this.items_list.getSelectedIndex();
+	    if (ind >= 0)
+	    {
+	      Long id = (Long)this.dto.getItem_ids().get(ind);
+	      Long id_ent = Long.valueOf(this.dto.getId());
+	      p.setWidget(new SubItemCreator(id.longValue(), new MultiValuedField(this.dto, null, new HashMap()), this, p));
+	      p.show();
+	    }
+	  }
 	@UiHandler(value="delete") 
 	public void delCmd(ClickEvent ev)
 	{
-		int ind = items_list.getSelectedIndex();
+		final int ind = items_list.getSelectedIndex();
 		if(ind >=0)
 		{
 			final Long id = dto.getItem_ids().get(ind);
+			final Long id_ent = Long.valueOf(this.dto.getId());
 			new RPCCall<Void>() {
 				@Override
 				public void onFailure(Throwable caught) {
@@ -89,10 +110,11 @@ public class MultiValuedEntity extends Composite implements MetaUnitFiller{
 				@Override
 				public void onSuccess(Void result) {
 					Window.alert("Item sucessfully deleted!");
+			          MultiValuedEntity.this.items_list.removeItem(ind);
 				}
 				@Override
 				protected void callService(AsyncCallback<Void> cb) {
-					service.deleteEntityItem(id, cb);
+					service.deleteEntityItem(id,id_ent, cb);
 				}
 			}.retry(2);
 		}
@@ -128,8 +150,13 @@ public class MultiValuedEntity extends Composite implements MetaUnitFiller{
 					p.setModal(true);
 					p.setPopupPosition(400, 400);
 					p.setSize("800px", "800px");
-					p.setWidget(new EntityItemEditor(new MultiValuedField(dto, null, result),id,name,p));
-					p.show();	
+					//p.setWidget(new EntityItemEditor(new MultiValuedField(dto, null, result),id,name,p));
+					//p.show();	
+					
+			          MultiValuedField f = new MultiValuedField(MultiValuedEntity.this.dto, null, result);
+			          EntityItemEditor ed = new EntityItemEditor(f, MultiValuedEntity.this, id, name, p);
+			          p.setWidget(ed);
+			          p.show();
 				}
 
 				@Override
@@ -140,7 +167,27 @@ public class MultiValuedEntity extends Composite implements MetaUnitFiller{
 			}.retry(2);
 		}
 	}
-	
+	  public void refreshMembersList() {
+		    new RPCCall<MetaUnitMultivaluedEntityDTO>()
+		    {
+		      public void onFailure(Throwable caught)
+		      {
+		        Window.alert("Error on updating memebers list!" + caught.getMessage());
+		      }
+
+		      public void onSuccess(MetaUnitMultivaluedEntityDTO result)
+		      {
+		        MultiValuedEntity.this.dto = result;
+		        MultiValuedEntity.this.renderSubUnits();
+		      }
+
+		      protected void callService(AsyncCallback<MetaUnitMultivaluedEntityDTO> cb)
+		      {
+		        MultiValuedEntity.this.service.getMetaUnitMultivaluedEntityDTO_FlattenedItems(MultiValuedEntity.this.dto.getId(), cb);
+		      }
+		    }
+		    .retry(2);
+		  }
 	private void renderSubUnits()
 	{
 		items_list.clear();
@@ -169,33 +216,24 @@ public class MultiValuedEntity extends Composite implements MetaUnitFiller{
 		}
 		if(filling.containsKey(dto.getUnique_name()))
 		{
-			String val = filling.get(dto.getUnique_name());
-			int index = dto.getItem_names().indexOf(val);
-			items_list.setSelectedIndex(index);
+			  String val = (String)this.filling.get(this.dto.getUnique_name());
+		      if (val != null)
+		      {
+		        int index = this.dto.getItem_names().indexOf(val);
+		        this.items_list.setSelectedIndex(index);
+
+		        this.previous_item_id = ((Long)this.dto.getItem_ids().get(index)).longValue();
+		      }
 		}
 	}
 	
 	
 	private void rebuildJSON()
 	{
-		
 		JSONObject obj = new JSONObject();
-		obj.put("name",new JSONString(dto.getUnique_name()));
-		obj.put("description",new JSONString(dto.getDesc()));
-		JSONArray arr = new JSONArray();
-		for(int i = 0;i < items_list.getItemCount();i++)
-		{
-			if(items_list.isItemSelected(i))
-			{
-				String val = items_list.getValue(i);
-				//MetaUnitFiller filler = new MultiValuedField((MetaUnitMultivaluedDTO)dto.getSub_meta_units().get(i), null);
-				MetaUnitFiller filler = new SimpleStringField(new MetaUnitStringDTO(new Long(0), "", dto.getUnique_name()),null,val);
-				JSON_Representation cur_json = filler.getJSON();
-				arr.set(i, cur_json.getObj());
-			}
-		}
-		obj.put("meta_units",arr);
-		current_json = new JSON_Representation(obj);
+
+	    obj.put(this.dto.getUnique_name(), new JSONString(this.items_list.getItemText(this.items_list.getSelectedIndex())));
+	    this.current_json = new JSON_Representation(obj);
 		//here to build JSON from children;
 	}
 	@Override
@@ -210,15 +248,98 @@ public class MultiValuedEntity extends Composite implements MetaUnitFiller{
 
 	@Override
 	public String getFilledValue() {
-		//TODO NEED TO EXTEND FOR MULTIPLE SELECT!!!
-		int index = 0;
-		if(items_list.getItemCount()<=0)return null;
-		if(items_list.getSelectedIndex()!= -1)index = items_list.getSelectedIndex();
-		String val = items_list.getItemText(index);
-		return val;
+		 int index = 0;
+		    if (this.items_list.getItemCount() <= 0) return null;
+		    if (this.items_list.getSelectedIndex() != -1) index = this.items_list.getSelectedIndex();
+		    LinkedList selectedItems = new LinkedList();
+		    for (int i = 0; i < this.items_list.getItemCount(); i++) {
+		      if (this.items_list.isItemSelected(i)) {
+		        selectedItems.add(Integer.valueOf(i));
+		      }
+		    }
+		    StringBuilder bu = new StringBuilder();
+		    String val = null;
+		    if (selectedItems.size() > 1)
+		    {
+		      for (int i = 0; i < selectedItems.size() - 1; i++)
+		      {
+		        bu.append(this.items_list.getItemText(((Integer)selectedItems.get(i)).intValue()));
+		        bu.append("||");
+		      }
+		      bu.append(this.items_list.getItemText(((Integer)selectedItems.get(selectedItems.size() - 1)).intValue()));
+		      val = bu.toString();
+		    }
+		    else {
+		      val = this.items_list.getItemText(index);
+		    }
+		    return val;
 	}
 	@Override
 	public MetaUnitDTO getDTO() {
 		return dto;
+	}
+	@Override
+	public void populateItemsLinksTo(final Long id, final String identifier) {
+	    int index = 0;
+	    if ((this.items_list.getItemCount() > 0) && (this.items_list.getSelectedIndex() != -1))
+	    {
+	      index = this.items_list.getSelectedIndex();
+	      final long idd = ((Long)this.dto.getItem_ids().get(index)).longValue();
+
+	      if (idd != this.previous_item_id)
+	        new RPCCall<MetaUnitEntityItemDTO>()
+	        {
+	          public void onFailure(Throwable caught) {
+	          }
+
+	          public void onSuccess(final MetaUnitEntityItemDTO result) {
+	            if (result.getTagged_entities_ids().contains(Long.valueOf(MultiValuedEntity.this.previous_item_id)))
+	            {
+	              result.getTagged_entities_ids().remove(result.getTagged_entities_ids().indexOf(Long.valueOf(MultiValuedEntity.this.previous_item_id)));
+	              result.getTagged_entities_identifiers().remove(result.getTagged_entities_ids().indexOf(Long.valueOf(MultiValuedEntity.this.previous_item_id)));
+	            }
+
+	            new RPCCall<MetaUnitEntityItemDTO>()
+	            {
+	              public void onFailure(Throwable caught) {
+	              }
+
+	              public void onSuccess(final MetaUnitEntityItemDTO result2) {
+	                if (!result2.getTagged_entities_ids().contains(id))
+	                {
+	                  result2.getTagged_entities_ids().add(id);
+	                  result2.getTagged_entities_identifiers().add(identifier);
+	                }
+	                new RPCCall<Void>()
+	                {
+	                  public void onFailure(Throwable caught)
+	                  {
+	                  }
+
+	                  public void onSuccess(Void result) {
+	                  }
+
+	                  protected void callService(AsyncCallback<Void> cb) {
+	                    MultiValuedEntity.this.service.updateMetaUnitEntityItemLinks(result, result2, cb);
+	                  }
+	                }
+	                .retry(2);
+	              }
+
+	              protected void callService(AsyncCallback<MetaUnitEntityItemDTO> cb)
+	              {
+	                MultiValuedEntity.this.service.getEntityItemDTO(Long.valueOf(idd), cb);
+	              }
+	            }
+	            .retry(2);
+	          }
+
+	          protected void callService(AsyncCallback<MetaUnitEntityItemDTO> cb)
+	          {
+	            MultiValuedEntity.this.service.getEntityItemDTO(Long.valueOf(MultiValuedEntity.this.previous_item_id), cb);
+	          }
+	        }
+	        .retry(2);
+	    }
 	}
 }

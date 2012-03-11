@@ -55,12 +55,10 @@ public class SimpleIntegerField extends Composite implements MetaUnitFiller{
 	}
 	private void rebuildJSON()
 	{
-		JSONObject obj = new JSONObject();
-		obj.put("name",new JSONString(dto.getUnique_name()));
-		obj.put("description",new JSONString(dto.getDesc()));
-		obj.put("type",new JSONString("MetaUnitInteger"));
-		obj.put("value", new JSONString(contents.getText()));
-		current_json = new JSON_Representation(obj);
+	    JSONObject obj = new JSONObject();
+
+	    obj.put(this.dto.getUnique_name(), new JSONString(this.contents.getText()));
+	    this.current_json = new JSON_Representation(obj);
 	}
 //	@Override
 //	public String getText() {
