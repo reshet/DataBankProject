@@ -208,6 +208,7 @@ public class RootFilterItemAdvanced extends TreeItem
     ArrayList<FilterBaseDTO> filters = new ArrayList<FilterBaseDTO>();
     for (IFilterProvider provider : this.allFiltersRegister)
     {
+      if (provider != null)	
       if (provider.isFilterUsed())
         filters.add(provider.getFilterDTO());
     }

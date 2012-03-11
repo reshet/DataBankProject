@@ -3,6 +3,7 @@ package com.mresearch.databank.shared;
 import java.io.Serializable;
 
 import com.google.gwt.json.client.JSONObject;
+import com.google.gwt.json.client.JSONString;
 
 
 public class FilterMatchDTO extends FilterBaseDTO implements Serializable{
@@ -37,7 +38,10 @@ public class FilterMatchDTO extends FilterBaseDTO implements Serializable{
 	}
 	@Override
 	public JSONObject getJSONFilter() {
-		// TODO Auto-generated method stub
-		return null;
+	    JSONObject obj = new JSONObject();
+	    JSONObject q = new JSONObject();
+	    q.put(super.getTarget_field_name(), new JSONString(getFiltering_value()));
+	    obj.put("text", q);
+	    return obj;
 	}
 }

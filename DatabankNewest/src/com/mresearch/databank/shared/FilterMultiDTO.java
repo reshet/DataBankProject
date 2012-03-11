@@ -3,6 +3,7 @@ package com.mresearch.databank.shared;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+import com.google.gwt.json.client.JSONArray;
 import com.google.gwt.json.client.JSONObject;
 
 public class FilterMultiDTO extends FilterBaseDTO implements Serializable{
@@ -48,7 +49,16 @@ public class FilterMultiDTO extends FilterBaseDTO implements Serializable{
 	}
 	@Override
 	public JSONObject getJSONFilter() {
-		// TODO Auto-generated method stub
-		return null;
+	    JSONObject obj_bool = new JSONObject();
+	    JSONObject obj_sh = new JSONObject();
+	    JSONArray arr_should = new JSONArray();
+	    for (int i = 0; i < this.filters.size(); i++)
+	    {
+	      arr_should.set(i, ((FilterBaseDTO)this.filters.get(i)).getJSONFilter());
+	    }
+	    obj_sh.put("should", arr_should);
+	    obj_bool.put("bool", obj_sh);
+
+	    return obj_bool;
 	}
 }
