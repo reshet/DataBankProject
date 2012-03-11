@@ -1,2 +1,3 @@
 # Module databanknewest
 # RPC service class, partial path of RPC policy file
+com.mresearch.databank.client.GreetingService, 2ABA3280EE5E3FEC3813DFCDFFC1395D.gwt.rpc
