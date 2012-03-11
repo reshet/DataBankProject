@@ -153,7 +153,7 @@ public class RootFilterItemAdvanced extends TreeItem
 
         public boolean isFilterUsed()
         {
-          return ((CheckBox)getRootItem().getWidget()).getValue().booleanValue();
+          return ((CheckBox)getRoot().getWidget()).getValue().booleanValue();
         }
       };
       filt_gen_selection.setWidget(filtGS.asWidget());
@@ -248,8 +248,15 @@ public class RootFilterItemAdvanced extends TreeItem
 
       public void onSuccess(String result)
       {
+    	
         RootFilterItemAdvanced.this.results_viewer.clear();
-        ArrayList hiters = new ArrayList();
+        if(result.equals("Error"))
+        {
+        	 RootFilterItemAdvanced.this.results_viewer.add(new HTML("<H2>ПОИСКОВЫЙ ЗАПРОС:</H2><br><p>" + query + "</p>"));
+             RootFilterItemAdvanced.this.results_viewer.add(new HTML("<H3>ОТВЕТ ДВИЖКА:</H3><br><p>" + result + "</p>"));
+             return;
+        }
+        ArrayList<JSONObject> hiters = new ArrayList<JSONObject>();
         JSONObject res = (JSONObject)JSONParser.parse(result);
         JSONObject hits = (JSONObject)res.get("hits");
         JSONNumber total = (JSONNumber)hits.get("total");

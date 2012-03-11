@@ -66,5 +66,9 @@ public abstract class FilterMultiMatchView extends Composite implements IFilterP
 	{
 		return root_item;
 	}
+	public TreeItem getRoot()
+	{
+		return root;
+	}
 	public abstract void loadVariants(PostProcess proc);
 }

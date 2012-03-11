@@ -1,0 +1,17 @@
+com.google.gwt.i18n.shared.impl.DateRecord, false, false, true, true, com.google.gwt.i18n.shared.impl.DateRecord/3375188634, 3375188634
+com.google.gwt.user.client.rpc.IncompatibleRemoteServiceException, true, true, true, true, com.google.gwt.user.client.rpc.IncompatibleRemoteServiceException/3936916533, 3936916533
+com.google.gwt.user.client.rpc.RpcTokenException, true, true, false, false, com.google.gwt.user.client.rpc.RpcTokenException/2345075298, 2345075298
+com.google.gwt.user.client.rpc.XsrfToken, false, false, true, true, com.google.gwt.user.client.rpc.XsrfToken/4254043109, 4254043109
+com.mresearch.databank.client.service.SearchService, false, false, false, false, _, 2481882216
+com.mresearch.databank.shared.SearchResultDTO, true, true, false, false, com.mresearch.databank.shared.SearchResultDTO/1671622604, 1671622604
+com.mresearch.databank.shared.SearchTaskLawDTO, false, false, true, true, com.mresearch.databank.shared.SearchTaskLawDTO/2555118066, 2555118066
+com.mresearch.databank.shared.SearchTaskResearchDTO, false, false, true, true, com.mresearch.databank.shared.SearchTaskResearchDTO/1081145760, 1081145760
+java.lang.Exception, true, false, true, false, java.lang.Exception/1920171873, 1920171873
+java.lang.RuntimeException, true, false, true, false, java.lang.RuntimeException/515124647, 515124647
+java.lang.String, true, true, true, true, java.lang.String/2004016611, 2004016611
+java.lang.Throwable, true, false, true, false, java.lang.Throwable/2953622131, 2953622131
+java.sql.Date, false, false, true, true, java.sql.Date/730999118, 730999118
+java.sql.Time, false, false, true, true, java.sql.Time/1816797103, 1816797103
+java.sql.Timestamp, false, false, true, true, java.sql.Timestamp/3040052672, 3040052672
+java.util.ArrayList, true, true, false, false, java.util.ArrayList/4159755760, 4159755760
+java.util.Date, false, false, true, true, java.util.Date/3385151746, 3385151746
