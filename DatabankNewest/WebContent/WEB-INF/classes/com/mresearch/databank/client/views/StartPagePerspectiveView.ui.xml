@@ -1,0 +1,63 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui">
+	<ui:style>
+		.mainMenu {
+			margin: 10px;
+			padding: 15px;
+			text-align: center;
+			font-size: 22px;
+			border: medium;
+			background-color: #FF0000;
+		}
+		
+		.login{
+			text-align: right;
+			padding-left: 200px;
+			color: olive;
+			font: bold;
+		}
+		.latestNews
+		{
+			border: 3px;
+			border-color: orange;	
+			font: cursive;
+			font-size: 16px;
+			background-color: #00FF00;
+		}
+		.mainArticle
+		{
+			border: 3px solid #222222;
+		}
+		.leftBar
+		{
+			border:2px solid #882222;
+		}
+		 .loading 
+		{
+	      width: 100%;
+	      padding: 55px ;
+	    }
+	</ui:style>
+	<g:DockLayoutPanel unit='EM'>
+		
+		<g:center>
+			<g:HTML ui:field="mainPageArticle" styleName="{style.mainArticle}">MainPage Contents</g:HTML>
+		</g:center>
+		<g:west size="22">
+			 <g:ScrollPanel height="100%" width="100%">
+				<g:VerticalPanel ui:field="latestNews" styleName="{style.leftBar}">
+					<g:HTML styleName="{style.latestNews}">
+					Последние новости...
+					</g:HTML>
+					<g:Label ui:field='loadingLabel' styleName='{style.loading}'>Loading...</g:Label>
+	    				<g:FlexTable ui:field="latestNewsTable" borderWidth="2" title="Новости...">
+						</g:FlexTable>
+				</g:VerticalPanel>
+			</g:ScrollPanel>
+		</g:west>
+		<g:south size="5">
+			<g:Label>SOUTH</g:Label>
+		</g:south>
+	</g:DockLayoutPanel>
+</ui:UiBinder> 

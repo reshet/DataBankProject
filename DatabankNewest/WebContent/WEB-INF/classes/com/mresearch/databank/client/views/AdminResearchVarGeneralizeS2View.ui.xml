@@ -1,0 +1,30 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui" xmlns:u="urn:import:com.google.gwt.user.client">
+	
+<!-- 	<ui:with field='res' type='com.mresearch.databank.Resources.TableStyles'/> -->
+	<ui:style>
+			.flexTable {
+		  width: 150px;
+		  height: 150px;
+		  left: 15px; 
+		}
+		
+		.panel {
+		  background-color: #C3D9FF;
+		  border: 1px solid #000000;
+		  padding: 3px;
+		  margin: 3px;
+		  font-weight: normal;  
+		}
+		.varsColomn
+		{
+			width: 600px;
+			background-color: #444488;
+		}
+	</ui:style>
+	<g:VerticalPanel>
+		<g:FlexTable ui:field="the_table" styleName="{style.flexTable}"></g:FlexTable>
+		<g:Button ui:field="generalize_btn" text="Генерализировать!"></g:Button>
+	</g:VerticalPanel>
+</ui:UiBinder> 

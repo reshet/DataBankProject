@@ -1,0 +1,49 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui">
+	<ui:style>
+		
+	</ui:style>
+	<g:HTMLPanel>
+		<h2>Просмотр переменной</h2>
+		<g:HTMLPanel ui:field="content_panel">
+		<table>
+			<tr>
+				<td>Имя переменной: </td><td><g:Label ui:field="varCode"></g:Label></td>
+			</tr>
+			<tr>
+				<td>Текст вопроса: </td><td><g:Label ui:field="varText"></g:Label></td>
+			</tr>
+			<tr>
+				<td>Кол-во записей: </td><td><g:Label ui:field="number_of_records"></g:Label></td>
+			</tr>
+			<tr>
+				<td>Характеристики ряда:</td>
+				<td>
+					<table>
+						<tr>
+							<td>Мода: </td><td><g:Label ui:field="moda_txt"></g:Label></td>
+						</tr>
+						<tr>
+							<td>Медиана: </td><td><g:Label ui:field="median_txt"></g:Label></td>
+						</tr>
+						<tr>
+							<td>Среднее: </td><td><g:Label ui:field="average_txt"></g:Label></td>
+						</tr>
+						<tr>
+							<td>Дисперсия: </td><td><g:Label ui:field="dispersion_txt"></g:Label></td>
+						</tr>
+						<tr>
+							<td>Корень дисперсии: </td><td><g:Label ui:field="dispersion_root_txt"></g:Label></td>
+						</tr>	
+					</table>
+				</td>
+			</tr>
+			<tr>
+				<td>Переменная использовалась:</td><td><g:FlexTable ui:field="generalizedTbl"></g:FlexTable></td>
+			</tr>	
+		</table>
+		</g:HTMLPanel>
+		<g:HorizontalPanel ui:field="target_panel"></g:HorizontalPanel>
+	</g:HTMLPanel>
+</ui:UiBinder> 

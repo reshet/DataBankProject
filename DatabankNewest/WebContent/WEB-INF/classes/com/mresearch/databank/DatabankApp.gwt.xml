@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module rename-to='databanknewest'>
+  <!-- Inherit the core Web Toolkit stuff.                        -->
+  <inherits name='com.google.gwt.user.User'/>
+<!--   <inherits name="com.google.gwt.logging.Logging"/> -->
+  <!-- Inherit the default GWT style sheet.  You can change       -->
+  <!-- the theme of your GWT application by uncommenting          -->
+  <!-- any one of the following lines.                            -->
+<!--   <inherits name='com.google.gwt.user.theme.standard.Standard'/> -->
+  <inherits name='com.google.gwt.user.theme.chrome.Chrome'/>
+<!--   <inherits name='com.google.gwt.user.theme.dark.Dark'/>     -->
+
+  <!-- Other module inherits                                      -->
+  <inherits name="com.google.gwt.xml.XML"/>
+  
+  <inherits name='org.zenika.widget.DatePickerModule'/>
+  
+  <inherits name='com.rednels.ofcgwt.OFCGWT'/>
+  
+  <!-- Include GWTUpload library -->
+  <inherits name="gwtupload.GWTUpload"/>
+  <inherits name='com.smartgwt.SmartGwt'/>
+  <!-- Load dinamically predefined styles in the library when the application starts -->
+  <stylesheet src="Upload.css"/>
+
+  <!-- Specify the app entry point class.                         -->
+ <entry-point class='com.mresearch.databank.client.DatabankApp'/>
+  <source path='client'/>
+  <source path='shared'/>
+
+</module>

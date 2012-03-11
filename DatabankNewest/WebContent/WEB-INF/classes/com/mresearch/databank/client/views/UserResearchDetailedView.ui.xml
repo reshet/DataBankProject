@@ -1,0 +1,85 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui">
+	<ui:style>
+		 .tableResearch
+		{
+			font-weight: normal;
+			background-color: #88AA66;
+			padding: 15px;
+			font-family: Helvetica;
+			font: 13px;
+		}
+		.category
+		{
+			color: #772222;
+			font-weight: bold;
+			font: 16px;
+			vertical-align: text-top;
+		}
+		
+	</ui:style>
+	<g:HTMLPanel>
+		<h2>Research detailes</h2>
+		<table class="{style.tableResearch}" cellSpacing="20px">
+			<tr>
+				<td class="{style.category}">Название исследования:</td>
+				<td><g:Label ui:field="nameResearch">Name of research</g:Label></td>
+			</tr>
+			<tr>
+				<td class="{style.category}">Дата исследования:</td>
+				<td><g:Label ui:field="dateResearch">Dates of research</g:Label></td>
+			</tr>
+			<tr>
+				<td class="{style.category}">Генеральная совокупность:</td>
+				<td><g:Label ui:field="genGeathering">"Geathering" of research</g:Label></td>
+			</tr>
+			<tr>
+				<td class="{style.category}">Объем выборки:</td>
+				<td><g:Label ui:field="selectionSize">"Selection" size</g:Label></td>
+			</tr>
+			<tr>
+				<td class="{style.category}">Способ реализации выборки:</td>
+				<td><g:Label ui:field="selectionAppr">"Selection" approach</g:Label></td>
+			</tr>
+			<tr>
+				<td class="{style.category}">Организация, которая провела исследование:</td>
+				<td><g:Label ui:field="orgImpl">
+				The British Election Study (BES) at the University of Essex was started as a research project in 1974 to continue this series. The BES conducted interview surveys following the general elections of February 1974, October 1974 and May 1979. This series also includes a questionnaire survey conducted after the Referendum on Britain's membership of the EEC in 1975.
+				
+				The series was continued under the changed name of British General Election Studies (BGES). Since 1983 it has been directed by Anthony Heath, Roger Jowell and John Curtice and carried out jointly by SCPR and Nuffield College Oxford. The 1992 BES surveys were carried out as part of the activities of the ESRC-funded Joint Unit for the Study of Social Trends (JUSST). The 1997 studies were carried out by its successor, CREST, in collaboration with Pippa Norris of Harvard University, with funding from the ESRC, the Gatsby Charitable Foundation and the Commission for Racial Equality. The 1997 British General Election Study included a greater number of separate but inter-linked studies than ever before. 
+				</g:Label></td>
+			</tr>
+			<tr>
+				<td class="{style.category}">Организация-заказчик:</td>
+				<td><g:Label ui:field="orgPrompt">Ordered organization</g:Label></td>
+			</tr>
+			<tr>
+				<td class="{style.category}">Публикации, связаные с исследованием:</td>
+				<td>
+					<g:FlexTable ui:field="flexPubl_tbl">	
+					</g:FlexTable>
+				</td>
+			</tr>
+			<tr>
+				<td class="{style.category}">Исследователи, связаные с проектом:</td>
+				<td><g:Label ui:field="researchers">Researchers: Paniotto-Co</g:Label></td>
+			</tr>
+			<tr>
+				<td class="{style.category}">Метод сбора информации:</td>
+				<td><g:Label ui:field="method">Info geathering methods</g:Label></td>
+			</tr>
+			<tr>
+				<td class="{style.category}">Взвешивание:</td>
+				<td><g:Label ui:field="weights">Без взвешивания.</g:Label></td>
+			</tr>
+			<tr>
+				<td class="{style.category}">Концепты:</td>
+				<td><g:Label ui:field="concepts">Search and catalogization concepts, consept1,concept2,concept3,
+						concept3,concept3,concept3,concept3,concept3,concept3,concept3,
+						concept3,concept3,concept3,concept3;
+				</g:Label></td>
+			</tr>
+		</table>
+	</g:HTMLPanel>	
+</ui:UiBinder> 
