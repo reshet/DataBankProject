@@ -1,0 +1,40 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui">
+	<ui:style>
+		.mainMenu {
+			margin: 10px;
+			padding: 15px;
+			text-align: center;
+			font-size: 18px;
+			border: medium;
+			background-color: #11BB11;
+		}
+		.login{
+			text-align: right;
+			padding-left: 200px;
+			color: olive;
+			font: bold;
+		}
+	</ui:style>
+	<g:DockLayoutPanel unit='EM'>
+		<g:north size="5">
+			<g:HorizontalPanel styleName="{style.mainMenu}">
+				<g:Anchor href="javascript:;" ui:field="mainNav" styleName="{style.mainMenu}">Главная</g:Anchor>
+				<g:Anchor href="javascript:;" ui:field="newsNav" styleName="{style.mainMenu}">Новости</g:Anchor>
+				<g:Anchor href="javascript:;" ui:field="researchNav" styleName="{style.mainMenu}">Исследования</g:Anchor>
+				<g:Anchor href="javascript:;" ui:field="lawNav" styleName="{style.mainMenu}">Законодательство</g:Anchor>
+				<g:Anchor href="javascript:;" ui:field="juryNav" styleName="{style.mainMenu}">Консультация</g:Anchor>
+				<g:TextBox ui:field="searchBox"></g:TextBox>
+				<g:Button ui:field="searchCmd" text="Поиск!"></g:Button>
+				<g:Anchor href="javascript:;" ui:field="loginNav" styleName="{style.login}">
+					Войти!
+				</g:Anchor>
+			</g:HorizontalPanel>
+		</g:north>
+		<g:center>
+			<g:DockLayoutPanel unit="EM" ui:field="centerPanel">
+			</g:DockLayoutPanel>
+		</g:center>
+	</g:DockLayoutPanel>
+</ui:UiBinder> 

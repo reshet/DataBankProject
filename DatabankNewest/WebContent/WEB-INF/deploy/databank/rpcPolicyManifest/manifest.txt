@@ -1,0 +1,6 @@
+# Module databank
+# RPC service class, partial path of RPC policy file
+com.mresearch.databank.client.service.UserSocioResearchService, 3C9138D56B3E20D74F9FAD4141C911A8.gwt.rpc
+com.mresearch.databank.client.service.AdminSocioResearchService, 0719E16C0825B0ED4D238DFFADFB3811.gwt.rpc
+com.mresearch.databank.client.service.CatalogService, E8E904359F2C7704F3C609E586BFBBE8.gwt.rpc
+com.mresearch.databank.client.service.UserAccountService, 916E694221769DF5467B3A41BB416C93.gwt.rpc

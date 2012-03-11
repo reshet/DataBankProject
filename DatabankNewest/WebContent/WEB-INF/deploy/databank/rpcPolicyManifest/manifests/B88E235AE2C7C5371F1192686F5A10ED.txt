@@ -1,0 +1,2 @@
+serviceClass: com.mresearch.databank.client.service.UserAccountService
+path: 916E694221769DF5467B3A41BB416C93.gwt.rpc

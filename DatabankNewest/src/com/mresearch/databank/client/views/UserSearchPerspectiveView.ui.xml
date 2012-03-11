@@ -1,0 +1,48 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui"
+	xmlns:app="urn:import:com.mresearch.databank.client.views">
+	<ui:style>
+		.research-catalog {
+			font:10px;
+			padding: 2px;
+			margin: 1 1 1 1;
+		}
+	
+		.gwt-Tree .gwt-TreeItem
+		{
+		   padding: 2px;
+		   font: 9px;
+		   color: green;
+		   margin: 2px;
+		}
+		.tree {
+			background-color: gray;
+			color: white;
+			margin: 1 1 1 1;
+		}
+		.gwt-Tree .gwt-TreeItem-selected
+		{
+		   background-color: blue;
+		}
+	</ui:style>
+	<g:DockLayoutPanel unit='EM'>
+		<g:west size="25">
+			<g:Label text="leftBar"></g:Label>
+		</g:west>
+		<g:center>
+			<g:ScrollPanel width="100%" height="100%">
+				<g:VerticalPanel ui:field="centerPanel">
+					<app:ImprovedSearchView ui:field="impr_search_view">
+					</app:ImprovedSearchView>
+					<g:HTMLPanel>
+						<h2>Результаты поиска по запросу:</h2>
+							<h4><g:Label ui:field="queryStr"></g:Label></h4>
+						<br/>
+					</g:HTMLPanel>
+					<g:FlexTable ui:field="res_table"></g:FlexTable>
+				</g:VerticalPanel>
+			</g:ScrollPanel>
+		</g:center>
+	</g:DockLayoutPanel>
+</ui:UiBinder> 

@@ -1,0 +1,46 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui">
+	<ui:style>
+		
+	</ui:style>
+		<g:VerticalPanel>
+			<g:HTMLPanel>
+				<h2>Файлы исследования:</h2>
+				<table>
+					<tr>
+						<td>Массивы: </td>
+						<td><g:VerticalPanel ui:field="arrays_panel"></g:VerticalPanel></td>
+					</tr>
+					<tr>
+						<td>Опросник: </td>
+						<td><g:VerticalPanel ui:field="quest_panel"></g:VerticalPanel></td>
+					</tr>
+					<tr>
+						<td>Карточки к опроснику: </td>
+						<td><g:VerticalPanel ui:field="quest_cards_panel"></g:VerticalPanel></td>
+					</tr>
+					<tr>
+						<td>Протокол исследования или описание методологии: </td>
+						<td><g:VerticalPanel ui:field="protocol_panel"></g:VerticalPanel></td>
+					</tr>
+					<tr>
+						<td>Технический отчет: </td>
+						<td><g:VerticalPanel ui:field="technical_report_panel"></g:VerticalPanel></td>
+					</tr>
+					<tr>
+						<td>Инструкции интервьюверу: </td>
+						<td><g:VerticalPanel ui:field="instructions_panel"></g:VerticalPanel></td>
+					</tr>
+					<tr>
+						<td>Аналитический отчет по исследованию: </td>
+						<td><g:VerticalPanel ui:field="analytic_report_panel"></g:VerticalPanel></td>
+					</tr>
+					<tr>
+						<td>Публикации, связанные с исследованием: </td>
+						<td><g:VerticalPanel ui:field="publications_panel"></g:VerticalPanel></td>
+					</tr>				
+				</table>
+			</g:HTMLPanel>
+		</g:VerticalPanel>
+	</ui:UiBinder> 

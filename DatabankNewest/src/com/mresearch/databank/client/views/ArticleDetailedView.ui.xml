@@ -1,0 +1,20 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui">
+	<ui:style>
+		
+	</ui:style>
+	<g:VerticalPanel>
+		<g:HTMLPanel>
+			<h2>
+				<g:Label ui:field="_name" wordWrap="true"></g:Label>
+			</h2>
+			<br/>
+			<g:Label ui:field="_abstract" wordWrap="true"></g:Label>
+			<p align="right">
+				<g:Hyperlink ui:field="_enc_link" text="Скачать документ" ></g:Hyperlink>
+			</p>
+			<g:HorizontalPanel ui:field="link_panel"></g:HorizontalPanel>
+		</g:HTMLPanel>
+	</g:VerticalPanel>
+</ui:UiBinder> 

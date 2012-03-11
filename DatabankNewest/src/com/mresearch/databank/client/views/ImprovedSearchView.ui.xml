@@ -1,0 +1,196 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui"
+	xmlns:third="urn:import:org.zenika.widget.client.datePicker">
+	<ui:style>
+		
+	</ui:style>
+	<g:VerticalPanel>
+		<g:HTMLPanel>
+			<h2>Введите параметры поиска:</h2>
+		</g:HTMLPanel>
+		<g:TabLayoutPanel barHeight="40" visible="true" width="1000px" height="300px" ui:field="tabulator">
+			<g:tab>
+				<g:header>
+					Общий
+				</g:header>
+				<g:VerticalPanel>
+					<g:HorizontalPanel>
+						<g:Label text="Содержит текст:"></g:Label>
+						<g:TextBox ui:field="text_have" text=""></g:TextBox>
+						<g:Button ui:field="searchBtn" text="Искать!"></g:Button>
+					</g:HorizontalPanel>
+				</g:VerticalPanel>
+			</g:tab>
+			<g:tab>
+				<g:header>
+					Исследования
+				</g:header>
+				<g:HTMLPanel>
+					<table>
+						<tr>
+							<td>
+								<g:Label text="Название содержит:"></g:Label>	
+							</td>
+							<td>
+								<g:TextBox ui:field="name_have"></g:TextBox>	
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<g:Label text="Ключевые слова:"></g:Label>	
+							</td>
+							<td>
+								<g:TextBox ui:field="research_key_words"></g:TextBox>	
+							</td>
+						</tr>
+						<tr>
+							<td>Дата начала поля: </td>
+							<td>
+								<table>
+									<tr>
+										<td>с: </td>
+										<td>
+											<third:DatePicker ui:field="date_start_from"></third:DatePicker>
+										</td>
+									</tr>
+									<tr>
+										<td>до: </td>
+										<td>
+											<third:DatePicker ui:field="date_start_to"></third:DatePicker>
+										</td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+						<tr>
+							<td>Дата конца поля: </td>
+							<td>
+								<table>
+									<tr>
+										<td>с: </td>
+										<td>
+											<third:DatePicker ui:field="date_end_from"></third:DatePicker>
+										</td>
+									</tr>
+									<tr>
+										<td>до: </td>
+										<td>
+											<third:DatePicker ui:field="date_end_to"></third:DatePicker>
+										</td>
+									</tr>
+								</table>
+							</td>
+						</tr>						
+						<tr>
+							<td>
+								<g:Button ui:field="searchResearchBtn" text="Искать исследования!"></g:Button>
+							</td>
+						</tr>
+					</table>
+					
+				</g:HTMLPanel>
+			</g:tab>
+			<g:tab>
+				<g:header>
+					Законодательство
+				</g:header>
+				<g:ScrollPanel>
+				<g:VerticalPanel>
+					<g:HTMLPanel>
+						<table>
+						<tr>
+							<td>
+								<g:Label text="Название содержит:"></g:Label>	
+							</td>
+							<td>
+								<g:TextBox ui:field="l_name_have"></g:TextBox>	
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<g:Label text="Ключевые слова:"></g:Label>	
+							</td>
+							<td>
+								<g:TextBox ui:field="law_key_words"></g:TextBox>	
+							</td>
+						</tr>
+						<tr>
+							<td>Дата: </td>
+							<td>
+								<table>
+									<tr>
+										<td>с: </td>
+										<td>
+											<third:DatePicker ui:field="l_date_from"></third:DatePicker>
+										</td>
+									</tr>
+									<tr>
+										<td>до: </td>
+										<td>
+											<third:DatePicker ui:field="l_date_to"></third:DatePicker>
+										</td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+						<tr>
+							<td>Дата принятия: </td>
+							<td>
+								<table>
+									<tr>
+										<td>с: </td>
+										<td>
+											<third:DatePicker ui:field="date_accept_from"></third:DatePicker>
+										</td>
+									</tr>
+									<tr>
+										<td>до: </td>
+										<td>
+											<third:DatePicker ui:field="date_accept_to"></third:DatePicker>
+										</td>
+									</tr>
+								</table>
+							</td>
+						</tr>	
+						<tr>
+							<td>Дата отмены: </td>
+							<td>
+								<table>
+									<tr>
+										<td>с: </td>
+										<td>
+											<third:DatePicker ui:field="date_decline_from"></third:DatePicker>
+										</td>
+									</tr>
+									<tr>
+										<td>до: </td>
+										<td>
+											<third:DatePicker ui:field="date_decline_to"></third:DatePicker>
+										</td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<g:Label text="Авторы:"></g:Label>	
+							</td>
+							<td>
+								<g:TextBox ui:field="law_authors"></g:TextBox>	
+							</td>
+						</tr>					
+						<tr>
+							<td>
+								<g:Button ui:field="searchLawsBtn" text="Искать законы!"></g:Button>
+							</td>
+						</tr>
+					</table>
+					</g:HTMLPanel>
+				</g:VerticalPanel>
+				</g:ScrollPanel>
+			</g:tab>
+		</g:TabLayoutPanel>
+	</g:VerticalPanel>
+	
+</ui:UiBinder> 

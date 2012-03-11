@@ -1,0 +1,44 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui">
+	<ui:style>
+		
+	</ui:style>
+	<g:VerticalPanel>
+		<g:HTMLPanel>
+			<h2>
+				<g:Label ui:field="_name" wordWrap="true"></g:Label>
+			</h2>
+			<h5>
+				№ <g:Label ui:field="_number" wordWrap="true"></g:Label>
+			</h5>
+			<br/>
+			<g:Label ui:field="_abstract" wordWrap="true"></g:Label>
+			<br/>
+			<table>
+				<tr>
+					<td>Дата:</td>
+					<td><g:Label ui:field="date"></g:Label></td>
+				</tr>
+				<tr>	
+					<td>Дата принятия:</td>
+					<td><g:Label ui:field="date_accept"></g:Label></td>
+				</tr>
+				<tr>
+					<td>Дата отмены:</td>
+					<td><g:Label ui:field="date_decline"></g:Label></td>				
+				</tr>
+				<tr>
+					<td>Ключевые слова:</td>
+					<td><g:Label ui:field="keywords" wordWrap="true" width="500px" height="120px"></g:Label></td>				
+				</tr>
+				<tr>
+					<td>Авторы:</td>
+					<td><g:Label ui:field="authors" wordWrap="true" width="500px" height="120px"></g:Label></td>				
+				</tr>
+			</table>
+			
+			<g:HorizontalPanel ui:field="link_panel"></g:HorizontalPanel>
+		</g:HTMLPanel>
+	</g:VerticalPanel>
+</ui:UiBinder> 

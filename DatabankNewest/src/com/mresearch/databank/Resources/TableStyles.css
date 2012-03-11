@@ -1,0 +1,15 @@
+.flexTable {
+  width: 150px;
+  height: 150px;
+  position: absolute; 
+  left: 15px; 
+  top: 350px;  
+}
+
+.panel {
+  background-color: #C3D9FF;
+  border: 1px solid #000000;
+  padding: 3px;
+  margin: 3px;
+  font-weight: normal;  
+}

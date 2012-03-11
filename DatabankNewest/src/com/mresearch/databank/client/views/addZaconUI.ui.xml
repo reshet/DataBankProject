@@ -1,0 +1,55 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui"
+	xmlns:third="urn:import:org.zenika.widget.client.datePicker">
+	<ui:style>
+		.important {
+			font-weight: bold;
+		}
+		.heading p
+		{
+			font-size:23px;
+			font-weight: bold;
+			padding-left: 30px;	
+		}
+		.general
+		{
+			margin: 10,10,10,10;
+		}
+	</ui:style>
+	<g:HTMLPanel>
+		<div class="style.general">
+			<div class="style.heading">
+				<h2>Добавить новый закон в банк ...
+				</h2> 
+			</div>
+			<g:Label width="300px">Номер закона: </g:Label><g:TextBox ui:field="_number"></g:TextBox>
+			<g:Label width="400px">Название закона: </g:Label><g:TextBox ui:field="_name"></g:TextBox>
+			<g:Label width="400px">Дата: </g:Label> <third:DatePicker ui:field="date"></third:DatePicker>
+			<g:Label width="400px">Дата принятия: </g:Label><third:DatePicker ui:field="date_accept"></third:DatePicker>
+			<g:Label width="400px">Дата отмены: </g:Label><third:DatePicker ui:field="date_decline"></third:DatePicker>
+			
+			<g:Label width="500px">Ключевые слова: </g:Label><g:TextArea ui:field="_keywords"></g:TextArea>
+			<g:Label width="500px">Краткое содержание: </g:Label><g:TextArea ui:field="_abstract"></g:TextArea>
+			
+			<g:VerticalPanel ui:field="uploadPanel">
+<!-- 				<g:Label ui:field="statusField">Выбрать файл...</g:Label> -->
+			</g:VerticalPanel>
+			<br/><br/>
+			<g:Button ui:field="submitButton"> Добавить закон!</g:Button>
+			
+			
+<!-- 			<br/><br/> -->
+<!-- 			<g:Label>Original Upload ::</g:Label> -->
+<!-- 			<g:FormPanel ui:field="original_upload"> -->
+<!-- 				<g:FileUpload ui:field="fileUpload"> -->
+<!-- 				</g:FileUpload> -->
+<!-- 			</g:FormPanel> -->
+<!--         	<g:Button ui:field="submitOriginalUpload">Submit original upload</g:Button> -->
+		</div>
+	</g:HTMLPanel>
+	
+<!--	<g:FormPanel ui:field="formPanel">-->
+<!--		<g:Button ui:field="submitButton"> Добавить SPSS файл</g:Button>-->
+<!--	</g:FormPanel>-->
+</ui:UiBinder> 

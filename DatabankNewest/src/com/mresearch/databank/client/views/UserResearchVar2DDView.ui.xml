@@ -1,0 +1,57 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui" xmlns:u="urn:import:com.google.gwt.user.client">
+	<ui:style>
+		
+	</ui:style>
+	<g:VerticalPanel>
+		<g:HTMLPanel>
+			<table>
+				<th>
+					<td>
+					Выберите переменные для построяния двумерного распределения:	
+					</td>
+				</th>
+				<tr>
+					<td>Переменная 1:</td><td><g:ListBox ui:field="var1_lbox" width="400px"></g:ListBox></td>
+				</tr>
+				<tr>
+					<td>Переменная 2:</td><td><g:ListBox ui:field="var2_lbox" width="400px"></g:ListBox></td>
+				</tr>
+				<tr>
+					<td>Показывать:</td>
+					<td><g:RadioButton ui:field="show_frequences" checked="true" text="частоты" name="s1"></g:RadioButton></td>
+					<td><g:RadioButton ui:field="show_percents" checked="false" text="проценты" name="s2"></g:RadioButton></td>
+				</tr>
+							<tr>
+								<td>Тип процентов:</td>
+								<td><g:RadioButton ui:field="percents_colomn" checked="true" text="считать по столбцам" name="ss1" visible="false"></g:RadioButton></td>
+								<td><g:RadioButton ui:field="percents_row" checked="false" text="считать по строкам" name="ss2" visible="false"></g:RadioButton></td>
+								<td><g:RadioButton ui:field="percents_table" checked="false" text="считать по всей таблице" name="ss3" visible="false"></g:RadioButton></td>
+							</tr>
+<!-- 				<tr> -->
+<!-- 					<td> -->
+<!-- 					<g:HTMLPanel ui:field="percents_type_pnl" visible="false"> -->
+<!-- 						<table> -->
+<!-- 							<tr> -->
+<!-- 								<td>Тип процентов:</td> -->
+<!-- 								<td><g:RadioButton ui:field="percents_colomn" checked="true" text="считать по столбцам" name="ss1"></g:RadioButton></td> -->
+<!-- 								<td><g:RadioButton ui:field="percents_row" checked="false" text="считать по строкам" name="ss2"></g:RadioButton></td> -->
+<!-- 								<td><g:RadioButton ui:field="percents_table" checked="false" text="считать по всей таблице" name="ss3"></g:RadioButton></td> -->
+<!-- 							</tr> -->
+<!-- 						</table> -->
+<!-- 					</g:HTMLPanel> -->
+<!-- 					</td> -->
+<!-- 				</tr> -->
+				<tr>
+					<td><g:Button text="Построить!" ui:field="build_btn"></g:Button></td>
+				</tr>
+			</table>
+		</g:HTMLPanel>
+		<g:HTMLPanel ui:field="content_panel">
+			<g:VerticalPanel ui:field="selected_vars"></g:VerticalPanel>
+			<g:FlexTable ui:field="the2DD_table"></g:FlexTable>
+		</g:HTMLPanel>
+		<g:HorizontalPanel ui:field="target_panel"></g:HorizontalPanel>
+	</g:VerticalPanel>
+</ui:UiBinder> 

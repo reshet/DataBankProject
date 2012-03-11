@@ -1,0 +1,14 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui">
+	<ui:style>
+		
+	</ui:style>
+
+	<g:VerticalPanel height="100%" width="100%">
+		<g:Label ui:field="title" ></g:Label>
+		<g:FlexTable ui:field="elemTable" borderWidth="3">
+		</g:FlexTable>
+		<g:Button ui:field="cmdBtn" text="cmd"></g:Button>
+	</g:VerticalPanel>
+</ui:UiBinder> 

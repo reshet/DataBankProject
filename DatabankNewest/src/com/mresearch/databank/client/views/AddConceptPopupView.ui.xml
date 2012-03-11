@@ -1,0 +1,20 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui">
+	<ui:style>
+		
+	</ui:style>
+		<g:HTMLPanel>
+			<h3>
+				Добавить концепт каталогизации
+			</h3>
+			<table>
+				<tr>
+					<td>Концепт: </td><td><g:TextBox ui:field="conceptName" width="500px"></g:TextBox></td>
+				</tr>
+				<tr>
+					<td/><td><g:Button ui:field="submitBtn">Добавить!</g:Button></td>
+				</tr>
+			</table>
+		</g:HTMLPanel>
+</ui:UiBinder> 
