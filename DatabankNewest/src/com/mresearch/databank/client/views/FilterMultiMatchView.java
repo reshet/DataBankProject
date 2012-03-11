@@ -12,6 +12,9 @@ import com.google.gwt.user.client.ui.Tree;
 import com.google.gwt.user.client.ui.TreeItem;
 import com.google.gwt.user.client.ui.VerticalPanel;
 import com.google.gwt.user.client.ui.Widget;
+import com.mresearch.databank.shared.MetaUnitDTO;
+import com.mresearch.databank.shared.MetaUnitMultivaluedDTO;
+import com.mresearch.databank.shared.MetaUnitMultivaluedEntityDTO;
 
 public abstract class FilterMultiMatchView extends Composite implements IFilterProvider{
 
@@ -41,8 +44,14 @@ public abstract class FilterMultiMatchView extends Composite implements IFilterP
 		}
 		public abstract void process();
 	}
-	public FilterMultiMatchView(String field_name) {
+	protected MetaUnitDTO dto;
+	protected MetaUnitMultivaluedEntityDTO ddto;
+	protected String base_name;
+	public FilterMultiMatchView(String field_name,String b_name,MetaUnitDTO dt,MetaUnitMultivaluedEntityDTO ddt) {
 		initWidget(uiBinder.createAndBindUi(this));
+		this.base_name = b_name;
+		this.dto = dt;
+		this.ddto = ddt;
 		Tree tree = new Tree();
 		tree.addItem(root);
 		root.setWidget(new CheckBox(field_name));

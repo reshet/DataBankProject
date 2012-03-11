@@ -1,2 +1,0 @@
-serviceClass: com.mresearch.databank.client.service.SearchService
-path: FBEDAF12A4D8D51B158AF620CF46092D.gwt.rpc

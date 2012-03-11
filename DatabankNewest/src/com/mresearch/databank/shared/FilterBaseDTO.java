@@ -2,6 +2,8 @@ package com.mresearch.databank.shared;
 
 import java.io.Serializable;
 
+import com.google.gwt.json.client.JSONObject;
+
 
 public abstract class FilterBaseDTO implements Serializable{
 	/**
@@ -13,6 +15,7 @@ public abstract class FilterBaseDTO implements Serializable{
 	private String target_class_name = "name";
 	public FilterBaseDTO(){}
 	public abstract String getFilter();
+	public abstract JSONObject getJSONFilter();
 	public FilterBaseDTO(String target_class,String target_field)
 	{
 		this.setTarget_class_name(target_class);

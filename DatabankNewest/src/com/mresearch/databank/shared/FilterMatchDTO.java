@@ -2,6 +2,8 @@ package com.mresearch.databank.shared;
 
 import java.io.Serializable;
 
+import com.google.gwt.json.client.JSONObject;
+
 
 public class FilterMatchDTO extends FilterBaseDTO implements Serializable{
 	/**
@@ -32,5 +34,10 @@ public class FilterMatchDTO extends FilterBaseDTO implements Serializable{
 	@Override
 	public String getFilter() {
 		return super.getTarget_field_name()+" == '"+this.getFiltering_value()+"'";
+	}
+	@Override
+	public JSONObject getJSONFilter() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

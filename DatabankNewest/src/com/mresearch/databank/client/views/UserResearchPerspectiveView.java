@@ -59,7 +59,7 @@ public class UserResearchPerspectiveView extends Composite implements UserResear
 		TreeItem db = new TreeItem("_Банк данных_");
 		simpleResearchListItem = new SimpleResearchList();
 		db.addItem(simpleResearchListItem);
-		db.addItem(new RootFilterItem(centerPanel));
+		db.addItem(new RootFilterItemAdvanced(centerPanel));
 		tree.addItem(db);
 		db.setState(true);
 		//treePanel.add(tree);

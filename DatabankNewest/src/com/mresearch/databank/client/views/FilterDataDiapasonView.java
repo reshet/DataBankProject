@@ -19,6 +19,7 @@ import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.Widget;
 import com.mresearch.databank.shared.FilterBaseDTO;
 import com.mresearch.databank.shared.FilterDiapasonDTO;
+import com.mresearch.databank.shared.MetaUnitDTO;
 import com.mresearch.databank.shared.SearchTaskResearchDTO;
 
 public abstract class FilterDataDiapasonView extends Composite implements IFilterProvider{
@@ -29,11 +30,15 @@ public abstract class FilterDataDiapasonView extends Composite implements IFilte
 	interface FilterRealDiapasonViewUiBinder extends
 			UiBinder<Widget, FilterDataDiapasonView> {
 	}
+	protected String base_name;
+	protected MetaUnitDTO dto;
 	@UiField Label diapason_name;
 	@UiField DatePicker from_value,to_value;
-	public FilterDataDiapasonView(String diapason_name) {
+	public FilterDataDiapasonView(String diapason_name,String b_name,MetaUnitDTO dt) {
 		initWidget(uiBinder.createAndBindUi(this));
 		this.diapason_name.setText(diapason_name);
+		this.dto = dt;
+	    this.base_name = b_name;
 //		from_value.addKeyDownHandler(new KeyDownHandler() {
 //			@Override
 //			public void onKeyDown(KeyDownEvent event) {

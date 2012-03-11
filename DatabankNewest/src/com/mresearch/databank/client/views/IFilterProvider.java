@@ -4,4 +4,5 @@ import com.mresearch.databank.shared.FilterBaseDTO;
 
 public interface IFilterProvider {
 	public FilterBaseDTO getFilterDTO();
+    public abstract boolean isFilterUsed();
 }

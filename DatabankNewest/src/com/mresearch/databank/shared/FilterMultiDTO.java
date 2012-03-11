@@ -3,6 +3,8 @@ package com.mresearch.databank.shared;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+import com.google.gwt.json.client.JSONObject;
+
 public class FilterMultiDTO extends FilterBaseDTO implements Serializable{
 	/**
 	 * 
@@ -43,5 +45,10 @@ public class FilterMultiDTO extends FilterBaseDTO implements Serializable{
 	public String getFilter() {
 		//in general, not suitable for AppEngine filtering restrictions;
 		return getFiltersSum();
+	}
+	@Override
+	public JSONObject getJSONFilter() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }
