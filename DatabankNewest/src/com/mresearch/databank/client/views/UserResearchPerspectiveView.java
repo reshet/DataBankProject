@@ -50,6 +50,7 @@ public class UserResearchPerspectiveView extends Composite implements UserResear
 	@UiField CheckBox weights_use,filters_use;
 	@UiField Button filters_details_btn,filters_add_btn,filters_delete_btn;
 	SimpleResearchList simpleResearchListItem;
+	RootConceptsList rootResearchConcepts;
 	private Long research_to_find =null;
 	private ArrayList<SocioResearchDTO> researchList;
 	public UserResearchPerspectiveView() {
@@ -59,7 +60,10 @@ public class UserResearchPerspectiveView extends Composite implements UserResear
 		TreeItem db = new TreeItem("_Банк данных_");
 		simpleResearchListItem = new SimpleResearchList();
 		db.addItem(simpleResearchListItem);
+		rootResearchConcepts = new RootConceptsList("SocioResearch","Концепты каталогизации исследований");
+		db.addItem(rootResearchConcepts);
 		db.addItem(new RootFilterItemAdvanced(centerPanel));
+		
 		tree.addItem(db);
 		db.setState(true);
 		//treePanel.add(tree);
