@@ -23,6 +23,7 @@ import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.uibinder.client.UiHandler;
 import com.google.gwt.user.client.Window;
+import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.CheckBox;
 import com.google.gwt.user.client.ui.Composite;
@@ -32,7 +33,10 @@ import com.google.gwt.user.client.ui.VerticalPanel;
 import com.google.gwt.user.client.ui.Widget;
 
 import com.mresearch.databank.client.event.ShowResearchDetailsEvent;
+import com.mresearch.databank.client.helper.RPCCall;
 import com.mresearch.databank.client.presenters.UserResearchPerspectivePresenter;
+import com.mresearch.databank.client.service.AdminSocioResearchService;
+import com.mresearch.databank.shared.MetaUnitMultivaluedEntityDTO;
 import com.mresearch.databank.shared.SocioResearchDTO;
 import com.mresearch.databank.shared.VarDTO;
 import com.mresearch.databank.shared.VarDTO_Light;
@@ -133,14 +137,29 @@ public class UserResearchPerspectiveView extends Composite implements UserResear
 		return tree.getSelectedItem();
 	}
 	@Override
-	public void showResearchDetailes(SocioResearchDTO dto) {
+	public void showResearchDetailes(final SocioResearchDTO dto) {
 		centerPanel.clear();
-		
-		UserResearchDetailedView view = new UserResearchDetailedView(dto);
-		UserResearchAdvancedFilesView files = new UserResearchAdvancedFilesView(dto.getID());
-		UserResearchDetailedFrameView frame = new UserResearchDetailedFrameView(view, files);
-		centerPanel.add(frame);
-	}
+		new RPCCall<MetaUnitMultivaluedEntityDTO>() {
+
+			@Override
+			public void onFailure(Throwable arg0) {
+			}
+
+			@Override
+			public void onSuccess(MetaUnitMultivaluedEntityDTO res) {
+				UserResearchDetailedView view = new UserResearchDetailedView(dto,res);
+				UserResearchAdvancedFilesView files = new UserResearchAdvancedFilesView(dto.getID());
+				UserResearchDetailedFrameView frame = new UserResearchDetailedFrameView(view, files);
+				centerPanel.add(frame);
+			}
+
+			@Override
+			protected void callService(
+					AsyncCallback<MetaUnitMultivaluedEntityDTO> cb) {
+				AdminSocioResearchService.Util.getInstance().getDatabankStructure("socioresearch", cb);
+			}
+		};
+		}
 	@Override
 	public HasOpenHandlers<TreeItem> getTreeForOpen() {
 		return tree;

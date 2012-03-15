@@ -551,7 +551,7 @@ public class AdminResearchPerspectivePresenter implements Presenter
 					
 					@Override
 					public void onSuccess(MetaUnitMultivaluedEntityDTO result2) {
-						AdminResearchDetailedView ad_view = new AdminResearchDetailedView(new UserResearchDetailedView(result));
+						AdminResearchDetailedView ad_view = new AdminResearchDetailedView(new UserResearchDetailedView(result,result2));
 						AdminResearchEditView ed_view = new AdminResearchEditView(result, result2);
 						AdminResearchGroupEditView gr_ed_view = new AdminResearchGroupEditView(result);
 						AdminResearchAdvancedFilesEditView files_ed_view = new AdminResearchAdvancedFilesEditView(id_research);

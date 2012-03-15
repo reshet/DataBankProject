@@ -19,6 +19,7 @@
 		}
 		
 	</ui:style>
+	<g:VerticalPanel>
 	<g:HTMLPanel>
 		<h2>Research detailes</h2>
 		<table class="{style.tableResearch}" cellSpacing="20px">
@@ -82,4 +83,6 @@
 			</tr>
 		</table>
 	</g:HTMLPanel>	
+		<g:VerticalPanel ui:field="elasticDBfields"></g:VerticalPanel>
+	</g:VerticalPanel>
 </ui:UiBinder> 

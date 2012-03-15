@@ -13,6 +13,9 @@ import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.VerticalPanel;
 import com.google.gwt.user.client.ui.Widget;
 
+import com.mresearch.databank.client.views.DBfillers.MultiValuedField;
+import com.mresearch.databank.shared.MetaUnitEntityItemDTO;
+import com.mresearch.databank.shared.MetaUnitMultivaluedEntityDTO;
 import com.mresearch.databank.shared.SearchTaskResearchDTO;
 import com.mresearch.databank.shared.SocioResearchDTO;
 
@@ -28,6 +31,7 @@ public class UserResearchDetailedView extends Composite {
 	public UserResearchDetailedView() {
 		initWidget(uiBinder.createAndBindUi(this));
 	}
+	@UiField VerticalPanel elasticDBfields;
 	@UiField FlexTable flexPubl_tbl;
 	@UiField Label nameResearch,dateResearch,genGeathering,selectionSize,selectionAppr,orgImpl,orgPrompt,researchers,method,concepts,weights;
 	public static String arrToStr(ArrayList<String> data)
@@ -42,15 +46,18 @@ public class UserResearchDetailedView extends Composite {
 		if(data.size()>0)conc+=data.get(data.size()-1);
 		return conc;
 	}
-	public UserResearchDetailedView(SocioResearchDTO dto)
+	private MetaUnitMultivaluedEntityDTO db;
+	private SocioResearchDTO dto;
+	public UserResearchDetailedView(SocioResearchDTO dto,MetaUnitMultivaluedEntityDTO dt)
 	{
 		this();
+		this.dto = dto;
 		nameResearch.setText(dto.getName());
 		orgPrompt.setText(dto.getOrg_order_name());
 		orgImpl.setText(dto.getOrg_impl_name());
 		this.concepts.setText(arrToStr(dto.getConcepts()));
 		this.researchers.setText(arrToStr(dto.getResearchers()));
-		
+		this.db = dt;
 		
 		
 		//this.publ.setText(arrToStr(dto.getPublications()));
@@ -87,5 +94,12 @@ public class UserResearchDetailedView extends Composite {
 		this.method.setText(dto.getMethod());
 		this.weights.setText(dto.getVar_weight_name());
 		//orgImpl.setText(text);
+		renderDBfillers();
+	}
+	private void renderDBfillers()
+	{
+		elasticDBfields.clear();
+		MultiValuedField mv = new MultiValuedField(db, null,dto.getFilling());
+		elasticDBfields.add(mv);
 	}
 }
