@@ -6,9 +6,9 @@
 	xmlns:app='urn:import:com.mresearch.databank.client'
 	xmlns:appviews='urn:import:com.mresearch.databank.client.views'>
 	
-  <ui:style src="../Resources/GlobalStyles.css" />
+<!--   <ui:style src="../Resources/GlobalStyles.css" /> -->
    
-  <g:DockLayoutPanel unit='EM' ui:field="dockPanel" styleName="{style.outer}">
+  <g:DockLayoutPanel unit='EM' ui:field="dockPanel" styleName="">
  
 <!--    <g:center> -->
 <!--    		   	<appviews:StartPagePerspectiveView/> -->
@@ -59,7 +59,7 @@
     
 
     <g:south size="3">
-      <g:HTMLPanel styleName="{style.footerPanel}">
+      <g:HTMLPanel styleName="">
         <div>
           <a href="#">Contact us</a>
           |

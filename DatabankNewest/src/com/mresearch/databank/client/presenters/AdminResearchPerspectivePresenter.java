@@ -54,6 +54,7 @@ import com.mresearch.databank.client.views.AdminResearchGroupEditView;
 import com.mresearch.databank.client.views.AdminResearchVarGeneralizeS1View;
 import com.mresearch.databank.client.views.ConceptContentsItem;
 import com.mresearch.databank.client.views.ConceptItem;
+import com.mresearch.databank.client.views.ConceptItemItem;
 import com.mresearch.databank.client.views.IPickBinder;
 import com.mresearch.databank.client.views.PickElementsTableView;
 import com.mresearch.databank.client.views.RealVariableDetailedView;
@@ -288,6 +289,12 @@ public class AdminResearchPerspectivePresenter implements Presenter
 				}else if (it instanceof RootConceptsList)
 				{
 					RootConceptsList rcl = (RootConceptsList)it;
+					rcl.refreshContents();
+					//eventBus.fireEvent(new CreateConceptEnabledEvent());
+				}
+				else if (it instanceof ConceptItemItem)
+				{
+					ConceptItemItem rcl = (ConceptItemItem)it;
 					rcl.refreshContents();
 					//eventBus.fireEvent(new CreateConceptEnabledEvent());
 				}else if (it instanceof ConceptItem<?>)

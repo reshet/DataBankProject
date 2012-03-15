@@ -20,6 +20,7 @@ package com.mresearch.databank.client.service;
 
 import java.util.ArrayList;
 
+import com.google.gwt.core.client.GWT;
 import com.google.gwt.user.client.rpc.RemoteService;
 import com.google.gwt.user.client.rpc.RemoteServiceRelativePath;
 import com.mresearch.databank.shared.FilterBaseDTO;
@@ -36,7 +37,15 @@ import com.mresearch.databank.shared.VarDTO_Light;
 public interface UserSocioResearchService extends RemoteService {
 
   //ArrayList<FriendSummaryDTO> getFriendSummaries();
-
+	public static class Util {
+		private static UserSocioResearchServiceAsync instance;
+		public static UserSocioResearchServiceAsync getInstance(){
+			if (instance == null) {
+				instance = GWT.create(UserSocioResearchService.class);
+			}
+			return instance;
+		}
+	}	
 	
   
   SocioResearchDTO getResearch(long id);
