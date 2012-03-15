@@ -42,6 +42,7 @@ import com.mresearch.databank.client.event.ShowVarDetailsEventHandler;
 import com.mresearch.databank.client.helper.RPCCall;
 import com.mresearch.databank.client.service.StartPageServiceAsync;
 import com.mresearch.databank.client.service.UserSocioResearchServiceAsync;
+import com.mresearch.databank.client.views.ConceptItemItem;
 import com.mresearch.databank.client.views.IPickBinder;
 import com.mresearch.databank.client.views.PickElementsTableView;
 import com.mresearch.databank.client.views.RealVariableDetailedView;
@@ -138,6 +139,12 @@ public class UserResearchPerspectivePresenter implements Presenter
 					eventBus.fireEvent(new ShowVarDetailsEvent(rv.getVar_id()));
 				//	eventBus.fireEvent(new AddResearchDisabledEvent());
 				}
+				else if (it instanceof ConceptItemItem)
+				{
+					ConceptItemItem rcl = (ConceptItemItem)it;
+					rcl.refreshContents();
+					//eventBus.fireEvent(new CreateConceptEnabledEvent());
+				}
 			}
 		});
 		display.getTreeForSelection().addSelectionHandler(new SelectionHandler<TreeItem>() {
@@ -178,6 +185,7 @@ public class UserResearchPerspectivePresenter implements Presenter
 					
 					//eventBus.fireEvent(new ShowResearchDetailsEvent(rv.getResearch_id()));
 				}
+
 			}
 		});
 		
