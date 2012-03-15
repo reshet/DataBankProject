@@ -158,7 +158,7 @@ public class UserResearchPerspectiveView extends Composite implements UserResear
 					AsyncCallback<MetaUnitMultivaluedEntityDTO> cb) {
 				AdminSocioResearchService.Util.getInstance().getDatabankStructure("socioresearch", cb);
 			}
-		};
+		}.retry(2);
 		}
 	@Override
 	public HasOpenHandlers<TreeItem> getTreeForOpen() {
