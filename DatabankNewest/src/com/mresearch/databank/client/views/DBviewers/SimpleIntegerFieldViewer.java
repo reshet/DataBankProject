@@ -35,7 +35,6 @@ public class SimpleIntegerFieldViewer extends Composite{
 	public SimpleIntegerFieldViewer() {
 		initWidget(uiBinder.createAndBindUi(this));
 	}
-
 	@UiField Label field_name;
 	@UiField Label contents;
     private MetaUnitIntegerDTO dto;
