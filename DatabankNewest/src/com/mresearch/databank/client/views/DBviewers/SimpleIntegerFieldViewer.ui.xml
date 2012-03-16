@@ -18,7 +18,7 @@
 		<table>
 			<tr>
 				<td>
-					<g:Label ui:field="field_name" styleName="{.category}"></g:Label>
+					<g:Label ui:field="field_name" styleName="{style.category}"></g:Label>
 				</td>
 				<td>
 					<g:Label ui:field="contents"></g:Label>

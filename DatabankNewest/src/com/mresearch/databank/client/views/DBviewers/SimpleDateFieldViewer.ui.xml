@@ -2,24 +2,12 @@
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
 	xmlns:g="urn:import:com.google.gwt.user.client.ui"
 	xmlns:third="urn:import:org.zenika.widget.client.datePicker">
-	<ui:style>
-		.important {
-			font-weight: bold;
-		}
-				.category
-		{
-			color: #773344;
-			font-weight: bold;
-			font: 14px;
-			vertical-align: text-top;
-			font: NeoSans;
-		}
-	</ui:style>
+ <ui:with field='res' type='com.mresearch.databank.Resources.CoolStylesBundle'/>
 	<g:HTMLPanel>
 		<table>
 			<tr>
 				<td>
-					<g:Label ui:field="field_name" styleName="{.category}"></g:Label>
+					<g:Label ui:field="field_name" styleName="{res.coolStyles.category}"></g:Label>
 				</td>
 				<td>
 					<g:Label ui:field="date_picker"></g:Label>

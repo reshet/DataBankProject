@@ -11,14 +11,13 @@
 			font-weight: bold;
 			font: 16px;
 			vertical-align: text-top;
-			font: NeoSans;
 		}
 	</ui:style>
-	<g:HTMLPanel styleName="{.important}">
+	<g:HTMLPanel styleName="{style.important}">
 		<table>
 			<tr>
 				<td>
-					<g:Label ui:field="entity_name" styleName="{.category}"></g:Label>
+					<g:Label ui:field="entity_name" styleName="{style.category}"></g:Label>
 				</td>
 				<td>
 					<g:Label ui:field="items_list"></g:Label>

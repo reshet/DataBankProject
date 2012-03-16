@@ -18,17 +18,13 @@
 			font-weight: normal;
 			background-color: #88AA66;
 			padding: 15px;
+			margin-left: 20px;
 		}
 	</ui:style>
 	<g:HTMLPanel>
+		<g:Label ui:field="field_name" styleName="{style.category}"></g:Label>
 		<table class="{style.tableResearch}" cellSpacing="20px">
 			<tr>
-				<td>
-					<g:Label ui:field="field_name" styleName="{.category}"></g:Label>
-				</td>
-			</tr>
-			<tr>
-				<td/>
 				<td>
 					<g:FlexTable ui:field="subunits_table"></g:FlexTable>
 				</td>

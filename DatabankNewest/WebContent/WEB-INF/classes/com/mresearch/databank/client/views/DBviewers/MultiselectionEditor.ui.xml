@@ -13,5 +13,4 @@
 			<g:Button ui:field="doCancel">Отмена</g:Button>
 		</g:VerticalPanel>
 	</g:ScrollPanel>	
-	
 </ui:UiBinder> 
