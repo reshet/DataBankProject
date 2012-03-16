@@ -21,7 +21,7 @@
 					<g:Label ui:field="field_name" styleName="{.category}"></g:Label>
 				</td>
 				<td>
-					<g:DoubleBox ui:field="contents"></g:DoubleBox>
+					<g:Label ui:field="contents"></g:Label>
 				</td>
 			</tr>
 		</table>

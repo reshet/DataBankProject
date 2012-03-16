@@ -34,7 +34,7 @@ public class UserResearchDetailedView extends Composite {
 	}
 	@UiField VerticalPanel elasticDBfields;
 	@UiField FlexTable flexPubl_tbl;
-	@UiField Label nameResearch,dateResearch,genGeathering,selectionSize,selectionAppr,orgImpl,orgPrompt,researchers,method,concepts,weights;
+	@UiField Label selectionSize,researchers,weights;
 	public static String arrToStr(ArrayList<String> data)
 	{
 		String conc = "";
@@ -53,10 +53,10 @@ public class UserResearchDetailedView extends Composite {
 	{
 		this();
 		this.dto = dto;
-		nameResearch.setText(dto.getName());
-		orgPrompt.setText(dto.getOrg_order_name());
-		orgImpl.setText(dto.getOrg_impl_name());
-		this.concepts.setText(arrToStr(dto.getConcepts()));
+//		nameResearch.setText(dto.getName());
+//		orgPrompt.setText(dto.getOrg_order_name());
+//		orgImpl.setText(dto.getOrg_impl_name());
+//		this.concepts.setText(arrToStr(dto.getConcepts()));
 		this.researchers.setText(arrToStr(dto.getResearchers()));
 		this.db = dt;
 		
@@ -80,9 +80,9 @@ public class UserResearchDetailedView extends Composite {
 		}
 		
 		
-		if(dto.getStart_date() != null && dto.getEnd_date() != null)
-			this.dateResearch.setText(dto.getStart_date().toString()+" - "+dto.getEnd_date().toString());
-		this.genGeathering.setText(dto.getGen_geathering());
+//		if(dto.getStart_date() != null && dto.getEnd_date() != null)
+//			this.dateResearch.setText(dto.getStart_date().toString()+" - "+dto.getEnd_date().toString());
+//		this.genGeathering.setText(dto.getGen_geathering());
 		this.selectionSize.setText(String.valueOf(dto.getSelection_size()));
 		String sel_appr = "";
 		if (dto.getSel_randomity() != null && dto.getSel_randomity().equals(SearchTaskResearchDTO.SELECTION_APPR_RANDOM)) sel_appr +="Случайная";
@@ -90,9 +90,9 @@ public class UserResearchDetailedView extends Composite {
 		if(dto.getSel_complexity() != null && dto.getSel_complexity().equals(SearchTaskResearchDTO.SELECTION_APPR_COMPLEXITY_UNI)) sel_appr +=", одноступенчатая";
 			else sel_appr +=", многоступенчатая";
 		
-		this.selectionAppr.setText(sel_appr);
-		//this.selectionAppr.setText(dto.getSelection_appr());
-		this.method.setText(dto.getMethod());
+//		this.selectionAppr.setText(sel_appr);
+//		//this.selectionAppr.setText(dto.getSelection_appr());
+//		this.method.setText(dto.getMethod());
 		this.weights.setText(dto.getVar_weight_name());
 		//orgImpl.setText(text);
 		renderDBfillers();
