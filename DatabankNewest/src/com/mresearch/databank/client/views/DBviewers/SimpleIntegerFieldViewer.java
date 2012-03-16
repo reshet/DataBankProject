@@ -37,7 +37,7 @@ public class SimpleIntegerFieldViewer extends Composite{
 	}
 
 	@UiField Label field_name;
-	@UiField IntegerBox contents;
+	@UiField Label contents;
     private MetaUnitIntegerDTO dto;
     private JSON_Representation current_json;
     private String def_value;

@@ -5,12 +5,26 @@
 		.important {
 			font-weight: bold;
 		}
+		.category
+		{
+			color: #772222;
+			font-weight: bold;
+			font: 16px;
+			vertical-align: text-top;
+			font: NeoSans;
+		}
+		.tableResearch
+		{
+			font-weight: normal;
+			background-color: #88AA66;
+			padding: 15px;
+		}
 	</ui:style>
 	<g:HTMLPanel>
-		<table>
+		<table class="{style.tableResearch}" cellSpacing="20px">
 			<tr>
 				<td>
-					<g:Label ui:field="field_name"></g:Label>
+					<g:Label ui:field="field_name" styleName="{.category}"></g:Label>
 				</td>
 			</tr>
 			<tr>

@@ -42,7 +42,7 @@ public class SimpleDateFieldViewer extends Composite {
 	}
 
 	@UiField Label field_name;
-	@UiField DatePicker date_picker;
+	@UiField Label date_picker;
     private MetaUnitDateDTO dto;
     private JSON_Representation current_json;
     private String def_val;

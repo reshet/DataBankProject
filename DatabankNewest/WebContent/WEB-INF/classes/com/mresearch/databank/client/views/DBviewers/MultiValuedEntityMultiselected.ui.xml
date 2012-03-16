@@ -5,26 +5,23 @@
 		.important {
 			border: 1 1 1 1;
 		}
+		.category
+		{
+			color: #772222;
+			font-weight: bold;
+			font: 16px;
+			vertical-align: text-top;
+			font: NeoSans;
+		}
 	</ui:style>
 	<g:HTMLPanel styleName="{.important}">
 		<table>
 			<tr>
 				<td>
-					<g:Label ui:field="entity_name"></g:Label>
+					<g:Label ui:field="entity_name" styleName="{.category}"></g:Label>
 				</td>
 				<td>
-					<g:TextBox ui:field="items_list"></g:TextBox>
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<g:Anchor ui:field="edit_selection">изменить выбор</g:Anchor>
-				</td>
-				<td>
-					<g:Anchor ui:field="edit_field">редактировать поле</g:Anchor>
-				</td>
-				<td>
-					<g:Anchor ui:field="edit_items">к элементам</g:Anchor>
+					<g:Label ui:field="items_list"></g:Label>
 				</td>
 			</tr>
 		</table>

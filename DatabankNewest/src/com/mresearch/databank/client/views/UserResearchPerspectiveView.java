@@ -138,7 +138,7 @@ public class UserResearchPerspectiveView extends Composite implements UserResear
 	}
 	@Override
 	public void showResearchDetailes(final SocioResearchDTO dto) {
-		centerPanel.clear();
+		
 		new RPCCall<MetaUnitMultivaluedEntityDTO>() {
 
 			@Override
@@ -147,6 +147,7 @@ public class UserResearchPerspectiveView extends Composite implements UserResear
 
 			@Override
 			public void onSuccess(MetaUnitMultivaluedEntityDTO res) {
+				centerPanel.clear();
 				UserResearchDetailedView view = new UserResearchDetailedView(dto,res);
 				UserResearchAdvancedFilesView files = new UserResearchAdvancedFilesView(dto.getID());
 				UserResearchDetailedFrameView frame = new UserResearchDetailedFrameView(view, files);
@@ -160,6 +161,7 @@ public class UserResearchPerspectiveView extends Composite implements UserResear
 			}
 		}.retry(2);
 		}
+	
 	@Override
 	public HasOpenHandlers<TreeItem> getTreeForOpen() {
 		return tree;

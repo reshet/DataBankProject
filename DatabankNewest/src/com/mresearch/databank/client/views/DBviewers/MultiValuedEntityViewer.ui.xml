@@ -5,15 +5,23 @@
 		.important {
 			border: 1 1 1 1;
 		}
+		.category
+		{
+			color: #772222;
+			font-weight: bold;
+			font: 16px;
+			vertical-align: text-top;
+			font: NeoSans;
+		}
 	</ui:style>
 	<g:HTMLPanel styleName="{.important}">
 		<table>
 			<tr>
 				<td>
-					<g:Label ui:field="entity_name"></g:Label>
+					<g:Label ui:field="entity_name" styleName="{.category}"></g:Label>
 				</td>
 				<td>
-					<g:TextBox ui:field="items_list"></g:TextBox>
+					<g:Label ui:field="items_list"></g:Label>
 				</td>
 				</tr>
 		</table>

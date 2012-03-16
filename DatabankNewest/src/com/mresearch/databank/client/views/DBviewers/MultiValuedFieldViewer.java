@@ -51,7 +51,6 @@ public class MultiValuedFieldViewer extends Composite {
 	@UiField Label field_name;
 	@UiField FlexTable subunits_table;
 	public MetaUnitMultivaluedDTO dto;
-	private JSON_Representation current_json;
 	private HashMap<String,String> filling;
 	public MultiValuedFieldViewer(MetaUnitMultivaluedDTO dto,JSON_Representation represent,HashMap<String,String> fill) {
 		initWidget(uiBinder.createAndBindUi(this));

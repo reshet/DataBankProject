@@ -35,7 +35,7 @@ public class SimpleStringFieldViewer extends Composite{
 	}
 
 	@UiField Label field_name;
-	@UiField TextBox contents;
+	@UiField Label contents;
     private MetaUnitStringDTO dto;
     private JSON_Representation current_json;
     private String def_value;

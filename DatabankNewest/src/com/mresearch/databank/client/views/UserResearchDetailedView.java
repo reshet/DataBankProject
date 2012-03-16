@@ -14,6 +14,7 @@ import com.google.gwt.user.client.ui.VerticalPanel;
 import com.google.gwt.user.client.ui.Widget;
 
 import com.mresearch.databank.client.views.DBfillers.MultiValuedField;
+import com.mresearch.databank.client.views.DBviewers.MultiValuedFieldViewer;
 import com.mresearch.databank.shared.MetaUnitEntityItemDTO;
 import com.mresearch.databank.shared.MetaUnitMultivaluedEntityDTO;
 import com.mresearch.databank.shared.SearchTaskResearchDTO;
@@ -96,10 +97,11 @@ public class UserResearchDetailedView extends Composite {
 		//orgImpl.setText(text);
 		renderDBfillers();
 	}
+	
 	private void renderDBfillers()
 	{
 		elasticDBfields.clear();
-		MultiValuedField mv = new MultiValuedField(db, null,dto.getFilling());
+		MultiValuedFieldViewer mv = new MultiValuedFieldViewer(db, null,dto.getFilling());
 		elasticDBfields.add(mv);
 	}
 }

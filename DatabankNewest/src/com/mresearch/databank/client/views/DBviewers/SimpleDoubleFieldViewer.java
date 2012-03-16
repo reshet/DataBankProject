@@ -38,14 +38,12 @@ public class SimpleDoubleFieldViewer extends Composite{
 	}
 
 	@UiField Label field_name;
-	@UiField DoubleBox contents;
+	@UiField Label contents;
     private MetaUnitDoubleDTO dto;
-    private JSON_Representation current_json;
     private String def_value;
 	public SimpleDoubleFieldViewer(MetaUnitDoubleDTO dto,JSON_Representation filling,String def_value) {
 		initWidget(uiBinder.createAndBindUi(this));
 		this.dto = dto;
-		this.current_json = filling;
 		this.def_value = def_value;
 		initFields();
 	}
