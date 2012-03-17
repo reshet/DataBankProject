@@ -27,6 +27,7 @@ public class AddConceptPopupView extends Composite {
 	interface AddConceptPopupViewUiBinder extends UiBinder<Widget, AddConceptPopupView> {
 	}
 
+	
 	private final SimpleEventBus evBus;
 	private boolean isRootConcept = false;
 	public AddConceptPopupView(SimpleEventBus eventBus) {

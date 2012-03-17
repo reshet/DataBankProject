@@ -25,15 +25,12 @@
 		   background-color: blue;
 		}
 	</ui:style>
-	<g:DockLayoutPanel unit='EM'>
-		<g:west size="25">
+	<g:HorizontalPanel>
 			<g:ScrollPanel width="100%" height="100%">
 				<g:Tree ui:field="tree">
 				</g:Tree>
 			</g:ScrollPanel>
-		</g:west>
-		<g:center>
-			<g:ScrollPanel width="100%" height="100%">
+					<g:ScrollPanel width="100%" height="100%">
 				<g:VerticalPanel>
 					<g:HorizontalPanel ui:field="researchCommandBar" height="30px" horizontalAlignment="left">
 						<g:HTMLPanel>
@@ -53,6 +50,5 @@
 					</g:VerticalPanel>
 				</g:VerticalPanel>
 			</g:ScrollPanel>
-		</g:center>
-	</g:DockLayoutPanel>
+	</g:HorizontalPanel>
 </ui:UiBinder> 
