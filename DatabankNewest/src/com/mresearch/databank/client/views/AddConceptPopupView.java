@@ -28,6 +28,7 @@ public class AddConceptPopupView extends Composite {
 	}
 
 	
+	
 	private final SimpleEventBus evBus;
 	private boolean isRootConcept = false;
 	public AddConceptPopupView(SimpleEventBus eventBus) {

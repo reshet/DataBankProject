@@ -27,6 +27,8 @@ import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.CheckBox;
 import com.google.gwt.user.client.ui.Composite;
+import com.google.gwt.user.client.ui.HorizontalPanel;
+import com.google.gwt.user.client.ui.ScrollPanel;
 import com.google.gwt.user.client.ui.Tree;
 import com.google.gwt.user.client.ui.TreeItem;
 import com.google.gwt.user.client.ui.VerticalPanel;
@@ -40,6 +42,10 @@ import com.mresearch.databank.shared.MetaUnitMultivaluedEntityDTO;
 import com.mresearch.databank.shared.SocioResearchDTO;
 import com.mresearch.databank.shared.VarDTO;
 import com.mresearch.databank.shared.VarDTO_Light;
+import com.smartgwt.client.types.Alignment;
+import com.smartgwt.client.types.Overflow;
+import com.smartgwt.client.widgets.layout.HLayout;
+import com.smartgwt.client.widgets.layout.VLayout;
 
 public class UserResearchPerspectiveView extends Composite implements UserResearchPerspectivePresenter.Display{
 
@@ -50,27 +56,63 @@ public class UserResearchPerspectiveView extends Composite implements UserResear
 			UiBinder<Widget, UserResearchPerspectiveView> {
 	}
 	@UiField VerticalPanel centerPanel;
-	@UiField Tree tree;
+	VerticalPanel centralPanel;
 	@UiField CheckBox weights_use,filters_use;
 	@UiField Button filters_details_btn,filters_add_btn,filters_delete_btn;
 	SimpleResearchList simpleResearchListItem;
 	RootConceptsList rootResearchConcepts;
+	Tree tree;
+	HLayout panel;
 	private Long research_to_find =null;
 	private ArrayList<SocioResearchDTO> researchList;
 	public UserResearchPerspectiveView() {
 		initWidget(uiBinder.createAndBindUi(this));
-		//tree = new Tree();
-		//tree.setStyleName("research-catalog");
+		panel = new HLayout();
+		//panel.setWidth100();
+		//panel.setHeight100();
+		VLayout cPanel = new VLayout();
+		cPanel.setWidth("70%");
+		cPanel.setAlign(Alignment.CENTER);  
+		cPanel.setOverflow(Overflow.AUTO);  
+		//cPanel.setShowResizeBar(true);  
+		centralPanel = new VerticalPanel();
+		cPanel.addMember(centralPanel);
+		
+		
+		
+		
+		
+		tree = new Tree();
+		tree.setStyleName("research-catalog");
 		TreeItem db = new TreeItem("_Банк данных_");
 		simpleResearchListItem = new SimpleResearchList();
 		db.addItem(simpleResearchListItem);
 		rootResearchConcepts = new RootConceptsList("SocioResearch","Концепты каталогизации исследований");
 		db.addItem(rootResearchConcepts);
-		db.addItem(new RootFilterItemAdvanced(centerPanel));
+		db.addItem(new RootFilterItemAdvanced(centralPanel));
+		
+		
+		
+		
 		
 		tree.addItem(db);
 		db.setState(true);
-		//treePanel.add(tree);
+		VLayout vLayout = new VLayout();
+		vLayout.setAlign(Alignment.LEFT);  
+	    vLayout.setOverflow(Overflow.AUTO);  
+	    vLayout.setWidth("30%");  
+	   // vLayout.setHeight100();
+	    vLayout.setShowResizeBar(true);  
+		vLayout.addMember(tree);
+		vLayout.sendToBack();
+		
+		panel.setWidth100();
+		panel.setHeight100();
+		panel.addMember(vLayout);
+		panel.addMember(cPanel);
+		panel.sendToBack();
+		
+		centerPanel.add(panel);
 	}
 	private void displayResearchList()
 	{
@@ -147,11 +189,11 @@ public class UserResearchPerspectiveView extends Composite implements UserResear
 
 			@Override
 			public void onSuccess(MetaUnitMultivaluedEntityDTO res) {
-				centerPanel.clear();
+				centralPanel.clear();
 				UserResearchDetailedView view = new UserResearchDetailedView(dto,res);
 				UserResearchAdvancedFilesView files = new UserResearchAdvancedFilesView(dto.getID());
 				UserResearchDetailedFrameView frame = new UserResearchDetailedFrameView(view, files);
-				centerPanel.add(frame);
+				centralPanel.add(frame);
 			}
 
 			@Override
@@ -169,7 +211,7 @@ public class UserResearchPerspectiveView extends Composite implements UserResear
 	@Override
 	public VerticalPanel getCenterPanel() {
 		// TODO Auto-generated method stub
-		return centerPanel;
+		return centralPanel;
 	}
 	@Override
 	public void findInResearchList(Long id) {

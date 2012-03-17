@@ -25,12 +25,6 @@
 		   background-color: blue;
 		}
 	</ui:style>
-	<g:HorizontalPanel>
-			<g:ScrollPanel width="100%" height="100%">
-				<g:Tree ui:field="tree">
-				</g:Tree>
-			</g:ScrollPanel>
-					<g:ScrollPanel width="100%" height="100%">
 				<g:VerticalPanel>
 					<g:HorizontalPanel ui:field="researchCommandBar" height="30px" horizontalAlignment="left">
 						<g:HTMLPanel>
@@ -40,15 +34,12 @@
 									<td float="right"><g:CheckBox text="Фильтры" checked="false" ui:field="filters_use"></g:CheckBox> </td>
 									<td float="right"><g:Button ui:field="filters_details_btn" text="Подробнее..."></g:Button></td>	
 									<td float="right"><g:Button ui:field="filters_add_btn" text="+"></g:Button></td>	
-									<td float="right"><g:Button ui:field="filters_delete_btn" text="-"></g:Button></td>	
-								
+									<td float="right"><g:Button ui:field="filters_delete_btn" text="-"></g:Button></td>			
 								</tr>
 							</table>
 						</g:HTMLPanel>
 					</g:HorizontalPanel>
-					<g:VerticalPanel ui:field="centerPanel">
-					</g:VerticalPanel>
+						<g:VerticalPanel ui:field="centerPanel">
+						</g:VerticalPanel>
 				</g:VerticalPanel>
-			</g:ScrollPanel>
-	</g:HorizontalPanel>
 </ui:UiBinder> 

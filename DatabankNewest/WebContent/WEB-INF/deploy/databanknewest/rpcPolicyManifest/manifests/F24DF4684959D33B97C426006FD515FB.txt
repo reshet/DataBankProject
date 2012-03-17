@@ -1,2 +1,0 @@
-serviceClass: com.mresearch.databank.client.GreetingService
-path: 2ABA3280EE5E3FEC3813DFCDFFC1395D.gwt.rpc
