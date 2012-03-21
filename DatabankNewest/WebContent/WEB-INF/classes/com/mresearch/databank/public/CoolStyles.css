@@ -1,8 +1,116 @@
-.category
-{
+@font-face {
+	font-family: neosans_LI;
+	src: url('NeoSans/NeoSansPro-LightItalic.otf');
+}
+
+.gwt-Tree {
+	
+}
+
+.gwt-Tree .gwt-TreeItem {
+	font-family: neosans_LI;
+}
+
+.gwt-Tree .gwt-TreeItem-selected {
+	font-family: neosans_LI;
+}
+
+.gwt-CheckBox {
+	-webkit-border-radius: 1px;
+	-moz-border-radius: 1px;
+	border-radius: 1px;
+	background-color: rgba(255, 255, 255, .05);
+	border: 1px solid #c6c6c6;
+	border: 1px solid rgba(155, 155, 155, .57);
+	height: 11px;
+	margin: 0 4px 0 1px;
+	outline: 0;
+	vertical-align: text-bottom;
+	width: 11px
+}
+/* .gwt-CheckBox-checked { */
+/* 	background: url(//ssl.gstatic.com/ui/v1/menu/checkmark.png) no-repeat -5px -3px */
+/* } */
+
+.gwt-CheckBox-disabled {
+	
+}
+
+.category {
+	font-family: neosans_LI;
 	color: #772222;
 	font-weight: bold;
 	font: 16px;
 	vertical-align: text-top;
-	font: NeoSans;
+}
+
+.jfk-checkbox {
+	-webkit-border-radius: 1px;
+	-moz-border-radius: 1px;
+	border-radius: 1px;
+	background-color: rgba(255, 255, 255, .05);
+	border: 1px solid #c6c6c6;
+	border: 1px solid rgba(155, 155, 155, .57);
+	font-size: 1px;
+	height: 11px;
+	margin: 0 4px 0 1px;
+	outline: 0;
+	vertical-align: text-bottom;
+	width: 11px
+}
+
+.jfk-checkbox-undetermined {
+	background-color: #fff;
+	background-color: rgba(255, 255, 255, .65)
+}
+
+.jfk-checkbox-checked {
+	background-color: #fff;
+	background-color: rgba(255, 255, 255, .65)
+}
+
+.jfk-checkbox-hover {
+	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .1);
+	-moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .1);
+	box-shadow: inset 0 1px 1px rgba(0, 0, 0, .1);
+	border: 1px solid #b2b2b2
+}
+
+.jfk-checkbox-active {
+	background-color: #ebebeb
+}
+
+.jfk-checkbox-focused {
+	border: 1px solid #4d90fe
+}
+
+.jfk-checkbox-clearOutline.jfk-checkbox-focused {
+	border: 1px solid #c6c6c6;
+	border: 1px solid rgba(155, 155, 155, .57)
+}
+
+.jfk-checkbox-disabled,.jfk-checkbox-clearOutline.jfk-checkbox-disabled
+	{
+	background-color: #fff;
+	border: 1px solid #f1f1f1;
+	cursor: default
+}
+
+.jfk-checkbox-checkmark {
+	height: 15px;
+	outline: 0;
+	width: 15px;
+	left: 0;
+	position: relative;
+	top: -3px
+}
+
+.jfk-checkbox-undetermined .jfk-checkbox-checkmark {
+	background: url(//ssl.gstatic.com/ui/v1/menu/checkmark-partial.png)
+		no-repeat -5px -3px
+}
+
+.jfk-checkbox-checked .jfk-checkbox-checkmark {
+	background: url(//ssl.gstatic.com/ui/v1/menu/checkmark.png) no-repeat
+		-5px -3px
 }

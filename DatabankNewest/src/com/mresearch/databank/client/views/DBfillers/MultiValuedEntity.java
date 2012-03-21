@@ -130,6 +130,7 @@ public class MultiValuedEntity extends Composite implements MetaUnitFiller,MetaU
 		p.setWidget(new FieldEditor(new MultiValuedField(dto, null, filling),p));
 		p.show();	
 	}
+	
 	@UiHandler(value="edit_item") 
 	public void editItemCmd(ClickEvent ev)
 	{

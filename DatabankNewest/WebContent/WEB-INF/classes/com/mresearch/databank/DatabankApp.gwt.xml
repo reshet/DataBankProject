@@ -9,7 +9,7 @@
 <!--   <inherits name='com.google.gwt.user.theme.standard.Standard'/> -->
 <!--   <inherits name='com.google.gwt.user.theme.chrome.Chrome'/>
  -->
-   <inherits name='com.sensei.themes.mytheme.Mytheme'/>
+<!--    <inherits name='com.sensei.themes.mytheme.Mytheme'/> -->
 <!--   <inherits name='com.google.gwt.user.theme.dark.Dark'/>     -->
   <!-- Other module inherits                                      -->
   <inherits name="com.google.gwt.xml.XML"/>
@@ -20,8 +20,8 @@
   <inherits name="gwtupload.GWTUpload"/>
   <inherits name='com.smartgwt.SmartGwt'/>
   <!-- Load dinamically predefined styles in the library when the application starts -->
-  <stylesheet src="Upload.css"/>
-
+<!--   <stylesheet src="Upload.css"/> -->
+  <stylesheet src="CoolStyles.css"/>
   <!-- Specify the app entry point class.                         -->
  <entry-point class='com.mresearch.databank.client.DatabankApp'/>
   <source path='client'/>

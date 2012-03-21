@@ -39,11 +39,14 @@ public class SimpleFileFieldViewer extends Composite{
 	interface SimpleStringFieldUiBinder extends
 			UiBinder<Widget, SimpleFileFieldViewer> {
 	}
+	
+	
 
 	public SimpleFileFieldViewer() {
 		initWidget(uiBinder.createAndBindUi(this));
 	}
 
+	
 	@UiField Label field_name;
 	@UiField VerticalPanel download_panel;
     private MetaUnitFileDTO dto;

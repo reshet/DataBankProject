@@ -58,4 +58,5 @@ public class SimpleDateFieldViewer extends Composite {
 		this.field_name.setText(dto.getDesc());
 		if(def_val!=null)date_picker.setText(def_val);
 	}
+	
 }

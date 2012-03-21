@@ -10,7 +10,7 @@
   <!-- <inherits name='com.google.gwt.user.theme.standard.Standard'/> -->
  <!--  <inherits name='com.google.gwt.user.theme.chrome.Chrome'/> -->
 <!--   <inherits name='com.google.gwt.user.theme.dark.Dark'/>     -->
-   <inherits name='com.sensei.themes.mytheme.Mytheme'/>
+<!--    <inherits name='com.sensei.themes.mytheme.Mytheme'/> -->
   
 
   <!-- Other module inherits                                      -->
