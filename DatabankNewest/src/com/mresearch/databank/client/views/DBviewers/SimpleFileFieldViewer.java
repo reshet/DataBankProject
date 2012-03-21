@@ -41,6 +41,8 @@ public class SimpleFileFieldViewer extends Composite{
 	}
 	
 	
+	
+	
 
 	public SimpleFileFieldViewer() {
 		initWidget(uiBinder.createAndBindUi(this));
