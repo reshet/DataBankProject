@@ -23,6 +23,7 @@ import com.mresearch.databank.client.views.IPickBinder;
 import com.mresearch.databank.client.views.PickElementsTableView;
 import com.mresearch.databank.client.views.VariableDetailedView.JSON_Construct;
 import com.mresearch.databank.client.views.DBfillers.MetaUnitCollector;
+import com.mresearch.databank.client.views.DBfillers.MetaUnitEntityItemRegistrator;
 import com.mresearch.databank.client.views.DBfillers.MetaUnitFiller;
 import com.mresearch.databank.shared.JSON_Representation;
 import com.mresearch.databank.shared.MetaUnitMultivaluedEntityDTO;
@@ -89,6 +90,8 @@ public class AdminResearchDetailedPresenter implements Presenter{
 		 void setOrgPopupVisibility(boolean b);
 		 MetaUnitFiller getDBfiller();
 		 MetaUnitCollector getDBcollector();
+		 MetaUnitEntityItemRegistrator getDBregistrator();
+		 
 	 }
 	
 	public interface GroupEditDisplay
@@ -250,6 +253,7 @@ public class AdminResearchDetailedPresenter implements Presenter{
 		dto.setVar_weight_name(edit_display.getWeightVarName(edit_display.getWeightVarID()));
 		
 		JSON_Representation json = edit_display.getDBfiller().getJSON();
+		edit_display.getDBregistrator().populateItemsLinksTo(dto.getId(), "socioresearch");
 		dto.setJson_desctiptor(json.getObj().toString());
 		dto.setFilling(edit_display.getDBcollector().returnCollectedMap());
 		return dto;

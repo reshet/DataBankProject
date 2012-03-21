@@ -35,7 +35,7 @@ import com.mresearch.databank.shared.MetaUnitMultivaluedEntityDTO;
 import com.mresearch.databank.shared.MetaUnitMultivaluedStructureDTO;
 import com.mresearch.databank.shared.MetaUnitStringDTO;
 
-public class MultiValuedField extends Composite implements MetaUnitFiller,MetaUnitCollector{
+public class MultiValuedField extends Composite implements MetaUnitFiller,MetaUnitCollector, MetaUnitEntityItemRegistrator{
 
 	private static MultiValuedFieldUiBinder uiBinder = GWT
 			.create(MultiValuedFieldUiBinder.class);
@@ -176,4 +176,17 @@ public class MultiValuedField extends Composite implements MetaUnitFiller,MetaUn
 //	public FlexTable getUnitsTable() {
 //		return subunits_table;
 //	}
+
+	@Override
+	public void populateItemsLinksTo(Long paramLong, String paramString) {
+		for (int i = 0; i < this.subunits_table.getRowCount(); i++)
+	    {
+	      Widget filler =  this.subunits_table.getWidget(i, 0);
+	      if(filler instanceof MetaUnitEntityItemRegistrator)
+	      {
+	    	  MetaUnitEntityItemRegistrator reg = (MetaUnitEntityItemRegistrator)filler;
+	    	  reg.populateItemsLinksTo(paramLong, paramString);
+	      }
+	    }
+	}
 }

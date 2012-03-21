@@ -234,6 +234,8 @@ public class MultiValuedEntity extends Composite implements MetaUnitFiller,MetaU
 
 	    obj.put(this.dto.getUnique_name(), new JSONString(this.items_list.getItemText(this.items_list.getSelectedIndex())));
 	    this.current_json = new JSON_Representation(obj);
+	    
+	    //this.populateItemsLinksTo(id, identifier);
 		//here to build JSON from children;
 	}
 	@Override
@@ -290,6 +292,7 @@ public class MultiValuedEntity extends Composite implements MetaUnitFiller,MetaU
 	        new RPCCall<MetaUnitEntityItemDTO>()
 	        {
 	          public void onFailure(Throwable caught) {
+	        	  Window.alert("Error getting ItemDTO "+caught.getMessage());
 	          }
 
 	          public void onSuccess(final MetaUnitEntityItemDTO result) {
@@ -302,7 +305,8 @@ public class MultiValuedEntity extends Composite implements MetaUnitFiller,MetaU
 	            new RPCCall<MetaUnitEntityItemDTO>()
 	            {
 	              public void onFailure(Throwable caught) {
-	              }
+	             	  Window.alert("Error getting ItemDTO 2"+caught.getMessage());
+	       	      }
 
 	              public void onSuccess(final MetaUnitEntityItemDTO result2) {
 	                if (!result2.getTagged_entities_ids().contains(id))
@@ -314,7 +318,8 @@ public class MultiValuedEntity extends Composite implements MetaUnitFiller,MetaU
 	                {
 	                  public void onFailure(Throwable caught)
 	                  {
-	                  }
+	                 	  Window.alert("Error updating links "+caught.getMessage());
+	           	      }
 
 	                  public void onSuccess(Void result) {
 	                  }

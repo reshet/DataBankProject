@@ -36,6 +36,7 @@ import com.mresearch.databank.client.LoginView;
 import com.mresearch.databank.client.helper.RPCCall;
 import com.mresearch.databank.client.presenters.AdminResearchDetailedPresenter;
 import com.mresearch.databank.client.views.DBfillers.MetaUnitCollector;
+import com.mresearch.databank.client.views.DBfillers.MetaUnitEntityItemRegistrator;
 import com.mresearch.databank.client.views.DBfillers.MetaUnitFiller;
 import com.mresearch.databank.client.views.DBfillers.MultiValuedField;
 import com.mresearch.databank.client.views.DBfillers.SimpleStringField;
@@ -483,6 +484,8 @@ public class AdminResearchEditView extends Composite implements AdminResearchDet
 	}
 
 	
+	
+	
 	@Override
 	public HasClickHandlers getCancelAddOrgBtn() {
 		return addOrgView.getCancelBtn();
@@ -493,6 +496,10 @@ public class AdminResearchEditView extends Composite implements AdminResearchDet
 	}
 	@Override
 	public MetaUnitCollector getDBcollector() {
+		return mv;
+	}
+	@Override
+	public MetaUnitEntityItemRegistrator getDBregistrator() {
 		return mv;
 	}
 }
