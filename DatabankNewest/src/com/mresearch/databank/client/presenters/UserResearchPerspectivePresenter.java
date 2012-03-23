@@ -91,6 +91,7 @@ public class UserResearchPerspectivePresenter implements Presenter
 		 HasClickHandlers getFiltersAddBtn();
 		 HasClickHandlers getFiltersDeleteBtn();
 	 }
+	 
 	 private final UserSocioResearchServiceAsync rpcService;
 	// private final UserSocioResearchServiceAsync rpcService;
 	 private final SimpleEventBus eventBus;

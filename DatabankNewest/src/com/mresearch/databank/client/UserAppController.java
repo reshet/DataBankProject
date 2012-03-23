@@ -49,7 +49,7 @@ import com.mresearch.databank.client.presenters.StartPagePerspectivePresenter;
 //import com.mresearch.databank.client.presenters.UserLawPerspectivePresenter;
 //import com.mresearch.databank.client.presenters.UserNewsPerspectivePresenter;
 import com.mresearch.databank.client.presenters.UserResearchPerspectivePresenter;
-//import com.mresearch.databank.client.presenters.UserSearchPerspectivePresenter;
+import com.mresearch.databank.client.presenters.UserSearchPerspectivePresenter;
 //import com.mresearch.databank.client.service.AdminArticleService;
 //import com.mresearch.databank.client.service.AdminArticleServiceAsync;
 import com.mresearch.databank.client.service.SearchService;
@@ -61,7 +61,7 @@ import com.mresearch.databank.client.views.StartPagePerspectiveView;
 //import com.mresearch.databank.client.views.UserLawPerspectiveView;
 //import com.mresearch.databank.client.views.UserNewsPerspectiveView;
 import com.mresearch.databank.client.views.UserResearchPerspectiveView;
-//import com.mresearch.databank.client.views.UserSearchPerspectiveView;
+import com.mresearch.databank.client.views.UserSearchPerspectiveView;
 
 public class UserAppController implements ValueChangeHandler<String>, AppController {
   private final SimpleEventBus eventBus;
@@ -76,6 +76,7 @@ public class UserAppController implements ValueChangeHandler<String>, AppControl
 	interface UserAppControllerUiBinder extends
 			UiBinder<DockLayoutPanel, UserAppController> {
 	}
+	
 	
   @UiField Anchor mainNav,newsNav,researchNav,lawNav,juryNav,loginNav;
   @UiField DockLayoutPanel centerPanel;
@@ -267,18 +268,20 @@ public class UserAppController implements ValueChangeHandler<String>, AppControl
     	  
       }
       else if(token.startsWith("search-results")){
-//    	  String [] arr = token.split("=");
-//    	  String query = arr[1];
+    	  String [] arr = token.split("=");
+    	  String query = arr[1];
     	  
-//    	  
-//     	  ArrayList<String> param_names,param_values;
-//    	  param_names = new ArrayList<String>();
-//    	  param_values = new ArrayList<String>();
-//    	  parsePathToken(token, param_names, param_values);
-//    	  presenter = new UserSearchPerspectivePresenter(searchService,researchService, eventBus, new UserSearchPerspectiveView());
-//          presenter.go(centerPanel,param_names,param_values);
+    	  
+     	  ArrayList<String> param_names,param_values;
+    	  param_names = new ArrayList<String>();
+    	  param_values = new ArrayList<String>();
+    	  parsePathToken(token, param_names, param_values);
+    	  presenter = new UserSearchPerspectivePresenter(searchService,researchService, eventBus, new UserSearchPerspectiveView());
+          presenter.go(centerPanel,param_names,param_values);
+          
           
       }
+      
     	  
 //      else if (token.equals("add")) {
 //        presenter = new FriendEditPresenter(friendService, eventBus, new FriendEditView());

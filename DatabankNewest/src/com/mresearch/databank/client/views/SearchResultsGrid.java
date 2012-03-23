@@ -20,13 +20,16 @@ public class SearchResultsGrid extends VerticalPanel
     this.map = map;
     this.hits = hits;
     this.total = total;
+    
+    
+    
 
     ListGrid countryGrid = new ListGrid();
-    countryGrid.setWidth(800);
-    countryGrid.setHeight(600);
+    countryGrid.setWidth("100%");
+    countryGrid.setHeight("100%");
     countryGrid.setShowAllRecords(Boolean.valueOf(true));
     countryGrid.setWrapCells(Boolean.valueOf(true));
-    countryGrid.setCellHeight(56);
+    countryGrid.setCellHeight(46);
 
     HashMap<String,String> used_map = new HashMap<String,String>();
     ListGridRecord[] records = new ListGridRecord[hits.size()];

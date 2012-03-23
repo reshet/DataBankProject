@@ -2,7 +2,41 @@
 	font-family: neosans_LI;
 	src: url('NeoSans/NeoSansPro-LightItalic.otf');
 }
+@font-face {
+	font-family: neosans_R;
+	src: url('NeoSans/NeoSansPro-Regular.otf');
+}@font-face {
+	font-family: neosans_I;
+	src: url('NeoSans/NeoSansPro-Italic.otf');
+}@font-face {
+	font-family: neosans_BI;
+	src: url('NeoSans/NeoSansPro-BoldItalic.otf');
+}@font-face {
+	font-family: neosans_B;
+	src: url('NeoSans/NeoSansPro-Bold.otf');
+}@font-face {
+	font-family: neosans_M;
+	src: url('NeoSans/NeoSansPro-Medium.otf');
+}
+h2{
+	font-family: neosans_R;
+}
+h3{
+	font-family: neosans_BI;
+}
 
+.line-separator{
+	height:1px;
+	background:#717171;
+	border-bottom:1px solid #313030;
+}
+.gwt-Button .gwt-CheckBox .gwt-Label{
+	font-family: neosans_R;
+}
+.gwt-Button{
+	background-color: #69c014;
+	color: white;
+}
 .gwt-Tree {
 	
 }
