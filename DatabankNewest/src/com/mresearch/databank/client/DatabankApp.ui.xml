@@ -8,74 +8,21 @@
 	
 <!--   <ui:style src="../Resources/GlobalStyles.css" /> -->
    
-  <g:DockLayoutPanel unit='EM' ui:field="dockPanel" styleName="">
- 
-<!--    <g:center> -->
-<!--    		   	<appviews:StartPagePerspectiveView/> -->
-<!--    </g:center> -->
-  
-<!--    <g:north size='5'>-->
-<!--      <app:HeaderPanel ui:field='headerPanel' />-->
-<!--    </g:north>-->
-<!---->
-
-<!--     <g:west size='25' > -->
-<!--     	<g:ScrollPanel> -->
-<!-- 		      <app:Catalog ui:field='catalog' /> -->
-<!--     	</g:ScrollPanel> -->
-<!--     </g:west> -->
-
-<!--     <g:center> -->
-<!-- 		<app:addResearchUI ui:field='addResearch' firstName="Some"/> -->
-<!-- 			<appviews:StartPagePerspectiveView ui:field="startPage"></appviews:StartPagePerspectiveView> -->
-<!-- 		<g:VerticalPanel ui:field="centerPanel" width="100%" height="100%"> -->
-<!-- 			<g:Label>Center panel</g:Label> -->
-<!-- 			<g:Label>Center panel</g:Label> -->
-<!-- 			<g:Label>Center panel</g:Label> -->
-<!-- 			<g:Label>Center panel</g:Label> -->
-<!-- 			<g:Label>Center panel</g:Label> -->
-<!-- 			<g:Label>Center panel</g:Label> -->
-<!-- 			<g:Label>Center panel</g:Label> -->
-<!-- 			<g:Label>Center panel</g:Label> -->
-<!-- 			<g:Label>Center panel</g:Label> -->
-<!-- 			<g:Label>Center panel</g:Label> -->
-<!-- 			<g:Label>Center panel</g:Label> -->
-<!-- 			<g:Label>Center panel</g:Label> -->
-<!-- 			<g:Label>Center panel</g:Label> -->
-<!-- 			<g:Label>Center panel</g:Label> -->
-<!-- 			<g:Label>Center panel</g:Label> -->
-<!-- 			<g:Label>Center panel</g:Label> -->
-<!-- 			<g:Label>Center panel</g:Label> -->
-<!-- 			<g:Label>Center panel</g:Label> -->
-<!-- 			<g:Label>Center panel</g:Label> -->
-<!-- 			<g:Label>Center panel</g:Label> -->
-<!-- 			<g:Label>Center panel</g:Label> -->
-<!-- 			<g:Label>Center panel</g:Label> -->
-<!-- 			<g:Label>Center panel</g:Label> -->
-<!-- 			<g:Label>Center panel</g:Label> -->
-			
-<!-- 		</g:VerticalPanel> -->
-<!--     </g:center> -->
-    
-
-    <g:south size="3">
-      <g:HTMLPanel styleName="">
-        <div>
-          <a href="#">Contact us</a>
-          |
-          <a href="#">Privacy</a>
-          |
-          <a href="#">About</a>
-        </div>
-      </g:HTMLPanel>
-    </g:south>
-<!-- 	<appviews:StartPagePerspectiveView ui:field="startPage"></appviews:StartPagePerspectiveView> -->
-<!-- 	<g:VerticalPanel ui:field="innerPanel" styleName="{style.innerPanel}" width="95%" height="95%"> -->
-<!-- 		<g:Label>Center</g:Label> -->
-<!-- 		<g:Label>Center</g:Label> -->
-<!-- 		<g:Label>Center</g:Label> -->
-<!-- 		<g:Label>Center</g:Label> -->
-<!-- 		<g:Label>Center</g:Label> -->
-<!-- 	</g:VerticalPanel> -->
-  </g:DockLayoutPanel>
+  <g:ScrollPanel width="100%" height="100%">
+  	  <g:VerticalPanel width="100%" height="100%">
+		  <g:VerticalPanel ui:field="verticalPanel" styleName="" width="100%" height="100%">
+		</g:VerticalPanel>
+	    <g:HorizontalPanel>
+		      <g:HTMLPanel styleName="">
+		        <div>
+		          <a href="#">Contact us</a>
+		          |
+		          <a href="#">Privacy</a>
+		          |
+		          <a href="#">About</a>
+		        </div>
+		      </g:HTMLPanel>
+       </g:HorizontalPanel>
+	</g:VerticalPanel>
+</g:ScrollPanel> 
 </ui:UiBinder> 

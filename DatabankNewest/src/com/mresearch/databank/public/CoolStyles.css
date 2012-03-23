@@ -20,21 +20,23 @@
 }
 h2{
 	font-family: neosans_R;
+	color: #69c014;
 }
 h3{
 	font-family: neosans_BI;
+	color: #69c014;
 }
 
 .line-separator{
 	height:1px;
-	background:#717171;
+	background:#69c014;
 	border-bottom:1px solid #313030;
 }
 .gwt-Button .gwt-CheckBox .gwt-Label{
 	font-family: neosans_R;
 }
 .gwt-Button{
-	background-color: #69c014;
+	background: #69c014;
 	color: white;
 }
 .gwt-Tree {

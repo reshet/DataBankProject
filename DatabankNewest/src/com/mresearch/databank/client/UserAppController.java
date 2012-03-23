@@ -42,6 +42,7 @@ import com.google.gwt.user.client.ui.DockLayoutPanel;
 import com.google.gwt.user.client.ui.PopupPanel;
 import com.google.gwt.user.client.ui.ScrollPanel;
 import com.google.gwt.user.client.ui.TextBox;
+import com.google.gwt.user.client.ui.VerticalPanel;
 import com.google.gwt.user.client.ui.Widget;
 import com.mresearch.databank.client.event.ShowStartPageMainEvent;
 import com.mresearch.databank.client.presenters.Presenter;
@@ -73,16 +74,19 @@ public class UserAppController implements ValueChangeHandler<String>, AppControl
   private static UserAppControllerUiBinder uiBinder = GWT
 			.create(UserAppControllerUiBinder.class);
 
-	interface UserAppControllerUiBinder extends
-			UiBinder<DockLayoutPanel, UserAppController> {
-	}
-	
+//	interface UserAppControllerUiBinder extends
+//			UiBinder<DockLayoutPanel, UserAppController> {
+//	}
+  interface UserAppControllerUiBinder extends
+	UiBinder<VerticalPanel, UserAppController> {
+}	
 	
   @UiField Anchor mainNav,newsNav,researchNav,lawNav,juryNav,loginNav;
-  @UiField DockLayoutPanel centerPanel;
+  @UiField VerticalPanel centerPanel;
   @UiField TextBox searchBox;
   @UiField Button searchCmd;
-  private DockLayoutPanel thisDock;
+  //private DockLayoutPanel thisDock;
+  private VerticalPanel thisDock;
   private final UserSocioResearchServiceAsync researchService = GWT.create(UserSocioResearchService.class);
   
   //private final AdminArticleServiceAsync articleService = GWT.create(AdminArticleService.class);
@@ -186,11 +190,12 @@ public class UserAppController implements ValueChangeHandler<String>, AppControl
 		  History.newItem("search-results@query="+searchstr);
   }
 
-  public void go(DockLayoutPanel mainPanel)
+//public void go(DockLayoutPanel mainPanel)
+  public void go(VerticalPanel mainPanel)
   {
 	this.mainPanel = mainPanel;
-	//mainPanel.setWidth("100%");
-	//mainPanel.setHeight("100%");
+	mainPanel.setWidth("100%");
+	mainPanel.setHeight("100%");
 	
 	mainPanel.add(thisDock);
 	if ("".equals(History.getToken())) {

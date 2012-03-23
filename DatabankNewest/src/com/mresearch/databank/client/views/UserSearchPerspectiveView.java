@@ -40,6 +40,8 @@ public class UserSearchPerspectiveView extends Composite implements UserSearchPe
 	interface UserResearchPerspectiveViewUiBinder extends
 			UiBinder<Widget, UserSearchPerspectiveView> {
 	}
+	
+	
 	@UiField VerticalPanel centerPanel;
 	@UiField TextBox contains_one_of,contains_exact,contains_exact_too,contains_or,contains_none_of,not_contains_exact;
 	@UiField Button search;

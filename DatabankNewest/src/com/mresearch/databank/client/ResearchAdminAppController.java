@@ -32,6 +32,7 @@ import com.google.gwt.user.client.ui.Anchor;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.DockLayoutPanel;
 import com.google.gwt.user.client.ui.ScrollPanel;
+import com.google.gwt.user.client.ui.VerticalPanel;
 import com.google.gwt.user.client.ui.Widget;
 import com.mresearch.databank.client.event.ShowStartPageMainEvent;
 import com.mresearch.databank.client.presenters.AdminResearchPerspectivePresenter;
@@ -124,8 +125,9 @@ public class ResearchAdminAppController implements ValueChangeHandler<String>, A
   private void doViewArticlesCatalog() {
 	    History.newItem("researchadmin-articles");
   }
-
-  public void go(DockLayoutPanel mainPanel)
+  //public void go(DockLayoutPanel mainPanel)
+  
+  public void go(VerticalPanel mainPanel)
   {
 	this.mainPanel = mainPanel;
 	//mainPanel.setWidth("100%");

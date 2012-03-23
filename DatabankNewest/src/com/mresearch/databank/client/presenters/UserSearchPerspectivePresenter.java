@@ -122,6 +122,7 @@ public class UserSearchPerspectivePresenter implements Presenter
 		    this.searchService = searchService;
 		    bind();
 		  }
+	 
 	@Override
 	public void go(HasWidgets container,ArrayList<String> p_names,ArrayList<String> p_values) {
 		
@@ -353,7 +354,10 @@ public class UserSearchPerspectivePresenter implements Presenter
 	    }
 	    .retry(2);
 		
+	    
+	    
 		
+	    
 		
 //		new RPCCall<ArrayList<SearchResultDTO>>() {
 //			@Override

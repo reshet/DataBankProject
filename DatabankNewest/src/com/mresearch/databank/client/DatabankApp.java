@@ -28,7 +28,8 @@ import com.mresearch.databank.shared.UserAccountDTO;
 
 public class DatabankApp implements EntryPoint {
 	
-	interface DatabankAppUiBinder extends UiBinder<DockLayoutPanel, DatabankApp> {}
+	//interface DatabankAppUiBinder extends UiBinder<DockLayoutPanel, DatabankApp> {}
+	interface DatabankAppUiBinder extends UiBinder<ScrollPanel, DatabankApp> {}
 	private static final DatabankAppUiBinder binder = GWT.create(DatabankAppUiBinder.class);
 
 	private static DatabankApp singleton;
@@ -41,7 +42,7 @@ public class DatabankApp implements EntryPoint {
 	  
 	//@UiField VerticalPanel innerPanel;
 	//@UiField ScrollPanel scroller;
-	//@UiField DockLayoutPanel dockPanel;
+	@UiField VerticalPanel verticalPanel;
 	public static DatabankApp get()
 	{
 		return singleton;
@@ -51,9 +52,13 @@ public class DatabankApp implements EntryPoint {
 	
 	public void onModuleLoad() {
 		 singleton = this; 
+		// initWidget(binder.createAndBindUi(this));
 		//initDefUsers();
 		//login("email","password");
 		login("research@admin.com","default");
+		
+		
+		
 		
 		
 		
@@ -167,16 +172,24 @@ public class DatabankApp implements EntryPoint {
 	}
 	private void createUI()
 	{
-		DockLayoutPanel outer = binder.createAndBindUi(this);	
+		
+		//DockLayoutPanel outer = binder.createAndBindUi(this);	
+		ScrollPanel outer  = binder.createAndBindUi(this);	
 		//outer.set
 		root = RootLayoutPanel.get();
-		ScrollPanel scrol = new ScrollPanel();
-		scrol.setWidth("100%");
-		scrol.setHeight("100%");
-		scrol.add(outer);
+//		ScrollPanel scrol = new ScrollPanel();
+//		scrol.setWidth("100%");
+//		scrol.setHeight("100%");
+//		scrol.add(outer);
 		root.add(outer);
 		
-		appController.go(outer);
+		
+		
+		
+		
+		//VerticalPanel p = new VerticalPanel();
+		//outer.setWidget(p);
+		appController.go(verticalPanel);
 		//appController.
 		//startpagePresenter = new StartPagePerspectivePresenter(startpageService, eventBus, new StartPagePerspectiveView());
 		//startpagePresenter.go(outer);
