@@ -22,7 +22,7 @@ public class ConceptItemItem extends ConceptItemEntity
   }
 
   public void refreshContents() {
-		Window.alert("Starts Refreshing!");
+	//	Window.alert("Starts Refreshing!");
 	  new RPCCall<ArrayList<MetaUnitEntityItemDTO>>()
     {
       public void onFailure(Throwable caught)

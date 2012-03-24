@@ -18,6 +18,11 @@
 	font-family: neosans_M;
 	src: url('NeoSans/NeoSansPro-Medium.otf');
 }
+
+h1{
+	font-family: neosans_R;
+	color: #69c014;
+}
 h2{
 	font-family: neosans_R;
 	color: #69c014;
@@ -44,25 +49,18 @@ h3{
 }
 
 .gwt-Tree .gwt-TreeItem {
-	font-family: neosans_LI;
+	font-family: Trebuchet MS;
+	font-size:  14px;
+	color:656565;
+	font-weight: bold;
 }
 
 .gwt-Tree .gwt-TreeItem-selected {
-	font-family: neosans_LI;
+	color:434343;	
 }
 
 .gwt-CheckBox {
-	-webkit-border-radius: 1px;
-	-moz-border-radius: 1px;
-	border-radius: 1px;
-	background-color: rgba(255, 255, 255, .05);
-	border: 1px solid #c6c6c6;
-	border: 1px solid rgba(155, 155, 155, .57);
-	height: 11px;
-	margin: 0 4px 0 1px;
-	outline: 0;
-	vertical-align: text-bottom;
-	width: 11px
+
 }
 /* .gwt-CheckBox-checked { */
 /* 	background: url(//ssl.gstatic.com/ui/v1/menu/checkmark.png) no-repeat -5px -3px */

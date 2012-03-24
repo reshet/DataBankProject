@@ -19,8 +19,9 @@ public class VarDescItem extends TreeItem{
 	{
 		super();
 		this.var_id = dto.getId();
-		int end = dto.getLabel().length() > VarDescItem.LABEL_SHORTAGE_NUMBER? VarDescItem.LABEL_SHORTAGE_NUMBER:dto.getLabel().length();
-		this.setText(dto.getCode()+": "+dto.getLabel().substring(0, end));
+		//int end = dto.getLabel().length() > VarDescItem.LABEL_SHORTAGE_NUMBER? VarDescItem.LABEL_SHORTAGE_NUMBER:dto.getLabel().length();
+		this.setText(dto.getCode()+": "+dto.getLabel());
+				//.substring(0, end));
 	}
 	public long getVar_id() {
 		return var_id;

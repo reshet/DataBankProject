@@ -89,7 +89,7 @@ public class UserSearchPerspectivePresenter implements Presenter
 		 void setResearchTabVisible();
 		 void setLawTabVisible();
 //		 void setVarListData(TreeItem item, ArrayList<VarDTO> data);
-		 Widget asWidget();
+		 VerticalPanel asRoot();
 //		 void showLoadingLabel();
 //		 TreeItem getSelectedItem();
 //		 void showResearchDetailes(SocioResearchDTO dto);
@@ -156,7 +156,7 @@ public class UserSearchPerspectivePresenter implements Presenter
 //		 VerticalPanel panel = new VerticalPanel();
 //		 panel.setHeight("500px");
 //		 panel.setWidth("100%");
-		 container.add(display.asWidget());
+		 container.add(display.asRoot());
 //		 panel.add(new ImprovedSearchView());
 //		 panel_scr.add(panel);
 //		 container.add(panel_scr);
@@ -341,6 +341,7 @@ public class UserSearchPerspectivePresenter implements Presenter
 	          hiters.add(hit);
 	        }
 
+	        
 	        display.getCenterPanel().add(new HTML("<H2>ПОИСКОВЫЙ ЗАПРОС:</H2><br><p>" + query + "</p>"));
 	        display.getCenterPanel().add(new HTML("<H3>ОТВЕТ ДВИЖКА:</H3><br><p>" + result + "</p>"));
 

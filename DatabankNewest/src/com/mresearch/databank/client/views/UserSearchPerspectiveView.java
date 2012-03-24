@@ -42,7 +42,7 @@ public class UserSearchPerspectiveView extends Composite implements UserSearchPe
 	}
 	
 	
-	@UiField VerticalPanel centerPanel;
+	@UiField VerticalPanel centerPanel,root_panel;
 	@UiField TextBox contains_one_of,contains_exact,contains_exact_too,contains_or,contains_none_of,not_contains_exact;
 	@UiField Button search;
 	//@UiField FlexTable res_table;
@@ -129,5 +129,10 @@ public class UserSearchPerspectiveView extends Composite implements UserSearchPe
 	@Override
 	public String getNotContainsExact() {
 		return not_contains_exact.getText();
+	}
+	@Override
+	public VerticalPanel asRoot() {
+		// TODO Auto-generated method stub
+		return root_panel;
 	}
 }

@@ -6,6 +6,8 @@ import com.google.gwt.user.client.ui.VerticalPanel;
 import com.smartgwt.client.widgets.grid.ListGrid;
 import com.smartgwt.client.widgets.grid.ListGridField;
 import com.smartgwt.client.widgets.grid.ListGridRecord;
+import com.smartgwt.client.widgets.tree.TreeGrid;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -21,6 +23,9 @@ public class SearchResultsGrid extends VerticalPanel
     this.hits = hits;
     this.total = total;
     
+    //TreeGrid g = new TreeGrid();
+    //g.setShowFilterEditor(true);
+    //g.setFilt
     
     
 

@@ -47,11 +47,14 @@
 			font-size: 15px;
 			color: #69c014;
 		}
-		
+		.root_panel{
+			margin-left: 40px;
+			margin-top: 20px;
+		}
 	</ui:style>
 
 			<g:ScrollPanel width="100%" height="100%">
-				<g:VerticalPanel width="100%" height="100%">
+				<g:VerticalPanel ui:field="root_panel" styleName="{style.root_panel}">
 					<g:HTML>
 						<div class="line-separator"></div>
 						<h1>Расширенный поиск</h1>
@@ -73,7 +76,7 @@
 						<g:VerticalPanel>
 							<g:HorizontalPanel>
 								<g:VerticalPanel spacing="2" styleName="{style.search-terms}">
-									<g:Label text="Содерджит" styleName="{style.large_text}"/>
+									<g:Label text="Содержит" styleName="{style.large_text}"/>
 									<g:VerticalPanel spacing="2" styleName="{style.search-term}">
 										<g:Label text="Одно из слов" styleName="{style.small_text}"/>
 										<g:TextBox ui:field="contains_one_of"></g:TextBox>
@@ -85,7 +88,7 @@
 								</g:VerticalPanel>
 								
 								<g:VerticalPanel spacing="2" styleName="{style.search-terms}">
-									<g:Label text="А также содерджит" styleName="{style.large_text}"/>
+									<g:Label text="А также содержит" styleName="{style.large_text}"/>
 									<g:VerticalPanel spacing="2" styleName="{style.search-term}">
 										<g:Label text="Формулировку целиком" styleName="{style.small_text}"/>
 										<g:TextBox ui:field="contains_exact_too"></g:TextBox>
@@ -98,7 +101,7 @@
 								</g:VerticalPanel>
 								
 								<g:VerticalPanel spacing="2" styleName="{style.search-terms}">
-									<g:Label text="Но не содерджит" styleName="{style.large_text}"/>
+									<g:Label text="Но не содержит" styleName="{style.large_text}"/>
 									<g:VerticalPanel spacing="2" styleName="{style.search-term}">
 										<g:Label text="ни одного из слов" styleName="{style.small_text}"/>
 										<g:TextBox ui:field="contains_none_of"></g:TextBox>

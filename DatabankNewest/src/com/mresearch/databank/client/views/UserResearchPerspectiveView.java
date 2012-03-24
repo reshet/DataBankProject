@@ -1,5 +1,6 @@
 package com.mresearch.databank.client.views;
 
+import java.awt.ScrollPane;
 import java.util.ArrayList;
 
 import javax.swing.event.TreeSelectionEvent;
@@ -27,6 +28,7 @@ import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.CheckBox;
 import com.google.gwt.user.client.ui.Composite;
+import com.google.gwt.user.client.ui.ScrollPanel;
 import com.google.gwt.user.client.ui.Tree;
 import com.google.gwt.user.client.ui.TreeItem;
 import com.google.gwt.user.client.ui.VerticalPanel;
@@ -98,11 +100,17 @@ public class UserResearchPerspectiveView extends Composite implements UserResear
 		db.setState(true);
 		VLayout vLayout = new VLayout();
 		vLayout.setAlign(Alignment.LEFT);  
-	    vLayout.setOverflow(Overflow.VISIBLE);  
+	    vLayout.setOverflow(Overflow.SCROLL);  
 	    vLayout.setWidth("30%");  
 	   // vLayout.setHeight100();
 	    vLayout.setShowResizeBar(true);  
 	    vLayout.setResizeBarSize(9);
+	    //vLayout.r
+	    //ScrollPanel scr = new ScrollPanel(tree);
+	    
+	    
+	    //scr.setHeight("100%");
+	    //scr.setWidth("100%");
 	    vLayout.addMember(tree);
 		//vLayout.getS
 		//vLayout.sendToBack();
@@ -113,6 +121,7 @@ public class UserResearchPerspectiveView extends Composite implements UserResear
 		panel.addMember(cPanel);
 		panel.sendToBack();
 
+		
 		centerPanel.add(panel);	}
 	private void displayResearchList()
 	{
