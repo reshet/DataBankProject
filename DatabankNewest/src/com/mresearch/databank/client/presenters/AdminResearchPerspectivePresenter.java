@@ -116,6 +116,7 @@ public class AdminResearchPerspectivePresenter implements Presenter
 		 HasEnabled getCreateConceptBtn();
 		 HasEnabled getDeleteConceptBtn();
 		 HasClickHandlers getCreateConceptBt();
+		 VerticalPanel asRoot();
 		 void showCreateConceptPopup(int x, int y,String c_type);
 		 void hideConceptPopup();
 		 void setRootConceptUpdateMode(boolean isRoot);

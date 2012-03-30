@@ -50,6 +50,8 @@ import com.mresearch.databank.client.views.AdminResearchPerspectiveView;
 //import com.mresearch.databank.client.views.UserNewsPerspectiveView;
 //import com.mresearch.databank.client.views.UserResearchPerspectiveView;
 
+
+
 public class ResearchAdminAppController implements ValueChangeHandler<String>, AppController {
   private final SimpleEventBus eventBus;
  // private final StartPageServiceAsync startpageService;
@@ -60,12 +62,12 @@ public class ResearchAdminAppController implements ValueChangeHandler<String>, A
 			.create(ResearchAdminAppControllerUiBinder.class);
 
 	interface  ResearchAdminAppControllerUiBinder extends
-			UiBinder<DockLayoutPanel, ResearchAdminAppController> {
+			UiBinder<VerticalPanel, ResearchAdminAppController> {
 	}
 	
   @UiField Anchor bankNav,articlesNav,logoutNav;
-  @UiField DockLayoutPanel centerPanel;
-  private DockLayoutPanel thisDock;
+  @UiField VerticalPanel centerPanel;
+  private VerticalPanel thisDock;
   private final UserSocioResearchServiceAsync researchUserService = GWT.create(UserSocioResearchService.class);
   private final AdminSocioResearchServiceAsync researchAdminService = GWT.create(AdminSocioResearchService.class);
   public ResearchAdminAppController(SimpleEventBus eventBus) {
@@ -74,6 +76,7 @@ public class ResearchAdminAppController implements ValueChangeHandler<String>, A
     this.eventBus = eventBus;
    // this.startpageService = rpcService;
     bind();
+
   }
 
   private void bind() {
@@ -92,6 +95,7 @@ public class ResearchAdminAppController implements ValueChangeHandler<String>, A
 			doViewArticlesCatalog();
 		}
 	});
+    
     logoutNav.addClickHandler(new ClickHandler() {
 		@Override
 		public void onClick(ClickEvent event) {
@@ -119,6 +123,7 @@ public class ResearchAdminAppController implements ValueChangeHandler<String>, A
     
   }
 
+  
   private void doViewDatabank() {
     History.newItem("researchadmin-databank");
   }
@@ -130,8 +135,8 @@ public class ResearchAdminAppController implements ValueChangeHandler<String>, A
   public void go(VerticalPanel mainPanel)
   {
 	this.mainPanel = mainPanel;
-	//mainPanel.setWidth("100%");
-	//mainPanel.setHeight("100%");
+	mainPanel.setWidth("100%");
+	mainPanel.setHeight("100%");
 	
 	mainPanel.add(thisDock);
 	if ("".equals(History.getToken())) {
@@ -141,6 +146,7 @@ public class ResearchAdminAppController implements ValueChangeHandler<String>, A
     }
   }
  
+  
   public void onValueChange(ValueChangeEvent<String> event) {
     String token = event.getValue();
 

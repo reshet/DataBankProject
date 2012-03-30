@@ -2,7 +2,36 @@
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
 	xmlns:g="urn:import:com.google.gwt.user.client.ui" xmlns:u="urn:import:com.google.gwt.user.client">
 	<ui:style>
+		.tableStyle table {
+		    font-family: 'Trebuchet MS', Verdana, Arial, Helvetica;
+		    font-size: 14px;
+		    color: #4d4d4d;
+		    border-collapse: collapse;
+		}
 		
+		.tableStyle th {
+		    text-align: right;
+		    min-width: 100px;
+		    font-weight: normal;
+		    padding: 2px 5px;
+		    border-right: #cccccc solid 1px;
+		    /*border-bottom: #e5e5e5 solid 1px;*/
+		}
+		
+		.tableStyle td {
+		    color: #656565;
+		    text-align: right;
+		    border-right: #cccccc solid 1px;
+		    /*border-bottom: #e5e5e5 solid 1px;*/
+		    padding: 2px 5px;
+		
+		}
+		
+		.tableStyle tr > th:first-child, .tableStyle  tr > td:first-child  {
+		    color: #4d4d4d;
+		    text-align: left;
+		    border-right: #cccccc double 3px;
+		}
 	</ui:style>
 	<g:VerticalPanel>
 		<g:HTMLPanel>
@@ -50,7 +79,7 @@
 		</g:HTMLPanel>
 		<g:HTMLPanel ui:field="content_panel">
 			<g:VerticalPanel ui:field="selected_vars"></g:VerticalPanel>
-			<g:FlexTable ui:field="the2DD_table"></g:FlexTable>
+			<g:FlexTable ui:field="the2DD_table" styleName="{style.tableStyle}"></g:FlexTable>
 		</g:HTMLPanel>
 		<g:HorizontalPanel ui:field="target_panel"></g:HorizontalPanel>
 	</g:VerticalPanel>

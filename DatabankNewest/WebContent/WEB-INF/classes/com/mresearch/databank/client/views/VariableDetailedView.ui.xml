@@ -3,11 +3,40 @@
 	xmlns:g="urn:import:com.google.gwt.user.client.ui"
 	xmlns:views="urn:import:com.mresearch.databank.client.views">
 	<ui:style>
+		.tableStyle table {
+		    font-family: 'Trebuchet MS', Verdana, Arial, Helvetica;
+		    font-size: 14px;
+		    color: #4d4d4d;
+		    border-collapse: collapse;
+		}
 		
+		.tableStyle th {
+		    text-align: right;
+		    min-width: 100px;
+		    font-weight: normal;
+		    padding: 2px 5px;
+		    border-right: #cccccc solid 1px;
+		    /*border-bottom: #e5e5e5 solid 1px;*/
+		}
+		
+		.tableStyle td {
+		    color: #656565;
+		    text-align: right;
+		    border-right: #cccccc solid 1px;
+		    /*border-bottom: #e5e5e5 solid 1px;*/
+		    padding: 2px 5px;
+		
+		}
+		
+		.tableStyle tr > th:first-child, .tableStyle  tr > td:first-child  {
+		    color: #4d4d4d;
+		    text-align: left;
+		    border-right: #cccccc double 3px;
+		}
 	</ui:style>
 	<g:HTMLPanel>
 		<h2>Просмотр переменной</h2>
-		<g:HTMLPanel ui:field="main_html">
+		<g:HTMLPanel ui:field="main_html" styleName="{style.tableStyle}">
 			<table>
 				<tr>
 					<td>Имя переменной: </td><td><g:Label ui:field="varCode"></g:Label></td>

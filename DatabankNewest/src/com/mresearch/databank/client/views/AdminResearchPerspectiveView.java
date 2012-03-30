@@ -38,6 +38,10 @@ public class AdminResearchPerspectiveView extends Composite implements AdminRese
 	@UiField 
 	Button createBtn,deleteBtn,addBtn;
 	
+	
+	
+	
+	
 	SimpleResearchList simpleResearchListItem;
 	RootConceptsList rootResearchConcepts;
 	SimpleEventBus bus;
@@ -47,7 +51,12 @@ public class AdminResearchPerspectiveView extends Composite implements AdminRese
 	private boolean rootConceptUpdateMode = false;
 	public AdminResearchPerspectiveView(SimpleEventBus bus) {
 		initWidget(uiBinder.createAndBindUi(this));
+		centerPanel.setWidth("800px");
+		centerPanel.setHeight("500px");
+		centerPanel.setVisible(true);
 		this.bus = bus;
+		
+		
 		add_concept_popup = new AddConceptPopupView(this.bus);
 		//tree = new Tree();
 		//tree.setStyleName("research-catalog");
@@ -57,6 +66,9 @@ public class AdminResearchPerspectiveView extends Composite implements AdminRese
 		db.addItem(simpleResearchListItem);
 		db.addItem(rootResearchConcepts);
 		tree.addItem(db);
+		
+		
+		
 		//treePanel.add(tree);
 	}
 	private void displayResearchList()
@@ -171,6 +183,7 @@ public class AdminResearchPerspectiveView extends Composite implements AdminRese
 		popup.show();
 	}
 	
+	
 	@Override
 	public void hideConceptPopup() {
 		popup.hide();
@@ -178,6 +191,11 @@ public class AdminResearchPerspectiveView extends Composite implements AdminRese
 	@Override
 	public void setRootConceptUpdateMode(boolean isRoot) {
 		rootConceptUpdateMode = isRoot;
+	}
+	@Override
+	public VerticalPanel asRoot() {
+		// TODO Auto-generated method stub
+		return centerPanel;
 	}
 
 }

@@ -2,44 +2,59 @@
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
 	xmlns:g="urn:import:com.google.gwt.user.client.ui">
 	<ui:style>
-		 .tableResearch
-		{
-			font-weight: normal;
-			background-color: #88AA66;
-			padding: 15px;
-			font-family: Helvetica;
-			font: 13px;
+		.tableStyle table {
+		    font-family: 'Trebuchet MS', Verdana, Arial, Helvetica;
+		    font-size: 14px;
+		    color: #4d4d4d;
+		    border-collapse: collapse;
 		}
-		.category
-		{
-			color: #772222;
-			font-weight: bold;
-			font: 16px;
-			vertical-align: text-top;
+		
+		.tableStyle th {
+		    text-align: right;
+		    min-width: 100px;
+		    font-weight: normal;
+		    padding: 2px 5px;
+		    border-right: #cccccc solid 1px;
+		    /*border-bottom: #e5e5e5 solid 1px;*/
+		}
+		
+		.tableStyle td {
+		    color: #656565;
+		    text-align: right;
+		    border-right: #cccccc solid 1px;
+		    /*border-bottom: #e5e5e5 solid 1px;*/
+		    padding: 2px 5px;
+		
+		}
+		
+		.tableStyle tr > th:first-child, .tableStyle  tr > td:first-child  {
+		    color: #4d4d4d;
+		    text-align: left;
+		    border-right: #cccccc double 3px;
 		}
 		
 	</ui:style>
 	<g:VerticalPanel>
-	<g:HTMLPanel>
+	<g:HTMLPanel styleName="{style.tableStyle}">
 		<h2>Research detailes</h2>
-		<table class="{style.tableResearch}" cellSpacing="20px">
+		<table>
 			<tr>
-				<td class="{style.category}">Объем выборки:</td>
+				<td >Объем выборки:</td>
 				<td><g:Label ui:field="selectionSize">"Selection" size</g:Label></td>
 			</tr>
 			<tr>
-				<td class="{style.category}">Публикации, связаные с исследованием:</td>
+				<td>Публикации, связаные с исследованием:</td>
 				<td>
 					<g:FlexTable ui:field="flexPubl_tbl">	
 					</g:FlexTable>
 				</td>
 			</tr>
 			<tr>
-				<td class="{style.category}">Исследователи, связаные с проектом:</td>
+				<td>Исследователи, связаные с проектом:</td>
 				<td><g:Label ui:field="researchers">Researchers: Paniotto-Co</g:Label></td>
 			</tr>
 			<tr>
-				<td class="{style.category}">Взвешивание:</td>
+				<td>Взвешивание:</td>
 				<td><g:Label ui:field="weights">Без взвешивания.</g:Label></td>
 			</tr>
 		</table>

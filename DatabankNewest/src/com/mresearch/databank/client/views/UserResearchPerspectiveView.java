@@ -55,6 +55,8 @@ public class UserResearchPerspectiveView extends Composite implements UserResear
 	interface UserResearchPerspectiveViewUiBinder extends
 			UiBinder<Widget, UserResearchPerspectiveView> {
 	}
+	
+	
 	@UiField VerticalPanel centerPanel;
 	VerticalPanel centralPanel;
 	private Tree tree;
@@ -75,6 +77,7 @@ public class UserResearchPerspectiveView extends Composite implements UserResear
 		cPanel.setAlign(Alignment.LEFT);  
 		cPanel.setOverflow(Overflow.VISIBLE);
 		
+		
 		//cPanel.setShowResizeBar(true);  
 		centralPanel = new VerticalPanel();
 		cPanel.addMember(centralPanel);
@@ -93,9 +96,6 @@ public class UserResearchPerspectiveView extends Composite implements UserResear
 		db.addItem(new RootFilterItemAdvanced(centralPanel));
 
 
-
-
-
 		tree.addItem(db);
 		db.setState(true);
 		VLayout vLayout = new VLayout();
@@ -107,6 +107,7 @@ public class UserResearchPerspectiveView extends Composite implements UserResear
 	    vLayout.setResizeBarSize(9);
 	    //vLayout.r
 	    //ScrollPanel scr = new ScrollPanel(tree);
+	    
 	    
 	    
 	    //scr.setHeight("100%");

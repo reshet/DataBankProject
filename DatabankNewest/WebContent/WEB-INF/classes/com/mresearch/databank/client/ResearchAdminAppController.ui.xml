@@ -21,19 +21,18 @@
 			font: bold;
 		}
 	</ui:style>
-	<g:DockLayoutPanel unit='EM'>
-		<g:north size="5">
-			<g:HorizontalPanel styleName="{style.mainMenu}" width="100%">
+	<g:VerticalPanel>
+			<g:HorizontalPanel styleName="{style.mainMenu}">
 				<g:Anchor href="javascript:;" ui:field="bankNav" styleName="{style.mainMenu}">Банк данных</g:Anchor>
 				<g:Anchor href="javascript:;" ui:field="articlesNav" styleName="{style.mainMenu}">Статьи</g:Anchor>
 				<g:Anchor href="javascript:;" ui:field="logoutNav" styleName="{style.login}">
 					Выйти
 				</g:Anchor>
 			</g:HorizontalPanel>
-		</g:north>
-		<g:center>
-			<g:DockLayoutPanel unit="EM" ui:field="centerPanel">
-			</g:DockLayoutPanel>
-		</g:center>
-	</g:DockLayoutPanel>
+			<g:VerticalPanel ui:field="centerPanel" width="100%" height="100%">
+				<g:HTMLPanel>
+					<p>SOS!</p>
+				</g:HTMLPanel>
+			</g:VerticalPanel>
+	</g:VerticalPanel>
 </ui:UiBinder> 

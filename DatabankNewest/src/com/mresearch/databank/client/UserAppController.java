@@ -275,6 +275,7 @@ public class UserAppController implements ValueChangeHandler<String>, AppControl
       else if(token.startsWith("search-results")){
     	  String [] arr = token.split("=");
     	  String query = arr[1];
+    	
     	  
     	  
      	  ArrayList<String> param_names,param_values;
