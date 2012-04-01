@@ -36,7 +36,7 @@
 	</ui:style>
 	<g:VerticalPanel>
 	<g:HTMLPanel styleName="{style.tableStyle}">
-		<h2>Research detailes</h2>
+		<h3>Метаданные исследования</h3>
 		<table>
 			<tr>
 				<td >Объем выборки:</td>
