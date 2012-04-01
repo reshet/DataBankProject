@@ -114,7 +114,18 @@ public class UserResearchPerspectivePresenter implements Presenter
 			 int index = p_names.indexOf("showResearch");
 			 String id = p_values.get(index);
 			 display.findInResearchList(Long.parseLong(id));
+			 display.getCenterPanel().clear();
+				display.getCenterPanel().add(new HTML("<h2>Загрузка данных...</h2>"));
+				fetchResearchDetailes(Long.parseLong(id));
 			 // eventBus.fireEvent(new ShowResearchDetailsEvent(id));
+		 }
+		 if (p_names.contains("showVar"))
+		 {
+			 int index = p_names.indexOf("showVar");
+			 String id = p_values.get(index);
+			 display.getCenterPanel().clear();
+			 display.getCenterPanel().add(new HTML("<h2>Загрузка данных...</h2>"));
+			 fetchVariableDetailes(Long.parseLong(id));
 		 }
 	}
 	

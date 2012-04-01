@@ -44,7 +44,11 @@ import com.google.gwt.user.client.ui.ScrollPanel;
 import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.VerticalPanel;
 import com.google.gwt.user.client.ui.Widget;
+import com.mresearch.databank.client.event.ShowResearchDetailsEvent;
+import com.mresearch.databank.client.event.ShowResearchDetailsEventHandler;
 import com.mresearch.databank.client.event.ShowStartPageMainEvent;
+import com.mresearch.databank.client.event.ShowVarDetailsEvent;
+import com.mresearch.databank.client.event.ShowVarDetailsEventHandler;
 import com.mresearch.databank.client.presenters.Presenter;
 import com.mresearch.databank.client.presenters.StartPagePerspectivePresenter;
 //import com.mresearch.databank.client.presenters.UserLawPerspectivePresenter;
@@ -155,6 +159,23 @@ public class UserAppController implements ValueChangeHandler<String>, AppControl
 			popup.show();
 		}
 	});
+    
+    eventBus.addHandler(ShowResearchDetailsEvent.TYPE, new ShowResearchDetailsEventHandler() {
+		@Override
+		public void onShowResearchDetails(ShowResearchDetailsEvent event) {
+			 if(History.getToken().startsWith("search-results"))doViewUserResearch(event.getResearch_id());
+		}
+	});
+    
+    
+    
+    eventBus.addHandler(ShowVarDetailsEvent.TYPE, new ShowVarDetailsEventHandler() {
+		
+		@Override
+		public void onShowVarDetails(ShowVarDetailsEvent event) {
+			if(History.getToken().startsWith("search-results"))doViewUserResearchVar(event.getVar_id());
+		}
+	});
 //    eventBus.addHandler(FriendAddEvent.TYPE, new FriendAddEventHandler() {
 //      public void onAddFriend(FriendAddEvent event) {
 //        doAddNewFriend();
@@ -182,6 +203,12 @@ public class UserAppController implements ValueChangeHandler<String>, AppControl
   private void doViewUserResearch() {
 	    History.newItem("user-research");
  }
+  private void doViewUserResearch(long id) {
+	    History.newItem("user-research@showResearch="+id);
+}
+  private void doViewUserResearchVar(long id) {
+	    History.newItem("user-research@showVar="+id);
+  }
   private void doViewUserLaw() {
 	    History.newItem("user-law");
 }  private void doViewSearchResults(String searchstr)
@@ -255,7 +282,7 @@ public class UserAppController implements ValueChangeHandler<String>, AppControl
 //    	  presenter = new UserNewsPerspectivePresenter(startpageService, eventBus, new UserNewsPerspectiveView());
 //          presenter.go(centerPanel,null,null);
       } else if(token.startsWith("user-research")){
-    	  presenter = new UserResearchPerspectivePresenter(researchService, eventBus, new UserResearchPerspectiveView());
+    	  presenter = new UserResearchPerspectivePresenter(researchService, eventBus, new UserResearchPerspectiveView(eventBus));
     	  
     	  ArrayList<String> param_names,param_values;
     	  param_names = new ArrayList<String>();

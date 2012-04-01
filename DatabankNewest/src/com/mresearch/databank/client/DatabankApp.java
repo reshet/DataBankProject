@@ -56,8 +56,8 @@ public class DatabankApp implements EntryPoint {
 		 singleton = this; 
 		// initWidget(binder.createAndBindUi(this));
 		//initDefUsers();
-		//login("email","password");
-		login("research@admin.com","default");
+		login("email","password");
+		//login("research@admin.com","default");
 		
 		
 		
@@ -179,11 +179,13 @@ public class DatabankApp implements EntryPoint {
 		ScrollPanel outer  = binder.createAndBindUi(this);	
 		//outer.set
 		root = RootLayoutPanel.get();
+		root.clear();
 //		ScrollPanel scrol = new ScrollPanel();
 //		scrol.setWidth("100%");
 //		scrol.setHeight("100%");
 //		scrol.add(outer);
 		root.add(outer);
+		
 		
 		
 		

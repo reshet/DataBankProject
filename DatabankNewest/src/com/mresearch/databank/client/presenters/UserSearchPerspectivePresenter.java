@@ -174,6 +174,7 @@ public class UserSearchPerspectivePresenter implements Presenter
 			//	fetchResearchDetailes(event.getResearch_id());
 			}
 		});
+		//eventBus.
 		display.getSearchButton().addClickHandler(new ClickHandler() {
 			@Override
 			public void onClick(ClickEvent arg0) {
@@ -363,11 +364,11 @@ public class UserSearchPerspectivePresenter implements Presenter
 	        display.getCenterPanel().add(new HTML("<H3>ОТВЕТ ДВИЖКА:</H3><br><p>" + result + "</p>"));
 	        if(display.getTypesToSearch().length == 1)
 	        {
-	        	display.getCenterPanel().add(new SearchResultsGrid(tot, hiters, mapping));
+	        	display.getCenterPanel().add(new SearchResultsGrid(eventBus,tot, hiters, mapping));
 	        }
 	        if(display.getTypesToSearch().length > 1)
 	        {
-	        	display.getCenterPanel().add(new SearchResultsGenericGrid(tot, hiters));
+	        	display.getCenterPanel().add(new SearchResultsGenericGrid(eventBus,tot, hiters));
 	        }
 	 
 	      }

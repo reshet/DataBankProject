@@ -34,6 +34,8 @@ import com.google.gwt.user.client.ui.DockLayoutPanel;
 import com.google.gwt.user.client.ui.ScrollPanel;
 import com.google.gwt.user.client.ui.VerticalPanel;
 import com.google.gwt.user.client.ui.Widget;
+import com.mresearch.databank.client.event.ShowResearchDetailsEvent;
+import com.mresearch.databank.client.event.ShowResearchDetailsEventHandler;
 import com.mresearch.databank.client.event.ShowStartPageMainEvent;
 import com.mresearch.databank.client.presenters.AdminResearchPerspectivePresenter;
 import com.mresearch.databank.client.presenters.Presenter;
@@ -104,7 +106,7 @@ public class ResearchAdminAppController implements ValueChangeHandler<String>, A
 			DatabankApp.get().login("email", "pass");
 		}
 	});
-   
+    
 //    eventBus.addHandler(FriendAddEvent.TYPE, new FriendAddEventHandler() {
 //      public void onAddFriend(FriendAddEvent event) {
 //        doAddNewFriend();

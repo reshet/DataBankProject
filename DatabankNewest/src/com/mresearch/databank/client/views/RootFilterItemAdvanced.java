@@ -3,6 +3,7 @@ package com.mresearch.databank.client.views;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
+import com.google.gwt.event.shared.SimpleEventBus;
 import com.google.gwt.json.client.JSONArray;
 import com.google.gwt.json.client.JSONNumber;
 import com.google.gwt.json.client.JSONObject;
@@ -46,7 +47,7 @@ public class RootFilterItemAdvanced extends TreeItem
   private CheckBox doUseFilters;
   private UserSocioResearchServiceAsync service = (UserSocioResearchServiceAsync)GWT.create(UserSocioResearchService.class);
   private AdminSocioResearchServiceAsync service_adm = AdminSocioResearchService.Util.getInstance();
-
+  private SimpleEventBus bus;
   private final ArrayList<IFilterProvider> allFiltersRegister = new ArrayList();
 
   private HashMap<String, String> mapping = new HashMap();
@@ -163,12 +164,12 @@ public class RootFilterItemAdvanced extends TreeItem
     }
   }
 
-  public RootFilterItemAdvanced(VerticalPanel display)
+  public RootFilterItemAdvanced(VerticalPanel display,SimpleEventBus ev_bus)
   {
     this.doFilterBtn = new Button("Поехали!");
     this.doUseFilters = new CheckBox("Фильтровать иследования");
     this.results_viewer = display;
-
+    this.bus = ev_bus;
     setWidget(this.doUseFilters);
 
     new RPCCall<MetaUnitMultivaluedEntityDTO>()
@@ -272,7 +273,7 @@ public class RootFilterItemAdvanced extends TreeItem
         RootFilterItemAdvanced.this.results_viewer.add(new HTML("<H2>ПОИСКОВЫЙ ЗАПРОС:</H2><br><p>" + query + "</p>"));
         RootFilterItemAdvanced.this.results_viewer.add(new HTML("<H3>ОТВЕТ ДВИЖКА:</H3><br><p>" + result + "</p>"));
 
-        RootFilterItemAdvanced.this.results_viewer.add(new SearchResultsGrid(tot, hiters, RootFilterItemAdvanced.this.mapping));
+        RootFilterItemAdvanced.this.results_viewer.add(new SearchResultsGrid(bus,tot, hiters, RootFilterItemAdvanced.this.mapping));
       }
 
       protected void callService(AsyncCallback<String> cb)

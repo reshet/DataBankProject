@@ -20,6 +20,7 @@ import com.google.gwt.event.logical.shared.OpenHandler;
 import com.google.gwt.event.logical.shared.SelectionEvent;
 import com.google.gwt.event.logical.shared.SelectionHandler;
 import com.google.gwt.event.shared.GwtEvent;
+import com.google.gwt.event.shared.SimpleEventBus;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.uibinder.client.UiHandler;
@@ -67,7 +68,7 @@ public class UserResearchPerspectiveView extends Composite implements UserResear
 	RootConceptsList rootResearchConcepts;
 	private Long research_to_find =null;
 	private ArrayList<SocioResearchDTO> researchList;
-	public UserResearchPerspectiveView() {
+	public UserResearchPerspectiveView(SimpleEventBus bus) {
 		initWidget(uiBinder.createAndBindUi(this));
 		panel = new HLayout();
 		//panel.setWidth100();
@@ -93,7 +94,7 @@ public class UserResearchPerspectiveView extends Composite implements UserResear
 		db.addItem(simpleResearchListItem);
 		rootResearchConcepts = new RootConceptsList("SocioResearch","Концепты каталогизации исследований");
 		db.addItem(rootResearchConcepts);
-		db.addItem(new RootFilterItemAdvanced(centralPanel));
+		db.addItem(new RootFilterItemAdvanced(centralPanel,bus));
 
 
 		tree.addItem(db);
