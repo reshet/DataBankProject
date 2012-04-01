@@ -58,16 +58,20 @@ public class MultiValuedEntity extends Composite implements MetaUnitFiller,MetaU
 	private HashMap<String,String> filling;
 	private long previous_item_id;
 	private String previous_item_name;
-	public MultiValuedEntity(MetaUnitMultivaluedEntityDTO dto,JSON_Representation represent,HashMap<String,String> filling) {
+	private String base_name;
+	public MultiValuedEntity(MetaUnitMultivaluedEntityDTO dto,JSON_Representation represent,HashMap<String,String> filling,String base_name) {
 		initWidget(uiBinder.createAndBindUi(this));
 		this.dto = dto;
 		entity_name.setText(dto.getDesc());
 		this.filling = filling;
-		items_list.setMultipleSelect(dto.isIsMultiselected());
+		this.base_name = base_name;
+		//items_list.setMultipleSelect(dto.isIsMultiselected());
 		//items_list.setVisibleItemCount(1);
 		//renderSubUnits();
 		refreshMembersList();
 	}
+	
+	
 	  @UiHandler({"add"})
 	  public void addCmd(ClickEvent ev) {
 	    PopupPanel p = new PopupPanel();
@@ -75,7 +79,7 @@ public class MultiValuedEntity extends Composite implements MetaUnitFiller,MetaU
 	    p.setModal(true);
 	    p.setPopupPosition(200, 200);
 	    p.setSize("300px", "400px");
-	    p.setWidget(new ItemCreator(new MultiValuedField(this.dto, null, new HashMap()), this, p));
+	    p.setWidget(new ItemCreator(new MultiValuedField(this.dto, null, new HashMap(),dto.getUnique_name()), this, p));
 	    p.show();
 	  }
 	 @UiHandler({"addsub"})
@@ -90,10 +94,12 @@ public class MultiValuedEntity extends Composite implements MetaUnitFiller,MetaU
 	    {
 	      Long id = (Long)this.dto.getItem_ids().get(ind);
 	      Long id_ent = Long.valueOf(this.dto.getId());
-	      p.setWidget(new SubItemCreator(id.longValue(), new MultiValuedField(this.dto, null, new HashMap()), this, p));
+	      p.setWidget(new SubItemCreator(id.longValue(), new MultiValuedField(this.dto, null, new HashMap(),dto.getUnique_name()), this, p));
 	      p.show();
 	    }
 	  }
+	 
+	 
 	@UiHandler(value="delete") 
 	public void delCmd(ClickEvent ev)
 	{
@@ -127,7 +133,7 @@ public class MultiValuedEntity extends Composite implements MetaUnitFiller,MetaU
 		p.setModal(true);
 		p.setPopupPosition(400, 400);
 		p.setSize("800px", "800px");
-		p.setWidget(new FieldEditor(new MultiValuedField(dto, null, filling),p));
+		p.setWidget(new FieldEditor(new MultiValuedField(dto, null, filling,dto.getUnique_name()),p));
 		p.show();	
 	}
 	
@@ -154,7 +160,7 @@ public class MultiValuedEntity extends Composite implements MetaUnitFiller,MetaU
 					//p.setWidget(new EntityItemEditor(new MultiValuedField(dto, null, result),id,name,p));
 					//p.show();	
 					
-			          MultiValuedField f = new MultiValuedField(MultiValuedEntity.this.dto, null, result);
+			          MultiValuedField f = new MultiValuedField(MultiValuedEntity.this.dto, null, result,dto.getUnique_name());
 			          EntityItemEditor ed = new EntityItemEditor(f, MultiValuedEntity.this, id, name, p);
 			          p.setWidget(ed);
 			          p.show();
@@ -203,7 +209,7 @@ public class MultiValuedEntity extends Composite implements MetaUnitFiller,MetaU
 //				subunits_table.setWidget(i++, 0, new SimpleStringField(dto_str,null));
 //			}else
 //			if(dto instanceof MetaUnitDateDTO)
-//			{
+//			{ 
 //				MetaUnitDateDTO dto_str = (MetaUnitDateDTO)dto;
 //				subunits_table.setWidget(i++, 0, new SimpleDateField(dto_str,null));
 //			}else
@@ -215,9 +221,9 @@ public class MultiValuedEntity extends Composite implements MetaUnitFiller,MetaU
 //			}
 			items_list.addItem(dto_name);
 		}
-		if(filling.containsKey(dto.getUnique_name()))
+		if(filling.containsKey(base_name+"_"+dto.getUnique_name()))
 		{
-			  String val = (String)this.filling.get(this.dto.getUnique_name());
+			  String val = (String)this.filling.get(base_name+"_"+this.dto.getUnique_name());
 		      if (val != null)
 		      {
 		        int index = this.dto.getItem_names().indexOf(val);
@@ -233,7 +239,7 @@ public class MultiValuedEntity extends Composite implements MetaUnitFiller,MetaU
 	{
 		JSONObject obj = new JSONObject();
 
-	    obj.put(this.dto.getUnique_name(), new JSONString(this.items_list.getItemText(this.items_list.getSelectedIndex())));
+	    obj.put(base_name+"_"+this.dto.getUnique_name(), new JSONString(this.items_list.getItemText(this.items_list.getSelectedIndex())));
 	    this.current_json = new JSON_Representation(obj);
 	    
 	    //this.populateItemsLinksTo(id, identifier);
@@ -241,7 +247,7 @@ public class MultiValuedEntity extends Composite implements MetaUnitFiller,MetaU
 	}
 	@Override
 	public String getUniqueName() {
-		return dto.getUnique_name();
+		return base_name+"_"+dto.getUnique_name();
 	}
 	@Override
 	public JSON_Representation getJSON() {
@@ -254,7 +260,7 @@ public class MultiValuedEntity extends Composite implements MetaUnitFiller,MetaU
 		 int index = 0;
 		    if (this.items_list.getItemCount() <= 0) return null;
 		    if (this.items_list.getSelectedIndex() != -1) index = this.items_list.getSelectedIndex();
-		    LinkedList selectedItems = new LinkedList();
+		    LinkedList<Integer> selectedItems = new LinkedList<Integer>();
 		    for (int i = 0; i < this.items_list.getItemCount(); i++) {
 		      if (this.items_list.isItemSelected(i)) {
 		        selectedItems.add(Integer.valueOf(i));

@@ -1,6 +1,7 @@
 package com.mresearch.databank.client.views;
 
 import java.util.ArrayList;
+import java.util.Collection;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.HasClickHandlers;
@@ -13,6 +14,7 @@ import com.google.gwt.event.logical.shared.OpenHandler;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.Window;
+import com.google.gwt.user.client.rpc.core.java.util.Collections;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.CheckBox;
 import com.google.gwt.user.client.ui.Composite;
@@ -146,7 +148,9 @@ public class UserSearchPerspectiveView extends Composite implements UserSearchPe
 		if(laws.getValue())types.add("law");
 		if(publications.getValue())types.add("publication");
 		if(consults.getValue())types.add("consult");
-		
-		return (String[]) types.toArray();
+		String [] arr = new String[types.size()];
+		types.toArray(arr);
+
+		return arr;
 	}
 }

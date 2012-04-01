@@ -109,7 +109,7 @@ public class AdminResearchEditView extends Composite implements AdminResearchDet
 	private void renderDBfillers()
 	{
 		elasticDBfields.clear();
-		mv = new MultiValuedField(_db_, null,dto.getFilling());
+		mv = new MultiValuedField(_db_, null,dto.getFilling(),_db_.getUnique_name());
 		elasticDBfields.add(mv);
 	}
 	public void addPublication(String name,String doi,String url)

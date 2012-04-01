@@ -46,7 +46,7 @@ public class SimpleDateFieldViewer extends Composite {
     private MetaUnitDateDTO dto;
     private JSON_Representation current_json;
     private String def_val;
-	public SimpleDateFieldViewer(MetaUnitDateDTO dto,JSON_Representation filling,String def_val) {
+   public SimpleDateFieldViewer(MetaUnitDateDTO dto,JSON_Representation filling,String def_val) {
 		initWidget(uiBinder.createAndBindUi(this));
 		this.dto = dto;
 		this.current_json = filling;

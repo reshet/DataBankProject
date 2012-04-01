@@ -83,43 +83,43 @@ public class FieldCreator extends Composite {
 		if(val.equals("Текстовое поле"))
 		{
 			dto = new MetaUnitStringDTO(new Long(0), field_name.getText(), unique_name.getText());
-			w = new SimpleStringField((MetaUnitStringDTO)dto, null, null);
+			w = new SimpleStringField((MetaUnitStringDTO)dto, null, null,field.getUniqueName());
 			addFieldToDB(dto,w);
 		}
 		if(val.equals("Целое числовое поле"))
 		{
 			dto = new MetaUnitIntegerDTO(new Long(0), field_name.getText(), unique_name.getText());
-			w = new SimpleIntegerField((MetaUnitIntegerDTO)dto, null, null);
+			w = new SimpleIntegerField((MetaUnitIntegerDTO)dto, null, null,field.getUniqueName());
 			addFieldToDB(dto,w);
 		}
 		if(val.equals("Рациональное числовое поле"))
 		{
 			dto = new MetaUnitDoubleDTO(new Long(0), field_name.getText(), unique_name.getText());
-			w = new SimpleDoubleField((MetaUnitDoubleDTO)dto, null, null);
+			w = new SimpleDoubleField((MetaUnitDoubleDTO)dto, null, null,field.getUniqueName());
 			addFieldToDB(dto,w);
 		}
 		if(val.equals("Поле выбора даты"))
 		{
 			dto = new MetaUnitDateDTO(new Long(0), field_name.getText(), unique_name.getText());
-			w = new SimpleDateField((MetaUnitDateDTO)dto, null, null);
+			w = new SimpleDateField((MetaUnitDateDTO)dto, null, null,field.getUniqueName());
 			addFieldToDB(dto,w);
 		}
 		if(val.equals("Поле файла"))
 		{
 			dto = new MetaUnitFileDTO(new Long(0), field_name.getText(), unique_name.getText());
-			w = new SimpleFileField((MetaUnitFileDTO)dto, null, null);
+			w = new SimpleFileField((MetaUnitFileDTO)dto, null, null,field.getUniqueName());
 			addFieldToDB(dto,w);
 		}
 		if(val.equals("Cтруктурный тег"))
 		{
 			dto = new MetaUnitMultivaluedStructureDTO(new Long(0), field_name.getText(), unique_name.getText());;
-			w = new MultiValuedField((MetaUnitMultivaluedStructureDTO)dto, null, null);
+			w = new MultiValuedField((MetaUnitMultivaluedStructureDTO)dto, null, null,field.getUniqueName());
 			addFieldToDB(dto,w);
 		}
 		if(val.equals("Cущность"))
 		{
 			dto = new MetaUnitMultivaluedEntityDTO(new Long(0), field_name.getText(), unique_name.getText());;
-			w = new MultiValuedEntity((MetaUnitMultivaluedEntityDTO)dto, null, null);
+			w = new MultiValuedEntity((MetaUnitMultivaluedEntityDTO)dto, null, null,field.getUniqueName());
 			addFieldToDB(dto,w);
 		}
 		par.hide();

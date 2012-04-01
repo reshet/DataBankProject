@@ -35,6 +35,7 @@ import com.mresearch.databank.shared.MetaUnitMultivaluedEntityDTO;
 import com.mresearch.databank.shared.MetaUnitMultivaluedStructureDTO;
 import com.mresearch.databank.shared.MetaUnitStringDTO;
 import com.mresearch.databank.shared.SocioResearchDTO;
+import com.sun.xml.ws.security.opt.impl.incoming.processor.BSTProcessor;
 
 public class MultiValuedFieldViewer extends Composite {
 
@@ -53,11 +54,13 @@ public class MultiValuedFieldViewer extends Composite {
 	@UiField FlexTable subunits_table;
 	public MetaUnitMultivaluedDTO dto;
 	private HashMap<String,String> filling;
-	public MultiValuedFieldViewer(MetaUnitMultivaluedDTO dto,HashMap<String,String> fill) {
+	private String base_name;
+	public MultiValuedFieldViewer(MetaUnitMultivaluedDTO dto,HashMap<String,String> fill, String base_name) {
 		initWidget(uiBinder.createAndBindUi(this));
 		this.dto = dto;
 		this.filling = fill;
 		field_name.setText(dto.getDesc());
+		this.base_name = base_name;
 		renderSubUnits();
 	}
 	
@@ -74,46 +77,46 @@ public class MultiValuedFieldViewer extends Composite {
 			{
 				MetaUnitStringDTO dto_str = (MetaUnitStringDTO)dto;
 				String def_val= null;
-				if(filling.containsKey(dto.getUnique_name()))def_val = filling.get(dto.getUnique_name());
+				if(filling.containsKey(base_name+"_"+dto.getUnique_name()))def_val = filling.get(base_name+"_"+dto.getUnique_name());
 				subunits_table.setWidget(i++, 0, new SimpleStringFieldViewer(dto_str,null,def_val));
 			}else
 			if(dto instanceof MetaUnitDateDTO)
 			{
 				MetaUnitDateDTO dto_str = (MetaUnitDateDTO)dto;
 				String def_val= null;
-				if(filling.containsKey(dto.getUnique_name()))def_val = filling.get(dto.getUnique_name());
+				if(filling.containsKey(base_name+"_"+dto.getUnique_name()))def_val = filling.get(base_name+"_"+dto.getUnique_name());
 				subunits_table.setWidget(i++, 0, new SimpleDateFieldViewer(dto_str,null,def_val));
 			}
 			if(dto instanceof MetaUnitIntegerDTO)
 			{
 				MetaUnitIntegerDTO dto_str = (MetaUnitIntegerDTO)dto;
 				String def_val= null;
-				if(filling.containsKey(dto.getUnique_name()))def_val = filling.get(dto.getUnique_name());
+				if(filling.containsKey(base_name+"_"+dto.getUnique_name()))def_val = filling.get(base_name+"_"+dto.getUnique_name());
 				subunits_table.setWidget(i++, 0, new SimpleIntegerFieldViewer(dto_str,null,def_val));
 			}
 			if(dto instanceof MetaUnitDoubleDTO)
 			{
 				MetaUnitDoubleDTO dto_str = (MetaUnitDoubleDTO)dto;
 				String def_val= null;
-				if(filling.containsKey(dto.getUnique_name()))def_val = filling.get(dto.getUnique_name());
+				if(filling.containsKey(base_name+"_"+dto.getUnique_name()))def_val = filling.get(base_name+"_"+dto.getUnique_name());
 				subunits_table.setWidget(i++, 0, new SimpleDoubleFieldViewer(dto_str,null,def_val));
 			}else
 			if(dto instanceof MetaUnitFileDTO)
 			{
 				MetaUnitFileDTO dto_str = (MetaUnitFileDTO)dto;
 				String def_val= null;
-				if(filling.containsKey(dto.getUnique_name()))def_val = filling.get(dto.getUnique_name());
+				if(filling.containsKey(base_name+"_"+dto.getUnique_name()))def_val = filling.get(base_name+"_"+dto.getUnique_name());
 				subunits_table.setWidget(i++, 0, new SimpleFileFieldViewer(dto_str,null,def_val));
 			}else				
 			if(dto instanceof MetaUnitMultivaluedStructureDTO)
 			{
 				MetaUnitMultivaluedStructureDTO dto_str = (MetaUnitMultivaluedStructureDTO)dto;
-				subunits_table.setWidget(i++, 0, new MultiValuedFieldViewer(dto_str,filling));
+				subunits_table.setWidget(i++, 0, new MultiValuedFieldViewer(dto_str,filling,base_name));
 			}else
 			if(dto instanceof MetaUnitMultivaluedEntityDTO)
 			{
 				MetaUnitMultivaluedEntityDTO dto_str = (MetaUnitMultivaluedEntityDTO)dto;
-				subunits_table.setWidget(i++, 0, new MultiValuedEntityViewer(dto_str,null,filling));
+				subunits_table.setWidget(i++, 0, new MultiValuedEntityViewer(dto_str,null,filling,base_name));
 			}
 		}
 	}	

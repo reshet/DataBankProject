@@ -110,6 +110,7 @@ public class UserResearchPerspectiveView extends Composite implements UserResear
 	    
 	    
 	    
+	    
 	    //scr.setHeight("100%");
 	    //scr.setWidth("100%");
 	    vLayout.addMember(tree);

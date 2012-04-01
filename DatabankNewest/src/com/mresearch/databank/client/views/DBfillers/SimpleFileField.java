@@ -49,7 +49,8 @@ public class SimpleFileField extends Composite implements MetaUnitFiller{
     private JSON_Representation current_json;
     private String value;
 	private ArrayList<Long> uploaded_files = new ArrayList<Long>();
-	public SimpleFileField(MetaUnitFileDTO dto,JSON_Representation filling,String def_value) {
+	private String base_name;
+	public SimpleFileField(MetaUnitFileDTO dto,JSON_Representation filling,String def_value,String base_name) {
 		initWidget(uiBinder.createAndBindUi(this));
 		this.dto = dto;
 		this.current_json = filling;
@@ -128,7 +129,7 @@ public class SimpleFileField extends Composite implements MetaUnitFiller{
 	
 	@Override
 	public String getUniqueName() {
-		return dto.getUnique_name();
+		return base_name+"_"+dto.getUnique_name();
 	}
 	@Override
 	public JSON_Representation getJSON() {

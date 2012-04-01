@@ -42,11 +42,13 @@ public class SimpleDoubleField extends Composite implements MetaUnitFiller{
     private MetaUnitDoubleDTO dto;
     private JSON_Representation current_json;
     private String def_value;
-	public SimpleDoubleField(MetaUnitDoubleDTO dto,JSON_Representation filling,String def_value) {
+    private String base_name;
+	public SimpleDoubleField(MetaUnitDoubleDTO dto,JSON_Representation filling,String def_value,String base_name) {
 		initWidget(uiBinder.createAndBindUi(this));
 		this.dto = dto;
 		this.current_json = filling;
 		this.def_value = def_value;
+		this.base_name = base_name;
 		initFields();
 	}
 	private void initFields()
@@ -58,7 +60,7 @@ public class SimpleDoubleField extends Composite implements MetaUnitFiller{
 	{
 	    JSONObject obj = new JSONObject();
 
-	    obj.put(this.dto.getUnique_name(), new JSONString(this.contents.getText()));
+	    obj.put(base_name + "_"+this.dto.getUnique_name(), new JSONString(this.contents.getText()));
 	    this.current_json = new JSON_Representation(obj);
 	}
 //	@Override
@@ -72,7 +74,7 @@ public class SimpleDoubleField extends Composite implements MetaUnitFiller{
 //	}
 	@Override
 	public String getUniqueName() {
-		return dto.getUnique_name();
+		return base_name+"_"+dto.getUnique_name();
 	}
 	@Override
 	public JSON_Representation getJSON() {

@@ -55,11 +55,13 @@ public class MultiValuedEntityViewer extends Composite{
 	@UiField Label items_list;
 	private MetaUnitMultivaluedEntityDTO dto;
 	private HashMap<String,String> filling;
-	public MultiValuedEntityViewer(MetaUnitMultivaluedEntityDTO dto,JSON_Representation represent,HashMap<String,String> filling) {
+	private String base_name;
+	public MultiValuedEntityViewer(MetaUnitMultivaluedEntityDTO dto,JSON_Representation represent,HashMap<String,String> filling,String base_name) {
 		initWidget(uiBinder.createAndBindUi(this));
 		this.dto = dto;
 		entity_name.setText(dto.getDesc());
 		this.filling = filling;
+		this.base_name = base_name;
 		renderSubUnits();
 	}
 	
@@ -68,9 +70,9 @@ public class MultiValuedEntityViewer extends Composite{
 		items_list.setText("");
 		ArrayList<String> base = dto.getItem_names();
 
-		if(filling.containsKey(dto.getUnique_name()))
+		if(filling.containsKey(base_name+"_"+dto.getUnique_name()))
 		{
-			  String val = (String)this.filling.get(this.dto.getUnique_name());
+			  String val = (String)this.filling.get(base_name+"_"+this.dto.getUnique_name());
 		      if (val != null)
 		      {
 		    	  items_list.setText(val);
