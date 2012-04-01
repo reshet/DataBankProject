@@ -2,33 +2,23 @@
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
 	xmlns:g="urn:import:com.google.gwt.user.client.ui">
 	<ui:style>
-		.important {
-			font-weight: bold;
-		}
 		.category
 		{
 			color: #772222;
 			font-weight: bold;
 			font: 16px;
 			vertical-align: text-top;
-			font: NeoSans;
 		}
 		.tableResearch
 		{
 			font-weight: normal;
 			background-color: #88AA66;
-			padding: 15px;
+			padding: 7px;
 			margin-left: 20px;
 		}
 	</ui:style>
 	<g:HTMLPanel>
 		<g:Label ui:field="field_name" styleName="{style.category}"></g:Label>
-		<table class="{style.tableResearch}" cellSpacing="20px">
-			<tr>
-				<td>
-					<g:FlexTable ui:field="subunits_table"></g:FlexTable>
-				</td>
-			</tr>			
-		</table>
+		<g:FlexTable ui:field="subunits_table" styleName="{style.tableResearch}"></g:FlexTable>
 	</g:HTMLPanel>
 </ui:UiBinder> 

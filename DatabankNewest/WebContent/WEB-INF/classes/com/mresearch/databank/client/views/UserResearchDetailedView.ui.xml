@@ -35,30 +35,14 @@
 		
 	</ui:style>
 	<g:VerticalPanel>
-	<g:HTMLPanel styleName="{style.tableStyle}">
-		<h3>Метаданные исследования</h3>
-		<table>
-			<tr>
-				<td >Объем выборки:</td>
-				<td><g:Label ui:field="selectionSize">"Selection" size</g:Label></td>
-			</tr>
-			<tr>
-				<td>Публикации, связаные с исследованием:</td>
-				<td>
-					<g:FlexTable ui:field="flexPubl_tbl">	
-					</g:FlexTable>
-				</td>
-			</tr>
-			<tr>
-				<td>Исследователи, связаные с проектом:</td>
-				<td><g:Label ui:field="researchers">Researchers: Paniotto-Co</g:Label></td>
-			</tr>
-			<tr>
-				<td>Взвешивание:</td>
-				<td><g:Label ui:field="weights">Без взвешивания.</g:Label></td>
-			</tr>
-		</table>
-	</g:HTMLPanel>	
+		<g:HTMLPanel styleName="{style.tableStyle}">
+			<h3>Метаданные исследования</h3>
+		</g:HTMLPanel>	
 		<g:VerticalPanel ui:field="elasticDBfields"></g:VerticalPanel>
+		<g:HorizontalPanel>
+				<g:Label>Взвешивание:</g:Label>
+				<g:Label ui:field="weights">Без взвешивания.</g:Label>
+		</g:HorizontalPanel>
+		
 	</g:VerticalPanel>
 </ui:UiBinder> 

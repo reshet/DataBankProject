@@ -38,5 +38,6 @@ void getResearch(long id, AsyncCallback<SocioResearchDTO> callback);
 	void getResearchDTOs(ArrayList<Long> keys,
 			AsyncCallback<ArrayList<SocioResearchDTO>> callback);
 	void getOrgList(AsyncCallback<ArrayList<OrgDTO>> callback);
-	void doIndexSearch(String json_query, AsyncCallback<String> callback);
+	void doIndexSearch(String json_query, String[] types_to_search,
+			AsyncCallback<String> callback);
 }

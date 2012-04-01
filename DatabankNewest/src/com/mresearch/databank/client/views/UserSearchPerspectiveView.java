@@ -48,6 +48,7 @@ public class UserSearchPerspectiveView extends Composite implements UserSearchPe
 	//@UiField FlexTable res_table;
 	//@UiField Label queryStr;
 	SimpleResearchList simpleResearchListItem;
+	@UiField CheckBox all,socioresearch,sociovars,laws,publications,consults;
 	//@UiField ImprovedSearchView impr_search_view;
 	private ArrayList<SearchResultDTO> resultsList;
 	public UserSearchPerspectiveView() {
@@ -134,5 +135,18 @@ public class UserSearchPerspectiveView extends Composite implements UserSearchPe
 	public VerticalPanel asRoot() {
 		// TODO Auto-generated method stub
 		return root_panel;
+	}
+	@Override
+	public String[] getTypesToSearch() {
+		ArrayList<String> types = new ArrayList<String>();
+		if(all.getValue()) return new String[]{"research","var","law","consult","publication"};
+		
+		if(socioresearch.getValue())types.add("research");
+		if(sociovars.getValue())types.add("var");
+		if(laws.getValue())types.add("law");
+		if(publications.getValue())types.add("publication");
+		if(consults.getValue())types.add("consult");
+		
+		return (String[]) types.toArray();
 	}
 }

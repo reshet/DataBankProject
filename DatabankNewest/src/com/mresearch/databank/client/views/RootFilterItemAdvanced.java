@@ -238,6 +238,7 @@ public class RootFilterItemAdvanced extends TreeItem
     }
     int b = 2;
 
+    final String [] types_to_search = {"research"};
     new RPCCall<String>()
     {
       public void onFailure(Throwable caught)
@@ -276,7 +277,7 @@ public class RootFilterItemAdvanced extends TreeItem
 
       protected void callService(AsyncCallback<String> cb)
       {
-        RootFilterItemAdvanced.this.service.doIndexSearch(query, cb);
+        RootFilterItemAdvanced.this.service.doIndexSearch(query,types_to_search, cb);
       }
     }
     .retry(2);

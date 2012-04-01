@@ -2,9 +2,6 @@
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
 	xmlns:g="urn:import:com.google.gwt.user.client.ui">
 	<ui:style>
-		.important {
-			font-weight: bold;
-		}
 		.category
 		{
 			color: #773344;
@@ -14,16 +11,8 @@
 			font: NeoSans;
 		}
 	</ui:style>
-	<g:HTMLPanel>
-		<table>
-			<tr>
-				<td>
-					<g:Label ui:field="field_name" styleName="{style.category}"></g:Label>
-				</td>
-				<td>
-					<g:Label ui:field="contents"></g:Label>
-				</td>
-			</tr>
-		</table>
-	</g:HTMLPanel>
+	<g:HorizontalPanel>
+		<g:Label ui:field="field_name" styleName="{style.category}"></g:Label>
+		<g:Label ui:field="contents"></g:Label>
+	</g:HorizontalPanel>
 </ui:UiBinder> 

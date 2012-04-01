@@ -34,6 +34,7 @@ import com.mresearch.databank.shared.MetaUnitMultivaluedDTO;
 import com.mresearch.databank.shared.MetaUnitMultivaluedEntityDTO;
 import com.mresearch.databank.shared.MetaUnitMultivaluedStructureDTO;
 import com.mresearch.databank.shared.MetaUnitStringDTO;
+import com.mresearch.databank.shared.SocioResearchDTO;
 
 public class MultiValuedFieldViewer extends Composite {
 
@@ -52,7 +53,7 @@ public class MultiValuedFieldViewer extends Composite {
 	@UiField FlexTable subunits_table;
 	public MetaUnitMultivaluedDTO dto;
 	private HashMap<String,String> filling;
-	public MultiValuedFieldViewer(MetaUnitMultivaluedDTO dto,JSON_Representation represent,HashMap<String,String> fill) {
+	public MultiValuedFieldViewer(MetaUnitMultivaluedDTO dto,HashMap<String,String> fill) {
 		initWidget(uiBinder.createAndBindUi(this));
 		this.dto = dto;
 		this.filling = fill;
@@ -107,7 +108,7 @@ public class MultiValuedFieldViewer extends Composite {
 			if(dto instanceof MetaUnitMultivaluedStructureDTO)
 			{
 				MetaUnitMultivaluedStructureDTO dto_str = (MetaUnitMultivaluedStructureDTO)dto;
-				subunits_table.setWidget(i++, 0, new MultiValuedFieldViewer(dto_str,null,filling));
+				subunits_table.setWidget(i++, 0, new MultiValuedFieldViewer(dto_str,filling));
 			}else
 			if(dto instanceof MetaUnitMultivaluedEntityDTO)
 			{

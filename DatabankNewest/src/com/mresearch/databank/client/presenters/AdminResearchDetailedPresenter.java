@@ -47,47 +47,12 @@ public class AdminResearchDetailedPresenter implements Presenter{
 	public interface EditDisplay
 	 {
 		 long getResearchID();
-		 ArrayList<String> getConcepts();
-		 ArrayList<String> getPublications();
-		 ArrayList<String> getPublications_dois();
-		 ArrayList<String> getPublications_urls();
-		 ArrayList<String> getResearchers();
-		 String getMethod();
-		 Long getOrgImplID();
-		 Long getOrgOrderedID();
-		 String getSelectionApprchCompl();
-		 String getSelectionApprchRand();
-		 
-		 int getSelectionSize();
-		 String getGenerealG();
-		 Date getStartDate();
-		 Date getEndDate();
-		 String getName();	
 		 long getWeightVarID();
 		 HasClickHandlers getCondirmBtn();
 		 HasClickHandlers getDeleteBtn();
-		 HasClickHandlers getAddOrgImplPopup();
-		 
-		 HasClickHandlers getAddOrgOrderPopup();
-		 
-		 HasClickHandlers getCancelAddOrgBtn();
-		 HasClickHandlers getAddOrgImplBtn();
-		 HasClickHandlers getAddOrgOrderBtn();
-		 void setOrgImpl(ArrayList<String> names,ArrayList<Long> ids);
-		 String getOrgImplName(long org_impl_id);
-		 String getOrgOrderName(long org_order_id);
 		 String getWeightVarName(long weight_var_id);
-		 void setOrgOrder(ArrayList<String> names,ArrayList<Long> ids);	 
 		 void setVarsWeight(ArrayList<String> names,ArrayList<Long> ids);
-		 void setGenGeaths(ArrayList<SSE_DTO> sses);
-		 void setMethods(ArrayList<SSE_DTO> sses);
-		 void setResearches(ArrayList<SSE_DTO> sses);
-		 void setConcepts(ArrayList<SSE_DTO> sses);
 		 Widget asWidget();
-		 OrgDTO getAddOrgDTO();
-		 Widget getPopupAddOrg();
-		 void setOrgPopupPosition(int x, int y);
-		 void setOrgPopupVisibility(boolean b);
 		 MetaUnitFiller getDBfiller();
 		 MetaUnitCollector getDBcollector();
 		 MetaUnitEntityItemRegistrator getDBregistrator();
@@ -169,13 +134,8 @@ public class AdminResearchDetailedPresenter implements Presenter{
 	public void go(HasWidgets container,ArrayList<String> p_names,ArrayList<String> p_values) {
 		 container.clear();
 		 container.add(display.asWidget());
-		 fetchOrgLists();
 		 fetchWeightVarCandidates(edit_display.getResearchID());
 		 fetchResearchListData();
-		 fetchGenGeathCloud();
-		 fetchMethodCloud();
-		 fetchResearchersCloud();
-		 fetchConceptsCloud();
 		 //fetchDatabankStructure();
 	}
 	public void bind()
@@ -187,43 +147,10 @@ public class AdminResearchDetailedPresenter implements Presenter{
 				fetchResearchDetailes(res_id);
 			}
 		});
-		edit_display.getAddOrgImplBtn().addClickHandler(new ClickHandler() {
-			@Override
-			public void onClick(ClickEvent event) {
-				addOrgImpl(edit_display.getAddOrgDTO());
-				edit_display.setOrgPopupVisibility(false);
-			}
-		});
-		edit_display.getCancelAddOrgBtn().addClickHandler(new ClickHandler() {
-			@Override
-			public void onClick(ClickEvent event) {
-				edit_display.setOrgPopupVisibility(false);
-			}
-		});
-		
-		edit_display.getAddOrgImplPopup().addClickHandler(new ClickHandler() {
-			@Override
-			public void onClick(ClickEvent event) {
-//				PopupPanel p = new PopupPanel();
-//				p.setSize("400px", "400px");
-//				p.setVisible(true);
-//				p.setPopupPosition(event.getClientX(), event.getClientY());
-//				p.add(new Label("Some text !!!!!!!!!!!"));
-//				p.show();
-				edit_display.setOrgPopupPosition(event.getClientX(), event.getClientY());
-				edit_display.setOrgPopupVisibility(true);
-			}
-		});
-		edit_display.getCondirmBtn().addClickHandler(new ClickHandler() {
+			edit_display.getCondirmBtn().addClickHandler(new ClickHandler() {
 			@Override
 			public void onClick(ClickEvent event) {
 				updateResearch(composeDTOtoUpdate());
-			}
-		});
-		eventBus.addHandler(OrgListChangedEvent.TYPE, new OrgListChangedEventHandler() {
-			@Override
-			public void onOrgListChanged(OrgListChangedEvent event) {
-				fetchOrgLists();
 			}
 		});
 	}
@@ -231,25 +158,7 @@ public class AdminResearchDetailedPresenter implements Presenter{
 	{
 		SocioResearchDTO dto = new SocioResearchDTO();
 		dto.setId(edit_display.getResearchID());
-		dto.setName(edit_display.getName());
-		dto.setConcepts(edit_display.getConcepts());
-		dto.setStart_date(edit_display.getStartDate());
-		dto.setEnd_date(edit_display.getEndDate());
-		dto.setGen_geathering(edit_display.getGenerealG());
-		dto.setSelection_size(edit_display.getSelectionSize());
-		//dto.setSelection_appr(edit_display.getSelectionApprch());
-		dto.setSel_randomity(edit_display.getSelectionApprchRand());
-		dto.setSel_complexity(edit_display.getSelectionApprchCompl());
-		dto.setOrg_impl_id(edit_display.getOrgImplID());
-		dto.setOrg_order_id(edit_display.getOrgOrderedID());
-		dto.setPublications(edit_display.getPublications());
-		dto.setPublications_dois(edit_display.getPublications_dois());
-		dto.setPublications_urls(edit_display.getPublications_urls());
-		dto.setResearchers(edit_display.getResearchers());
-		dto.setMethod(edit_display.getMethod());
 		dto.setVar_weight_id(edit_display.getWeightVarID());
-		dto.setOrg_impl_name(edit_display.getOrgImplName(edit_display.getOrgImplID()));
-		dto.setOrg_order_name(edit_display.getOrgOrderName(edit_display.getOrgOrderedID()));
 		dto.setVar_weight_name(edit_display.getWeightVarName(edit_display.getWeightVarID()));
 		
 		JSON_Representation json = edit_display.getDBfiller().getJSON();
@@ -290,91 +199,8 @@ public class AdminResearchDetailedPresenter implements Presenter{
 	
 	
 	
-	private void fetchGenGeathCloud()
-	{
-		new RPCCall<ArrayList<SSE_DTO>>() {
-			@Override
-			public void onFailure(Throwable caught) {
-				Window.alert("Error fetching sses dtos "+caught.getMessage());
-				edit_display.setGenGeaths(new ArrayList<SSE_DTO>());
-			}
-
-			@Override
-			public void onSuccess(ArrayList<SSE_DTO> result) {
-				edit_display.setGenGeaths(result);
-			}
-
-			@Override
-			protected void callService(AsyncCallback<ArrayList<SSE_DTO>> cb) {
-				rpcUserService.getSSEs("SocioResearch","gengeath", cb);
-			}
-			
-		}.retry(2);
-	}
-	private void fetchMethodCloud()
-	{
-		new RPCCall<ArrayList<SSE_DTO>>() {
-			@Override
-			public void onFailure(Throwable caught) {
-				Window.alert("Error fetching sses dtos "+caught.getMessage());
-				edit_display.setMethods(new ArrayList<SSE_DTO>());
-			}
-
-			@Override
-			public void onSuccess(ArrayList<SSE_DTO> result) {
-				edit_display.setMethods(result);
-			}
-
-			@Override
-			protected void callService(AsyncCallback<ArrayList<SSE_DTO>> cb) {
-				rpcUserService.getSSEs("SocioResearch","method", cb);
-			}
-			
-		}.retry(2);
-	}
-	private void fetchResearchersCloud()
-	{
-		new RPCCall<ArrayList<SSE_DTO>>() {
-			@Override
-			public void onFailure(Throwable caught) {
-				Window.alert("Error fetching sses dtos "+caught.getMessage());
-				edit_display.setMethods(new ArrayList<SSE_DTO>());
-			}
-
-			@Override
-			public void onSuccess(ArrayList<SSE_DTO> result) {
-				edit_display.setResearches(result);
-			}
-
-			@Override
-			protected void callService(AsyncCallback<ArrayList<SSE_DTO>> cb) {
-				rpcUserService.getSSEs("SocioResearch","researcher", cb);
-			}
-			
-		}.retry(2);
-	}
-	private void fetchConceptsCloud()
-	{
-		new RPCCall<ArrayList<SSE_DTO>>() {
-			@Override
-			public void onFailure(Throwable caught) {
-				Window.alert("Error fetching sses dtos "+caught.getMessage());
-				edit_display.setMethods(new ArrayList<SSE_DTO>());
-			}
-
-			@Override
-			public void onSuccess(ArrayList<SSE_DTO> result) {
-				edit_display.setConcepts(result);
-			}
-
-			@Override
-			protected void callService(AsyncCallback<ArrayList<SSE_DTO>> cb) {
-				rpcUserService.getSSEs("SocioResearch","concept", cb);
-			}
-			
-		}.retry(2);
-	}
-	private void fetchResearchDetailes(final long id_research)
+	
+		private void fetchResearchDetailes(final long id_research)
 	{
 		new RPCCall<SocioResearchDTO>() {
 
@@ -456,35 +282,7 @@ public class AdminResearchDetailedPresenter implements Presenter{
 			}
 		}.retry(3);
 	}
-	void fetchOrgLists()
-	{
-		new RPCCall<ArrayList<OrgDTO>>() {
-
-			@Override
-			public void onFailure(Throwable caught) {
-				// TODO Auto-generated method stub
-				
-			}
-
-			@Override
-			public void onSuccess(ArrayList<OrgDTO> result) {
-				ArrayList<Long> ids = new ArrayList<Long>();
-				ArrayList<String> names = new ArrayList<String>();
-				for(OrgDTO dto:result)
-				{
-					ids.add(dto.getId());
-					names.add(dto.getName());
-				}
-				edit_display.setOrgImpl(names,ids);
-				edit_display.setOrgOrder(names,ids);
-			}
-
-			@Override
-			protected void callService(AsyncCallback<ArrayList<OrgDTO>> cb) {
-				rpcUserService.getOrgList(cb);
-			}
-		}.retry(3);
-	}
+	
 	private void fetchResearchListData()
 	{
 		//final ArrayList<NewsDTO> newsData = new ArrayList<NewsDTO>();

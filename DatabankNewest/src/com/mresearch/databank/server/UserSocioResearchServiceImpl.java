@@ -119,8 +119,8 @@ public class UserSocioResearchServiceImpl extends RemoteServiceServlet implement
 	}
 
 	@Override
-	public String doIndexSearch(String json_query) {
-		return eao.doIndexSearch(json_query);
+	public String doIndexSearch(String json_query,String [] types_to_search) {
+		return eao.doIndexSearch(json_query,types_to_search);
 	}
 	
 

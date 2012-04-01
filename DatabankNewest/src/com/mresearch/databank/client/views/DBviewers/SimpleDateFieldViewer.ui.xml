@@ -3,21 +3,17 @@
 	xmlns:g="urn:import:com.google.gwt.user.client.ui"
 	xmlns:third="urn:import:org.zenika.widget.client.datePicker">
 	
-<!--  <ui:with field='res' type='com.mresearch.databank.Resources.CoolStylesBundle'/> -->
-<!-- <ui:style src="CoolStyles.css"> -->
-<!-- 	.tst{	 -->
-<!-- 	} -->
-<!-- </ui:style> -->
-	<g:HTMLPanel>
-		<table>
-			<tr>
-				<td>
-					<g:Label ui:field="field_name" styleName="style.coolStyles.category}"></g:Label>
-				</td>
-				<td>
-					<g:Label ui:field="date_picker"></g:Label>
-				</td>
-			</tr>
-		</table>
-	</g:HTMLPanel>
+<ui:style>
+		.category
+		{
+			color: #772222;
+			font-weight: bold;
+			font: 16px;
+			vertical-align: text-top;
+		}
+</ui:style>
+	<g:HorizontalPanel>
+		<g:Label ui:field="field_name" styleName="{style.category}"></g:Label>
+		<g:Label ui:field="date_picker"></g:Label>
+	</g:HorizontalPanel>
 </ui:UiBinder> 

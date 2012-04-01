@@ -13,16 +13,8 @@
 			vertical-align: text-top;
 		}
 	</ui:style>
-	<g:HTMLPanel styleName="{style.important}">
-		<table>
-			<tr>
-				<td>
-					<g:Label ui:field="entity_name" styleName="{style.category}"></g:Label>
-				</td>
-				<td>
-					<g:Label ui:field="items_list"></g:Label>
-				</td>
-				</tr>
-		</table>
-	</g:HTMLPanel>
+	<g:HorizontalPanel styleName="{style.important}">
+		<g:Label ui:field="entity_name" styleName="{style.category}"></g:Label>
+		<g:Label ui:field="items_list"></g:Label>
+	</g:HorizontalPanel>
 </ui:UiBinder> 

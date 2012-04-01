@@ -50,6 +50,7 @@ import com.mresearch.databank.client.views.ImprovedSearchView;
 import com.mresearch.databank.client.views.ResearchDescItem;
 import com.mresearch.databank.client.views.ResearchVarList;
 import com.mresearch.databank.client.views.RootFilterItemAdvanced;
+import com.mresearch.databank.client.views.SearchResultsGenericGrid;
 import com.mresearch.databank.client.views.SearchResultsGrid;
 import com.mresearch.databank.client.views.SimpleResearchList;
 import com.mresearch.databank.shared.ArticleDTO;
@@ -102,7 +103,7 @@ public class UserSearchPerspectivePresenter implements Presenter
 		 String getContainsOr();
 		 String getContainsNoneOf();
 		 String getNotContainsExact();
-		 
+		 String [] getTypesToSearch();
 	 }
 	 private final UserSocioResearchServiceAsync rpcService;
 	 private final SearchServiceAsync searchService;
@@ -189,24 +190,36 @@ public class UserSearchPerspectivePresenter implements Presenter
 
 	private void getMappingStructure()
 	{
-		new RPCCall<MetaUnitMultivaluedEntityDTO>()
-	    {
-	      public void onFailure(Throwable caught)
-	      {
-	        Window.alert("Error fetching databank structure " + caught.getMessage());
-	      }
+		if(display.getTypesToSearch().length>0 &&display.getTypesToSearch().length<=1)
+		{
+			
+			String type = display.getTypesToSearch()[0];
+			if(type.equals("research")) type = "socioresearch";
+			final String type_def = type;
+			new RPCCall<MetaUnitMultivaluedEntityDTO>()
+		    {
+		      public void onFailure(Throwable caught)
+		      {
+		        Window.alert("Error fetching databank structure " + caught.getMessage());
+		      }
 
-	      protected void callService(AsyncCallback<MetaUnitMultivaluedEntityDTO> cb)
-	      {
-	        AdminSocioResearchService.Util.getInstance().getDatabankStructure("socioresearch", cb);
-	      }
+		      protected void callService(AsyncCallback<MetaUnitMultivaluedEntityDTO> cb)
+		      {
+		        AdminSocioResearchService.Util.getInstance().getDatabankStructure(type_def, cb);
+		      }
 
-	      public void onSuccess(MetaUnitMultivaluedEntityDTO result)
-	      {
-	        buildMapping(result.getUnique_name() + "_", result.getSub_meta_units(),mapping);
-	        fetchSearchResultsData();
-	      }
-	    }.retry(2);
+		      public void onSuccess(MetaUnitMultivaluedEntityDTO result)
+		      {
+		        buildMapping(result.getUnique_name() + "_", result.getSub_meta_units(),mapping);
+		        fetchSearchResultsData();
+		      }
+		    }.retry(2);
+		}
+		else if(display.getTypesToSearch().length>1)
+		{
+			fetchSearchResultsData();
+		}
+		
 		
 	}
 	
@@ -342,15 +355,26 @@ public class UserSearchPerspectivePresenter implements Presenter
 	        }
 
 	        
+	        
+	        
+	        
+	        
 	        display.getCenterPanel().add(new HTML("<H2>ПОИСКОВЫЙ ЗАПРОС:</H2><br><p>" + query + "</p>"));
 	        display.getCenterPanel().add(new HTML("<H3>ОТВЕТ ДВИЖКА:</H3><br><p>" + result + "</p>"));
-
-	        display.getCenterPanel().add(new SearchResultsGrid(tot, hiters, mapping));
+	        if(display.getTypesToSearch().length == 1)
+	        {
+	        	display.getCenterPanel().add(new SearchResultsGrid(tot, hiters, mapping));
+	        }
+	        if(display.getTypesToSearch().length > 1)
+	        {
+	        	display.getCenterPanel().add(new SearchResultsGenericGrid(tot, hiters));
+	        }
+	 
 	      }
 
 	      protected void callService(AsyncCallback<String> cb)
 	      {
-	        UserSocioResearchService.Util.getInstance().doIndexSearch(query, cb);
+	        UserSocioResearchService.Util.getInstance().doIndexSearch(query,display.getTypesToSearch(), cb);
 	      }
 	    }
 	    .retry(2);
