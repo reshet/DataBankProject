@@ -1,5 +1,6 @@
 package com.mresearch.databank.client.views;
 
+import com.google.gwt.json.client.JSONArray;
 import com.google.gwt.json.client.JSONObject;
 import com.google.gwt.json.client.JSONString;
 import com.google.gwt.user.client.ui.VerticalPanel;
@@ -50,7 +51,11 @@ public class SearchResultsGrid extends VerticalPanel
       {
         if (!hit.containsKey(key))
           continue;
-        rec.setAttribute(key, ((JSONString)hit.get(key)).stringValue());
+        if(hit.get(key) instanceof JSONString)
+        	rec.setAttribute(key, ((JSONString)hit.get(key)).stringValue());
+        if(hit.get(key) instanceof JSONArray)
+        	rec.setAttribute(key, ((JSONArray)hit.get(key)).toString());
+        
         used_map.put(key, (String)map.get(key));
       }
 
@@ -70,6 +75,9 @@ public class SearchResultsGrid extends VerticalPanel
       fields[(j++)] = field;
     }
 
+    
+    
+    
     countryGrid.setFields(fields);
 
     countryGrid.setData(records);
