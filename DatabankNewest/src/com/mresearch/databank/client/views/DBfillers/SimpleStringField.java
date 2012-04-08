@@ -72,7 +72,7 @@ public class SimpleStringField extends Composite implements MetaUnitFiller{
 	
 	@Override
 	public String getUniqueName() {
-		return base_name+"_"+dto.getUnique_name();
+		return dto.getUnique_name();
 	}
 	@Override
 	public JSON_Representation getJSON() {

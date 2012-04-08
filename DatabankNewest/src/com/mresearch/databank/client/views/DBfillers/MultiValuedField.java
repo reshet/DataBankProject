@@ -58,7 +58,7 @@ public class MultiValuedField extends Composite implements MetaUnitFiller,MetaUn
 		initWidget(uiBinder.createAndBindUi(this));
 		this.dto = dto;
 		this.filling = fill;
-		this.base_name = base_name;
+		this.base_name = base_name.equals("")?dto.getUnique_name():base_name+"_"+dto.getUnique_name();
 		field_name.setText(dto.getDesc());
 		renderSubUnits();
 	}
@@ -88,45 +88,45 @@ public class MultiValuedField extends Composite implements MetaUnitFiller,MetaUn
 				MetaUnitStringDTO dto_str = (MetaUnitStringDTO)dto;
 				String def_val= null;
 				if(filling.containsKey(base_name+"_"+dto.getUnique_name()))def_val = filling.get(base_name+"_"+dto.getUnique_name());
-				subunits_table.setWidget(i++, 0, new SimpleStringField(dto_str,null,def_val,base_name+"_"+this.dto.getUnique_name()));
+				subunits_table.setWidget(i++, 0, new SimpleStringField(dto_str,null,def_val,base_name));
 			}else
 			if(dto instanceof MetaUnitDateDTO)
 			{
 				MetaUnitDateDTO dto_str = (MetaUnitDateDTO)dto;
 				String def_val= null;
 				if(filling.containsKey(base_name+"_"+dto.getUnique_name()))def_val = filling.get(base_name+"_"+dto.getUnique_name());
-				subunits_table.setWidget(i++, 0, new SimpleDateField(dto_str,null,def_val,base_name+"_"+this.dto.getUnique_name()));
+				subunits_table.setWidget(i++, 0, new SimpleDateField(dto_str,null,def_val,base_name));
 			}
 			if(dto instanceof MetaUnitIntegerDTO)
 			{
 				MetaUnitIntegerDTO dto_str = (MetaUnitIntegerDTO)dto;
 				String def_val= null;
 				if(filling.containsKey(base_name+"_"+dto.getUnique_name()))def_val = filling.get(base_name+"_"+dto.getUnique_name());
-				subunits_table.setWidget(i++, 0, new SimpleIntegerField(dto_str,null,def_val,base_name+"_"+this.dto.getUnique_name()));
+				subunits_table.setWidget(i++, 0, new SimpleIntegerField(dto_str,null,def_val,base_name));
 			}
 			if(dto instanceof MetaUnitDoubleDTO)
 			{
 				MetaUnitDoubleDTO dto_str = (MetaUnitDoubleDTO)dto;
 				String def_val= null;
 				if(filling.containsKey(base_name+"_"+dto.getUnique_name()))def_val = filling.get(base_name+"_"+dto.getUnique_name());
-				subunits_table.setWidget(i++, 0, new SimpleDoubleField(dto_str,null,def_val,base_name+"_"+this.dto.getUnique_name()));
+				subunits_table.setWidget(i++, 0, new SimpleDoubleField(dto_str,null,def_val,base_name));
 			}else
 			if(dto instanceof MetaUnitFileDTO)
 			{
 				MetaUnitFileDTO dto_str = (MetaUnitFileDTO)dto;
 				String def_val= null;
 				if(filling.containsKey(base_name+"_"+dto.getUnique_name()))def_val = filling.get(base_name+"_"+dto.getUnique_name());
-				subunits_table.setWidget(i++, 0, new SimpleFileField(dto_str,null,def_val,base_name+"_"+this.dto.getUnique_name()));
+				subunits_table.setWidget(i++, 0, new SimpleFileField(dto_str,null,def_val,base_name));
 			}else				
 			if(dto instanceof MetaUnitMultivaluedStructureDTO)
 			{
 				MetaUnitMultivaluedStructureDTO dto_str = (MetaUnitMultivaluedStructureDTO)dto;
-				subunits_table.setWidget(i++, 0, new MultiValuedField(dto_str,null,filling,base_name+"_"+this.dto.getUnique_name()));
+				subunits_table.setWidget(i++, 0, new MultiValuedField(dto_str,null,filling,base_name));
 			}else
 			if(dto instanceof MetaUnitMultivaluedEntityDTO)
 			{
 				MetaUnitMultivaluedEntityDTO dto_str = (MetaUnitMultivaluedEntityDTO)dto;
-				subunits_table.setWidget(i++, 0, new MultiValuedEntity(dto_str,null,filling,this.dto.getUnique_name()));
+				subunits_table.setWidget(i++, 0, new MultiValuedEntity(dto_str,null,filling,base_name));
 			}
 			
 		}
@@ -138,7 +138,8 @@ public class MultiValuedField extends Composite implements MetaUnitFiller,MetaUn
 	    for (int i = 0; i < this.subunits_table.getRowCount(); i++)
 	    {
 	      MetaUnitFiller filler = (MetaUnitFiller)this.subunits_table.getWidget(i, 0);
-	      this.filling.put(base_name + "_" +this.dto.getUnique_name()+"_"+filler.getUniqueName(), filler.getFilledValue());
+	      if(!(filler instanceof MultiValuedField))
+	    	  this.filling.put(base_name +"_"+filler.getUniqueName(), filler.getFilledValue());
 	      JSON_Representation cur_json = filler.getJSON();
 	      for (String key : cur_json.getObj().keySet())
 	      {
@@ -149,9 +150,11 @@ public class MultiValuedField extends Composite implements MetaUnitFiller,MetaUn
 		current_json = new JSON_Representation(obj);
 		//here to build JSON from children;
 	}
+	
+	
 	@Override
 	public String getUniqueName() {
-		return base_name+"_"+dto.getUnique_name();
+		return base_name;
 	}
 	@Override
 	public JSON_Representation getJSON() {

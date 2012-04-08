@@ -29,10 +29,12 @@ public class StartPagePerspectiveView extends Composite implements StartPagePers
 			UiBinder<Widget, StartPagePerspectiveView> {
 	}
 
-	@UiField VerticalPanel latestNews;
-	@UiField HTML mainPageArticle;
-	@UiField FlexTable latestNewsTable;
-	@UiField Label loadingLabel;
+//	@UiField VerticalPanel latestNews;
+//	@UiField HTML mainPageArticle;
+//	@UiField FlexTable latestNewsTable;
+//	@UiField Label loadingLabel;
+//	
+	
 	//@UiField ScrollPanel scroller;
 	
 	public StartPagePerspectiveView() {
@@ -74,36 +76,36 @@ public class StartPagePerspectiveView extends Composite implements StartPagePers
 
 	@Override
 	public void setMainPageArticle(String data) {
-		mainPageArticle.setHTML(data);
+		//mainPageArticle.setHTML(data);
 	}
 
 	@Override
 	public void setNewsData(ArrayList<String> data) {
-		int i = 0;
-	    latestNewsTable.clear();
-	    if (data == null || data.size() == 0) {
-	      loadingLabel.setText("Нет новостей.");
-	      return;
-	    }
-	    loadingLabel.setVisible(false);
-	    
-	    for (final String newsElem : data) {
-	        //CheckBox checkBoxName = new CheckBox(truncateLongName(friend));
-	        //checkBoxName.setValue(true);
-//	        final Image propertyButton = new Image(GlobalResources.RESOURCE
-//	            .propertyButton());
-//	        propertyButton.setStyleName("pointer");
-	    	String [] arr = newsElem.split(":::");
-	    	Label newHeader = new Label(arr[0]);
-	    	Label newContents = new Label(arr[1]);
-	    	
-
-	        latestNewsTable.setWidget(i, 0, newHeader);
-	        latestNewsTable.setWidget(i+1, 1, newContents);
-	        latestNewsTable.getCellFormatter().addStyleName(i, 0,
-	            "friendNameInList");
-	        i+=2;
-	      }
+//		int i = 0;
+//	    latestNewsTable.clear();
+//	    if (data == null || data.size() == 0) {
+//	      loadingLabel.setText("пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ.");
+//	      return;
+//	    }
+//	    loadingLabel.setVisible(false);
+//	    
+//	    for (final String newsElem : data) {
+//	        //CheckBox checkBoxName = new CheckBox(truncateLongName(friend));
+//	        //checkBoxName.setValue(true);
+////	        final Image propertyButton = new Image(GlobalResources.RESOURCE
+////	            .propertyButton());
+////	        propertyButton.setStyleName("pointer");
+//	    	String [] arr = newsElem.split(":::");
+//	    	Label newHeader = new Label(arr[0]);
+//	    	Label newContents = new Label(arr[1]);
+//	    	
+//
+//	        latestNewsTable.setWidget(i, 0, newHeader);
+//	        latestNewsTable.setWidget(i+1, 1, newContents);
+//	        latestNewsTable.getCellFormatter().addStyleName(i, 0,
+//	            "friendNameInList");
+//	        i+=2;
+//	      }
 	}
 	@Override
 	public Widget asWidget()

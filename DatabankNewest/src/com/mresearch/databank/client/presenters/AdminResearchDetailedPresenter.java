@@ -2,6 +2,9 @@ package com.mresearch.databank.client.presenters;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
+
+import org.apache.commons.collections.map.HashedMap;
 
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
@@ -164,10 +167,17 @@ public class AdminResearchDetailedPresenter implements Presenter{
 		JSON_Representation json = edit_display.getDBfiller().getJSON();
 		edit_display.getDBregistrator().populateItemsLinksTo(dto.getId(), "socioresearch");
 		dto.setJson_desctiptor(json.getObj().toString());
-		dto.setFilling(edit_display.getDBcollector().returnCollectedMap());
+		HashMap<String, String> mapp = edit_display.getDBcollector().returnCollectedMap();
+		dto.setName(mapp.get("socioresearch_name"));
+		dto.setFilling(mapp);
 		return dto;
 		
 	}
+	
+	
+	
+	
+	
 	
 	
 	

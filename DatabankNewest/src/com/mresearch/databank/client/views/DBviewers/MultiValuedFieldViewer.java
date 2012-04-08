@@ -60,7 +60,7 @@ public class MultiValuedFieldViewer extends Composite {
 		this.dto = dto;
 		this.filling = fill;
 		field_name.setText(dto.getDesc());
-		this.base_name = base_name;
+		this.base_name = base_name.equals("")?dto.getUnique_name():base_name+"_"+dto.getUnique_name();
 		renderSubUnits();
 	}
 	

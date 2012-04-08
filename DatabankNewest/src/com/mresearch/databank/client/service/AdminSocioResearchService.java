@@ -100,6 +100,10 @@ MetaUnitMultivaluedStructureDTO getMetaUnitMultivaluedStructureDTO(long id);
 
 MetaUnitMultivaluedEntityDTO getMetaUnitMultivaluedEntityDTO_FlattenedItems(long id);
 
+ArrayList<Long> getEntityItemTaggedEntitiesIDs(Long id_item);
+ArrayList<String> getEntityItemTaggedEntitiesIdentifiers(Long id_item);
+ArrayList<Long> getEntityItemTaggedEntitiesIDs(Long id_item,String identifier);
+void updateMetaUnitEntityItemLinks(Long item_id,ArrayList<Long> tagged_ids,String identifier);
   //ArrayList<E>
 //  SocioResearchDTO addResearch(SocioResearchDTO research);
 }

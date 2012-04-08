@@ -88,6 +88,10 @@ public class UserResearchDetailedView extends Composite {
 		
 		
 		
+		
+		
+		
+		
 //		if(dto.getStart_date() != null && dto.getEnd_date() != null)
 //			this.dateResearch.setText(dto.getStart_date().toString()+" - "+dto.getEnd_date().toString());
 //		this.genGeathering.setText(dto.getGen_geathering());
@@ -109,7 +113,7 @@ public class UserResearchDetailedView extends Composite {
 	private void renderDBfillers()
 	{
 		elasticDBfields.clear();
-		MultiValuedFieldViewer mv = new MultiValuedFieldViewer(db,dto.getFilling(),db.getUnique_name());
+		MultiValuedFieldViewer mv = new MultiValuedFieldViewer(db,dto.getFilling(),"");
 		elasticDBfields.add(mv);
 	}
 }

@@ -59,9 +59,9 @@ public class UserResearchPerspectiveView extends Composite implements UserResear
 	
 	
 	@UiField VerticalPanel centerPanel;
-	VerticalPanel centralPanel;
-	private Tree tree;
-	HLayout panel;
+//	VerticalPanel centralPanel;
+	@UiField Tree tree;
+	//HLayout panel;
 	@UiField CheckBox weights_use,filters_use;
 	@UiField Button filters_details_btn,filters_add_btn,filters_delete_btn;
 	SimpleResearchList simpleResearchListItem;
@@ -70,62 +70,62 @@ public class UserResearchPerspectiveView extends Composite implements UserResear
 	private ArrayList<SocioResearchDTO> researchList;
 	public UserResearchPerspectiveView(SimpleEventBus bus) {
 		initWidget(uiBinder.createAndBindUi(this));
-		panel = new HLayout();
-		//panel.setWidth100();
-		//panel.setHeight100();
-		VLayout cPanel = new VLayout();
-		cPanel.setWidth("70%");
-		cPanel.setAlign(Alignment.LEFT);  
-		cPanel.setOverflow(Overflow.VISIBLE);
-		
-		
-		//cPanel.setShowResizeBar(true);  
-		centralPanel = new VerticalPanel();
-		cPanel.addMember(centralPanel);
-
-
-
-
-
-		tree = new Tree();
+//		panel = new HLayout();
+//		//panel.setWidth100();
+//		//panel.setHeight100();
+//		VLayout cPanel = new VLayout();
+//		cPanel.setWidth("70%");
+//		cPanel.setAlign(Alignment.LEFT);  
+//		cPanel.setOverflow(Overflow.VISIBLE);
+//		
+//		
+//		//cPanel.setShowResizeBar(true);  
+//		centralPanel = new VerticalPanel();
+//		cPanel.addMember(centralPanel);
+//
+//
+//
+//
+//
+//		tree = new Tree();
 		//tree.setStyleName("research-catalog");
 		TreeItem db = new TreeItem("_Банк данных_");
 		simpleResearchListItem = new SimpleResearchList();
 		db.addItem(simpleResearchListItem);
 		rootResearchConcepts = new RootConceptsList("SocioResearch","Концепты каталогизации исследований");
 		db.addItem(rootResearchConcepts);
-		db.addItem(new RootFilterItemAdvanced(centralPanel,bus));
+		db.addItem(new RootFilterItemAdvanced(centerPanel,bus));
 
 
 		tree.addItem(db);
-		db.setState(true);
-		VLayout vLayout = new VLayout();
-		vLayout.setAlign(Alignment.LEFT);  
-	    vLayout.setOverflow(Overflow.SCROLL);  
-	    vLayout.setWidth("30%");  
-	   // vLayout.setHeight100();
-	    vLayout.setShowResizeBar(true);  
-	    vLayout.setResizeBarSize(9);
-	    //vLayout.r
-	    //ScrollPanel scr = new ScrollPanel(tree);
-	    
-	    
-	    
-	    
-	    //scr.setHeight("100%");
-	    //scr.setWidth("100%");
-	    vLayout.addMember(tree);
-		//vLayout.getS
-		//vLayout.sendToBack();
-
-		panel.setWidth("100%");
-		panel.setHeight("100%");
-		panel.addMember(vLayout);
-		panel.addMember(cPanel);
-		panel.sendToBack();
-
-		
-		centerPanel.add(panel);	}
+//		VLayout vLayout = new VLayout();
+//		vLayout.setAlign(Alignment.LEFT);  
+//	    vLayout.setOverflow(Overflow.SCROLL);  
+//	    vLayout.setWidth("30%");  
+//	   // vLayout.setHeight100();
+//	    vLayout.setShowResizeBar(true);  
+//	    vLayout.setResizeBarSize(9);
+//	    //vLayout.r
+//	    //ScrollPanel scr = new ScrollPanel(tree);
+//	    
+//	    
+//	    
+//	    
+//	    //scr.setHeight("100%");
+//	    //scr.setWidth("100%");
+//	    vLayout.addMember(tree);
+//		//vLayout.getS
+//		//vLayout.sendToBack();
+//
+//		panel.setWidth("100%");
+//		panel.setHeight("100%");
+//		panel.addMember(vLayout);
+//		panel.addMember(cPanel);
+//		panel.sendToBack();
+//
+//		
+//		centerPanel.add(panel);
+	}
 	private void displayResearchList()
 	{
 		simpleResearchListItem.removeItems();
@@ -160,10 +160,18 @@ public class UserResearchPerspectiveView extends Composite implements UserResear
 		return null;
 	}
 	@Override
-	public HasClickHandlers getVarItem(int index) {
+	public HasClickHandlers getVarItem(int index)  {
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
+	
+	
+	
+	
+	
+	
+	
 	@Override
 	public void setResearchListData(ArrayList<SocioResearchDTO> data) {
 		researchList = data;
@@ -201,11 +209,11 @@ public class UserResearchPerspectiveView extends Composite implements UserResear
 
 			@Override
 			public void onSuccess(MetaUnitMultivaluedEntityDTO res) {
-				centralPanel.clear();
+				centerPanel.clear();
 				UserResearchDetailedView view = new UserResearchDetailedView(dto,res);
 				UserResearchAdvancedFilesView files = new UserResearchAdvancedFilesView(dto.getID());
 				UserResearchDetailedFrameView frame = new UserResearchDetailedFrameView(view, files);
-				centralPanel.add(frame);
+				centerPanel.add(frame);
 			}
 
 			@Override
@@ -223,7 +231,7 @@ public class UserResearchPerspectiveView extends Composite implements UserResear
 	@Override
 	public VerticalPanel getCenterPanel() {
 		// TODO Auto-generated method stub
-		return centralPanel;
+		return centerPanel;
 	}
 	@Override
 	public void findInResearchList(Long id) {
@@ -273,6 +281,21 @@ public class UserResearchPerspectiveView extends Composite implements UserResear
 		// TODO Auto-generated method stub
 		return filters_add_btn;
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	@Override

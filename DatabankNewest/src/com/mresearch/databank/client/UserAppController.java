@@ -28,17 +28,24 @@ import com.google.gwt.event.dom.client.KeyDownEvent;
 import com.google.gwt.event.dom.client.KeyDownHandler;
 import com.google.gwt.event.dom.client.KeyPressEvent;
 import com.google.gwt.event.dom.client.KeyPressHandler;
+import com.google.gwt.event.dom.client.MouseOutEvent;
+import com.google.gwt.event.dom.client.MouseOutHandler;
+import com.google.gwt.event.dom.client.MouseOverEvent;
+import com.google.gwt.event.dom.client.MouseOverHandler;
 import com.google.gwt.event.logical.shared.ValueChangeEvent;
 import com.google.gwt.event.logical.shared.ValueChangeHandler;
 import com.google.gwt.event.shared.SimpleEventBus;
 import com.google.gwt.http.client.URL;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
+import com.google.gwt.user.client.Command;
 import com.google.gwt.user.client.History;
 import com.google.gwt.user.client.ui.Anchor;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.DockLayoutPanel;
+import com.google.gwt.user.client.ui.MenuBar;
+import com.google.gwt.user.client.ui.MenuItem;
 import com.google.gwt.user.client.ui.PopupPanel;
 import com.google.gwt.user.client.ui.ScrollPanel;
 import com.google.gwt.user.client.ui.TextBox;
@@ -78,17 +85,24 @@ public class UserAppController implements ValueChangeHandler<String>, AppControl
   private static UserAppControllerUiBinder uiBinder = GWT
 			.create(UserAppControllerUiBinder.class);
 
+  
 //	interface UserAppControllerUiBinder extends
 //			UiBinder<DockLayoutPanel, UserAppController> {
 //	}
   interface UserAppControllerUiBinder extends
 	UiBinder<VerticalPanel, UserAppController> {
 }	
+  
+  
 	
-  @UiField Anchor mainNav,newsNav,researchNav,lawNav,juryNav,loginNav;
+  @UiField Anchor mainNav,researchNav,lawNav,juryNav,commentNav;
+  //@UiField Anchor mainNav,newsNav,researchNav,lawNav,juryNav,
+  @UiField Anchor loginNav;
+ // @UiField MenuItem mainNav,researchNav,lawNav,juryNav;
+ // @UiField MenuBar menuBar,menuBar1,menuBar2,menuBar3,menuBar4;
   @UiField VerticalPanel centerPanel;
   @UiField TextBox searchBox;
-  @UiField Button searchCmd;
+ // @UiField Button searchCmd;
   //private DockLayoutPanel thisDock;
   private VerticalPanel thisDock;
   private final UserSocioResearchServiceAsync researchService = GWT.create(UserSocioResearchService.class);
@@ -100,38 +114,130 @@ public class UserAppController implements ValueChangeHandler<String>, AppControl
 	thisDock = uiBinder.createAndBindUi(this);
     this.eventBus = eventBus;
     this.startpageService = rpcService;
+    
+//    
+//    menuBar.setAutoOpen(true);
+//    //menuBar.setWidth("500px");
+//    menuBar.setAnimationEnabled(true);
+//    menuBar1.setAutoOpen(true);
+//    //menuBar.setWidth("500px");
+//    menuBar1.setAnimationEnabled(true);
+//    menuBar2.setAutoOpen(true);
+//    //menuBar.setWidth("500px");
+//    menuBar2.setAnimationEnabled(true);
+//    menuBar3.setAutoOpen(true);
+//    //menuBar.setWidth("500px");
+//    menuBar3.setAnimationEnabled(true);
+//    menuBar4.setAutoOpen(true);
+//    //menuBar.setWidth("500px");
+//    menuBar4.setAnimationEnabled(true);
+//   // bind_menu();
+    
+    
     bind();
   }
+  public static native void bind_menu()/*-{
+	$wnd.$.bs = {};
+	$wnd.$.bs.mm_init = function(schema, menu_callback) {
+	    var mm = $wnd.$('div#mm');
+	    mm.html('');
+	    var mm_c = $wnd.$('<div/>').addClass('mm-container').appendTo(mm);
+	    $wnd.$('<div/>').addClass('mm-title').appendTo(mm_c);
+	    $wnd.$.each(schema, function(i, n) {
+	        var item = $wnd.$('<div/>').addClass('mm-item mm-'+(i+1)+'1 mm-hover').appendTo(mm_c);
+	        item.click(function() { menu_callback(i+1, 1); });
+	        $wnd.$('<div/>').addClass('mm-caption').appendTo(item).html(n[0]);
+	        if (n.length > 1) {
+	            var holder = $wnd.$('<div/>').addClass('mm-item-holder').appendTo(mm_c);
+	            //holder.css('left', item.offset().left+'px');
+	            $wnd.$.each(n, function(j, m) {
+	                if (j>0) {
+	                    var subitem = $wnd.$('<div/>').addClass('mm-item mm-'+(i+1)+(j+1)+' mm-hover').appendTo(holder);
+	                    subitem.click(function() { menu_callback(i+1, j+1); });
+	                    $wnd.$('<div/>').addClass('mm-caption').appendTo(subitem).html(m);
+	                }
+	            });
+	            $wnd.$.each([item, holder], function(k, el) {
+	                    el.hover(function(){
+	                    holder.stop(true).delay(300).fadeIn();
+	                }, function(){
+	                    holder.stop(true).delay(300).fadeOut();
+	                })  
+	            });
+	        }
+	    })
+	};
+	
+	
+		$wnd.$(function(){
+                $wnd.$.bs.mm_init([
+                    ['Банк данных', 'Исследования', 'Публикации', 'Статистика'],
+                    ['Законодательство', 'Закон 1', 'Закон 2', 'Закон 3', 'Закон 4'],
+                    ['Юридическая консультация', 'Дело 1', 'Дело 2', 'Дело 3', 'Дело 4', 'Дело 5'],
+                    ['Актуальный комментарий', '1', '2', '3', '4', '5', '6']
+                ], function(i, j) {
+                    alert('Выбран '+i+'-й столбец, '+j+'-я строка');
+                });
+		});
 
+  }-*/;
+  
   private void bind() {
     History.addValueChangeHandler(this);
+//    mainNav.setCommand(new Command() {
+//		@Override
+//		public void execute() {
+//			doViewStartPageMain();
+//		}
+//	});
+    
+   
     mainNav.addClickHandler(new ClickHandler() {
 		@Override
 		public void onClick(ClickEvent event) {
-			//eventBus.fireEvent(new ShowStartPageMainEvent());
 			doViewStartPageMain();
 		}
 	});
-    newsNav.addClickHandler(new ClickHandler() {
-		@Override
-		public void onClick(ClickEvent event) {
-			//eventBus.fireEvent(new ShowStartPageMainEvent());
-			doViewStartPageNews();
-		}
-	});
+//     researchNav.setCommand(new Command() {
+//		
+//		@Override
+//		public void execute() {
+//			doViewUserResearch();
+//		}
+//	});
     researchNav.addClickHandler(new ClickHandler() {
 		@Override
 		public void onClick(ClickEvent event) {
-			//eventBus.fireEvent(new ShowStartPageMainEvent());
 			doViewUserResearch();
 		}
 	});
+     
+//    lawNav.setCommand(new Command() {
+//		@Override
+//		public void execute() {
+//			doViewUserLaw();
+//		}
+//	});
+  
     lawNav.addClickHandler(new ClickHandler() {
 		@Override
 		public void onClick(ClickEvent event) {
 			doViewUserLaw();
 		}
 	});
+   searchBox.addMouseOverHandler(new MouseOverHandler() {
+	@Override
+	public void onMouseOver(MouseOverEvent ev) {
+		searchBox.addStyleDependentName("highlight");
+	}
+   });
+
+   searchBox.addMouseOutHandler(new MouseOutHandler() {
+	@Override
+	public void onMouseOut(MouseOutEvent arg0) {
+		searchBox.removeStyleDependentName("highlight");
+	}
+   });
    searchBox.addKeyDownHandler(new KeyDownHandler() {
 	@Override
 	public void onKeyDown(KeyDownEvent event) {
@@ -143,12 +249,14 @@ public class UserAppController implements ValueChangeHandler<String>, AppControl
 		}
 	}
    });
-    searchCmd.addClickHandler(new ClickHandler() {
-		@Override
-		public void onClick(ClickEvent event) {
-			doViewSearchResults(searchBox.getText());
-		}
-	});
+   
+//    searchCmd.addClickHandler(new ClickHandler() {
+//		@Override
+//		public void onClick(ClickEvent event) {
+//			doViewSearchResults(searchBox.getText());
+//		}
+//	});
+    
     loginNav.addClickHandler(new ClickHandler() {
 		@Override
 		public void onClick(ClickEvent event) {
@@ -252,6 +360,8 @@ public class UserAppController implements ValueChangeHandler<String>, AppControl
 //    	  }
 //      }
   }
+  
+  
   private void parsePathToken(String token,ArrayList<String> p_names,ArrayList<String> p_values)
   {
 	  if (!token.contains("@")) return;
@@ -269,6 +379,9 @@ public class UserAppController implements ValueChangeHandler<String>, AppControl
   public void onValueChange(ValueChangeEvent<String> event) {
     String token = event.getValue();
 
+    
+    
+    
     if (token != null) {
       Presenter presenter = null;
       //presenter.go();
@@ -290,6 +403,7 @@ public class UserAppController implements ValueChangeHandler<String>, AppControl
     	  parsePathToken(token, param_names, param_values);
     	  presenter.go(centerPanel,param_names,param_values);
       }else if(token.startsWith("user-law")){
+    	  
     	  
 //    	  presenter = new UserLawPerspectivePresenter(articleService, eventBus, new UserLawPerspectiveView());
 //    	  ArrayList<String> param_names,param_values;

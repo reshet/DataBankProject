@@ -61,7 +61,7 @@ public class MultiValuedEntityViewer extends Composite{
 		this.dto = dto;
 		entity_name.setText(dto.getDesc());
 		this.filling = filling;
-		this.base_name = base_name;
+		this.base_name = base_name.equals("")?dto.getUnique_name():base_name+"_"+dto.getUnique_name();
 		renderSubUnits();
 	}
 	
@@ -72,9 +72,9 @@ public class MultiValuedEntityViewer extends Composite{
 		items_list.setText("");
 		ArrayList<String> base = dto.getItem_names();
 
-		if(filling.containsKey(base_name+"_"+dto.getUnique_name()))
+		if(filling.containsKey(base_name))
 		{
-			  String val = (String)this.filling.get(base_name+"_"+this.dto.getUnique_name());
+			  String val = (String)this.filling.get(base_name);
 		      if (val != null)
 		      {
 		    	  items_list.setText(val);

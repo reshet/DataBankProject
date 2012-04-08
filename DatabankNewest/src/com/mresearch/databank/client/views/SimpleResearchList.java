@@ -19,8 +19,8 @@ public class SimpleResearchList extends TreeItem implements ICatalogizationConce
 		super();
 		setText("Простой список");
 		addItem("Загрузка...");
-		setStyleName("style.gwt-TreeItem", true);
 	}
+	
 	@Override
 	public void refreshContents() {
 		catalogService.getResearchList(new AsyncCallback<ArrayList<SocioResearchDTO>>() {

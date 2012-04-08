@@ -53,9 +53,11 @@ public interface AdminSocioResearchBeanRemote {
     ArrayList<Long> getEntityItemSubitemsIDs(Long id_item);
     ArrayList<Long> getEntityItemTaggedEntitiesIDs(Long id_item);
     ArrayList<String> getEntityItemTaggedEntitiesIdentifiers(Long id_item);
+    ArrayList<Long> getEntityItemTaggedEntitiesIDs(Long id_item,String identifier);
     MetaUnitEntityItemDTO getEntityItemDTO(Long id);
     ArrayList<MetaUnitEntityItemDTO> getEntityItemSubitemsDTOs(Long id);
     void deleteMetaUnit(Long id,Long unit_parent_id);
     void updateMetaUnitEntityItemLinks(MetaUnitEntityItemDTO old,MetaUnitEntityItemDTO nev);
     void updateMetaUnitEntityItemLinks(MetaUnitEntityItemDTO dto);
+    void updateMetaUnitEntityItemLinks(Long item_id,ArrayList<Long> tagged_ids,String identifier);
 }

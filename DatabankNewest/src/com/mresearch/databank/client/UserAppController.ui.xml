@@ -2,35 +2,320 @@
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
 	xmlns:g="urn:import:com.google.gwt.user.client.ui">
 	<ui:style>
-		.mainMenu {
-			margin: 10px;
-			padding: 15px;
-			text-align: center;
-			font-size: 18px;
-			border: medium;
-			background-color: #11BB11;
-		}
 		.login{
 			text-align: right;
-			padding-left: 200px;
+			padding-left: 300px;
 			color: olive;
 			font: bold;
 		}
+		.gwt-MenuBar {
+		  cursor: default;
+		  width: 1120px;
+		  height: 51px;
+		  margin: 0 auto;
+		}
+		.gwt-MenuBar .gwt-MenuItem {
+		  cursor: default;
+		  font-family: Arial Unicode MS, Arial, sans-serif;
+		}
+		.gwt-MenuBar .gwt-MenuItem{
+		  cursor: default;
+		  font-family: Arial Unicode MS, Arial, sans-serif;
+		  position: relative;
+		  float: left;
+		  background: transparent url(i/mainmenu-title.png) scroll 0 22px no-repeat;
+		  width: 280px;
+		  height: 51px;
+		}
+		
+		.gwt-MenuBar .gwt-MenuItem-selected {
+		  background: #232323;
+		}
+
+		.gwt-MenuBar-horizontal .gwt-MenuItem {
+		  padding: 5px 10px;
+		  vertical-align: bottom;
+		  color: #000;
+		  font-weight: bold;
+		}
+		.gwt-MenuBar-horizontal .gwt-MenuItemSeparator {
+		  width: 1px;
+		  padding: 0px;
+		  margin: 0px;
+		  border: 0px;
+		  border-left: 1px solid #ccc;
+		  background: white;
+		}
+		.gwt-MenuBar-horizontal .gwt-MenuItemSeparator .menuSeparatorInner {
+		  width: 1px;
+		  height: 1px;
+		  background: white; 
+		}
+		.gwt-MenuBar-vertical {
+		  margin-top: 0px;
+		  margin-left: 0px;
+		  background: white;
+		}
+		.gwt-MenuBar-vertical table {
+		  border-collapse: collapse;
+		}
+		.gwt-MenuBar-vertical .gwt-MenuItem {
+		  padding: 2px 40px 2px 1px;
+		}
+		.gwt-MenuBar-vertical .gwt-MenuItemSeparator {
+		  padding: 2px 0px;
+		}
+		.gwt-MenuBar-vertical .gwt-MenuItemSeparator .menuSeparatorInner {
+		  height: 1px;
+		  padding: 0px;
+		  border: 0px;
+		  border-top: 1px solid #ccc;
+		  overflow: hidden;
+		}
+		.gwt-MenuBar-vertical .subMenuIcon {
+		  padding-right: 4px;
+		}
+		.gwt-MenuBar-vertical .subMenuIcon-selected {
+		  background: #E3E8F3;
+		}
+		.gwt-MenuBarPopup {
+		  margin: 0px 0px 0px 3px;
+		}
+		.gwt-MenuBarPopup .menuPopupTopCenter {
+		  background: url(images/hborder.png) 0px -12px repeat-x;
+		}
+		.gwt-MenuBarPopup .menuPopupBottomCenter {
+		  background: url(images/hborder.png) 0px -13px repeat-x;
+		  -background: url(images/hborder_ie6.png) 0px -13px repeat-x;
+		}
+		.gwt-MenuBarPopup .menuPopupMiddleLeft {
+		  background: url(images/vborder.png) -12px 0px repeat-y;
+		  -background: url(images/vborder_ie6.png) -12px 0px repeat-y;
+		}
+		.gwt-MenuBarPopup .menuPopupMiddleRight {
+		  background: url(images/vborder.png) -13px 0px repeat-y;
+		  -background: url(images/vborder_ie6.png) -13px 0px repeat-y;
+		}
+		.gwt-MenuBarPopup .menuPopupTopLeftInner {
+		  width: 5px;
+		  height: 5px;
+		  zoom: 1;
+		}
+		.gwt-MenuBarPopup .menuPopupTopRightInner {
+		  width: 8px;
+		  height: 5px;
+		  zoom: 1;
+		}
+		.gwt-MenuBarPopup .menuPopupBottomLeftInner {
+		  width: 5px;
+		  height: 8px;
+		  zoom: 1;
+		}
+		.gwt-MenuBarPopup .menuPopupBottomRightInner {
+		  width: 8px;
+		  height: 8px;
+		  zoom: 1;
+		}
+		.gwt-MenuBarPopup .menuPopupTopLeft {
+		  background: url(images/corner.png) no-repeat 0px -36px;
+		  -background: url(images/corner_ie6.png) no-repeat 0px -36px;
+		}
+		.gwt-MenuBarPopup .menuPopupTopRight {
+		  background: url(images/corner.png) no-repeat -5px -36px;
+		  -background: url(images/corner_ie6.png) no-repeat -5px -36px;
+		}
+		.gwt-MenuBarPopup .menuPopupBottomLeft {
+		  background: url(images/corner.png) no-repeat 0px -41px;
+		  -background: url(images/corner_ie6.png) no-repeat 0px -41px;
+		}
+		.gwt-MenuBarPopup .menuPopupBottomRight {
+		  background: url(images/corner.png) no-repeat -5px -41px;
+		  -background: url(images/corner_ie6.png) no-repeat -5px -41px;
+		}
+		html>body .gwt-MenuBarPopup {
+		}
+		* html .gwt-MenuBarPopup .menuPopupTopLeftInner {
+		  width: 5px;
+		  height: 5px;
+		  overflow: hidden;
+		}
+		* html .gwt-MenuBarPopup .menuPopupTopRightInner {
+		  width: 8px;
+		  height: 5px;
+		  overflow: hidden;
+		}
+		* html .gwt-MenuBarPopup .menuPopupBottomLeftInner {
+		  width: 5px;
+		  height: 8px;
+		  overflow: hidden;
+		}
+		* html .gwt-MenuBarPopup .menuPopupBottomRightInner {
+		  width: 8px;
+		  height: 8px;
+		  overflow: hidden;
+		}
+		
+		.mm-search {
+		    border: transparent solid 1px;
+		    border-radius: 4px;
+		    background: transparent;
+		    color: #fff;
+		    font-family: 'Trebuchet MS', Verdana, Arial, Helvetica;
+		    font-size: 14px;
+		    font-weight: bold;
+		    padding: 3px;
+		}
+		.mm-search-highlight{ 
+		    border-color: #696969; 
+		    background: transparent url(i/search-submit.png) right center no-repeat;
+		}
+		.mm-search-hovering{ 
+		    border-color: #696969; 
+		    background: transparent url(i/search-submit.png) right center no-repeat;
+		}
+		.search-submit {
+		    position: absolute;
+		    right: 11px;
+		    bottom: 6px;
+		    width: 20px;
+		    height: 20px;
+		    cursor: pointer;
+		}
 	</ui:style>
 	<g:VerticalPanel>
-			<g:HorizontalPanel styleName="{style.mainMenu}">
-				<g:Anchor href="javascript:;" ui:field="mainNav" styleName="{style.mainMenu}">Главная</g:Anchor>
-				<g:Anchor href="javascript:;" ui:field="newsNav" styleName="{style.mainMenu}">Новости</g:Anchor>
-				<g:Anchor href="javascript:;" ui:field="researchNav" styleName="{style.mainMenu}">Исследования</g:Anchor>
-				<g:Anchor href="javascript:;" ui:field="lawNav" styleName="{style.mainMenu}">Законодательство</g:Anchor>
-				<g:Anchor href="javascript:;" ui:field="juryNav" styleName="{style.mainMenu}">Консультация</g:Anchor>
-				<g:TextBox ui:field="searchBox"></g:TextBox>
-				<g:Button ui:field="searchCmd" text="Поиск!"></g:Button>
-				<g:Anchor href="javascript:;" ui:field="loginNav" styleName="{style.login}">
-					Войти!
-				</g:Anchor>
+		
+<!-- 		<g:HorizontalPanel styleName="{style.mm}"> -->
+			
+<!-- 			 <g:MenuBar ui:field="menuBar"> -->
+<!-- 		        <g:MenuItem ui:field="mainNav" styleName="{style.mm-title}"></g:MenuItem> -->
+<!-- 		        <g:MenuItem ui:field="researchNav"> -->
+<!-- 		        	Банк исследований -->
+<!-- 			        <g:MenuBar ui:field="menuBar1" vertical="true"> -->
+<!-- 				       <g:MenuItem >able</g:MenuItem> -->
+<!-- 				       <g:MenuItem >baker</g:MenuItem> -->
+<!-- 				       <g:MenuItem >charlie</g:MenuItem> -->
+<!-- 				       <g:MenuItem >equinox</g:MenuItem> -->
+<!-- 				    </g:MenuBar> -->
+<!-- 		        </g:MenuItem> -->
+<!-- 		        <g:MenuItem ui:field="lawNav"  styleName="{style.mm-21},{style.mm-item},{style.mm-hover}"> -->
+<!-- 		       		 Законодательство -->
+<!-- 		        	<g:MenuBar ui:field="menuBar2" vertical="true"> -->
+<!-- 				       <g:MenuItem styleName="{style.mm-22},{style.mm-item},{style.mm-hover},{style.mm-caption}">able</g:MenuItem> -->
+<!-- 				       <g:MenuItem styleName="{style.mm-23},{style.mm-item},{style.mm-hover},{style.mm-caption}">baker</g:MenuItem> -->
+<!-- 				       <g:MenuItem styleName="{style.mm-24},{style.mm-item},{style.mm-hover},{style.mm-caption}">charlie</g:MenuItem> -->
+<!-- 				       <g:MenuItem styleName="{style.mm-25},{style.mm-item},{style.mm-hover},{style.mm-caption}">equinox</g:MenuItem> -->
+<!-- 				    </g:MenuBar> -->
+<!-- 		        </g:MenuItem> -->
+<!-- 		        <g:MenuItem ui:field="juryNav" styleName="{style.mm-31},{style.mm-item},{style.mm-hover}"> -->
+<!-- 		       		 Юридическая консультация -->
+<!-- 				    <g:MenuBar ui:field="menuBar3" vertical="true"> -->
+<!-- 				       <g:MenuItem styleName="{style.mm-32},{style.mm-item},{style.mm-hover},{style.mm-caption}">able</g:MenuItem> -->
+<!-- 				       <g:MenuItem styleName="{style.mm-33},{style.mm-item},{style.mm-hover},{style.mm-caption}">baker</g:MenuItem> -->
+<!-- 				       <g:MenuItem styleName="{style.mm-34},{style.mm-item},{style.mm-hover},{style.mm-caption}">charlie</g:MenuItem> -->
+<!-- 				       <g:MenuItem styleName="{style.mm-35},{style.mm-item},{style.mm-hover},{style.mm-caption}">equinox</g:MenuItem> -->
+<!-- 				    </g:MenuBar> -->
+<!-- 		        </g:MenuItem> -->
+<!-- 		        <g:MenuItem ui:field="commentNav" styleName="{style.mm-41},{style.mm-item},{style.mm-hover}"> -->
+<!-- 		       		 Актуальный комментарий -->
+<!-- 			        <g:MenuBar ui:field="menuBar4" vertical="true"> -->
+<!-- 				       <g:MenuItem styleName="{style.mm-42},{style.mm-item},{style.mm-hover},{style.mm-caption}">able</g:MenuItem> -->
+<!-- 				       <g:MenuItem styleName="{style.mm-43},{style.mm-item},{style.mm-hover},{style.mm-caption}">baker</g:MenuItem> -->
+<!-- 				       <g:MenuItem styleName="{style.mm-44},{style.mm-item},{style.mm-hover},{style.mm-caption}">charlie</g:MenuItem> -->
+<!-- 				       <g:MenuItem styleName="{style.mm-45},{style.mm-item},{style.mm-hover},{style.mm-caption}">equinox</g:MenuItem> -->
+<!-- 				    </g:MenuBar> -->
+<!-- 		        </g:MenuItem> -->
+		        
+
+<!-- 		    </g:MenuBar> -->
+			<g:HTMLPanel>
+				<div id = "mm">
+					<div class="mm-container">
+						<g:Anchor href="javascript:;" ui:field="mainNav">
+							<div class="mm-title">
+							</div>
+						</g:Anchor>
+						<g:Anchor href="javascript:;" ui:field="researchNav">
+							<div class="mm-item mm-11 mm-hover">
+								<div class="mm-caption">
+									Банк исследований
+								</div>
+							</div>
+						</g:Anchor>
+						<g:Anchor href="javascript:;" ui:field="lawNav">
+							<div class="mm-item mm-21 mm-hover">
+								<div class="mm-caption">
+									Законодательство
+								</div>
+							</div>
+						</g:Anchor>
+						<g:Anchor href="javascript:;" ui:field="juryNav">
+							<div class="mm-item mm-31 mm-hover">
+								<div class="mm-caption">
+									Юридическая консультация
+								</div>
+							</div>
+						</g:Anchor>
+						<g:Anchor href="javascript:;" ui:field="commentNav">
+							<div class="mm-item mm-41 mm-hover">
+								<div class="mm-caption">
+									Актуальный комментарий
+								</div>
+							</div>
+						</g:Anchor>
+						<div class="mm-search">
+							<g:TextBox ui:field="searchBox" stylePrimaryName="{style.mm-search}" text="Поиск"></g:TextBox>
+<!-- 							<g:Button ui:field="searchCmd" styleName="{style.search-submit}"></g:Button> -->
+							<div class="search-submit"></div>
+						</div>
+						
+	<!-- 					<div class="mm-item-holder"> -->
+	<!-- 						<div class="mm-item mm-12 mm-hover"> -->
+	<!-- 							<div class="mm-caption"> -->
+	<!-- 								<g:HTML ui:field="mainNav2">Банк исследований</g:HTML> -->
+	<!-- 							</div> -->
+	<!-- 						</div> -->
+	<!-- 						<div class="mm-item mm-21 mm-hover"> -->
+	<!-- 							<div class="mm-caption"> -->
+	<!-- 								<g:HTML ui:field="lawNav2">Законодательство</g:HTML> -->
+	<!-- 							</div> -->
+	<!-- 						</div> -->
+	<!-- 						<div class="mm-item mm-31 mm-hover"> -->
+	<!-- 							<div class="mm-caption"> -->
+	<!-- 								<g:HTML ui:field="juryNav2">Юридическая консультация</g:HTML> -->
+	<!-- 							</div> -->
+	<!-- 						</div> -->
+	<!-- 						<div class="mm-item mm-41 mm-hover"> -->
+	<!-- 							<div class="mm-caption"> -->
+	<!-- 								<g:HTML ui:field="commentNav">Актуальный комментарий</g:HTML> -->
+	<!-- 							</div> -->
+	<!-- 						</div> -->
+						
+	<!-- 					</div> -->
+						
+						
+					</div>
+				
+				</div>
+				
+<!-- 			</g:HorizontalPanel> -->
+			</g:HTMLPanel>
+			
+			<g:HTMLPanel>
+	        <!-- спэйсер -->
+	        <div style="height: 50px; clear:both; position: relative;"></div>
+	        <!-- спэйсер -->
+	
+			</g:HTMLPanel>
+			<g:HorizontalPanel>
+<!-- 				<g:Anchor href="javascript:;" ui:field="mainNav" >Главная</g:Anchor> -->
+<!-- 				<g:Anchor href="javascript:;" ui:field="newsNav" >Новости</g:Anchor> -->
+<!-- 				<g:Anchor href="javascript:;" ui:field="researchNav">Исследования</g:Anchor> -->
+<!-- 				<g:Anchor href="javascript:;" ui:field="lawNav" >Законодательство</g:Anchor> -->
+<!-- 				<g:Anchor href="javascript:;" ui:field="juryNav">Консультация</g:Anchor> -->
+				
 			</g:HorizontalPanel>
 			<g:VerticalPanel ui:field="centerPanel" width="100%" height="100%">
 			</g:VerticalPanel>
+			<g:Anchor href="javascript:;" ui:field="loginNav" styleName="{style.login}">Войти!</g:Anchor>
 	</g:VerticalPanel>
 </ui:UiBinder> 

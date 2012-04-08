@@ -64,7 +64,7 @@ public class MultiValuedEntity extends Composite implements MetaUnitFiller,MetaU
 		this.dto = dto;
 		entity_name.setText(dto.getDesc());
 		this.filling = filling;
-		this.base_name = base_name;
+		this.base_name = base_name.equals("")?dto.getUnique_name():base_name+"_"+dto.getUnique_name();
 		//items_list.setMultipleSelect(dto.isIsMultiselected());
 		//items_list.setVisibleItemCount(1);
 		//renderSubUnits();
@@ -239,7 +239,7 @@ public class MultiValuedEntity extends Composite implements MetaUnitFiller,MetaU
 	{
 		JSONObject obj = new JSONObject();
 
-	    obj.put(base_name+"_"+this.dto.getUnique_name(), new JSONString(this.items_list.getItemText(this.items_list.getSelectedIndex())));
+	    obj.put(base_name, new JSONString(this.items_list.getItemText(this.items_list.getSelectedIndex())));
 	    this.current_json = new JSON_Representation(obj);
 	    
 	    //this.populateItemsLinksTo(id, identifier);
@@ -247,7 +247,7 @@ public class MultiValuedEntity extends Composite implements MetaUnitFiller,MetaU
 	}
 	@Override
 	public String getUniqueName() {
-		return base_name+"_"+dto.getUnique_name();
+		return dto.getUnique_name();
 	}
 	@Override
 	public JSON_Representation getJSON() {
@@ -287,6 +287,121 @@ public class MultiValuedEntity extends Composite implements MetaUnitFiller,MetaU
 	public MetaUnitDTO getDTO() {
 		return dto;
 	}
+	
+	
+	
+	private void deletePreviousTag(final MetaUnitEntityItemDTO result,final Long id,final long idd,final String identifier)
+	{
+		 if (result.getTagged_entities_ids().contains(Long.valueOf(MultiValuedEntity.this.previous_item_id)))
+         {
+           result.getTagged_entities_ids().remove(result.getTagged_entities_ids().indexOf(Long.valueOf(MultiValuedEntity.this.previous_item_id)));
+           result.getTagged_entities_identifiers().remove(result.getTagged_entities_ids().indexOf(Long.valueOf(MultiValuedEntity.this.previous_item_id)));
+         }
+
+         new RPCCall<MetaUnitEntityItemDTO>()
+         {
+           public void onFailure(Throwable caught) {
+          	  Window.alert("Error getting ItemDTO 2"+caught.getMessage());
+    	      }
+
+           public void onSuccess(final MetaUnitEntityItemDTO result2) {
+             if (!result2.getTagged_entities_ids().contains(id))
+             {
+               result2.getTagged_entities_ids().add(id);
+               result2.getTagged_entities_identifiers().add(identifier);
+             }
+             new RPCCall<Void>()
+             {
+               public void onFailure(Throwable caught)
+               {
+              	  Window.alert("Error updating links "+caught.getMessage());
+        	      }
+
+               public void onSuccess(Void result) {
+               }
+
+               protected void callService(AsyncCallback<Void> cb) {
+                 MultiValuedEntity.this.service.updateMetaUnitEntityItemLinks(result, result2, cb);
+               }
+             }
+             .retry(2);
+           }
+
+           protected void callService(AsyncCallback<MetaUnitEntityItemDTO> cb)
+           {
+             MultiValuedEntity.this.service.getEntityItemDTO(Long.valueOf(idd), cb);
+           }
+         }
+         .retry(2);
+
+	}
+	
+	private void simpleUpdateTag(final Long id,final long idd,final String identifier)
+	{
+	     new RPCCall<MetaUnitEntityItemDTO>()
+         {
+           public void onFailure(Throwable caught) {
+          	  Window.alert("Error getting ItemDTO 2"+caught.getMessage());
+    	      }
+
+           public void onSuccess(final MetaUnitEntityItemDTO result2) {
+             if (!result2.getTagged_entities_ids().contains(id))
+             {
+               result2.getTagged_entities_ids().add(id);
+               result2.getTagged_entities_identifiers().add(identifier);
+             }
+             new RPCCall<Void>()
+             {
+               public void onFailure(Throwable caught)
+               {
+              	  Window.alert("Error updating links "+caught.getMessage());
+        	      }
+
+               public void onSuccess(Void result) {
+               }
+
+               protected void callService(AsyncCallback<Void> cb) {
+                 MultiValuedEntity.this.service.updateMetaUnitEntityItemLinks(result2, cb);
+               }
+             }
+             .retry(2);
+           }
+
+           protected void callService(AsyncCallback<MetaUnitEntityItemDTO> cb)
+           {
+             MultiValuedEntity.this.service.getEntityItemDTO(Long.valueOf(idd), cb);
+           }
+         }
+         .retry(2);
+
+	}
+	private void getPreviousDistrib(final Long prev_id,final Long id,final Long idd,final String identifier)
+	{
+		if(prev_id != null && prev_id != 0)
+		{
+			new RPCCall<MetaUnitEntityItemDTO>()
+	        {
+	          public void onFailure(Throwable caught) {
+	        	  Window.alert("Error getting ItemDTO "+caught.getMessage());
+	          }
+
+	          public void onSuccess(final MetaUnitEntityItemDTO result) {
+	        	  deletePreviousTag(result, id, idd, identifier);
+	          }
+
+	          protected void callService(AsyncCallback<MetaUnitEntityItemDTO> cb)
+	          {
+	            MultiValuedEntity.this.service.getEntityItemDTO(prev_id, cb);
+	          }
+	        }
+	        .retry(2);
+
+		}
+		else
+		{
+			simpleUpdateTag(id, idd, identifier);
+		}
+	}
 	@Override
 	public void populateItemsLinksTo(final Long id, final String identifier) {
 	    int index = 0;
@@ -296,62 +411,10 @@ public class MultiValuedEntity extends Composite implements MetaUnitFiller,MetaU
 	      final long idd = ((Long)this.dto.getItem_ids().get(index)).longValue();
 
 	      if (idd != this.previous_item_id)
-	        new RPCCall<MetaUnitEntityItemDTO>()
-	        {
-	          public void onFailure(Throwable caught) {
-	        	  Window.alert("Error getting ItemDTO "+caught.getMessage());
-	          }
-
-	          public void onSuccess(final MetaUnitEntityItemDTO result) {
-	            if (result.getTagged_entities_ids().contains(Long.valueOf(MultiValuedEntity.this.previous_item_id)))
-	            {
-	              result.getTagged_entities_ids().remove(result.getTagged_entities_ids().indexOf(Long.valueOf(MultiValuedEntity.this.previous_item_id)));
-	              result.getTagged_entities_identifiers().remove(result.getTagged_entities_ids().indexOf(Long.valueOf(MultiValuedEntity.this.previous_item_id)));
-	            }
-
-	            new RPCCall<MetaUnitEntityItemDTO>()
-	            {
-	              public void onFailure(Throwable caught) {
-	             	  Window.alert("Error getting ItemDTO 2"+caught.getMessage());
-	       	      }
-
-	              public void onSuccess(final MetaUnitEntityItemDTO result2) {
-	                if (!result2.getTagged_entities_ids().contains(id))
-	                {
-	                  result2.getTagged_entities_ids().add(id);
-	                  result2.getTagged_entities_identifiers().add(identifier);
-	                }
-	                new RPCCall<Void>()
-	                {
-	                  public void onFailure(Throwable caught)
-	                  {
-	                 	  Window.alert("Error updating links "+caught.getMessage());
-	           	      }
-
-	                  public void onSuccess(Void result) {
-	                  }
-
-	                  protected void callService(AsyncCallback<Void> cb) {
-	                    MultiValuedEntity.this.service.updateMetaUnitEntityItemLinks(result, result2, cb);
-	                  }
-	                }
-	                .retry(2);
-	              }
-
-	              protected void callService(AsyncCallback<MetaUnitEntityItemDTO> cb)
-	              {
-	                MultiValuedEntity.this.service.getEntityItemDTO(Long.valueOf(idd), cb);
-	              }
-	            }
-	            .retry(2);
-	          }
-
-	          protected void callService(AsyncCallback<MetaUnitEntityItemDTO> cb)
-	          {
-	            MultiValuedEntity.this.service.getEntityItemDTO(Long.valueOf(MultiValuedEntity.this.previous_item_id), cb);
-	          }
-	        }
-	        .retry(2);
+	      {
+	    	  getPreviousDistrib(this.previous_item_id,id,idd,identifier);
+	      }
+	    	
 	    }
 	}
 }

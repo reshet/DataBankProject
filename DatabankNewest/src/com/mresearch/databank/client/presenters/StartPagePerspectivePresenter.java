@@ -57,6 +57,7 @@ public class StartPagePerspectivePresenter implements Presenter
 //			}
 //		});
 	}
+	
 	private void showMainPageArticle()
 	{
 		//Window.alert("Show Main Page Article!");

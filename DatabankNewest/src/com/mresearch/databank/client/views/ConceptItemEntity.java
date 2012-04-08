@@ -51,12 +51,14 @@ public class ConceptItemEntity extends TreeItem
 
       protected void callService(AsyncCallback<MetaUnitMultivaluedEntityDTO> cb)
       {
+    	//AdminSocioResearchService.Util.getInstance().getE
         AdminSocioResearchService.Util.getInstance().getMetaUnitMultivaluedEntityDTO(ConceptItemEntity.this.entity_id.longValue(), cb);
       }
     }
     .retry(2);
   }
 
+  
   protected ConceptItemEntity composeConceptNode(MetaUnitMultivaluedEntityDTO dto) {
     ConceptItemEntity it = new ConceptItemEntity(dto.getDesc(), Long.valueOf(dto.getId()));
     for (int i = 0; i < dto.getItem_ids().size(); i++)

@@ -70,12 +70,22 @@ public interface AdminSocioResearchServiceAsync {
 	void updateMetaUnitEntityItemLinks(
 			MetaUnitEntityItemDTO paramMetaUnitEntityItemDTO,
 			AsyncCallback<Void> callback);
+	
 	void getMetaUnitMultivaluedEntityDTO(long id,
 			AsyncCallback<MetaUnitMultivaluedEntityDTO> callback);
 	void getMetaUnitMultivaluedStructureDTO(long id,
 			AsyncCallback<MetaUnitMultivaluedStructureDTO> callback);
 	void getMetaUnitMultivaluedEntityDTO_FlattenedItems(long id,
 			AsyncCallback<MetaUnitMultivaluedEntityDTO> callback);
+	void getEntityItemTaggedEntitiesIDs(Long id_item,
+			AsyncCallback<ArrayList<Long>> callback);
+	void getEntityItemTaggedEntitiesIdentifiers(Long id_item,
+			AsyncCallback<ArrayList<String>> callback);
+	void getEntityItemTaggedEntitiesIDs(Long id_item, String identifier,
+			AsyncCallback<ArrayList<Long>> callback);
+	void updateMetaUnitEntityItemLinks(Long item_id,
+			ArrayList<Long> tagged_ids, String identifier,
+			AsyncCallback<Void> callback);
 	
 	
 }

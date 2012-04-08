@@ -180,7 +180,90 @@ public class AdminResearchPerspectivePresenter implements Presenter
 					ResearchVarList rv = (ResearchVarList)it;
 					display.getCenterPanel().clear();	
 					display.getCenterPanel().add(new AdminResearchVarGeneralizeS1View(rv.getResearch_id(), display.getCenterPanel()));
-				}else if (it instanceof ConceptItem<?>)
+				}
+				else if (it instanceof ConceptItemItem)
+				{
+					eventBus.fireEvent(new CreateConceptEnabledEvent(false));
+					display.getCenterPanel().clear();
+					display.getCenterPanel().add(new HTML("<h1>Загрузка, подождите...</h1>"));
+					final long concept_id = ((ConceptItemItem)it).getEntity_id();
+					//ArrayList<SocioResearchDTO> dtos = new ArrayList<SocioResearchDTO>();
+					new RPCCall<ArrayList<SocioResearchDTO>>() {
+						@Override
+						public void onFailure(Throwable caught) {
+							Window.alert("Error getting researh summaries");
+						}
+						@Override
+						public void onSuccess(ArrayList<SocioResearchDTO> result) {
+							final ArrayList<IPickableElement> arr = new ArrayList<IPickableElement>();
+							for(SocioResearchDTO dto:result)
+							{
+								arr.add(dto);
+							}
+							new RPCCall<ArrayList<Long>>() {
+								@Override
+								public void onFailure(Throwable caught) {
+									Window.alert("Error while fetching already selected elements");
+								}
+
+								@Override
+								public void onSuccess(ArrayList<Long> result) {
+									PickElementsTableView pickResearchesToTag = new PickElementsTableView(arr, result,
+										new IPickBinder() {
+											@Override
+											public void processPickChoice( ArrayList<Long> selected_keys) {
+												final ArrayList<Long> sel_keys = selected_keys;
+												new RPCCall<Void>() {
+													@Override
+													public void onFailure(
+															Throwable caught) {
+													}
+													@Override
+													public void onSuccess(Void v) {
+														Window.alert("Концепт успешно распространен!");
+													}
+													@Override
+													protected void callService(
+															AsyncCallback<Void> cb) {
+													rpcAdminService.updateMetaUnitEntityItemLinks(concept_id, sel_keys,"socioresearch", cb);
+													}
+												}.retry(2);
+											}
+											
+											@Override
+											public String getCommandName() {
+												return "Добавить концепт к выбранным!";
+											}
+
+											@Override
+											public String getTitle() {
+												// TODO Auto-generated method stub
+												return "Доступные исследования:";
+											}
+										}			
+									);
+									display.getCenterPanel().clear();
+									display.getCenterPanel().add(pickResearchesToTag);
+									//display.getCenterPanel().add(new HTML("<h2>LOADED</h2>"));
+									//display.getCenterPanel().add(new SearchResultsView(result));
+									
+								}
+
+								@Override
+								protected void callService(
+										AsyncCallback<ArrayList<Long>> cb) {
+									rpcAdminService.getEntityItemTaggedEntitiesIDs(concept_id,"socioresearch", cb);
+								}
+							}.retry(2);
+						}
+						@Override
+						protected void callService(
+								AsyncCallback<ArrayList<SocioResearchDTO>> cb) {
+							rpcUserService.getResearchSummaries(cb);
+						}
+					}.retry(2);
+				}
+				else if (it instanceof ConceptItem<?>)
 				{
 					eventBus.fireEvent(new CreateConceptEnabledEvent(false));
 					display.getCenterPanel().clear();

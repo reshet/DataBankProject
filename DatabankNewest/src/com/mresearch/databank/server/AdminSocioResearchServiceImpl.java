@@ -253,6 +253,24 @@ public class AdminSocioResearchServiceImpl extends RemoteServiceServlet implemen
 	public MetaUnitMultivaluedDTO getMetaUnitMultivaluedFullDTO(long id) {
 		return eao.getMetaUnitMultivaluedEntityDTO(id);
 	}
+	@Override
+	public ArrayList<Long> getEntityItemTaggedEntitiesIDs(Long id_item) {
+		return eao.getEntityItemTaggedEntitiesIDs(id_item);
+	}
+	@Override
+	public ArrayList<String> getEntityItemTaggedEntitiesIdentifiers(Long id_item) {
+		return eao.getEntityItemTaggedEntitiesIdentifiers(id_item);
+	}
+	@Override
+	public ArrayList<Long> getEntityItemTaggedEntitiesIDs(Long id_item,
+			String identifier) {
+		return eao.getEntityItemTaggedEntitiesIDs(id_item, identifier);
+	}
+	@Override
+	public void updateMetaUnitEntityItemLinks(Long item_id,
+			ArrayList<Long> tagged_ids, String identifier) {
+		eao.updateMetaUnitEntityItemLinks(item_id, tagged_ids, identifier);
+	}
 	
 /*	
   public FriendsServiceImpl() {
