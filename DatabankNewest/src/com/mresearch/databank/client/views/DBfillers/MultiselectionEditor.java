@@ -59,6 +59,7 @@ public class MultiselectionEditor extends Composite
     initFields();
   }
 
+  
   private void initFields()
   {
     ArrayList<Long> current_sel_ids = new ArrayList<Long>();

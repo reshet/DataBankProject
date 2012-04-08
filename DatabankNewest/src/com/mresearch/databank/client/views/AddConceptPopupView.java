@@ -30,6 +30,7 @@ public class AddConceptPopupView extends Composite {
 	
 	private final SimpleEventBus evBus;
 	private boolean isRootConcept = false;
+	private String item_type;
 	public AddConceptPopupView(SimpleEventBus eventBus) {
 		initWidget(uiBinder.createAndBindUi(this));
 		evBus = eventBus;
@@ -46,6 +47,16 @@ public class AddConceptPopupView extends Composite {
 	//	this.parentConceptID = parentConceptID;
 	//	thisPopupPanel.setSize("500px", "300px");
 	}
+	
+	
+	public String getItem_type() {
+		return item_type;
+	}
+	public void setItem_type(String item_type) {
+		this.item_type = item_type;
+	}
+
+
 	@UiField TextBox conceptName;
 	@UiField Button submitBtn;
 	private long parentConceptID;
@@ -73,6 +84,7 @@ public class AddConceptPopupView extends Composite {
 	{
 		CatalogConceptDTO dto = new CatalogConceptDTO();
 		dto.setC_type(c_type);
+		dto.setItem_type(item_type);
 		dto.setSuper_concept_ID(parentConceptID);
 		dto.setName(conceptName.getText());
 		dto.setRoot(isRootConcept);

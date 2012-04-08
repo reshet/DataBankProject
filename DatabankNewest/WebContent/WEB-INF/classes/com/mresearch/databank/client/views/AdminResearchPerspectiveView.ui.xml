@@ -10,10 +10,8 @@
 	
 		.gwt-Tree .gwt-TreeItem
 		{
-		   padding: 2px;
 		   font: 9px;
 		   color: green;
-		   margin: 2px;
 		}
 		.tree {
 			background-color: gray;
@@ -32,9 +30,6 @@
 		}
 	</ui:style>
 	<g:HorizontalPanel>
-		<g:HTMLPanel>
-			<p>I am Here</p>
-		</g:HTMLPanel>
 				<g:VerticalPanel>
 					<g:Tree ui:field="tree">
 					</g:Tree>
@@ -45,11 +40,7 @@
 					</g:HorizontalPanel>			
 				</g:VerticalPanel>
 				<g:VerticalPanel ui:field="centerPanel" width="100%" height="100%">
-				</g:VerticalPanel>
-		<g:HTMLPanel>
-			<p>I am There</p>
-		</g:HTMLPanel>
-		
+				</g:VerticalPanel>		
 	</g:HorizontalPanel>
 							
 </ui:UiBinder> 

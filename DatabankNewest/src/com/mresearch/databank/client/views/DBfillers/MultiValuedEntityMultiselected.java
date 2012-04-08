@@ -109,6 +109,8 @@ public class MultiValuedEntityMultiselected extends Composite
 	  }
 
   
+  
+  
   @UiHandler({"edit_selection"})
   public void editSelectionCmd(ClickEvent ev) {
     final DialogBox dialogBox = createDialogBox("Редактирование выбора...");

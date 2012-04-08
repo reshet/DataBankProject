@@ -47,6 +47,10 @@ public class ConceptItemEntity extends TreeItem
             if (it == null) continue; ConceptItemEntity.this.addItem(it);
           }
         }
+        for (int i = 0; i < result.getItem_ids().size(); i++)
+        {
+          ConceptItemEntity.this.addItem(new ConceptItemItem((String)result.getItem_names().get(i), (Long)result.getItem_ids().get(i)));
+        }
       }
 
       protected void callService(AsyncCallback<MetaUnitMultivaluedEntityDTO> cb)

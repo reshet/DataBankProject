@@ -11,6 +11,13 @@ public class CatalogConceptDTO implements Serializable{
 	private Long id;
 	private String name;
 	private String c_type;
+	private String item_type;
+	public String getItem_type() {
+		return item_type;
+	}
+	public void setItem_type(String item_type) {
+		this.item_type = item_type;
+	}
 	private boolean isRoot;
 	private long super_concept_ID;
 	//private Class c_type;

@@ -6,6 +6,7 @@ import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.HasClickHandlers;
 import com.google.gwt.event.dom.client.HasMouseDownHandlers;
 import com.google.gwt.event.logical.shared.HasOpenHandlers;
+import com.google.gwt.event.logical.shared.HasSelectionHandlers;
 import com.google.gwt.event.shared.SimpleEventBus;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
@@ -170,16 +171,27 @@ public class AdminResearchPerspectiveView extends Composite implements AdminRese
 	public void showCreateConceptPopup(int x, int y, String c_type) {
 		Long parent_id = null;
 		TreeItem item = tree.getSelectedItem();
-		if (item instanceof ConceptItem<?>)
+		if (item instanceof ConceptItemEntity)
 		{
-			parent_id = ((ConceptItem<?>)item).getConcept_id();
+			parent_id = ((ConceptItemEntity)item).getEntity_id();
+			add_concept_popup.setItem_type("entity");
 		}
+		if (item instanceof ConceptItemItem)
+		{
+			parent_id = ((ConceptItemItem)item).getEntity_id();
+			add_concept_popup.setItem_type("item");
+		}
+		popup.clear();
 		add_concept_popup.setC_type(c_type);
 		add_concept_popup.setRootConcept(rootConceptUpdateMode);
 		add_concept_popup.setParentConceptID(parent_id);
+		
+		
 		popup.add(add_concept_popup);
 		popup.setPopupPosition(x,y);
 		popup.setPopupPosition(400,400);
+		popup.setVisible(true);
+		popup.setAnimationEnabled(true);
 		popup.show();
 	}
 	
@@ -196,6 +208,10 @@ public class AdminResearchPerspectiveView extends Composite implements AdminRese
 	public VerticalPanel asRoot() {
 		// TODO Auto-generated method stub
 		return centerPanel;
+	}
+	@Override
+	public HasSelectionHandlers<TreeItem> getTreeForSelection() {
+		return tree;
 	}
 
 }

@@ -43,6 +43,7 @@ import com.mresearch.databank.client.helper.RPCCall;
 import com.mresearch.databank.client.service.StartPageServiceAsync;
 import com.mresearch.databank.client.service.UserSocioResearchServiceAsync;
 import com.mresearch.databank.client.views.ConceptItemItem;
+import com.mresearch.databank.client.views.ConceptItemEntity;
 import com.mresearch.databank.client.views.IPickBinder;
 import com.mresearch.databank.client.views.PickElementsTableView;
 import com.mresearch.databank.client.views.RealVariableDetailedView;
@@ -131,28 +132,17 @@ public class UserResearchPerspectivePresenter implements Presenter
 	
 	public void bind()
 	{
-		display.getTree().addMouseDownHandler(new MouseDownHandler() {
-			@Override
-			public void onMouseDown(MouseDownEvent event) {
-				TreeItem it = display.getSelectedItem();
-				if (it instanceof SimpleResearchList)
-				{
-					//fetchResearchListData();
-				}else if (it instanceof ResearchDescItem)
-				{
-					ResearchDescItem rv = (ResearchDescItem)it;
-					current_research_id = rv.getContents_id();
-					//fetchResearchVarData(it, rv.getResearch_id());
-					eventBus.fireEvent(new ShowResearchDetailsEvent(rv.getContents_id()));
-				}else if (it instanceof VarDescItem)
-				{
-					VarDescItem rv = (VarDescItem)it;
-					//fetchResearchVarData(it, rv.getResearch_id());
-					eventBus.fireEvent(new ShowVarDetailsEvent(rv.getVar_id()));
-				//	eventBus.fireEvent(new AddResearchDisabledEvent());
-				}
-			}
-		});
+//		display.getTree().addMouseDownHandler(new MouseDownHandler() {
+//			@Override
+//			public void onMouseDown(MouseDownEvent event) {
+//				TreeItem it = display.getSelectedItem();
+//				if (it instanceof SimpleResearchList)
+//				{
+//					//fetchResearchListData();
+//				}
+//				
+//			}
+//		});
 		display.getTreeForSelection().addSelectionHandler(new SelectionHandler<TreeItem>() {
 			@Override
 			public void onSelection(SelectionEvent<TreeItem> event) {
@@ -174,11 +164,18 @@ public class UserResearchPerspectivePresenter implements Presenter
 					
 					display.getCenterPanel().add(new UserResearchVar2DDView(rv.getResearch_id()));
 				}
-				else if (it instanceof ConceptItemItem)
+				else if (it instanceof ResearchDescItem)
 				{
-					ConceptItemItem rcl = (ConceptItemItem)it;
-					rcl.refreshContents();
-					//eventBus.fireEvent(new CreateConceptEnabledEvent());
+					ResearchDescItem rv = (ResearchDescItem)it;
+					current_research_id = rv.getContents_id();
+					//fetchResearchVarData(it, rv.getResearch_id());
+					eventBus.fireEvent(new ShowResearchDetailsEvent(rv.getContents_id()));
+				}else if (it instanceof VarDescItem)
+				{
+					VarDescItem rv = (VarDescItem)it;
+					//fetchResearchVarData(it, rv.getResearch_id());
+					eventBus.fireEvent(new ShowVarDetailsEvent(rv.getVar_id()));
+				//	eventBus.fireEvent(new AddResearchDisabledEvent());
 				}
 			}
 		});
@@ -196,6 +193,18 @@ public class UserResearchPerspectivePresenter implements Presenter
 					current_research_id = rv.getResearch_id();
 					
 					//eventBus.fireEvent(new ShowResearchDetailsEvent(rv.getResearch_id()));
+				}
+				else if (it instanceof ConceptItemItem)
+				{
+					ConceptItemItem rcl = (ConceptItemItem)it;
+					rcl.refreshContents();
+					//eventBus.fireEvent(new CreateConceptEnabledEvent());
+				}
+				else if (it instanceof ConceptItemEntity)
+				{
+					ConceptItemEntity rcl = (ConceptItemEntity)it;
+					rcl.refreshContents();
+					//eventBus.fireEvent(new CreateConceptEnabledEvent());
 				}
 				
 			

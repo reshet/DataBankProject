@@ -2,6 +2,7 @@ package com.mresearch.databank.client.presenters;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 
 import com.google.gwt.core.client.GWT;
@@ -12,8 +13,11 @@ import com.google.gwt.event.dom.client.HasMouseDownHandlers;
 import com.google.gwt.event.dom.client.MouseDownEvent;
 import com.google.gwt.event.dom.client.MouseDownHandler;
 import com.google.gwt.event.logical.shared.HasOpenHandlers;
+import com.google.gwt.event.logical.shared.HasSelectionHandlers;
 import com.google.gwt.event.logical.shared.OpenEvent;
 import com.google.gwt.event.logical.shared.OpenHandler;
+import com.google.gwt.event.logical.shared.SelectionEvent;
+import com.google.gwt.event.logical.shared.SelectionHandler;
 import com.google.gwt.event.shared.SimpleEventBus;
 import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.rpc.AsyncCallback;
@@ -54,6 +58,7 @@ import com.mresearch.databank.client.views.AdminResearchGroupEditView;
 import com.mresearch.databank.client.views.AdminResearchVarGeneralizeS1View;
 import com.mresearch.databank.client.views.ConceptContentsItem;
 import com.mresearch.databank.client.views.ConceptItem;
+import com.mresearch.databank.client.views.ConceptItemEntity;
 import com.mresearch.databank.client.views.ConceptItemItem;
 import com.mresearch.databank.client.views.IPickBinder;
 import com.mresearch.databank.client.views.PickElementsTableView;
@@ -98,6 +103,7 @@ public class AdminResearchPerspectivePresenter implements Presenter
 	 public interface Display {
 		 HasMouseDownHandlers getTree();
 		 HasOpenHandlers<TreeItem> getTreeForOpen();
+		 HasSelectionHandlers<TreeItem> getTreeForSelection();
 		 
 		 HasClickHandlers getResearchItem(int index);
 		 HasClickHandlers getVarItem(int index);
@@ -149,9 +155,9 @@ public class AdminResearchPerspectivePresenter implements Presenter
 	
 	public void bind()
 	{
-		display.getTree().addMouseDownHandler(new MouseDownHandler() {
+		display.getTreeForSelection().addSelectionHandler(new SelectionHandler<TreeItem>() {
 			@Override
-			public void onMouseDown(MouseDownEvent event) {
+			public void onSelection(SelectionEvent<TreeItem> event) {
 				TreeItem it = display.getSelectedItem();
 				if (it instanceof SimpleResearchList)
 				{
@@ -183,7 +189,7 @@ public class AdminResearchPerspectivePresenter implements Presenter
 				}
 				else if (it instanceof ConceptItemItem)
 				{
-					eventBus.fireEvent(new CreateConceptEnabledEvent(false));
+					eventBus.fireEvent(new CreateConceptEnabledEvent(true));
 					display.getCenterPanel().clear();
 					display.getCenterPanel().add(new HTML("<h1>Загрузка, подождите...</h1>"));
 					final long concept_id = ((ConceptItemItem)it).getEntity_id();
@@ -262,6 +268,12 @@ public class AdminResearchPerspectivePresenter implements Presenter
 							rpcUserService.getResearchSummaries(cb);
 						}
 					}.retry(2);
+				}
+				else if (it instanceof ConceptItemEntity)
+				{
+					ConceptItemEntity rcl = (ConceptItemEntity)it;
+					//rcl.refreshContents();
+					eventBus.fireEvent(new CreateConceptEnabledEvent(false));
 				}
 				else if (it instanceof ConceptItem<?>)
 				{
@@ -346,7 +358,7 @@ public class AdminResearchPerspectivePresenter implements Presenter
 					}.retry(2);
 				}
 				
-				if (!(it instanceof RootConceptsList) && !(it instanceof ConceptItem<?>))
+				if (!(it instanceof RootConceptsList) && !(it instanceof ConceptItemItem) && !(it instanceof ConceptItemEntity))
 				{
 					eventBus.fireEvent(new CreateConceptDisabledEvent());
 				}
@@ -380,8 +392,15 @@ public class AdminResearchPerspectivePresenter implements Presenter
 				{
 					ConceptItemItem rcl = (ConceptItemItem)it;
 					rcl.refreshContents();
-					//eventBus.fireEvent(new CreateConceptEnabledEvent());
-				}else if (it instanceof ConceptItem<?>)
+					eventBus.fireEvent(new CreateConceptEnabledEvent(false));
+				}
+				else if (it instanceof ConceptItemEntity)
+				{
+					ConceptItemEntity rcl = (ConceptItemEntity)it;
+					rcl.refreshContents();
+					eventBus.fireEvent(new CreateConceptEnabledEvent(false));
+				}
+				else if (it instanceof ConceptItem<?>)
 				{
 					try{
 						//expecting there only SocioResearch concepts ((( not safe but eatable;
@@ -568,23 +587,60 @@ public class AdminResearchPerspectivePresenter implements Presenter
 	
 	private void updateCatalogueConcept(final CatalogConceptDTO dto)
 	{
-		new RPCCall<CatalogConceptDTO>() {
+		if(dto.getItem_type().equals("entity"))
+		{
+			new RPCCall<Void>() {
 
-			@Override
-			public void onFailure(Throwable caught) {
-				Window.alert("Error while updating concept");
-			}
+				@Override
+				public void onFailure(Throwable arg0) {
+					
+				}
 
-			@Override
-			public void onSuccess(CatalogConceptDTO result) {
-				//fetchRootCatalogConcepts();	
-			}
+				@Override
+				public void onSuccess(Void arg0) {
+				}
 
-			@Override
-			protected void callService(AsyncCallback<CatalogConceptDTO> cb) {
-				rpcCatalogService.updateCatalogConcept(dto, cb);
-			}
-		}.retry(3);
+				@Override
+				protected void callService(AsyncCallback<Void> cb) {
+					rpcAdminService.addEntityItem(dto.getSuper_concept_ID(), dto.getName(), new HashMap<String,String>(), cb);
+				}
+			}.retry(2);
+		}else
+		{
+			new RPCCall<Void>() {
+
+				@Override
+				public void onFailure(Throwable arg0) {
+					
+				}
+
+				@Override
+				public void onSuccess(Void arg0) {
+				}
+
+				@Override
+				protected void callService(AsyncCallback<Void> cb) {
+					rpcAdminService.addSubEntityItem(dto.getSuper_concept_ID(), dto.getName(), new HashMap<String,String>(), cb);
+				}
+			}.retry(2);
+		}
+//		new RPCCall<CatalogConceptDTO>() {
+//
+//			@Override
+//			public void onFailure(Throwable caught) {
+//				Window.alert("Error while updating concept");
+//			}
+//
+//			@Override
+//			public void onSuccess(CatalogConceptDTO result) {
+//				//fetchRootCatalogConcepts();	
+//			}
+//
+//			@Override
+//			protected void callService(AsyncCallback<CatalogConceptDTO> cb) {
+//				rpcCatalogService.updateCatalogConcept(dto, cb);
+//			}
+//		}.retry(3);
 	}
 	private void fetchResearchVarData(final TreeItem item,final long id_research)
 	{
