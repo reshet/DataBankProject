@@ -126,7 +126,13 @@ public class MultiValuedField extends Composite implements MetaUnitFiller,MetaUn
 			if(dto instanceof MetaUnitMultivaluedEntityDTO)
 			{
 				MetaUnitMultivaluedEntityDTO dto_str = (MetaUnitMultivaluedEntityDTO)dto;
-				subunits_table.setWidget(i++, 0, new MultiValuedEntity(dto_str,null,filling,base_name));
+				if(dto_str.isIsMultiselected())
+				{
+					subunits_table.setWidget(i++, 0, new MultiValuedEntityMultiselected(dto_str,null,filling,base_name));
+				}else
+				{
+					subunits_table.setWidget(i++, 0, new MultiValuedEntity(dto_str,null,filling,base_name));
+				}
 			}
 			
 		}
