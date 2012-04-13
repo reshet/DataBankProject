@@ -8,10 +8,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.google.gwt.user.client.rpc.RemoteServiceRelativePath;
 import com.mplatforma.amr.service.remote.RxStorageBeanRemote;
 import com.mplatforma.amr.service.remote.UserAccountBeanRemote;
 import com.mresearch.databank.shared.RxStoredDTO;
 
+@RemoteServiceRelativePath("serve")
 public class RxStorageServe extends HttpServlet {
    // private BlobstoreService blobstoreService = BlobstoreServiceFactory.getBlobstoreService();
 	private static RxStorageBeanRemote eao;

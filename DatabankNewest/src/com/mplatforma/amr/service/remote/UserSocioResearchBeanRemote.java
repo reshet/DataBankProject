@@ -31,4 +31,5 @@ public interface UserSocioResearchBeanRemote {
     ArrayList<SSE_DTO> getSSEs(String clas, String kind);
     ArrayList<OrgDTO> getOrgList();
     String doIndexSearch(String json_query,String [] types_to_search);
+    ArrayList<VarDTO_Light> getVarDTOs(ArrayList<Long> keys);
 }

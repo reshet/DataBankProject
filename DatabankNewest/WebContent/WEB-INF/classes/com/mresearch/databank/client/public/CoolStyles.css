@@ -1,3 +1,12 @@
+root { 
+    display: block;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+}
+
 @font-face {
     font-family: 'NeoSansPro-Light';
     src: url('i/neosanspro-light.eot');
@@ -21,34 +30,15 @@
     font-style: normal;
 }
 
-/* @font-face { */
-/* 	font-family: neosans_LI; */
-/* 	src: url('NeoSans/NeoSansPro-LightItalic.otf'); */
-/* } */
-/* @font-face { */
-/* 	font-family: neosans_R; */
-/* 	src: url('NeoSans/NeoSansPro-Regular.otf'); */
-/* }@font-face { */
-/* 	font-family: neosans_I; */
-/* 	src: url('NeoSans/NeoSansPro-Italic.otf'); */
-/* }@font-face { */
-/* 	font-family: neosans_BI; */
-/* 	src: url('NeoSans/NeoSansPro-BoldItalic.otf'); */
-/* }@font-face { */
-/* 	font-family: neosans_B; */
-/* 	src: url('NeoSans/NeoSansPro-Bold.otf'); */
-/* }@font-face { */
-/* 	font-family: neosans_M; */
-/* 	src: url('NeoSans/NeoSansPro-Medium.otf'); */
-/* } */
-
 /** Общие стили */
 .green { color: #69c014; }
 .dark-green { color: #529510; }
-.orange { color: #e95830; }
+.red { color: #e95830; }
+.dark-red { color: #db372a; }
 .blue {color: #3c77ba;}
 .yellow { color: #e5aa23; }
 .italic { font-style: italic; }
+.bold { font-weight: bold; }
 .frac { color: #a9a9a9; }
 .yellow-marker { background-color: #fff469; color: #000; }
 .op06 { opacity: 0.6; }
@@ -57,14 +47,21 @@
 .gray40 { color: #666666; }
 .gray50 { color: #808080; }
 .gray66 { color: #a8a8a8; }
+.gray80 { color: #d0d0d0; }
 .ident { text-indent: 40px; }
- 
+.clearboth { clear: both; }
+.right { text-align: right; }
+
 /** Стили заголовков и параграфов */
-h1 {
+h1, h1.header {
     font-family: 'NeoSansPro-Light', 'Trebuchet MS', Arial, Helvetica;
     font-size: 36px;
     line-height: 100%;
     margin: 10px 0;
+}
+h1.header { 
+    font-size: 22px; 
+    line-height: 120%;
 }
 
 h2 {
@@ -72,6 +69,11 @@ h2 {
     font-size: 22px;
     line-height: 100%;
     margin: 10px 0;
+}
+
+h2.article {
+    font-size: 18px;
+    line-height: 100%;
 }
 
 p {
@@ -120,6 +122,7 @@ a.more {
     text-decoration: underline;
     color: #3c77ba;
 }
+
 
 /** Тут начинаются стили для таблиц */
 

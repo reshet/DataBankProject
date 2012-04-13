@@ -100,7 +100,7 @@ public class SearchResultsGrid extends VerticalPanel
 			{
 				bus.fireEvent(new ShowResearchDetailsEvent(id));
 			}
-			if(type.equals("var"))
+			if(type.equals("sociovar"))
 			{
 				bus.fireEvent(new ShowVarDetailsEvent(id));
 			}

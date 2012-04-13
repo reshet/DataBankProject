@@ -24,7 +24,7 @@ import com.mresearch.databank.client.service.AdminSocioResearchServiceAsync;
 import com.mresearch.databank.client.service.UserSocioResearchServiceAsync;
 import com.mresearch.databank.client.views.IPickBinder;
 import com.mresearch.databank.client.views.PickElementsTableView;
-import com.mresearch.databank.client.views.VariableDetailedView.JSON_Construct;
+import com.mresearch.databank.client.views.JSON_Construct;
 import com.mresearch.databank.client.views.DBfillers.MetaUnitCollector;
 import com.mresearch.databank.client.views.DBfillers.MetaUnitEntityItemRegistrator;
 import com.mresearch.databank.client.views.DBfillers.MetaUnitFiller;

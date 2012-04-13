@@ -7,6 +7,7 @@ import java.util.Map;
 import org.opendatafoundation.data.spss.mod.SPSSUtils;
 
 import com.google.gwt.core.client.GWT;
+import com.google.gwt.event.shared.SimpleEventBus;
 import com.google.gwt.i18n.client.NumberFormat;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
@@ -16,7 +17,12 @@ import com.google.gwt.user.client.ui.HTMLPanel;
 import com.google.gwt.user.client.ui.HorizontalPanel;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.MultiWordSuggestOracle;
+import com.google.gwt.user.client.ui.VerticalPanel;
 import com.google.gwt.user.client.ui.Widget;
+import com.mresearch.databank.client.presenters.UserResearchPerspectivePresenter;
+import com.mresearch.databank.client.views.DBviewers.MultiValuedFieldViewer;
+import com.mresearch.databank.client.views.DBviewers.VarMultiValuedFieldViewer;
+import com.mresearch.databank.shared.MetaUnitMultivaluedEntityDTO;
 import com.mresearch.databank.shared.RealVarDTO_Detailed;
 import com.mresearch.databank.shared.VarDTO;
 import com.mresearch.databank.shared.VarDTO_Detailed;
@@ -34,8 +40,16 @@ public class RealVariableDetailedView extends Composite {
 	@UiField FlexTable generalizedTbl;
 	@UiField HorizontalPanel target_panel;
 	@UiField HTMLPanel content_panel;
-	public RealVariableDetailedView(RealVarDTO_Detailed dto) {
+	private MetaUnitMultivaluedEntityDTO db;
+	private VarDTO_Detailed dto;
+	@UiField VerticalPanel elasticDBfields;
+	@UiField HorizontalPanel analysis_bar;
+
+	public RealVariableDetailedView(RealVarDTO_Detailed dto,MetaUnitMultivaluedEntityDTO dt,SimpleEventBus bus,UserResearchPerspectivePresenter.Display display) {
 		initWidget(uiBinder.createAndBindUi(this));
+		this.dto = dto;
+		this.db = dt;
+		analysis_bar.add(new AnalisysBarView(bus, display));
 		
 		target_panel.add(new SaveHTMLAddon(content_panel));
 		varCode.setText(dto.getCode());
@@ -61,6 +75,12 @@ public class RealVariableDetailedView extends Composite {
 			generalizedTbl.setWidget(j, 2, new Label(" в исследовании "));
 			generalizedTbl.setWidget(j, 3, new Label(dto.getGen_research_names().get(j)));
 		}
+		renderDBfillers();
 	}
-
+	private void renderDBfillers()
+	{
+		elasticDBfields.clear();
+		VarMultiValuedFieldViewer mv = new VarMultiValuedFieldViewer(db,dto.getFilling(),"");
+		elasticDBfields.add(mv);
+	}
 }

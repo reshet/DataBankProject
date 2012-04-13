@@ -2,7 +2,11 @@ package com.mresearch.databank.shared;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Map;
+
+import com.mresearch.databank.client.views.DBfillers.MetaUnitCollector;
+import com.mresearch.databank.client.views.DBfillers.MetaUnitFiller;
 
 @SuppressWarnings("serial")
 public class VarDTO_Detailed extends VarDTO implements Serializable{
@@ -15,7 +19,15 @@ public class VarDTO_Detailed extends VarDTO implements Serializable{
 	private ArrayList<String> gen_var_names;
 	private ArrayList<String> gen_research_names;
 	private ArrayList<Long> gen_research_ids;
-	
+	private HashMap<String,String> filling;
+	public HashMap<String, String> getFilling() {
+		return filling;
+	}
+
+	public void setFilling(HashMap<String, String> filling) {
+		this.filling = filling;
+	}
+
 	private String var_type;
 	
 	public VarDTO_Detailed()
@@ -78,6 +90,7 @@ public class VarDTO_Detailed extends VarDTO implements Serializable{
 	public void setGen_research_ids(ArrayList<Long> gen_research_ids) {
 		this.gen_research_ids = gen_research_ids;
 	}
+
 
 	
 	

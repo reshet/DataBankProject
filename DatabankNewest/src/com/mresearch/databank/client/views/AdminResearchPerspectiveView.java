@@ -45,6 +45,7 @@ public class AdminResearchPerspectiveView extends Composite implements AdminRese
 	
 	SimpleResearchList simpleResearchListItem;
 	RootConceptsList rootResearchConcepts;
+	RootConceptsList rootVarConcepts;
 	SimpleEventBus bus;
 	private PopupPanel popup = new PopupPanel(true);
 	private AddConceptPopupView add_concept_popup;
@@ -61,12 +62,15 @@ public class AdminResearchPerspectiveView extends Composite implements AdminRese
 		add_concept_popup = new AddConceptPopupView(this.bus);
 		//tree = new Tree();
 		//tree.setStyleName("research-catalog");
-		TreeItem db = new TreeItem("_Банк данных_");
+		//TreeItem db = new TreeItem("_Банк данных_");
 		simpleResearchListItem = new SimpleResearchList();
-		rootResearchConcepts = new RootConceptsList("SocioResearch","Концепты каталогизации исследований");
-		db.addItem(simpleResearchListItem);
-		db.addItem(rootResearchConcepts);
-		tree.addItem(db);
+		rootResearchConcepts = new RootConceptsList("socioresearch","Концепты каталогизации исследований");
+		rootVarConcepts = new RootConceptsList("sociocar","Концепты каталогизации переменных");
+		tree.addItem(simpleResearchListItem);
+		tree.addItem(rootResearchConcepts);
+		tree.addItem(rootVarConcepts);
+		
+		//tree.addItem(db);
 		
 		
 		

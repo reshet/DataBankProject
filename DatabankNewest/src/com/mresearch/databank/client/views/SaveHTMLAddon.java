@@ -20,7 +20,7 @@ public class SaveHTMLAddon extends VerticalPanel{
 		content.setVisible(false);
 		content.setName("content");
 		form = new FormPanel();
-		form.setAction("/databank/htmlSave");
+		form.setAction("/databanknewest/htmlSave");
 		form.setMethod(FormPanel.METHOD_POST);
 		VerticalPanel panel = new VerticalPanel();
 		panel.add(content);

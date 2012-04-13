@@ -58,19 +58,21 @@ import com.mresearch.databank.client.event.ShowVarDetailsEvent;
 import com.mresearch.databank.client.event.ShowVarDetailsEventHandler;
 import com.mresearch.databank.client.presenters.Presenter;
 import com.mresearch.databank.client.presenters.StartPagePerspectivePresenter;
-//import com.mresearch.databank.client.presenters.UserLawPerspectivePresenter;
+import com.mresearch.databank.client.presenters.UserLawPerspectivePresenter;
 //import com.mresearch.databank.client.presenters.UserNewsPerspectivePresenter;
 import com.mresearch.databank.client.presenters.UserResearchPerspectivePresenter;
 import com.mresearch.databank.client.presenters.UserSearchPerspectivePresenter;
 //import com.mresearch.databank.client.service.AdminArticleService;
 //import com.mresearch.databank.client.service.AdminArticleServiceAsync;
+import com.mresearch.databank.client.service.AdminArticleService;
+import com.mresearch.databank.client.service.AdminArticleServiceAsync;
 import com.mresearch.databank.client.service.SearchService;
 import com.mresearch.databank.client.service.SearchServiceAsync;
 import com.mresearch.databank.client.service.StartPageServiceAsync;
 import com.mresearch.databank.client.service.UserSocioResearchService;
 import com.mresearch.databank.client.service.UserSocioResearchServiceAsync;
 import com.mresearch.databank.client.views.StartPagePerspectiveView;
-//import com.mresearch.databank.client.views.UserLawPerspectiveView;
+import com.mresearch.databank.client.views.UserLawPerspectiveView;
 //import com.mresearch.databank.client.views.UserNewsPerspectiveView;
 import com.mresearch.databank.client.views.UserResearchPerspectiveView;
 import com.mresearch.databank.client.views.UserSearchPerspectiveView;
@@ -103,11 +105,12 @@ public class UserAppController implements ValueChangeHandler<String>, AppControl
   @UiField VerticalPanel centerPanel;
   @UiField TextBox searchBox;
  // @UiField Button searchCmd;
+  
   //private DockLayoutPanel thisDock;
   private VerticalPanel thisDock;
   private final UserSocioResearchServiceAsync researchService = GWT.create(UserSocioResearchService.class);
   
-  //private final AdminArticleServiceAsync articleService = GWT.create(AdminArticleService.class);
+  private final AdminArticleServiceAsync articleService = GWT.create(AdminArticleService.class);
   
   public UserAppController(StartPageServiceAsync rpcService, SimpleEventBus eventBus) {
 	//initWidget();
@@ -405,12 +408,12 @@ public class UserAppController implements ValueChangeHandler<String>, AppControl
       }else if(token.startsWith("user-law")){
     	  
     	  
-//    	  presenter = new UserLawPerspectivePresenter(articleService, eventBus, new UserLawPerspectiveView());
-//    	  ArrayList<String> param_names,param_values;
-//    	  param_names = new ArrayList<String>();
-//    	  param_values = new ArrayList<String>();
-//    	  parsePathToken(token, param_names, param_values);
-//    	  presenter.go(centerPanel,param_names,param_values);
+    	  presenter = new UserLawPerspectivePresenter(articleService, eventBus, new UserLawPerspectiveView(eventBus));
+    	  ArrayList<String> param_names,param_values;
+    	  param_names = new ArrayList<String>();
+    	  param_values = new ArrayList<String>();
+    	  parsePathToken(token, param_names, param_values);
+    	  presenter.go(centerPanel,param_names,param_values);
     	  
       }
       else if(token.startsWith("search-results")){

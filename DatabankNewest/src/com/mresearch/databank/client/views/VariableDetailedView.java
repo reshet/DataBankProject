@@ -11,6 +11,7 @@ import org.opendatafoundation.data.spss.mod.SPSSUtils;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.event.dom.client.ClickEvent;
+import com.google.gwt.event.shared.SimpleEventBus;
 import com.google.gwt.http.client.URL;
 import com.google.gwt.i18n.client.NumberFormat;
 import com.google.gwt.json.client.JSONArray;
@@ -28,6 +29,10 @@ import com.google.gwt.user.client.ui.HorizontalPanel;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.VerticalPanel;
 import com.google.gwt.user.client.ui.Widget;
+import com.mresearch.databank.client.presenters.UserResearchPerspectivePresenter;
+import com.mresearch.databank.client.views.DBviewers.MultiValuedFieldViewer;
+import com.mresearch.databank.client.views.DBviewers.VarMultiValuedFieldViewer;
+import com.mresearch.databank.shared.MetaUnitMultivaluedEntityDTO;
 import com.mresearch.databank.shared.VarDTO_Detailed;
 import com.rednels.ofcgwt.client.ChartWidget;
 
@@ -46,7 +51,8 @@ public class VariableDetailedView extends Composite {
 //	@UiField Button save_html_btn;
 	@UiField HorizontalPanel save_pnl;
 	@UiField VerticalPanel graph_pnl;
-	
+	@UiField VerticalPanel elasticDBfields;
+	@UiField HorizontalPanel analysis_bar;
 //	Hyperlink link;
 //	private FormPanel form;
 //	private TextBox hidden_box;
@@ -63,102 +69,7 @@ public class VariableDetailedView extends Composite {
 //		//save_pnl.clear();
 //		//save_pnl.add(new HTML("<a href=\"/databank/htmlSave?tosave="+s+"\" target=\"_blank\">Скачать файл!</a>"));
 //	}
-	public class JSON_Construct
-	{
-		private VarDTO_Detailed dto;
-		public JSON_Construct(VarDTO_Detailed dto)
-		{
-			this.dto = dto;
-			rand.setSeed(new Date().getTime());
-		}
-		public JSONObject getGraph()
-		{
-			JSONObject json = new JSONObject();
-			json.put("title", getTitle());
-			json.put("legend", getLegend());
-			json.put("bg_colour", new JSONString("#ffffff"));
-			JSONArray elements = new JSONArray();
-			elements.set(0, getDataElemObj());
-			json.put("elements", elements);
-			return json;
-		}
-		private JSONObject getTitle()
-		{
-			JSONObject obj = new JSONObject();
-			obj.put("text", new JSONString(dto.getLabel()));
-			obj.put("style", new JSONString("font-size: 14px; font-family: Verdana; text-align: center;"));
-			return obj;
-		}
-		private JSONObject getLegend()
-		{
-			JSONObject obj = new JSONObject();
-			obj.put("visible", JSONBoolean.getInstance(true));
-			obj.put("bg_colour", new JSONString("#fefefe"));
-			obj.put("position", new JSONString("right"));
-			obj.put("border", JSONBoolean.getInstance(true));
-			obj.put("shadow", JSONBoolean.getInstance(true));
-			return obj;
-		}
-		private JSONArray getDataValues()
-		{
-			JSONArray arr = new JSONArray();
-			int i = 0;
-			for(String value:dto.getV_label_values())
-			{
-				Double cd = dto.getV_label_codes().get(i);
-				Double dist = dto.getDistribution().get(i);
-				JSONObject ob = new JSONObject();
-				ob.put("value", new JSONNumber(dist));
-				ob.put("label", new JSONString(String.valueOf(cd)));
-				ob.put("text", new JSONString(String.valueOf(cd)+" "+value));
-				arr.set(i,ob);
-				i++;
-			}
-			return arr;
-		}
-		private Random rand = new Random();
-		private String getRandomColorElem()
-		{
-			String [] arr = {"0","1","2","3","4","5","6","7","8","9","A","B","C","D","E","F"};
-			int index = rand.nextInt(16);
-			return arr[index];
-		}
-		private String getRandomColour()
-		{
-			String color = "#";
-			for(int i = 0; i < 6;i++)
-			{
-				color+=getRandomColorElem();
-			}
-			return color;
-		}
-		private JSONArray getRandomColours()
-		{
-			JSONArray arr = new JSONArray();
-			int i = 0;
-			for(String value:dto.getV_label_values())
-			{
-				arr.set(i,new JSONString(getRandomColour()));
-				i++;
-			}
-			return arr;
-		}
-		private JSONObject getDataElemObj()
-		{
-			JSONObject obj = new JSONObject();
-			obj.put("type", new JSONString("pie"));
-			obj.put("tip", new JSONString("#label# $#val#<br>#percent#"));
-			obj.put("values", getDataValues());
-			obj.put("radius", new JSONNumber(210));
-			obj.put("highlight", new JSONString("alpha"));
-			obj.put("animate", JSONBoolean.getInstance(true));
-			obj.put("gradient-fill", JSONBoolean.getInstance(true));
-			obj.put("alpha", new JSONNumber(0.7));
-			obj.put("no-labels", JSONBoolean.getInstance(false));
-			obj.put("colours", getRandomColours());
-			return obj;
-		}
-	}
+	
 	
 	private native JavaScriptObject getJSON()/*-{
 		return eval(
@@ -188,9 +99,19 @@ public class VariableDetailedView extends Composite {
 			}
 	)
  }-*/;
-	public VariableDetailedView(VarDTO_Detailed dto) {
+	
+	
+	
+	
+	private MetaUnitMultivaluedEntityDTO db;
+	private VarDTO_Detailed dto;
+	public VariableDetailedView(VarDTO_Detailed dto,MetaUnitMultivaluedEntityDTO dt,SimpleEventBus bus,UserResearchPerspectivePresenter.Display display)
+	{
 		initWidget(uiBinder.createAndBindUi(this));
-//		this.dto = dto;
+		this.db = dt;
+		this.dto = dto;
+		
+		analysis_bar.add(new AnalisysBarView(bus, display));
 		//form.a
 		save_pnl.add(new SaveHTMLAddon(main_html));
 		
@@ -252,7 +173,13 @@ public class VariableDetailedView extends Composite {
 		widg.setJsonData(json);
 		graph_pnl.add(widg);
 		
+		renderDBfillers();
 	}
 	
-	
+	private void renderDBfillers()
+	{
+		elasticDBfields.clear();
+		VarMultiValuedFieldViewer mv = new VarMultiValuedFieldViewer(db,dto.getFilling(),"");
+		elasticDBfields.add(mv);
+	}
 }

@@ -141,10 +141,12 @@ public class UserSearchPerspectiveView extends Composite implements UserSearchPe
 	@Override
 	public String[] getTypesToSearch() {
 		ArrayList<String> types = new ArrayList<String>();
-		if(all.getValue()) return new String[]{"research","var","law","consult","publication"};
+		if(all.getValue()) return new String[]{"research","sociovar"
+												//,"law","consult","publication"
+												};
 		
 		if(socioresearch.getValue())types.add("research");
-		if(sociovars.getValue())types.add("var");
+		if(sociovars.getValue())types.add("sociovar");
 		if(laws.getValue())types.add("law");
 		if(publications.getValue())types.add("publication");
 		if(consults.getValue())types.add("consult");

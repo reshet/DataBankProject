@@ -20,7 +20,6 @@
 		  padding: 1px 0px;
 		  margin: 0px;
 		  white-space: nowrap;
-		  cursor: hand;
 		  cursor: pointer;
 		}
 		.gwt-Tree .gwt-TreeItem-selected {
@@ -32,23 +31,11 @@
 		}
 	</ui:style>
 	<g:VerticalPanel width="100%">
-				<g:HorizontalPanel ui:field="researchCommandBar" height="25px" horizontalAlignment="left">
-				<g:HTMLPanel>
-					<table>
-						<tr>
-							<td float="right"><g:CheckBox text="Взвешивание отключено" checked="false" ui:field="weights_use"></g:CheckBox></td>
-							<td float="right"><g:CheckBox text="Фильтры" checked="false" ui:field="filters_use"></g:CheckBox> </td>
-							<td float="right"><g:Button ui:field="filters_details_btn" text="Подробнее..."></g:Button></td>	
-							<td float="right"><g:Button ui:field="filters_add_btn" text="+"></g:Button></td>	
-							<td float="right"><g:Button ui:field="filters_delete_btn" text="-"></g:Button></td>			
-						</tr>
-					</table>
-				</g:HTMLPanel>
-			</g:HorizontalPanel>
+				
 			<g:SplitLayoutPanel   width="100%" height="800px">
 				<g:west size = "300" unit='EM'>
 					<g:ScrollPanel   width="100%" height="100%">
-						<g:Tree ui:field="tree">
+						<g:Tree ui:field="tree" styleName="{style.gwt-TreeItem}">
 						</g:Tree>
 					</g:ScrollPanel>
 				</g:west>

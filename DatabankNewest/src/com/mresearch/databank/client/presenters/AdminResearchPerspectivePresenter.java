@@ -45,6 +45,7 @@ import com.mresearch.databank.client.event.ShowStartPageMainEventHandler;
 import com.mresearch.databank.client.event.ShowVarDetailsEvent;
 import com.mresearch.databank.client.event.ShowVarDetailsEventHandler;
 import com.mresearch.databank.client.helper.RPCCall;
+import com.mresearch.databank.client.service.AdminSocioResearchService;
 import com.mresearch.databank.client.service.AdminSocioResearchServiceAsync;
 import com.mresearch.databank.client.service.CatalogService;
 import com.mresearch.databank.client.service.CatalogServiceAsync;
@@ -73,6 +74,7 @@ import com.mresearch.databank.client.views.UserResearchDetailedView;
 import com.mresearch.databank.client.views.UserResearchVar2DDView;
 import com.mresearch.databank.client.views.VarDescItem;
 import com.mresearch.databank.client.views.VariableDetailedView;
+import com.mresearch.databank.client.views.VariableEditView;
 import com.mresearch.databank.client.views.addResearchUI;
 //import com.mresearch.databank.server.CatalogServiceImpl;
 //import com.mresearch.databank.server.domain.SocioResearch;
@@ -150,8 +152,13 @@ public class AdminResearchPerspectivePresenter implements Presenter
 		 container.clear();
 		 container.add(display.asWidget());
 		 fetchResearchListData();
-		 fetchRootCatalogConcepts();
+		 //fetchRootCatalogConcepts();
 	}
+	
+	
+	
+	
+	
 	
 	public void bind()
 	{
@@ -727,19 +734,40 @@ public class AdminResearchPerspectivePresenter implements Presenter
 			}
 
 			@Override
-			public void onSuccess(VarDTO_Detailed result) {
+			public void onSuccess(final VarDTO_Detailed result) {
 			//	AdminResearchDetailedView ad_view = new AdminResearchDetailedView(new UserResearchDetailedView(result));
 			//	AdminResearchEditView ed_view = new AdminResearchEditView(result);
 			//	AdminResearchDetailedPresenter presenter = new AdminResearchDetailedPresenter(rpcUserService,rpcAdminService, eventBus, ad_view, ed_view);
 			//	presenter.go(display.getCenterPanel());
-				display.getCenterPanel().clear();
-				//display.getCenterPanel().add(new VariableDetailedView(result));
-				if (result instanceof RealVarDTO_Detailed)
-					display.getCenterPanel().add(new RealVariableDetailedView((RealVarDTO_Detailed)result));
-				else if (result instanceof TextVarDTO_Detailed)
-					display.getCenterPanel().add(new TextVariableDetailedView((TextVarDTO_Detailed)result));
-				else
-					display.getCenterPanel().add(new VariableDetailedView(result));
+				
+				
+				
+				
+				
+				new RPCCall<MetaUnitMultivaluedEntityDTO>() {
+
+					@Override
+					public void onFailure(Throwable arg0) {
+					}
+
+					@Override
+					public void onSuccess(MetaUnitMultivaluedEntityDTO res) {
+						display.getCenterPanel().clear();
+						//display.getCenterPanel().add(new VariableDetailedView(result));
+//						if (result instanceof RealVarDTO_Detailed)
+//							display.getCenterPanel().add(new RealVariableDetailedView((RealVarDTO_Detailed)result,res));
+//						else if (result instanceof TextVarDTO_Detailed)
+//							display.getCenterPanel().add(new TextVariableDetailedView((TextVarDTO_Detailed)result,res));
+//						else
+							display.getCenterPanel().add(new VariableEditView(result,res));
+					}
+
+					@Override
+					protected void callService(
+							AsyncCallback<MetaUnitMultivaluedEntityDTO> cb) {
+						AdminSocioResearchService.Util.getInstance().getDatabankStructure("sociovar", cb);
+					}
+				}.retry(2);
 			}
 
 			@Override

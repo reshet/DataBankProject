@@ -47,13 +47,16 @@ public class ZaconDetailedView extends Composite {
 		this._abstract.setText(dto.getContents());
 		this._number.setText(dto.getNumber());
 		
-		authors.setText(arrToStr(dto.getAuthors()));
-		keywords.setText(arrToStr(dto.getKey_words()));
-		if (dto.getDate() != null)date.setText(dto.getDate().toString());
-		if (dto.getAccept_date() != null)date_accept.setText(dto.getAccept_date().toString());
-		if (dto.getDecline_date() != null)date_decline.setText(dto.getDecline_date().toString());
+//		authors.setText(arrToStr(dto.getAuthors()));
+//		keywords.setText(arrToStr(dto.getKey_words()));
+//		if (dto.getDate() != null)date.setText(dto.getDate().toString());
+//		if (dto.getAccept_date() != null)date_accept.setText(dto.getAccept_date().toString());
+//		if (dto.getDecline_date() != null)date_decline.setText(dto.getDecline_date().toString());
+//		
+		String realPath = GWT.getModuleBaseURL();
+		
 		//_enc_link.setTargetHistoryToken();
-		link_panel.add(new HTML("<a href=\""+"/databank/serve?blob-key="+dto.getEnclosure_key()+"\">Скачать документ (реал)  </a>"));
+		link_panel.add(new HTML("<a href=\""+realPath+"serve?blob-key="+dto.getEnclosure_key()+"\">Скачать документ </a>"));
 	}
 //	@UiHandler(value="_enc_link")
 //	public void onEncLinkClick(ClickEvent e)

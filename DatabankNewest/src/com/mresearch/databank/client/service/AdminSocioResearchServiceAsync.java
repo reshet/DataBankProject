@@ -86,6 +86,7 @@ public interface AdminSocioResearchServiceAsync {
 	void updateMetaUnitEntityItemLinks(Long item_id,
 			ArrayList<Long> tagged_ids, String identifier,
 			AsyncCallback<Void> callback);
+	void updateVar(VarDTO_Detailed var, AsyncCallback<Void> callback);
 	
 	
 }

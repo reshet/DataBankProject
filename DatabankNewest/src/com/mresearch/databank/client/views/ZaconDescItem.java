@@ -12,9 +12,10 @@ import com.mresearch.databank.shared.ArticleDTO;
 import com.mresearch.databank.shared.SocioResearchDTO;
 import com.mresearch.databank.shared.VarDTO;
 import com.mresearch.databank.shared.ZaconDTO;
+import com.mresearch.databank.shared.ZaconDTO_Light;
 
 public class ZaconDescItem extends ConceptContentsItem{
-	public ZaconDescItem(ZaconDTO dto)
+	public ZaconDescItem(ZaconDTO_Light dto)
 	{
 		super(dto);
 	}

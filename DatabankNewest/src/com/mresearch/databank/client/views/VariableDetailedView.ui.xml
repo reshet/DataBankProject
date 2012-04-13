@@ -32,11 +32,19 @@
 		    color: #4d4d4d;
 		    text-align: left;
 		    border-right: #cccccc double 3px;
+		    
+		 
+		}
+		.analisys{
+			text-align: right;
+		
 		}
 	</ui:style>
 	<g:HTMLPanel>
+		<g:HorizontalPanel ui:field="analysis_bar" styleName="{style.analisys}">
+		</g:HorizontalPanel>
 		<h2>Просмотр переменной</h2>
-		<g:HTMLPanel ui:field="main_html" styleName="{style.tableStyle}">
+		<g:HTMLPanel ui:field="main_html">
 			<table>
 				<tr>
 					<td>Имя переменной: </td><td><g:Label ui:field="varCode"></g:Label></td>
@@ -44,15 +52,16 @@
 				<tr>
 					<td>Текст вопроса: </td><td><g:Label ui:field="varText"></g:Label></td>
 				</tr>
-				<tr>
-					<td>Code Scheme: </td><td><g:FlexTable ui:field="codeSchemeTbl"></g:FlexTable></td>
-				</tr>
-				<tr>
-					<td>Переменная использовалась:</td><td><g:FlexTable ui:field="generalizedTbl"></g:FlexTable></td>
-				</tr>
 			</table>
+				<g:FlexTable ui:field="codeSchemeTbl" styleName="{style.tableStyle}"></g:FlexTable>
+				<br/>
+				Переменная использовалась:
+				<g:FlexTable ui:field="generalizedTbl"></g:FlexTable>
+			<br/>
+			<g:VerticalPanel ui:field="elasticDBfields"></g:VerticalPanel>
 		</g:HTMLPanel>
 		<g:HorizontalPanel ui:field="save_pnl"></g:HorizontalPanel>
 		<g:VerticalPanel ui:field="graph_pnl" width="800px" height="700px"></g:VerticalPanel>
 	</g:HTMLPanel>
+	
 </ui:UiBinder> 

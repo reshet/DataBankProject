@@ -1,0 +1,24 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui">
+	<ui:style>
+		.category
+		{
+			color: #772222;
+			font-weight: bold;
+			font: 16px;
+			vertical-align: text-top;
+		}
+		.tableResearch
+		{
+			font-weight: normal;
+			background-color: #88AA66;
+			padding: 7px;
+			margin-left: 20px;
+		}
+	</ui:style>
+	<g:HTMLPanel>
+		<g:Label ui:field="field_name" styleName="{style.category}"></g:Label>
+		<g:FlexTable ui:field="subunits_table" styleName="{style.tableResearch}"></g:FlexTable>
+	</g:HTMLPanel>
+</ui:UiBinder> 

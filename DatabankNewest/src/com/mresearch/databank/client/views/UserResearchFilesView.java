@@ -59,12 +59,14 @@ public class UserResearchFilesView extends Composite implements AdminResearchDet
 	private void fillWithFetched(SocioResearchFilesDTO dto)
 	{
 		files_table.clear();
+		String realPath = GWT.getModuleBaseURL();
 		for(int i = 0; i < dto.getFiles_ids().size();i++)
 		{
 			files_table.setWidget(i, 0, new Label(String.valueOf(i)));
 			files_table.setWidget(i, 1, new Label(dto.getFiles_descs().get(i)));		
 			final long file_id = dto.getFiles_ids().get(i);
-			files_table.setWidget(i, 2, new HTML("<a href=\""+"/databanknewest/serve?blob-key="+file_id+"\">Скачать</a>"));
+			
+			files_table.setWidget(i, 2, new HTML("<a href=\""+realPath+"serve?blob-key="+file_id+"\">Скачать</a>"));
 		}
 	}
 	

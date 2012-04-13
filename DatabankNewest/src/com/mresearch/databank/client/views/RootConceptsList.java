@@ -59,7 +59,7 @@ public class RootConceptsList extends ConceptItemEntity
 
       protected void callService(AsyncCallback<MetaUnitMultivaluedEntityDTO> cb)
       {
-        AdminSocioResearchService.Util.getInstance().getDatabankStructure("socioresearch", cb);
+        AdminSocioResearchService.Util.getInstance().getDatabankStructure(concept_type, cb);
       }
     }
     .retry(2);

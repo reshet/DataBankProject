@@ -81,6 +81,10 @@ public class ResearchAdminAppController implements ValueChangeHandler<String>, A
 
   }
 
+  
+  
+  
+
   private void bind() {
     History.addValueChangeHandler(this);
     bankNav.addClickHandler(new ClickHandler() {

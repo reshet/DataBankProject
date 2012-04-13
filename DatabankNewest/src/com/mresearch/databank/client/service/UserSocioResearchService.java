@@ -55,7 +55,7 @@ public interface UserSocioResearchService extends RemoteService {
   ArrayList<SocioResearchDTO> getResearchSummaries(ArrayList<FilterBaseDTO> filters);
   ArrayList<SocioResearchDTO> getResearchDTOs(ArrayList<Long> keys);
   //String getBlobstoreUploadURL();
-
+  ArrayList<VarDTO_Light> getVarDTOs(ArrayList<Long> keys);
   ArrayList<VarDTO_Light> getResearchVarsSummaries(long research_ad);
   ArrayList<Double> get2DDistribution(long var_id1, long var_id2);
 

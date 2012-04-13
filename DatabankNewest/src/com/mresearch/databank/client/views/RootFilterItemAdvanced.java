@@ -63,7 +63,7 @@ public class RootFilterItemAdvanced extends TreeItem
         FilterRealDiapasonView filtSelectionSize = new FilterRealDiapasonView(dto.getDesc(), base_name, dto)
         {
           public FilterDiapasonDTO getFilterDTO() {
-            FilterDiapasonDTO dt = new FilterDiapasonDTO("SocioResearch", this.base_name + this.dto.getUnique_name(), getFromValue(), getToValue());
+            FilterDiapasonDTO dt = new FilterDiapasonDTO(type_to_filter, this.base_name + this.dto.getUnique_name(), getFromValue(), getToValue());
             return dt;
           }
 
@@ -82,7 +82,7 @@ public class RootFilterItemAdvanced extends TreeItem
         FilterStringContainsView filtSelectionSize = new FilterStringContainsView(dto.getDesc(), base_name, dto)
         {
           public FilterMatchDTO getFilterDTO() {
-            FilterMatchDTO dt = new FilterMatchDTO("SocioResearch", this.base_name + this.dto.getUnique_name(), "==", getValue());
+            FilterMatchDTO dt = new FilterMatchDTO(type_to_filter, this.base_name + this.dto.getUnique_name(), "==", getValue());
             return dt;
           }
 
@@ -101,7 +101,7 @@ public class RootFilterItemAdvanced extends TreeItem
         FilterDataDiapasonView filtFieldStart = new FilterDataDiapasonView(dto.getDesc(), base_name, dto)
         {
           public FilterDiapasonDTO getFilterDTO() {
-            FilterDateDiapasonDTO dt = new FilterDateDiapasonDTO("SocioResearch", this.base_name + this.dto.getUnique_name(), getFromValue(), getToValue());
+            FilterDateDiapasonDTO dt = new FilterDateDiapasonDTO(type_to_filter, this.base_name + this.dto.getUnique_name(), getFromValue(), getToValue());
             return dt;
           }
 
@@ -137,7 +137,7 @@ public class RootFilterItemAdvanced extends TreeItem
             CheckBox cb = (CheckBox)this.root.getChild(i).getWidget();
             if (cb.getValue().booleanValue())
             {
-              FilterMatchDTO dt = new FilterMatchDTO("SocioResearch", this.base_name + this.dto.getUnique_name(), "==", variant);
+              FilterMatchDTO dt = new FilterMatchDTO(type_to_filter, this.base_name + this.dto.getUnique_name(), "==", variant);
               filters.add(dt);
             }
             i++;
@@ -164,12 +164,14 @@ public class RootFilterItemAdvanced extends TreeItem
     }
   }
 
-  public RootFilterItemAdvanced(VerticalPanel display,SimpleEventBus ev_bus)
+  private String type_to_filter;
+  public RootFilterItemAdvanced(VerticalPanel display,SimpleEventBus ev_bus,String type_to_filter,String filter_caption)
   {
     this.doFilterBtn = new Button("Поехали!");
-    this.doUseFilters = new CheckBox("Фильтровать иследования");
+    this.doUseFilters = new CheckBox(filter_caption);
     this.results_viewer = display;
     this.bus = ev_bus;
+    this.type_to_filter = type_to_filter;
     setWidget(this.doUseFilters);
 
     new RPCCall<MetaUnitMultivaluedEntityDTO>()
@@ -181,7 +183,7 @@ public class RootFilterItemAdvanced extends TreeItem
 
       protected void callService(AsyncCallback<MetaUnitMultivaluedEntityDTO> cb)
       {
-        AdminSocioResearchService.Util.getInstance().getDatabankStructure("socioresearch", cb);
+        AdminSocioResearchService.Util.getInstance().getDatabankStructure(RootFilterItemAdvanced.this.type_to_filter, cb);
       }
 
       public void onSuccess(MetaUnitMultivaluedEntityDTO result)
@@ -239,7 +241,9 @@ public class RootFilterItemAdvanced extends TreeItem
     }
     int b = 2;
 
-    final String [] types_to_search = {"research"};
+    String filt_type = new String(type_to_filter);
+    if(type_to_filter.equals("socioresearch")) filt_type="research";
+    final String [] types_to_search = {filt_type};
     new RPCCall<String>()
     {
       public void onFailure(Throwable caught)

@@ -51,6 +51,7 @@ public class AdminResearchFilesEditView extends Composite{
 	private SingleUploader uploader;
 	private long research_id;
 	private String category;
+	
 	public AdminResearchFilesEditView(long research_id,String category,SocioResearchFilesDTO dto) {
 		initWidget(uiBinder.createAndBindUi(this));
 		this.research_id = research_id;
@@ -148,6 +149,7 @@ public class AdminResearchFilesEditView extends Composite{
 	private void fillWithFetched(SocioResearchFilesDTO dto)
 	{
 		files_table.clear();
+		String realPath = GWT.getModuleBaseURL();
 		for(int i = 0; i < dto.getFiles_ids().size();i++)
 		{
 			files_table.setWidget(i, 0, new Label(String.valueOf(i)));
@@ -160,7 +162,9 @@ public class AdminResearchFilesEditView extends Composite{
 					doDeleteFile(file_id);
 				}
 			});
-			files_table.setWidget(i, 2, new HTML("<a href=\""+"/databanknewest/serve?blob-key="+file_id+"\">Скачать</a>"));
+			//System.out.println(realPath);
+			//Window.alert(realPath);
+			files_table.setWidget(i, 2, new HTML("<a href=\""+realPath+"serve?blob-key="+file_id+"\">Скачать</a>"));
 			files_table.setWidget(i, 3, del_btn);
 		}
 	}

@@ -122,6 +122,11 @@ public class UserSocioResearchServiceImpl extends RemoteServiceServlet implement
 	public String doIndexSearch(String json_query,String [] types_to_search) {
 		return eao.doIndexSearch(json_query,types_to_search);
 	}
+
+	@Override
+	public ArrayList<VarDTO_Light> getVarDTOs(ArrayList<Long> keys) {
+		return eao.getVarDTOs(keys);
+	}
 	
 
 	

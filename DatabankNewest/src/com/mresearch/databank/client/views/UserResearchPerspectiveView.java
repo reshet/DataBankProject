@@ -62,10 +62,10 @@ public class UserResearchPerspectiveView extends Composite implements UserResear
 //	VerticalPanel centralPanel;
 	@UiField Tree tree;
 	//HLayout panel;
-	@UiField CheckBox weights_use,filters_use;
-	@UiField Button filters_details_btn,filters_add_btn,filters_delete_btn;
+//	@UiField CheckBox weights_use,filters_use;
+//	@UiField Button filters_details_btn,filters_add_btn,filters_delete_btn;
 	SimpleResearchList simpleResearchListItem;
-	RootConceptsList rootResearchConcepts;
+	RootConceptsList rootResearchConcepts, rootVarConcepts;
 	private Long research_to_find =null;
 	private ArrayList<SocioResearchDTO> researchList;
 	public UserResearchPerspectiveView(SimpleEventBus bus) {
@@ -89,15 +89,19 @@ public class UserResearchPerspectiveView extends Composite implements UserResear
 //
 //		tree = new Tree();
 		//tree.setStyleName("research-catalog");
-		TreeItem db = new TreeItem("_Банк данных_");
+		//TreeItem db = new TreeItem("_Банк данных_");
 		simpleResearchListItem = new SimpleResearchList();
-		db.addItem(simpleResearchListItem);
-		rootResearchConcepts = new RootConceptsList("SocioResearch","Концепты каталогизации исследований");
-		db.addItem(rootResearchConcepts);
-		db.addItem(new RootFilterItemAdvanced(centerPanel,bus));
+		tree.addItem(simpleResearchListItem);
+		rootResearchConcepts = new RootConceptsList("socioresearch","Концепты каталогизации исследований");
+		tree.addItem(rootResearchConcepts);
+		
+		rootVarConcepts = new RootConceptsList("sociocar","Концепты каталогизации переменных");
+		tree.addItem(rootVarConcepts);
+		tree.addItem(new RootFilterItemAdvanced(centerPanel,bus,"socioresearch","Фильтровать исследования"));
+		tree.addItem(new RootFilterItemAdvanced(centerPanel,bus,"sociovar","Фильтровать переменные"));
 
 
-		tree.addItem(db);
+		//tree.addItem(db);
 //		VLayout vLayout = new VLayout();
 //		vLayout.setAlign(Alignment.LEFT);  
 //	    vLayout.setOverflow(Overflow.SCROLL);  
@@ -143,12 +147,6 @@ public class UserResearchPerspectiveView extends Composite implements UserResear
 				research_to_find = null;
 			}
 		}
-	}
-	@UiHandler(value="weights_use")
-	public void onWeightsUseClick(ClickEvent c)
-	{
-		if(weights_use.getValue()) weights_use.setText("Взвешивание включено");
-			else weights_use.setText("Взвешивание отключено");
 	}
 	@Override
 	public HasMouseDownHandlers getTree() {
@@ -256,51 +254,5 @@ public class UserResearchPerspectiveView extends Composite implements UserResear
 	public HasSelectionHandlers<TreeItem> getTreeForSelection() {
 		return tree;
 	}
-	@Override
-	public HasClickHandlers getWeightsUse() {
-		return weights_use;
-	}
-	@Override
-	public HasClickHandlers getFiltersUse() {
-		return filters_use;
-	}
-	@Override
-	public HasClickHandlers getFiltersDetailesBtn() {
-		return filters_details_btn;
-	}
-	@Override
-	public Integer getWeightsUseState() {
-		return weights_use.getValue()?1:0;
-	}
-	@Override
-	public Integer getFiltersUseState() {
-		return filters_use.getValue()?1:0;
-	}
-	@Override
-	public HasClickHandlers getFiltersAddBtn() {
-		// TODO Auto-generated method stub
-		return filters_add_btn;
-	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	@Override
-	public HasClickHandlers getFiltersDeleteBtn() {
-		// TODO Auto-generated method stub
-		return filters_delete_btn;
-	}
 }

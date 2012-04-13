@@ -40,6 +40,7 @@ import com.mresearch.databank.client.event.ShowStartPageMainEventHandler;
 import com.mresearch.databank.client.event.ShowVarDetailsEvent;
 import com.mresearch.databank.client.event.ShowVarDetailsEventHandler;
 import com.mresearch.databank.client.helper.RPCCall;
+import com.mresearch.databank.client.service.AdminSocioResearchService;
 import com.mresearch.databank.client.service.StartPageServiceAsync;
 import com.mresearch.databank.client.service.UserSocioResearchServiceAsync;
 import com.mresearch.databank.client.views.ConceptItemItem;
@@ -51,10 +52,14 @@ import com.mresearch.databank.client.views.ResearchDescItem;
 import com.mresearch.databank.client.views.ResearchVarList;
 import com.mresearch.databank.client.views.SimpleResearchList;
 import com.mresearch.databank.client.views.TextVariableDetailedView;
+import com.mresearch.databank.client.views.UserResearchAdvancedFilesView;
+import com.mresearch.databank.client.views.UserResearchDetailedFrameView;
+import com.mresearch.databank.client.views.UserResearchDetailedView;
 import com.mresearch.databank.client.views.VarDescItem;
 import com.mresearch.databank.client.views.VariableDetailedView;
 import com.mresearch.databank.client.views.UserResearchVar2DDView;
 import com.mresearch.databank.shared.ArticleDTO;
+import com.mresearch.databank.shared.MetaUnitMultivaluedEntityDTO;
 import com.mresearch.databank.shared.NewsDTO;
 import com.mresearch.databank.shared.NewsSummaryDTO;
 import com.mresearch.databank.shared.RealVarDTO_Detailed;
@@ -69,6 +74,16 @@ import com.mresearch.databank.shared.IPickableElement;
 
 public class UserResearchPerspectivePresenter implements Presenter
 {
+	 public interface AnalisysDisplay
+	 {
+		 HasClickHandlers getWeightsUse();
+		 Integer getWeightsUseState();
+		 HasClickHandlers getFiltersUse();
+		 Integer getFiltersUseState();
+		 HasClickHandlers getFiltersDetailesBtn();
+		 HasClickHandlers getFiltersAddBtn();
+		 HasClickHandlers getFiltersDeleteBtn();
+	 }
 	 public interface Display {
 		 HasMouseDownHandlers getTree();
 		 HasOpenHandlers<TreeItem> getTreeForOpen();
@@ -84,13 +99,6 @@ public class UserResearchPerspectivePresenter implements Presenter
 		 VerticalPanel getCenterPanel();
 		 void findInResearchList(Long id);
 		 
-		 HasClickHandlers getWeightsUse();
-		 Integer getWeightsUseState();
-		 HasClickHandlers getFiltersUse();
-		 Integer getFiltersUseState();
-		 HasClickHandlers getFiltersDetailesBtn();
-		 HasClickHandlers getFiltersAddBtn();
-		 HasClickHandlers getFiltersDeleteBtn();
 	 }
 	 
 	 private final UserSocioResearchServiceAsync rpcService;
@@ -98,6 +106,7 @@ public class UserResearchPerspectivePresenter implements Presenter
 	 private final SimpleEventBus eventBus;
 	 private final Display display;
 	 private Long current_research_id = null;
+		
 	 public UserResearchPerspectivePresenter(UserSocioResearchServiceAsync rpcService,SimpleEventBus eventBus,
 		      Display view) {
 		    this.rpcService = rpcService;
@@ -230,223 +239,7 @@ public class UserResearchPerspectivePresenter implements Presenter
 				//fetchResearchDetailes(event.getResearch_id());
 			}
 		});
-		display.getWeightsUse().addClickHandler(new ClickHandler() {
-			@Override
-			public void onClick(ClickEvent event) {
-				UserAccountDTO dto = DatabankApp.get().getCurrentUser();
-				dto.setWeights_use(display.getWeightsUseState());
-				DatabankApp.get().updateUserAccountState();
-				current_research_id = DatabankApp.get().getCurrentUser().getCurrent_research();
-				TreeItem it = display.getSelectedItem();
-				if (it instanceof VarDescItem)
-				{
-					VarDescItem rv = (VarDescItem)it;
-					eventBus.fireEvent(new ShowVarDetailsEvent(rv.getVar_id()));
-					//weights will be recalculated on server; may be not syncronized!!!
-				}
-				
-				eventBus.fireEvent(new RecalculateDistributionsEvent(display.getWeightsUseState(), display.getWeightsUseState(),
-						DatabankApp.get().getCurrentUser().getFiltersToProcess(current_research_id)));
-				//rise event!
-				//dto.setFilters_use(display.getFiltersUseState());
-			}
-		});
-		display.getFiltersUse().addClickHandler(new ClickHandler() {
-			@Override
-			public void onClick(ClickEvent event) {
-				UserAccountDTO dto = DatabankApp.get().getCurrentUser();
-				dto.setFilters_use(display.getFiltersUseState());
-				DatabankApp.get().updateUserAccountState();
-				current_research_id = DatabankApp.get().getCurrentUser().getCurrent_research();
-				eventBus.fireEvent(new RecalculateDistributionsEvent(display.getWeightsUseState(), display.getWeightsUseState(),
-						DatabankApp.get().getCurrentUser().getFiltersToProcess(current_research_id)));
-			
-				//rise event!
-							//dto.setFilters_use(display.getFiltersUseState());
-			}
-		});
-		display.getFiltersDetailesBtn().addClickHandler(new ClickHandler() {
-			final PopupPanel panel = new PopupPanel(true);
-			
-			@Override
-			public void onClick(ClickEvent event) {
-				panel.clear();
-				panel.setPopupPosition(event.getClientX(), event.getClientY());
-				ArrayList<IPickableElement> elems = new ArrayList<IPickableElement>();
-				
-//				final ArrayList<String> filters = DatabankApp.get().getCurrentUser().getFilters(current_research_id);
-//				for(final String filter:filters)
-//				{
-//					elems.add(new IPickableElement() {
-//						@Override
-//						public String getTextRepresent() {
-//							return filter;
-//						}
-//						
-//						@Override
-//						public String getID() {
-//							return String.valueOf(filters.indexOf(filter));
-//						}
-//					});
-//				}
-//				//ArrayList<String> used_elems = new ArrayList<String>();
-				current_research_id = DatabankApp.get().getCurrentUser().getCurrent_research();
-				final ArrayList<String> filters = DatabankApp.get().getCurrentUser().getFilters();
-				final ArrayList<Long> filter_categs = DatabankApp.get().getCurrentUser().getFilters_categories();
-				int i = 0;
-				for(final String filter:filters)
-				{
-					if (filter_categs.get(i)!=null && filter_categs.get(i).equals(current_research_id))
-					{
-						final int inter = i;
-						elems.add(new IPickableElement() {
-							@Override
-							public String getTextRepresent() {
-								return filter;
-							}
-							
-							@Override
-							public long getID() {
-								return inter;
-							}
-						});
-					}
-					i++;
-				}
-				
-				panel.add(new PickElementsTableView(elems, DatabankApp.get().getCurrentUser().getFiltersToProcessIndecies(current_research_id), new IPickBinder() {
-					@Override
-					public void processPickChoice(ArrayList<Long> selected_keys) {
-						ArrayList<Integer> usage = new ArrayList<Integer>();
-						ArrayList<String> filters = DatabankApp.get().getCurrentUser().getFilters(current_research_id);
-						for(String touse:filters)
-						{
-							usage.add(new Integer(0));
-						}
-						for(Long sel_index:selected_keys)
-						{
-							Integer index = sel_index.intValue();
-							usage.set(index, new Integer(1));
-						}
-						DatabankApp.get().getCurrentUser().setFilters_usage(usage,current_research_id);
-						DatabankApp.get().updateUserAccountState();
-						eventBus.fireEvent(new RecalculateDistributionsEvent(display.getWeightsUseState(), display.getWeightsUseState(),
-								DatabankApp.get().getCurrentUser().getFiltersToProcess(current_research_id)));
-						panel.hide();
-					}
-					
-					@Override
-					public String getCommandName() {
-						return "Применить!";
-					}
-
-					@Override
-					public String getTitle() {
-						return "Доступные фильтры:";
-					}
-				}));
-				panel.show();
-			}
-		});
-		display.getFiltersAddBtn().addClickHandler(new ClickHandler() {
-			final PopupPanel panel = new PopupPanel(true);
-			@Override
-			public void onClick(ClickEvent event) {
-				HorizontalPanel hor = new HorizontalPanel();
-				panel.clear();
-				panel.setPopupPosition(event.getClientX(), event.getClientY());
-				final TextBox t = new TextBox();
-				t.setSize("500px", "40px");
-				Button doFilter = new Button("Добавить фильтр!");
-				doFilter.addClickHandler(new ClickHandler() {
-					@Override
-					public void onClick(ClickEvent event) {
-						panel.hide();
-						current_research_id = DatabankApp.get().getCurrentUser().getCurrent_research();
-						final ArrayList<String> filters = DatabankApp.get().getCurrentUser().getFilters();
-						final ArrayList<Long> filter_categs = DatabankApp.get().getCurrentUser().getFilters_categories();
-						final ArrayList<Integer> filter_usage = DatabankApp.get().getCurrentUser().getFilters_usage();
-						filters.add(t.getText());
-						filter_categs.add(current_research_id);
-						filter_usage.add(0);
-						DatabankApp.get().updateUserAccountState();
-						Window.alert("Filter created:"+t.getText());
-					}
-				});
-				hor.add(t);
-				hor.add(doFilter);
-				panel.add(hor);
-				panel.show();
-			}
-		});
-		display.getFiltersDeleteBtn().addClickHandler(new ClickHandler() {
-			final PopupPanel panel = new PopupPanel(true);
-			@Override
-			public void onClick(ClickEvent event) {
-				panel.clear();
-				panel.setPopupPosition(event.getClientX(), event.getClientY());
-				ArrayList<IPickableElement> elems = new ArrayList<IPickableElement>();
-				current_research_id = DatabankApp.get().getCurrentUser().getCurrent_research();
-				final ArrayList<String> filters = DatabankApp.get().getCurrentUser().getFilters();
-				final ArrayList<Long> filter_categs = DatabankApp.get().getCurrentUser().getFilters_categories();
-				int i = 0;
-				for(final String filter:filters)
-				{
-					if (filter_categs.get(i)==current_research_id)
-					{
-						final int inter = i;
-						elems.add(new IPickableElement() {
-							@Override
-							public String getTextRepresent() {
-								return filter;
-							}
-							
-							@Override
-							public long getID() {
-								return inter;
-							}
-						});
-					}
-					i++;
-				}
-				//DatabankApp.get().getCurrentUser().getFiltersToProcess(current_research_id)
-				panel.add(new PickElementsTableView(elems,new ArrayList<Long>() , new IPickBinder() {
-					@Override
-					public void processPickChoice(ArrayList<Long> selected_keys) {
-						ArrayList<String> filters = DatabankApp.get().getCurrentUser().getFilters();
-						ArrayList<Long> filters_categs = DatabankApp.get().getCurrentUser().getFilters_categories();
-						ArrayList<Integer> filters_usage = DatabankApp.get().getCurrentUser().getFilters_usage();
-						
-						for(Long index:selected_keys)
-						{
-							if(filters_categs.get(index.intValue()).equals(current_research_id))
-							{
-								filters.remove(index);
-								filters_usage.remove(index);
-								filters_categs.remove(index);
-							}
-							//if(filters_usage.contains(index))filters_usage.remove(filters_usage.indexOf(index));
-						}
-						DatabankApp.get().updateUserAccountState();
-						eventBus.fireEvent(new RecalculateDistributionsEvent(display.getWeightsUseState(), display.getWeightsUseState(),
-								DatabankApp.get().getCurrentUser().getFiltersToProcess(current_research_id)));
-						panel.hide();
-					}
-					
-					@Override
-					public String getCommandName() {
-						return "Удалить!";
-					}
-
-					@Override
-					public String getTitle() {
-						return "Доступные фильтры:";
-					}
-				}));
-				panel.show();			
-			}
-		});
-//		eventBus.addHandler(ShowStartPageMainEvent.TYPE, new ShowStartPageMainEventHandler() {
+		//		eventBus.addHandler(ShowStartPageMainEvent.TYPE, new ShowStartPageMainEventHandler() {
 //			@Override
 //			public void onShowStartPageMain(ShowStartPageMainEvent event) {
 //				showMainPageArticle();
@@ -463,18 +256,40 @@ public class UserResearchPerspectivePresenter implements Presenter
 			}
 
 			@Override
-			public void onSuccess(VarDTO_Detailed result) {
+			public void onSuccess(final VarDTO_Detailed result) {
 			//	AdminResearchDetailedView ad_view = new AdminResearchDetailedView(new UserResearchDetailedView(result));
 			//	AdminResearchEditView ed_view = new AdminResearchEditView(result);
 			//	AdminResearchDetailedPresenter presenter = new AdminResearchDetailedPresenter(rpcUserService,rpcAdminService, eventBus, ad_view, ed_view);
 			//	presenter.go(display.getCenterPanel());
-				display.getCenterPanel().clear();
-				if (result instanceof RealVarDTO_Detailed)
-					display.getCenterPanel().add(new RealVariableDetailedView((RealVarDTO_Detailed)result));
-				else if (result instanceof TextVarDTO_Detailed)
-					display.getCenterPanel().add(new TextVariableDetailedView((TextVarDTO_Detailed)result));
-				else
-					display.getCenterPanel().add(new VariableDetailedView(result));
+				
+				
+					new RPCCall<MetaUnitMultivaluedEntityDTO>() {
+
+						@Override
+						public void onFailure(Throwable arg0) {
+						}
+
+						@Override
+						public void onSuccess(MetaUnitMultivaluedEntityDTO res) {
+							display.getCenterPanel().clear();
+							if (result instanceof RealVarDTO_Detailed)
+								display.getCenterPanel().add(new RealVariableDetailedView((RealVarDTO_Detailed)result,res,eventBus,display));
+							else if (result instanceof TextVarDTO_Detailed)
+								display.getCenterPanel().add(new TextVariableDetailedView((TextVarDTO_Detailed)result,res,eventBus,display));
+							else
+								display.getCenterPanel().add(new VariableDetailedView(result,res,eventBus,display));
+						}
+
+						@Override
+						protected void callService(
+								AsyncCallback<MetaUnitMultivaluedEntityDTO> cb) {
+							AdminSocioResearchService.Util.getInstance().getDatabankStructure("sociovar", cb);
+						}
+					}.retry(2);
+		
+					
+				
+				
 				
 			}
 

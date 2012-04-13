@@ -67,11 +67,14 @@ public class MultiValuedEntityViewer extends Composite{
 	
 	
 	
+	
+	
 	private void renderSubUnits()
 	{
 		items_list.setText("");
 		ArrayList<String> base = dto.getItem_names();
 
+		if(filling!=null)
 		if(filling.containsKey(base_name))
 		{
 			  String val = (String)this.filling.get(base_name);

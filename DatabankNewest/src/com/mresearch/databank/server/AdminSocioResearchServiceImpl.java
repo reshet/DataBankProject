@@ -271,6 +271,10 @@ public class AdminSocioResearchServiceImpl extends RemoteServiceServlet implemen
 			ArrayList<Long> tagged_ids, String identifier) {
 		eao.updateMetaUnitEntityItemLinks(item_id, tagged_ids, identifier);
 	}
+	@Override
+	public void updateVar(VarDTO_Detailed var) {
+		eao.updateVar(var);
+	}
 	
 /*	
   public FriendsServiceImpl() {

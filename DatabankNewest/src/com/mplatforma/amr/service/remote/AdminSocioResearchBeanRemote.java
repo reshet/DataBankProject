@@ -60,4 +60,5 @@ public interface AdminSocioResearchBeanRemote {
     void updateMetaUnitEntityItemLinks(MetaUnitEntityItemDTO old,MetaUnitEntityItemDTO nev);
     void updateMetaUnitEntityItemLinks(MetaUnitEntityItemDTO dto);
     void updateMetaUnitEntityItemLinks(Long item_id,ArrayList<Long> tagged_ids,String identifier);
+    void updateVar(VarDTO_Detailed var);
 }

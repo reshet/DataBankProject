@@ -2,9 +2,15 @@
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
 	xmlns:g="urn:import:com.google.gwt.user.client.ui">
 	<ui:style>
+		.analisys{
+			text-align: right;
 		
+		}
 	</ui:style>
 	<g:HTMLPanel>
+		<g:HorizontalPanel ui:field="analysis_bar" styleName="{style.analisys}">
+		</g:HorizontalPanel>
+			
 		<h2>Просмотр переменной</h2>
 		<g:HTMLPanel ui:field="content_panel">
 		<table>
@@ -38,6 +44,9 @@
 						</tr>	
 					</table>
 				</td>
+			</tr>
+			<tr>
+				<td><g:VerticalPanel ui:field="elasticDBfields"></g:VerticalPanel></td>
 			</tr>
 			<tr>
 				<td>Переменная использовалась:</td><td><g:FlexTable ui:field="generalizedTbl"></g:FlexTable></td>

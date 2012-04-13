@@ -42,7 +42,7 @@ public class MultiselectionEditor extends Composite
   @UiField
   VerticalPanel host;
   private MultiValuedEntityMultiselected ent_w;
-  private DialogBox par;
+  private PopupPanel par;
   final ListGrid selected = new ListGrid();
   final ListGrid avaible = new ListGrid();
 
@@ -51,7 +51,7 @@ public class MultiselectionEditor extends Composite
     initWidget((Widget)uiBinder.createAndBindUi(this));
   }
 
-  public MultiselectionEditor(MultiValuedEntityMultiselected entity_w, DialogBox parent)
+  public MultiselectionEditor(MultiValuedEntityMultiselected entity_w, PopupPanel parent)
   {
     initWidget((Widget)uiBinder.createAndBindUi(this));
     this.par = parent;
@@ -66,7 +66,7 @@ public class MultiselectionEditor extends Composite
     ArrayList<String> current_sel_names = new ArrayList<String>();
 
     String val = this.ent_w.items_list.getText();
-    if (val != null)
+    if (val != null && !val.equals(""))
     {
       if (val.contains(";"))
       {
@@ -81,13 +81,24 @@ public class MultiselectionEditor extends Composite
       }
       else
       {
-      	int index = ((MetaUnitMultivaluedEntityDTO)this.ent_w.getDTO()).getItem_names().indexOf(val);
+      	   int index = ((MetaUnitMultivaluedEntityDTO)this.ent_w.getDTO()).getItem_names().indexOf(val);
           long idd = ((Long)((MetaUnitMultivaluedEntityDTO)this.ent_w.getDTO()).getItem_ids().get((int)index)).longValue();
           current_sel_ids.add(Long.valueOf(idd));
           current_sel_names.add(val);
       }
     }
 
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     this.avaible.setWidth(150);
     this.avaible.setHeight(200);
     ArrayList<Long> av_ids =  ((MetaUnitMultivaluedEntityDTO)this.ent_w.getDTO()).getItem_ids();

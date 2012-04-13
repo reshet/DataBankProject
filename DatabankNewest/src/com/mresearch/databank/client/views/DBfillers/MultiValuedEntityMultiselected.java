@@ -56,6 +56,7 @@ public class MultiValuedEntityMultiselected extends Composite
     this.entity_name.setText(dto.getDesc());
     this.filling = filling;
     this.base_name = base_name.equals("")?dto.getUnique_name():base_name+"_"+dto.getUnique_name();
+    if(this.filling!=null)
     if (this.filling.containsKey(this.base_name))
     {
       String val = (String)filling.get(this.base_name);
@@ -102,26 +103,30 @@ public class MultiValuedEntityMultiselected extends Composite
   
   private DialogBox createDialogBox(String text) {
 	    // Create a dialog box and set the caption text
-	    final DialogBox dialogBox = new DialogBox();
-	    dialogBox.ensureDebugId("cwDialogBox");
-	    dialogBox.setText(text);
+	    DialogBox dialogBox = new DialogBox();
 	    return dialogBox;
 	  }
 
   
   
   
+  
   @UiHandler({"edit_selection"})
   public void editSelectionCmd(ClickEvent ev) {
-    final DialogBox dialogBox = createDialogBox("Редактирование выбора...");
-    dialogBox.setGlassEnabled(true);
-    dialogBox.setAnimationEnabled(true);
-    dialogBox.setTitle("Редактирование выбора...");
-    dialogBox.setModal(true);
-    dialogBox.center();
-    dialogBox.setSize("500px", "350px");
-    dialogBox.setWidget(new MultiselectionEditor(this, dialogBox));
-    dialogBox.show();
+    //DialogBox dialogBox = createDialogBox("Редактирование выбора...");
+    //dialogBox.setGlassEnabled(true);
+    //dialogBox.setAnimationEnabled(true);
+	  PopupPanel p = new PopupPanel(true);
+	  p.setModal(false);
+	  p.setPopupPosition(200, 200);
+	  p.setAnimationEnabled(true);
+	 p.setTitle("Редактирование выбора...");
+    //dialogBox.setModal(true);
+    //dialogBox.center();
+    p.setSize("500px", "350px");
+    p.setWidget(new MultiselectionEditor(this, p));
+    p.setVisible(true);
+    p.show();
   }
   @UiHandler({"edit_items"})
   public void editItemsCmd(ClickEvent ev) {

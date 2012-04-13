@@ -28,6 +28,8 @@ public class StartPagePerspectiveView extends Composite implements StartPagePers
 	interface StartPagePerspectiveViewUiBinder extends
 			UiBinder<Widget, StartPagePerspectiveView> {
 	}
+	
+	
 
 //	@UiField VerticalPanel latestNews;
 //	@UiField HTML mainPageArticle;
