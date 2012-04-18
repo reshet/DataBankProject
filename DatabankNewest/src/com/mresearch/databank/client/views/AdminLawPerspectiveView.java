@@ -61,14 +61,14 @@ public class AdminLawPerspectiveView extends Composite implements AdminLawPerspe
 	}
 	private void displayArticleList()
 	{
-		simpleZaconListItem.removeItems();
-		for(SocioResearchDTO dto:researchList)
-		{
-			ResearchDescItem research_node = new ResearchDescItem(dto);
-			research_node.addItem(new ResearchVarList(dto));
-			//for(String )
-			simpleZaconListItem.addItem(research_node);
-		}
+//		simpleZaconListItem.removeItems();
+//		for(SocioResearchDTO dto:researchList)
+//		{
+//			ResearchDescItem research_node = new ResearchDescItem(dto);
+//			research_node.addItem(new ResearchVarList(dto));
+//			//for(String )
+//			simpleZaconListItem.addItem(research_node);
+//		}
 	}
 	@Override
 	public HasMouseDownHandlers getTree() {

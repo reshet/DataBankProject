@@ -5,10 +5,11 @@ import java.util.ArrayList;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.mresearch.databank.shared.CatalogConceptDTO;
 import com.mresearch.databank.shared.SocioResearchDTO;
+import com.mresearch.databank.shared.SocioResearchDTO_Light;
 import com.mresearch.databank.shared.VarDTO;
 
 public interface CatalogServiceAsync {
-	void getResearchList(AsyncCallback<ArrayList<SocioResearchDTO>> callback);
+	void getResearchList(AsyncCallback<ArrayList<SocioResearchDTO_Light>> callback);
 
 	void getResearchVarList(long research_id,
 			AsyncCallback<ArrayList<VarDTO>> callback);
@@ -31,3 +32,5 @@ public interface CatalogServiceAsync {
 
 	void deleteConcept(long id, AsyncCallback<Boolean> callback);
 }
+
+

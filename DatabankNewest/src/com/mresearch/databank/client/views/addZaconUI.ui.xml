@@ -23,15 +23,10 @@
 				<h2>Добавить новый закон в банк ...
 				</h2> 
 			</div>
-			<g:Label width="300px">Номер закона: </g:Label><g:TextBox ui:field="_number"></g:TextBox>
-			<g:Label width="400px">Название закона: </g:Label><g:TextBox ui:field="_name"></g:TextBox>
-			<g:Label width="400px">Дата: </g:Label> <third:DatePicker ui:field="date"></third:DatePicker>
-			<g:Label width="400px">Дата принятия: </g:Label><third:DatePicker ui:field="date_accept"></third:DatePicker>
-			<g:Label width="400px">Дата отмены: </g:Label><third:DatePicker ui:field="date_decline"></third:DatePicker>
-			
-			<g:Label width="500px">Ключевые слова: </g:Label><g:TextArea ui:field="_keywords"></g:TextArea>
+			<g:VerticalPanel ui:field="elasticDBfields">
 			<g:Label width="500px">Краткое содержание: </g:Label><g:TextArea ui:field="_abstract"></g:TextArea>
-			
+				
+   	  	    </g:VerticalPanel>
 			<g:VerticalPanel ui:field="uploadPanel">
 <!-- 				<g:Label ui:field="statusField">Выбрать файл...</g:Label> -->
 			</g:VerticalPanel>

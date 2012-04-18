@@ -62,21 +62,21 @@ public class UserResearchDetailedView extends Composite {
 		
 		//this.publ.setText(arrToStr(dto.getPublications()));
 		int i = 0;
-		if(dto.getPublications()!= null)
-		for (String publName:dto.getPublications())
-		{
-			String doi = null;
-			if(i < dto.getPublications_dois().size())doi = dto.getPublications_dois().get(i);
-			String url = null;
-			if(i < dto.getPublications_urls().size())url = dto.getPublications_urls().get(i);
-			
-			VerticalPanel panel = new VerticalPanel();
-			panel.add(new Label(publName));
-			panel.add(new HTML("<a href=\"http://dx.doi.org/"+doi+"\" align=\"right\" target=\"_blank\">"+doi+"</a>"));
-			panel.add(new HTML("<a href=\""+url+"\" align=\"right\" target=\"_blank\">"+"Перейти"+"</a>"));
-			//flexPubl_tbl.setWidget(i, 0, panel);	
-			i++;
-		}
+//		if(dto.getPublications()!= null)
+//		for (String publName:dto.getPublications())
+//		{
+//			String doi = null;
+//			if(i < dto.getPublications_dois().size())doi = dto.getPublications_dois().get(i);
+//			String url = null;
+//			if(i < dto.getPublications_urls().size())url = dto.getPublications_urls().get(i);
+//			
+//			VerticalPanel panel = new VerticalPanel();
+//			panel.add(new Label(publName));
+//			panel.add(new HTML("<a href=\"http://dx.doi.org/"+doi+"\" align=\"right\" target=\"_blank\">"+doi+"</a>"));
+//			panel.add(new HTML("<a href=\""+url+"\" align=\"right\" target=\"_blank\">"+"Перейти"+"</a>"));
+//			//flexPubl_tbl.setWidget(i, 0, panel);	
+//			i++;
+//		}
 		
 		
 		

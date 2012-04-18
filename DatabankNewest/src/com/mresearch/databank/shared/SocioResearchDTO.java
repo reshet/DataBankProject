@@ -15,41 +15,19 @@ public class SocioResearchDTO implements Serializable,ICatalogizable,IPickableEl
 	private static SocioResearchDTO type;
 	private Long id;
 	private String name;
-	private Long org_order_id;
-	private Long org_impl_id;
-	private String org_order_name;
-	private String org_impl_name;
 	private Long var_weight_id;
 	private String var_weight_name;
 	private int selection_size;
-	private String gen_geathering;
-	private String method;
-	private ArrayList<String> publications,publications_dois,researchers,concepts,publications_urls;
 	private ArrayList<Long> var_ids = new ArrayList<Long>();
 	private Date start_date,end_date;
-	private String sel_randomity;
-	private String sel_complexity;
 	private Long file_accessor_id;
-        private String json_desctiptor;
 	private HashMap<String,String> filling;
-	public String getJson_desctiptor() {
-		return json_desctiptor;
-	}
-
-
-	public void setJson_desctiptor(String json_desctiptor) {
-		this.json_desctiptor = json_desctiptor;
-	}
+        private String json_descriptor;
 
 	
 	public SocioResearchDTO()
 	{
-		publications = new  ArrayList<String>();
-		publications_dois = new  ArrayList<String>();
-		researchers = new  ArrayList<String>();
-		concepts = new  ArrayList<String>();
-		publications_urls = new  ArrayList<String>();
-                filling = new HashMap<String, String>();
+		filling = new HashMap<String, String>();
 	}
 	
 	
@@ -58,11 +36,7 @@ public class SocioResearchDTO implements Serializable,ICatalogizable,IPickableEl
 		this();
 		this.setName(name);
 	}
-	public void setBasicInfo(String name,Long org_pr)
-	{
-		this.setName(name);
-		this.org_order_id = org_pr;
-	}
+
 	public void setName(String name) {
 		this.name = name;
 	}
@@ -87,21 +61,7 @@ public class SocioResearchDTO implements Serializable,ICatalogizable,IPickableEl
 		this.var_ids = var_ids;
 	}
 
-	public Long getOrg_order_id() {
-		return org_order_id;
-	}
-
-	public void setOrg_order_id(Long org_order_id) {
-		this.org_order_id = org_order_id;
-	}
-
-	public Long getOrg_impl_id() {
-		return org_impl_id;
-	}
-
-	public void setOrg_impl_id(Long org_impl_id) {
-		this.org_impl_id = org_impl_id;
-	}
+	
 
 	public Long getVar_weight_id() {
 		return var_weight_id;
@@ -119,47 +79,7 @@ public class SocioResearchDTO implements Serializable,ICatalogizable,IPickableEl
 		this.selection_size = selection_size;
 	}
 
-	public String getGen_geathering() {
-		return gen_geathering;
-	}
-
-	public void setGen_geathering(String gen_geathering) {
-		this.gen_geathering = gen_geathering;
-	}
-
-	public String getMethod() {
-		return method;
-	}
-
-	public void setMethod(String method) {
-		this.method = method;
-	}
-
 	
-
-	public ArrayList<String> getResearchers() {
-		return researchers;
-	}
-
-	public void setResearchers(ArrayList<String> researchers) {
-		this.researchers = researchers;
-	}
-
-	public ArrayList<String> getPublications() {
-		return publications;
-	}
-
-	public void setPublications(ArrayList<String> publications) {
-		this.publications = publications;
-	}
-
-	public ArrayList<String> getConcepts() {
-		return concepts;
-	}
-
-	public void setConcepts(ArrayList<String> concepts) {
-		this.concepts = concepts;
-	}
 
 	public Date getStart_date() {
 		return start_date;
@@ -177,21 +97,7 @@ public class SocioResearchDTO implements Serializable,ICatalogizable,IPickableEl
 		this.end_date = end_date;
 	}
 
-	public String getOrg_order_name() {
-		return org_order_name;
-	}
-
-	public void setOrg_order_name(String org_order_name) {
-		this.org_order_name = org_order_name;
-	}
-
-	public String getOrg_impl_name() {
-		return org_impl_name;
-	}
-
-	public void setOrg_impl_name(String org_impl_name) {
-		this.org_impl_name = org_impl_name;
-	}
+	
 
 	public String getVar_weight_name() {
 		return var_weight_name;
@@ -215,37 +121,7 @@ public class SocioResearchDTO implements Serializable,ICatalogizable,IPickableEl
 		return id;
 	}
 
-	public ArrayList<String> getPublications_dois() {
-		return publications_dois;
-	}
-
-	public void setPublications_dois(ArrayList<String> publications_dois) {
-		this.publications_dois = publications_dois;
-	}
-
-	public String getSel_randomity() {
-		return sel_randomity;
-	}
-
-	public void setSel_randomity(String sel_randomity) {
-		this.sel_randomity = sel_randomity;
-	}
-
-	public String getSel_complexity() {
-		return sel_complexity;
-	}
-
-	public void setSel_complexity(String sel_complexity) {
-		this.sel_complexity = sel_complexity;
-	}
-
-	public ArrayList<String> getPublications_urls() {
-		return publications_urls;
-	}
-
-	public void setPublications_urls(ArrayList<String> publications_urls) {
-		this.publications_urls = publications_urls;
-	}
+	
 
 	public Long getFile_accessor_id() {
 		return file_accessor_id;
@@ -267,6 +143,20 @@ public class SocioResearchDTO implements Serializable,ICatalogizable,IPickableEl
      */
     public void setFilling(HashMap<String,String> filling) {
         this.filling = filling;
+    }
+
+    /**
+     * @return the json_descriptor
+     */
+    public String getJson_descriptor() {
+        return json_descriptor;
+    }
+
+    /**
+     * @param json_descriptor the json_descriptor to set
+     */
+    public void setJson_descriptor(String json_descriptor) {
+        this.json_descriptor = json_descriptor;
     }
 
 	

@@ -23,6 +23,7 @@ import com.google.gwt.user.client.ui.Widget;
 import com.mresearch.databank.client.presenters.AdminResearchDetailedPresenter;
 import com.mresearch.databank.client.presenters.AdminResearchPerspectivePresenter;
 import com.mresearch.databank.shared.SocioResearchDTO;
+import com.mresearch.databank.shared.SocioResearchDTO_Light;
 import com.mresearch.databank.shared.VarDTO;
 import com.mresearch.databank.shared.VarDTO_Light;
 
@@ -49,7 +50,7 @@ public class AdminResearchPerspectiveView extends Composite implements AdminRese
 	SimpleEventBus bus;
 	private PopupPanel popup = new PopupPanel(true);
 	private AddConceptPopupView add_concept_popup;
-	private ArrayList<SocioResearchDTO> researchList;
+	private ArrayList<SocioResearchDTO_Light> researchList;
 	private boolean rootConceptUpdateMode = false;
 	public AdminResearchPerspectiveView(SimpleEventBus bus) {
 		initWidget(uiBinder.createAndBindUi(this));
@@ -79,7 +80,7 @@ public class AdminResearchPerspectiveView extends Composite implements AdminRese
 	private void displayResearchList()
 	{
 		simpleResearchListItem.removeItems();
-		for(SocioResearchDTO dto:researchList)
+		for(SocioResearchDTO_Light dto:researchList)
 		{
 			ResearchDescItem research_node = new ResearchDescItem(dto);
 			research_node.addItem(new ResearchVarList(dto));
@@ -102,7 +103,7 @@ public class AdminResearchPerspectiveView extends Composite implements AdminRese
 		return null;
 	}
 	@Override
-	public void setResearchListData(ArrayList<SocioResearchDTO> data) {
+	public void setResearchListData(ArrayList<SocioResearchDTO_Light> data) {
 		researchList = data;
 		displayResearchList();
 	}

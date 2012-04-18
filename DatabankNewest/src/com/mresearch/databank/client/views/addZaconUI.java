@@ -1,6 +1,8 @@
 package com.mresearch.databank.client.views;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.zenika.widget.client.datePicker.DatePicker;
 
@@ -35,6 +37,10 @@ import com.mresearch.databank.client.service.AdminSocioResearchService;
 import com.mresearch.databank.client.service.AdminSocioResearchServiceAsync;
 import com.mresearch.databank.client.service.CatalogService;
 import com.mresearch.databank.client.service.CatalogServiceAsync;
+import com.mresearch.databank.client.views.DBfillers.MultiValuedField;
+import com.mresearch.databank.client.views.DBviewers.MultiValuedFieldViewer;
+import com.mresearch.databank.shared.JSON_Representation;
+import com.mresearch.databank.shared.MetaUnitMultivaluedEntityDTO;
 import com.mresearch.databank.shared.ZaconDTO;
 
 public class addZaconUI extends Composite {
@@ -65,10 +71,11 @@ public class addZaconUI extends Composite {
 	@UiField
 	VerticalPanel uploadPanel;
 	
-	@UiField
-	TextBox _name,_number;
-	@UiField TextArea _abstract, _keywords;
-	@UiField DatePicker date,date_accept,date_decline;
+	//@UiField
+	//TextBox _name,_number;
+	@UiField TextArea _abstract;
+	//, _keywords;
+	//@UiField DatePicker date,date_accept,date_decline;
 	//_org_prompter;
 	
 	//@UiField
@@ -77,12 +84,43 @@ public class addZaconUI extends Composite {
 	private Label status;
 	private Button parse_spss_cmd;
 	private boolean doc_uploaded = false;
-	private String blobkey = null;
+	private Long blobkey = null;
 	private long blob_length;
 	private String upload_url = "/upload";
 	private Long root_concept;
+	private ArrayList<Long> uploaded_files = new ArrayList<Long>();
+	private MetaUnitMultivaluedEntityDTO db;
+	private MultiValuedField mv;
+	@UiField VerticalPanel elasticDBfields;
+	
+	private void renderDBfillers(String catalogization_str)
+	{
+		elasticDBfields.clear();
+		final HashMap<String,String> map = new HashMap<String,String>();
+		map.put("law_catalog", catalogization_str);
+		new RPCCall<MetaUnitMultivaluedEntityDTO>() {
+
+			@Override
+			public void onFailure(Throwable arg0) {
+			}
+
+			@Override
+			public void onSuccess(MetaUnitMultivaluedEntityDTO res) {
+				db = res;
+				mv = new MultiValuedField(db,null,map,"");
+				elasticDBfields.add(mv);
+			}
+
+			@Override
+			protected void callService(
+					AsyncCallback<MetaUnitMultivaluedEntityDTO> cb) {
+				AdminSocioResearchService.Util.getInstance().getDatabankStructure("law",cb);
+			}
+		}.retry(2);
+	}
+	
 	@UiConstructor
-	public addZaconUI(String firstName,Long root_concept) {
+	public addZaconUI(String firstName,Long root_concept,String root_concept_name) {
 		initWidget(uiBinder.createAndBindUi(this));
 		this.root_concept = root_concept;
 		status = new Label("Добавить документ...");
@@ -154,62 +192,69 @@ public class addZaconUI extends Composite {
 			}
 		    });
 		    */
+		renderDBfillers(root_concept_name);
 		
 	}
 
 	private void processUploadResponse(String response)
 	{
-		int start = response.indexOf("<blobkey>")+9;
-		int end = response.lastIndexOf("</blobkey>");
-		String keyy = response.substring(start,end);
-		int start2 = response.indexOf("<totalBytes>")+12;
-		int end2 = response.lastIndexOf("</totalBytes>");
-		String len = response.substring(start2,end2);
-		
-//		Window.alert(keyy);
-//		com.google.gwt.xml.client.Document respDoc = XMLParser.parse(response);
-//		Window.alert(respDoc.toString());
-//		Node keyNode =respDoc.getElementsByTagName("blobkey").item(0);
-//		String blobkey = keyNode.getFirstChild().getNodeValue();
-//		Node lengthNode =respDoc.getElementsByTagName("totalBytes").item(0);
-//		long length = Integer.parseInt(lengthNode.getFirstChild().getNodeValue());
-//		Window.alert("BLOBKEY: "+blobkey);
-//		
-		status.setText(status.getText()+" blobkey = "+keyy);
-		if(keyy != null)
+		try
 		{
-			this.blobkey = keyy;
-			this.blob_length = Integer.parseInt(len);
-			doc_uploaded = true;
+			int start = response.indexOf("<RxStoreId>")+11;
+			int end = response.indexOf("</RxStoreId>");
+			String keyy = response.substring(start,end);
+		//	int start2 = response.indexOf("<totalBytes>")+12;
+		//	int end2 = response.lastIndexOf("</totalBytes>");
+			int start2 = response.indexOf("<size>")+6;
+			int end2 = response.indexOf("</size>");
+			String len = response.substring(start2,end2);
+			if(keyy != null)
+			{
+				Long id = Long.parseLong(keyy);
+				if(!uploaded_files.contains(id))
+				{
+					uploaded_files.add(id);
+					this.blobkey = id;
+					this.blob_length = Integer.parseInt(len);
+					doc_uploaded = true;
+				}
+			}
+		}catch(Exception ex)
+		{
+			ex.printStackTrace();
 		}
+		
+		//Window.alert(response);
+//		int start = response.indexOf("<blobkey>")+9;
+//		int end = response.lastIndexOf("</blobkey>");
+//		
+		
 	}
 	
 	@UiHandler("submitButton")
 	void onSubmitClicked(ClickEvent e)
 	{
-		Window.alert("Статью успешно создано!");
+		//Window.alert("Статью успешно создано!");
 		//formPanel.submit();
 		createZacon();
 	}
 	
 	private void fillFormValues()
 	{
-		currentArt_DTO.setHeader(_name.getText());
 		currentArt_DTO.setContents(_abstract.getText());
-		//currentArt_DTO.setEnclosure_key(blobkey);
-		//currentArt_DTO.setDate(date.getSelectedDate());
-		//currentArt_DTO.setAccept_date(date_accept.getSelectedDate());
-		//currentArt_DTO.setDecline_date(date_decline.getSelectedDate());
-		ArrayList<String> key_words = new ArrayList<String>();
-		String [] keywords = _keywords.getText().split(",");
+		currentArt_DTO.setEnclosure_key(blobkey);
+	
 		
-		for(String keyword:keywords)
-		{
-			key_words.add(keyword);
-		}
-		//currentArt_DTO.setKey_words(key_words);
-		currentArt_DTO.setNumber(_number.getText());
-		//currentSR_DTO.setOrg_prompter(_org_prompter.getText());
+		JSON_Representation json = mv.getJSON();
+		mv.populateItemsLinksTo(currentArt_DTO.getId(), "law");
+		currentArt_DTO.setJson_desctiptor(json.getObj().toString());
+		HashMap<String, String> mapp = mv.returnCollectedMap();
+		//curr.setName(mapp.get("socioresearch_name"));
+		if(!_abstract.getText().equals(""))mapp.put("law_contents", _abstract.getText());
+		currentArt_DTO.setFilling(mapp);
+		currentArt_DTO.setHeader(mapp.get("law_name"));
+		currentArt_DTO.setNumber(mapp.get("law_number"));
+		
 	}
 	private void catagolize(final String article_id)
 	{
@@ -251,13 +296,14 @@ public class addZaconUI extends Composite {
 			@Override
 			public void onSuccess(ZaconDTO arg0) {
 				  Window.alert("Updated ZACON!");
+				  
 			}
 
 			@Override
 			protected void callService(AsyncCallback<ZaconDTO> cb) {
 				adminArticleService.updateZacon(currentArt_DTO, cb);
 			}
-		};
+		}.retry(2);
 //		adminArticleService.updateZacon(currentArt_DTO,
 //			        new AsyncCallback<ZaconDTO>() {
 //			          public void onFailure(Throwable caught) {

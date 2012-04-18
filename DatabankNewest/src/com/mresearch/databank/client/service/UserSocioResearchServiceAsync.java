@@ -8,6 +8,7 @@ import com.mresearch.databank.shared.OrgDTO;
 import com.mresearch.databank.shared.ResearchFilesDTO;
 import com.mresearch.databank.shared.SSE_DTO;
 import com.mresearch.databank.shared.SocioResearchDTO;
+import com.mresearch.databank.shared.SocioResearchDTO_Light;
 import com.mresearch.databank.shared.SocioResearchFilesDTO;
 import com.mresearch.databank.shared.UserAccountDTO;
 import com.mresearch.databank.shared.VarDTO;
@@ -19,9 +20,8 @@ import com.mresearch.databank.shared.VarDTO_Light;
 
 public interface UserSocioResearchServiceAsync {
 void getResearch(long id, AsyncCallback<SocioResearchDTO> callback);
-	//void getBlobstoreUploadURL(AsyncCallback<String> callback);
 	void getResearchSummaries(
-			AsyncCallback<ArrayList<SocioResearchDTO>> callback);
+			AsyncCallback<ArrayList<SocioResearchDTO_Light>> callback);
 	void getResearchVarsSummaries(long research_ad,
 			AsyncCallback<ArrayList<VarDTO_Light>> callback);
 	void getVar(long id, AsyncCallback<VarDTO> callback);
@@ -32,11 +32,11 @@ void getResearch(long id, AsyncCallback<SocioResearchDTO> callback);
 			AsyncCallback<ResearchFilesDTO> callback);
 	void getSSEs(String clas,String kind, AsyncCallback<ArrayList<SSE_DTO>> callback);
 	void getResearchSummaries(ArrayList<FilterBaseDTO> filters,
-			AsyncCallback<ArrayList<SocioResearchDTO>> callback);
+			AsyncCallback<ArrayList<SocioResearchDTO_Light>> callback);
 	void getResearchFilesInCategory(long research_id, String category,
 			AsyncCallback<SocioResearchFilesDTO> callback);
 	void getResearchDTOs(ArrayList<Long> keys,
-			AsyncCallback<ArrayList<SocioResearchDTO>> callback);
+			AsyncCallback<ArrayList<SocioResearchDTO_Light>> callback);
 	void getOrgList(AsyncCallback<ArrayList<OrgDTO>> callback);
 	void doIndexSearch(String json_query, String[] types_to_search,
 			AsyncCallback<String> callback);

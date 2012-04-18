@@ -32,6 +32,7 @@ public class DatabankApp implements EntryPoint {
 	interface DatabankAppUiBinder extends UiBinder<ScrollPanel, DatabankApp> {}
 	private static final DatabankAppUiBinder binder = GWT.create(DatabankAppUiBinder.class);
 
+	
 	private static DatabankApp singleton;
 	private RootLayoutPanel root;
 	//private StartPagePerspectivePresenter startpagePresenter;

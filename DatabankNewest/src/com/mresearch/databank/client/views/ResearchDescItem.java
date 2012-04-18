@@ -9,10 +9,11 @@ import com.google.gwt.user.client.ui.TreeItem;
 import com.mresearch.databank.client.service.CatalogService;
 import com.mresearch.databank.client.service.CatalogServiceAsync;
 import com.mresearch.databank.shared.SocioResearchDTO;
+import com.mresearch.databank.shared.SocioResearchDTO_Light;
 import com.mresearch.databank.shared.VarDTO;
 
 public class ResearchDescItem extends ConceptContentsItem{
-	public ResearchDescItem(SocioResearchDTO dto)
+	public ResearchDescItem(SocioResearchDTO_Light dto)
 	{
 		super(dto);
 	}

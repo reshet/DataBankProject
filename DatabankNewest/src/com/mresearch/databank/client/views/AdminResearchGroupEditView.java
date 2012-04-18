@@ -83,50 +83,50 @@ public class AdminResearchGroupEditView extends Composite implements AdminResear
 	public void updateViewedDTO(SocioResearchDTO dto)
 	{
 		research_id = dto.getId();
-		org_order_id = dto.getOrg_order_id();
-		org_impl_id = dto.getOrg_impl_id();
+//		org_order_id = dto.getOrg_order_id();
+//		org_impl_id = dto.getOrg_impl_id();
 		//weight_var_id = dto.getVar_weight_id();
 		//orgPrompt.setS
 		//orgPrompt.setText(dto.getOrg_order_id());
 		//orgImpl.setText(dto.getOrg_impl_id());
-		this.concepts.setText(UserResearchDetailedView.arrToStr(dto.getConcepts()));
-		this.researchers.setText(UserResearchDetailedView.arrToStr(dto.getResearchers()));
+		//this.concepts.setText(UserResearchDetailedView.arrToStr(dto.getConcepts()));
+		//this.researchers.setText(UserResearchDetailedView.arrToStr(dto.getResearchers()));
 		//this.publ.setText(UserResearchDetailedView.arrToStr(dto.getPublications()));
-		this.date_p_start.setSelectedDate(dto.getStart_date());
-		this.date_p_end.setSelectedDate(dto.getEnd_date());
+	//	this.date_p_start.setSelectedDate(dto.getStart_date());
+		//this.date_p_end.setSelectedDate(dto.getEnd_date());
 		
-		this.genGeathering.setText(dto.getGen_geathering());
+	//	this.genGeathering.setText(dto.getGen_geathering());
 		//this.selectionSize.setText(String.valueOf(dto.getSelection_size()));
 	
-		this.random_btn_true.setValue(false);
+	//	this.random_btn_true.setValue(false);
 		this.random_btn_false.setValue(false);
-		this.complex_btn_unistep.setValue(false);
-		this.complex_btn_multistep.setValue(false);
-		if(dto.getSel_randomity() != null && dto.getSel_randomity().equals(SearchTaskResearchDTO.SELECTION_APPR_RANDOM))
-			this.random_btn_true.setValue(true);
-		else 
-			this.random_btn_false.setValue(true);
-		if(dto.getSel_complexity() != null && dto.getSel_complexity().equals(SearchTaskResearchDTO.SELECTION_APPR_COMPLEXITY_UNI))
-			this.complex_btn_unistep.setValue(true);
-		else
-			this.complex_btn_multistep.setValue(true);
+//		this.complex_btn_unistep.setValue(false);
+//		this.complex_btn_multistep.setValue(false);
+//		if(dto.getSel_randomity() != null && dto.getSel_randomity().equals(SearchTaskResearchDTO.SELECTION_APPR_RANDOM))
+//			this.random_btn_true.setValue(true);
+//		else 
+//			this.random_btn_false.setValue(true);
+//		if(dto.getSel_complexity() != null && dto.getSel_complexity().equals(SearchTaskResearchDTO.SELECTION_APPR_COMPLEXITY_UNI))
+//			this.complex_btn_unistep.setValue(true);
+//		else
+//			this.complex_btn_multistep.setValue(true);
 				
 		//this.selectionAppr.setText(dto.getSelection_appr());
-		this.method.setText(dto.getMethod());
-		//this.weights.setText(dto.getVar_weight_id());
-		date_p_start.setOldestDate(new Date());
-		date_p_end.setOldestDate(new Date());
-		int i = 0;
-		if(dto.getPublications() != null)
-		for (String publName:dto.getPublications())
-		{
-			String doi = dto.getPublications_dois().get(i);
-			VerticalPanel panel = new VerticalPanel();
-			panel.add(new Label(publName));
-			panel.add(new Label(doi));
-			flexPubl_tbl.setWidget(i, 0, panel);	
-			i++;
-		}
+//		this.method.setText(dto.getMethod());
+//		//this.weights.setText(dto.getVar_weight_id());
+//		date_p_start.setOldestDate(new Date());
+//		date_p_end.setOldestDate(new Date());
+//		int i = 0;
+//		if(dto.getPublications() != null)
+//		for (String publName:dto.getPublications())
+//		{
+//			String doi = dto.getPublications_dois().get(i);
+//			VerticalPanel panel = new VerticalPanel();
+//			panel.add(new Label(publName));
+//			panel.add(new Label(doi));
+//			flexPubl_tbl.setWidget(i, 0, panel);	
+//			i++;
+//		}
 		
 	}
 	

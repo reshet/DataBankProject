@@ -13,6 +13,7 @@ import com.mresearch.databank.shared.OrgDTO;
 import com.mresearch.databank.shared.ResearchFilesDTO;
 import com.mresearch.databank.shared.SSE_DTO;
 import com.mresearch.databank.shared.SocioResearchDTO;
+import com.mresearch.databank.shared.SocioResearchDTO_Light;
 import com.mresearch.databank.shared.SocioResearchFilesDTO;
 import com.mresearch.databank.shared.UserAccountDTO;
 import com.mresearch.databank.shared.VarDTO;
@@ -69,12 +70,12 @@ public class UserSocioResearchServiceImpl extends RemoteServiceServlet implement
 	
 	
 	@Override
-	public ArrayList<SocioResearchDTO> getResearchSummaries() {
+	public ArrayList<SocioResearchDTO_Light> getResearchSummaries() {
 		return eao.getResearchSummaries();
 	}
 
 	@Override
-	public ArrayList<SocioResearchDTO> getResearchSummaries(
+	public ArrayList<SocioResearchDTO_Light> getResearchSummaries(
 			ArrayList<FilterBaseDTO> filters) {
 		return eao.getResearchSummaries(filters);
 	}
@@ -109,7 +110,7 @@ public class UserSocioResearchServiceImpl extends RemoteServiceServlet implement
 	}
 
 	@Override
-	public ArrayList<SocioResearchDTO> getResearchDTOs(ArrayList<Long> keys) {
+	public ArrayList<SocioResearchDTO_Light> getResearchDTOs(ArrayList<Long> keys) {
 		return eao.getResearchDTOs(keys);
 	}
 

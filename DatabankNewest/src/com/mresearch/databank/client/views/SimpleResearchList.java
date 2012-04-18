@@ -10,6 +10,7 @@ import com.mresearch.databank.client.service.CatalogService;
 import com.mresearch.databank.client.service.CatalogServiceAsync;
 import com.mresearch.databank.shared.ICatalogizationConcept;
 import com.mresearch.databank.shared.SocioResearchDTO;
+import com.mresearch.databank.shared.SocioResearchDTO_Light;
 
 public class SimpleResearchList extends TreeItem implements ICatalogizationConcept{
 	private final CatalogServiceAsync catalogService = GWT
@@ -23,11 +24,11 @@ public class SimpleResearchList extends TreeItem implements ICatalogizationConce
 	
 	@Override
 	public void refreshContents() {
-		catalogService.getResearchList(new AsyncCallback<ArrayList<SocioResearchDTO>>() {
+		catalogService.getResearchList(new AsyncCallback<ArrayList<SocioResearchDTO_Light>>() {
 			@Override
-			public void onSuccess(ArrayList<SocioResearchDTO> result) {
+			public void onSuccess(ArrayList<SocioResearchDTO_Light> result) {
 				SimpleResearchList.this.removeItems();
-				for(SocioResearchDTO dto:result)
+				for(SocioResearchDTO_Light dto:result)
 				{
 					ResearchDescItem r_desc = new ResearchDescItem(dto);
 					ResearchVarList research_node = new ResearchVarList(dto);

@@ -10,13 +10,14 @@ import com.mresearch.databank.client.service.CatalogService;
 import com.mresearch.databank.client.service.CatalogServiceAsync;
 import com.mresearch.databank.shared.ICatalogizationConcept;
 import com.mresearch.databank.shared.SocioResearchDTO;
+import com.mresearch.databank.shared.SocioResearchDTO_Light;
 import com.mresearch.databank.shared.VarDTO;
 
 public class ResearchVarList extends TreeItem implements ICatalogizationConcept{
 	private final CatalogServiceAsync catalogService = GWT
     .create(CatalogService.class);
 	private long research_id;
-	public ResearchVarList(SocioResearchDTO dto)
+	public ResearchVarList(SocioResearchDTO_Light dto)
 	{
 		super();
 		this.research_id = dto.getId();

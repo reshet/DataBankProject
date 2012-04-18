@@ -17,6 +17,11 @@
     <servlet-class>com.mresearch.databank.server.AdminSocioResearchServiceImpl</servlet-class>
   </servlet>
   <servlet>
+    <servlet-name>adminArticleService</servlet-name>
+    <servlet-class>com.mresearch.databank.server.AdminArticleServiceImpl</servlet-class>
+  </servlet>
+  
+  <servlet>
     <servlet-name>rxStorageServe</servlet-name>
     <servlet-class>com.mresearch.databank.server.RxStorageServe</servlet-class>
   </servlet>
@@ -39,6 +44,10 @@
   <servlet-mapping>
     <servlet-name>adminResearchService</servlet-name>
     <url-pattern>/databanknewest/adminResearchService</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>adminArticleService</servlet-name>
+    <url-pattern>/databanknewest/adminArticleService</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
     <servlet-name>rxStorageServe</servlet-name>

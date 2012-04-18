@@ -10,6 +10,7 @@ import com.mresearch.databank.client.service.AdminSocioResearchServiceAsync;
 import com.mresearch.databank.client.service.UserSocioResearchService;
 import com.mresearch.databank.shared.MetaUnitEntityItemDTO;
 import com.mresearch.databank.shared.SocioResearchDTO;
+import com.mresearch.databank.shared.SocioResearchDTO_Light;
 import com.mresearch.databank.shared.VarDTO_Light;
 
 import java.util.ArrayList;
@@ -49,11 +50,11 @@ public class ConceptItemItem extends ConceptItemEntity
     .retry(2);
 
   }
-	private void displayResearchList(ArrayList<SocioResearchDTO> researchList)
+	private void displayResearchList(ArrayList<SocioResearchDTO_Light> researchList)
 	{
 		//simpleResearchListItem.removeItems();
 		TreeItem res = new TreeItem("Исследования");
-		for(SocioResearchDTO dto:researchList)
+		for(SocioResearchDTO_Light dto:researchList)
 		{
 			ResearchDescItem research_node = new ResearchDescItem(dto);
 			research_node.addItem(new ResearchVarList(dto));
@@ -107,18 +108,18 @@ public class ConceptItemItem extends ConceptItemEntity
 	
 	private void refreshResearches(final ArrayList<Long> research_ids)
 	{
-		new RPCCall<ArrayList<SocioResearchDTO>>() {
+		new RPCCall<ArrayList<SocioResearchDTO_Light>>() {
 			@Override
 			public void onFailure(Throwable arg0) {
 			}
 			@Override
-			public void onSuccess(ArrayList<SocioResearchDTO> res) {
+			public void onSuccess(ArrayList<SocioResearchDTO_Light> res) {
 				displayResearchList(res);
 			}
 
 			@Override
 			protected void callService(
-					AsyncCallback<ArrayList<SocioResearchDTO>> cb) {
+					AsyncCallback<ArrayList<SocioResearchDTO_Light>> cb) {
 				UserSocioResearchService.Util.getInstance().getResearchDTOs(research_ids, cb);
 			}
 		}.retry(2);

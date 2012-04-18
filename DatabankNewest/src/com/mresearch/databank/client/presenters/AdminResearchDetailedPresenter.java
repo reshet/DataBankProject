@@ -34,6 +34,7 @@ import com.mresearch.databank.shared.MetaUnitMultivaluedStructureDTO;
 import com.mresearch.databank.shared.OrgDTO;
 import com.mresearch.databank.shared.SSE_DTO;
 import com.mresearch.databank.shared.SocioResearchDTO;
+import com.mresearch.databank.shared.SocioResearchDTO_Light;
 import com.mresearch.databank.shared.VarDTO_Light;
 import com.mresearch.databank.shared.IPickableElement;
 import com.sun.jersey.json.impl.JSONHelper;
@@ -166,7 +167,7 @@ public class AdminResearchDetailedPresenter implements Presenter{
 		
 		JSON_Representation json = edit_display.getDBfiller().getJSON();
 		edit_display.getDBregistrator().populateItemsLinksTo(dto.getId(), "socioresearch");
-		dto.setJson_desctiptor(json.getObj().toString());
+		dto.setJson_descriptor(json.getObj().toString());
 		HashMap<String, String> mapp = edit_display.getDBcollector().returnCollectedMap();
 		dto.setName(mapp.get("socioresearch_name"));
 		dto.setFilling(mapp);
@@ -297,7 +298,7 @@ public class AdminResearchDetailedPresenter implements Presenter{
 	{
 		//final ArrayList<NewsDTO> newsData = new ArrayList<NewsDTO>();
 		
-		new RPCCall<ArrayList<SocioResearchDTO>>() {
+		new RPCCall<ArrayList<SocioResearchDTO_Light>>() {
 			@Override
 			public void onFailure(Throwable caught) {
 				Window.alert("Error fetching " +
@@ -306,18 +307,18 @@ public class AdminResearchDetailedPresenter implements Presenter{
 			}
 
 			@Override
-			public void onSuccess(ArrayList<SocioResearchDTO> result) {
+			public void onSuccess(ArrayList<SocioResearchDTO_Light> result) {
 				ArrayList<String> names = new ArrayList<String>();
 				ArrayList<Long> ids = new ArrayList<Long>();
 				
-				for(SocioResearchDTO dto:result)
+				for(SocioResearchDTO_Light dto:result)
 				{
 					names.add(dto.getName());
 					ids.add(dto.getID());
 				}
 				gr_edit_displ.setResearchesAvaible(names, ids);
 				ArrayList<IPickableElement> elems = new ArrayList<IPickableElement>();
-				for(SocioResearchDTO dto:result)
+				for(SocioResearchDTO_Light dto:result)
 				{
 					elems.add(dto);
 				}
@@ -348,7 +349,7 @@ public class AdminResearchDetailedPresenter implements Presenter{
 
 			@Override
 			protected void callService(
-					AsyncCallback<ArrayList<SocioResearchDTO>> cb) {
+					AsyncCallback<ArrayList<SocioResearchDTO_Light>> cb) {
 				rpcUserService.getResearchSummaries(cb);
 			}
 		}.retry(3);

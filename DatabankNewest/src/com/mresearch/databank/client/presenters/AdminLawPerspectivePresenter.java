@@ -46,6 +46,7 @@ import com.mresearch.databank.client.event.ShowVarDetailsEvent;
 import com.mresearch.databank.client.event.ShowVarDetailsEventHandler;
 import com.mresearch.databank.client.helper.RPCCall;
 import com.mresearch.databank.client.service.AdminArticleServiceAsync;
+import com.mresearch.databank.client.service.AdminSocioResearchService;
 import com.mresearch.databank.client.service.AdminSocioResearchServiceAsync;
 import com.mresearch.databank.client.service.CatalogService;
 import com.mresearch.databank.client.service.CatalogServiceAsync;
@@ -61,6 +62,7 @@ import com.mresearch.databank.client.views.ConceptItem;
 
 import com.mresearch.databank.client.views.IPickBinder;
 
+import com.mresearch.databank.client.views.ConceptItemItem;
 import com.mresearch.databank.client.views.PickElementsTableView;
 import com.mresearch.databank.client.views.ResearchDescItem;
 import com.mresearch.databank.client.views.ResearchVarList;
@@ -81,6 +83,7 @@ import com.mresearch.databank.client.views.addZaconUI;
 import com.mresearch.databank.shared.ArticleDTO;
 import com.mresearch.databank.shared.CatalogConceptDTO;
 import com.mresearch.databank.shared.ConceptBinder;
+import com.mresearch.databank.shared.MetaUnitMultivaluedEntityDTO;
 import com.mresearch.databank.shared.NewsDTO;
 import com.mresearch.databank.shared.NewsSummaryDTO;
 import com.mresearch.databank.shared.SocioResearchDTO;
@@ -162,9 +165,28 @@ public class AdminLawPerspectivePresenter implements Presenter
 							Window.alert("Error on fetching Zacon det");
 						}
 						@Override
-						public void onSuccess(ZaconDTO result) {
+						public void onSuccess(final ZaconDTO result) {
 							display.getCenterPanel().clear();
-							display.getCenterPanel().add(new ZaconDetailedView(result).asWidget());
+							
+							new RPCCall<MetaUnitMultivaluedEntityDTO>() {
+
+								@Override
+								public void onFailure(Throwable arg0) {
+								}
+
+								@Override
+								public void onSuccess(MetaUnitMultivaluedEntityDTO res) {
+									display.getCenterPanel().add(new ZaconDetailedView(result,res).asWidget());
+								}
+
+								@Override
+								protected void callService(
+										AsyncCallback<MetaUnitMultivaluedEntityDTO> cb) {
+									AdminSocioResearchService.Util.getInstance().getDatabankStructure("law",cb);
+								}
+							}.retry(2);
+							
+							
 						}
 
 						@Override
@@ -275,6 +297,8 @@ public class AdminLawPerspectivePresenter implements Presenter
 //				}
 			}
 		});
+		
+		
 		display.getTreeForOpen().addOpenHandler(new OpenHandler<TreeItem>() {
 			@Override
 			public void onOpen(OpenEvent<TreeItem> event) {
@@ -357,11 +381,17 @@ public class AdminLawPerspectivePresenter implements Presenter
 				display.getCenterPanel().clear();
 				TreeItem it = display.getSelectedItem();
 				Long key = null;
+				String name = null;
 				if (it instanceof ConceptItem<?>)
 				{
 					key = ((ConceptItem<?>)it).getConcept_id();
 				}
-				display.getCenterPanel().add(new addZaconUI("First name",key));
+				if(it instanceof ConceptItemItem)
+				{
+					ConceptItemItem item = (ConceptItemItem)it;
+					name = item.getText();
+				}
+				display.getCenterPanel().add(new addZaconUI("First name",key,name));
 			}
 		});
 		eventBus.addHandler(ShowResearchDetailsEvent.TYPE, new ShowResearchDetailsEventHandler() {

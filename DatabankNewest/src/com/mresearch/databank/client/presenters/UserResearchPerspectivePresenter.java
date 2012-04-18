@@ -64,6 +64,7 @@ import com.mresearch.databank.shared.NewsDTO;
 import com.mresearch.databank.shared.NewsSummaryDTO;
 import com.mresearch.databank.shared.RealVarDTO_Detailed;
 import com.mresearch.databank.shared.SocioResearchDTO;
+import com.mresearch.databank.shared.SocioResearchDTO_Light;
 import com.mresearch.databank.shared.TextVarDTO_Detailed;
 import com.mresearch.databank.shared.UserAccountDTO;
 import com.mresearch.databank.shared.VarDTO;
@@ -90,7 +91,7 @@ public class UserResearchPerspectivePresenter implements Presenter
 		 HasSelectionHandlers<TreeItem> getTreeForSelection();
 		 HasClickHandlers getResearchItem(int index);
 		 HasClickHandlers getVarItem(int index);
-		 void setResearchListData(ArrayList<SocioResearchDTO> data);
+		 void setResearchListData(ArrayList<SocioResearchDTO_Light> data);
 		 void setVarListData(TreeItem item, ArrayList<VarDTO_Light> data);
 		 Widget asWidget();
 		 void showLoadingLabel();
@@ -303,7 +304,7 @@ public class UserResearchPerspectivePresenter implements Presenter
 	{
 		//final ArrayList<NewsDTO> newsData = new ArrayList<NewsDTO>();
 		
-		new RPCCall<ArrayList<SocioResearchDTO>>() {
+		new RPCCall<ArrayList<SocioResearchDTO_Light>>() {
 			@Override
 			public void onFailure(Throwable caught) {
 				Window.alert("Error fetching " +
@@ -312,13 +313,13 @@ public class UserResearchPerspectivePresenter implements Presenter
 			}
 
 			@Override
-			public void onSuccess(ArrayList<SocioResearchDTO> result) {
+			public void onSuccess(ArrayList<SocioResearchDTO_Light> result) {
 				display.setResearchListData(result);
 			}
 
 			@Override
 			protected void callService(
-					AsyncCallback<ArrayList<SocioResearchDTO>> cb) {
+					AsyncCallback<ArrayList<SocioResearchDTO_Light>> cb) {
 				rpcService.getResearchSummaries(cb);
 			}
 		}.retry(3);

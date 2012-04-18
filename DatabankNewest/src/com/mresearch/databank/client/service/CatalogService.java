@@ -7,6 +7,7 @@ import com.google.gwt.user.client.rpc.RemoteService;
 import com.google.gwt.user.client.rpc.RemoteServiceRelativePath;
 import com.mresearch.databank.shared.CatalogConceptDTO;
 import com.mresearch.databank.shared.SocioResearchDTO;
+import com.mresearch.databank.shared.SocioResearchDTO_Light;
 import com.mresearch.databank.shared.VarDTO;
 
 @RemoteServiceRelativePath("CatalogService")
@@ -25,7 +26,7 @@ public interface CatalogService extends RemoteService {
 		}
 	}
 
-	ArrayList<SocioResearchDTO> getResearchList();
+	ArrayList<SocioResearchDTO_Light> getResearchList();
 	ArrayList<VarDTO> getResearchVarList(long research_id);
 	
 	ArrayList<CatalogConceptDTO> getRootCatalogConcepts(String c_type);

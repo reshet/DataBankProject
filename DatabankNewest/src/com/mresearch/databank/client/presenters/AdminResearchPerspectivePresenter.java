@@ -87,6 +87,7 @@ import com.mresearch.databank.shared.NewsDTO;
 import com.mresearch.databank.shared.NewsSummaryDTO;
 import com.mresearch.databank.shared.RealVarDTO_Detailed;
 import com.mresearch.databank.shared.SocioResearchDTO;
+import com.mresearch.databank.shared.SocioResearchDTO_Light;
 import com.mresearch.databank.shared.TextVarDTO_Detailed;
 import com.mresearch.databank.shared.VarDTO;
 import com.mresearch.databank.shared.VarDTO_Detailed;
@@ -109,7 +110,7 @@ public class AdminResearchPerspectivePresenter implements Presenter
 		 
 		 HasClickHandlers getResearchItem(int index);
 		 HasClickHandlers getVarItem(int index);
-		 void setResearchListData(ArrayList<SocioResearchDTO> data);
+		 void setResearchListData(ArrayList<SocioResearchDTO_Light> data);
 		 void setVarListData(TreeItem item, ArrayList<VarDTO_Light> data);
 		 Widget asWidget();
 		 void showLoadingLabel();
@@ -201,15 +202,15 @@ public class AdminResearchPerspectivePresenter implements Presenter
 					display.getCenterPanel().add(new HTML("<h1>Загрузка, подождите...</h1>"));
 					final long concept_id = ((ConceptItemItem)it).getEntity_id();
 					//ArrayList<SocioResearchDTO> dtos = new ArrayList<SocioResearchDTO>();
-					new RPCCall<ArrayList<SocioResearchDTO>>() {
+					new RPCCall<ArrayList<SocioResearchDTO_Light>>() {
 						@Override
 						public void onFailure(Throwable caught) {
 							Window.alert("Error getting researh summaries");
 						}
 						@Override
-						public void onSuccess(ArrayList<SocioResearchDTO> result) {
+						public void onSuccess(ArrayList<SocioResearchDTO_Light> result) {
 							final ArrayList<IPickableElement> arr = new ArrayList<IPickableElement>();
-							for(SocioResearchDTO dto:result)
+							for(SocioResearchDTO_Light dto:result)
 							{
 								arr.add(dto);
 							}
@@ -271,7 +272,7 @@ public class AdminResearchPerspectivePresenter implements Presenter
 						}
 						@Override
 						protected void callService(
-								AsyncCallback<ArrayList<SocioResearchDTO>> cb) {
+								AsyncCallback<ArrayList<SocioResearchDTO_Light>> cb) {
 							rpcUserService.getResearchSummaries(cb);
 						}
 					}.retry(2);
@@ -289,15 +290,15 @@ public class AdminResearchPerspectivePresenter implements Presenter
 					display.getCenterPanel().add(new HTML("<h1>Загрузка, подождите...</h1>"));
 					final long concept_id = ((ConceptItem<?>)it).getConcept_id();
 					//ArrayList<SocioResearchDTO> dtos = new ArrayList<SocioResearchDTO>();
-					new RPCCall<ArrayList<SocioResearchDTO>>() {
+					new RPCCall<ArrayList<SocioResearchDTO_Light>>() {
 						@Override
 						public void onFailure(Throwable caught) {
 							Window.alert("Error getting researh summaries");
 						}
 						@Override
-						public void onSuccess(ArrayList<SocioResearchDTO> result) {
+						public void onSuccess(ArrayList<SocioResearchDTO_Light> result) {
 							final ArrayList<IPickableElement> arr = new ArrayList<IPickableElement>();
-							for(SocioResearchDTO dto:result)
+							for(SocioResearchDTO_Light dto:result)
 							{
 								arr.add(dto);
 							}
@@ -359,7 +360,7 @@ public class AdminResearchPerspectivePresenter implements Presenter
 						}
 						@Override
 						protected void callService(
-								AsyncCallback<ArrayList<SocioResearchDTO>> cb) {
+								AsyncCallback<ArrayList<SocioResearchDTO_Light>> cb) {
 							rpcUserService.getResearchSummaries(cb);
 						}
 					}.retry(2);
@@ -412,14 +413,14 @@ public class AdminResearchPerspectivePresenter implements Presenter
 					try{
 						//expecting there only SocioResearch concepts ((( not safe but eatable;
 						@SuppressWarnings("unchecked")
-						ConceptItem<SocioResearchDTO> ct = (ConceptItem<SocioResearchDTO>)it;
+						ConceptItem<SocioResearchDTO_Light> ct = (ConceptItem<SocioResearchDTO_Light>)it;
 						if (!ct.isBinderAttached())
 						{
-							ct.attachCBinder(new ConceptBinder<SocioResearchDTO>(){
+							ct.attachCBinder(new ConceptBinder<SocioResearchDTO_Light>(){
 								@Override
 								public void loadContents(
 										final ArrayList<Long> keys) {
-									new RPCCall<ArrayList<SocioResearchDTO>>() {
+									new RPCCall<ArrayList<SocioResearchDTO_Light>>() {
 
 										@Override
 										public void onFailure(Throwable caught) {
@@ -427,10 +428,10 @@ public class AdminResearchPerspectivePresenter implements Presenter
 										}
 
 										@Override
-										public void onSuccess(ArrayList<SocioResearchDTO> result) {
-											ArrayList<SocioResearchDTO> handler = getDtos_handler();
+										public void onSuccess(ArrayList<SocioResearchDTO_Light> result) {
+											ArrayList<SocioResearchDTO_Light> handler = getDtos_handler();
 											handler.clear();
-											for(SocioResearchDTO dto:result)
+											for(SocioResearchDTO_Light dto:result)
 											{
 												//if (!handler.contains(dto))
 													handler.add(dto);
@@ -440,7 +441,7 @@ public class AdminResearchPerspectivePresenter implements Presenter
 
 										@Override
 										protected void callService(
-												AsyncCallback<ArrayList<SocioResearchDTO>> cb) {
+												AsyncCallback<ArrayList<SocioResearchDTO_Light>> cb) {
 											rpcUserService.getResearchDTOs(keys, cb);
 										}
 									}.retry(3);
@@ -448,7 +449,7 @@ public class AdminResearchPerspectivePresenter implements Presenter
 
 								@Override
 								public ConceptContentsItem composeContentsItem(
-										SocioResearchDTO dto) {
+										SocioResearchDTO_Light dto) {
 									ResearchDescItem item = new ResearchDescItem(dto);
 									ResearchVarList research_node = new ResearchVarList(dto);
 									item.addItem(research_node);
@@ -544,7 +545,7 @@ public class AdminResearchPerspectivePresenter implements Presenter
 	{
 		//final ArrayList<NewsDTO> newsData = new ArrayList<NewsDTO>();
 		
-		new RPCCall<ArrayList<SocioResearchDTO>>() {
+		new RPCCall<ArrayList<SocioResearchDTO_Light>>() {
 			@Override
 			public void onFailure(Throwable caught) {
 				Window.alert("Error fetching " +
@@ -553,13 +554,13 @@ public class AdminResearchPerspectivePresenter implements Presenter
 			}
 
 			@Override
-			public void onSuccess(ArrayList<SocioResearchDTO> result) {
+			public void onSuccess(ArrayList<SocioResearchDTO_Light> result) {
 				display.setResearchListData(result);
 			}
 
 			@Override
 			protected void callService(
-					AsyncCallback<ArrayList<SocioResearchDTO>> cb) {
+					AsyncCallback<ArrayList<SocioResearchDTO_Light>> cb) {
 				rpcUserService.getResearchSummaries(cb);
 			}
 		}.retry(3);

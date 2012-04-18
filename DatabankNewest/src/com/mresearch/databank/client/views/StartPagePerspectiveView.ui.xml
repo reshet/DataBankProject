@@ -61,12 +61,8 @@
 <!-- 		</g:south> -->
 <!-- 	</g:DockLayoutPanel> -->
 
-	<g:VerticalPanel>
 		<g:HTMLPanel>
 			
-	        <div id="container">
-	
-	
 	            <!-- Шапка сайта -->
 	            <div class="column280">
 	                &nbsp;
@@ -274,7 +270,5 @@
 	                </div>
 	
 	            </div>
-	        </div>
 		</g:HTMLPanel>
-	</g:VerticalPanel>
 </ui:UiBinder> 

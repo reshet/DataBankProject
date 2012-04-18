@@ -314,8 +314,13 @@
 <!-- 				<g:Anchor href="javascript:;" ui:field="juryNav">Консультация</g:Anchor> -->
 				
 			</g:HorizontalPanel>
-			<g:VerticalPanel ui:field="centerPanel" width="100%" height="100%">
-			</g:VerticalPanel>
+			
+			 <g:HTMLPanel>
+	    	    <div id="container">
+					<g:VerticalPanel ui:field="centerPanel" width="100%" height="100%">
+					</g:VerticalPanel>
+				</div>
+			</g:HTMLPanel>
 			<g:Anchor href="javascript:;" ui:field="loginNav" styleName="{style.login}">Войти!</g:Anchor>
 	</g:VerticalPanel>
 </ui:UiBinder> 

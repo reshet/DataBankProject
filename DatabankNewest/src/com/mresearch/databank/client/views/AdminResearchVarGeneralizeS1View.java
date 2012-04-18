@@ -19,6 +19,7 @@ import com.mresearch.databank.client.service.UserSocioResearchService;
 import com.mresearch.databank.client.service.UserSocioResearchServiceAsync;
 import com.mresearch.databank.shared.SocioResearchDTO;
 import com.mresearch.databank.shared.IPickableElement;
+import com.mresearch.databank.shared.SocioResearchDTO_Light;
 
 
 //There MVP pattern is ommited)
@@ -44,7 +45,7 @@ public class AdminResearchVarGeneralizeS1View extends Composite {
 	}
 	private void fetchResearchesList()
 	{
-		new RPCCall<ArrayList<SocioResearchDTO>>(){
+		new RPCCall<ArrayList<SocioResearchDTO_Light>>(){
 
 			@Override
 			public void onFailure(Throwable caught) {
@@ -52,15 +53,15 @@ public class AdminResearchVarGeneralizeS1View extends Composite {
 			}
 
 			@Override
-			public void onSuccess(ArrayList<SocioResearchDTO> result) {
+			public void onSuccess(ArrayList<SocioResearchDTO_Light> result) {
 				ArrayList<IPickableElement> elems = new ArrayList<IPickableElement>();
-				for(SocioResearchDTO dto:result) elems.add(dto);
+				for(SocioResearchDTO_Light dto:result) elems.add(dto);
 				panel.add(new PickElementsTableView(elems,new ArrayList<Long>(), new IPickBinder() {
 					
 					@Override
 					public void processPickChoice(final ArrayList<Long> selected_keys) {
 						cont.clear();
-						new RPCCall<ArrayList<SocioResearchDTO>>() {
+						new RPCCall<ArrayList<SocioResearchDTO_Light>>() {
 
 							@Override
 							public void onFailure(Throwable caught) {
@@ -69,15 +70,15 @@ public class AdminResearchVarGeneralizeS1View extends Composite {
 
 							@Override
 							public void onSuccess(
-									ArrayList<SocioResearchDTO> result) {
+									ArrayList<SocioResearchDTO_Light> result) {
 								ArrayList<String> names = new ArrayList<String>();
-								for(SocioResearchDTO dto:result)names.add(dto.getName());
+								for(SocioResearchDTO_Light dto:result)names.add(dto.getName());
 								cont.add(new AdminResearchVarGeneralizeS2View(research_id,selected_keys,names));
 							}
 
 							@Override
 							protected void callService(
-									AsyncCallback<ArrayList<SocioResearchDTO>> cb) {
+									AsyncCallback<ArrayList<SocioResearchDTO_Light>> cb) {
 								service.getResearchDTOs(selected_keys, cb);
 							}
 						}.retry(2);
@@ -97,7 +98,7 @@ public class AdminResearchVarGeneralizeS1View extends Composite {
 
 			@Override
 			protected void callService(
-					AsyncCallback<ArrayList<SocioResearchDTO>> cb) {
+					AsyncCallback<ArrayList<SocioResearchDTO_Light>> cb) {
 				service.getResearchSummaries(cb);
 			}
 		}.retry(2);

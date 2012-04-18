@@ -41,6 +41,7 @@ import com.mresearch.databank.client.presenters.UserResearchPerspectivePresenter
 import com.mresearch.databank.client.service.AdminSocioResearchService;
 import com.mresearch.databank.shared.MetaUnitMultivaluedEntityDTO;
 import com.mresearch.databank.shared.SocioResearchDTO;
+import com.mresearch.databank.shared.SocioResearchDTO_Light;
 import com.mresearch.databank.shared.VarDTO;
 import com.mresearch.databank.shared.VarDTO_Light;
 import com.smartgwt.client.types.Alignment;
@@ -67,7 +68,7 @@ public class UserResearchPerspectiveView extends Composite implements UserResear
 	SimpleResearchList simpleResearchListItem;
 	RootConceptsList rootResearchConcepts, rootVarConcepts;
 	private Long research_to_find =null;
-	private ArrayList<SocioResearchDTO> researchList;
+	private ArrayList<SocioResearchDTO_Light> researchList;
 	public UserResearchPerspectiveView(SimpleEventBus bus) {
 		initWidget(uiBinder.createAndBindUi(this));
 //		panel = new HLayout();
@@ -133,7 +134,7 @@ public class UserResearchPerspectiveView extends Composite implements UserResear
 	private void displayResearchList()
 	{
 		simpleResearchListItem.removeItems();
-		for(SocioResearchDTO dto:researchList)
+		for(SocioResearchDTO_Light dto:researchList)
 		{
 			ResearchDescItem research_node = new ResearchDescItem(dto);
 			research_node.addItem(new ResearchVarList(dto));
@@ -147,6 +148,7 @@ public class UserResearchPerspectiveView extends Composite implements UserResear
 				research_to_find = null;
 			}
 		}
+		int b = 2;
 	}
 	@Override
 	public HasMouseDownHandlers getTree() {
@@ -171,7 +173,7 @@ public class UserResearchPerspectiveView extends Composite implements UserResear
 	
 	
 	@Override
-	public void setResearchListData(ArrayList<SocioResearchDTO> data) {
+	public void setResearchListData(ArrayList<SocioResearchDTO_Light> data) {
 		researchList = data;
 		displayResearchList();
 	}

@@ -36,6 +36,7 @@ import com.mresearch.databank.client.event.ShowZaconDetailsEvent;
 import com.mresearch.databank.client.event.ShowZaconDetailsEventHandler;
 import com.mresearch.databank.client.helper.RPCCall;
 import com.mresearch.databank.client.service.AdminArticleServiceAsync;
+import com.mresearch.databank.client.service.AdminSocioResearchService;
 import com.mresearch.databank.client.service.StartPageServiceAsync;
 import com.mresearch.databank.client.service.UserSocioResearchServiceAsync;
 import com.mresearch.databank.client.views.ArticleDescItem;
@@ -58,6 +59,7 @@ import com.mresearch.databank.client.views.VariableDetailedView;
 import com.mresearch.databank.client.views.ZaconDescItem;
 import com.mresearch.databank.client.views.ZaconDetailedView;
 import com.mresearch.databank.client.views.ZaconsShortView;
+import com.mresearch.databank.shared.MetaUnitMultivaluedEntityDTO;
 import com.mresearch.databank.shared.NewsDTO;
 import com.mresearch.databank.shared.NewsSummaryDTO;
 import com.mresearch.databank.shared.SocioResearchDTO;
@@ -105,6 +107,7 @@ public class UserLawPerspectivePresenter implements Presenter
 		 }
 	}
 	
+	
 	public void bind()
 	{
 		display.getTree().addMouseDownHandler(new MouseDownHandler() {
@@ -113,30 +116,49 @@ public class UserLawPerspectivePresenter implements Presenter
 				TreeItem it = display.getSelectedItem();
 				if (it instanceof SimpleZaconList)
 				{
-						fetchZaconListData();
-				}else if (it instanceof ZaconDescItem)
-				{
-					final ZaconDescItem rv = (ZaconDescItem)it;
-					new RPCCall<ZaconDTO>() {
-
-						@Override
-						public void onFailure(Throwable caught) {
-							Window.alert("Error on fetching Zacon det");
-						}
-						@Override
-						public void onSuccess(ZaconDTO result) {
-							display.getCenterPanel().clear();
-							display.getCenterPanel().add(new ZaconDetailedView(result).asWidget());
-						}
-
-						@Override
-						protected void callService(AsyncCallback<ZaconDTO> cb) {
-							rpcService.getZacon(rv.getContents_id(), cb);
-						}
-					}.retry(2);
+				    fetchZaconListData();
 				}
+//				else if (it instanceof ZaconDescItem)
+//				{
+//					final ZaconDescItem rv = (ZaconDescItem)it;
+//					new RPCCall<ZaconDTO>() {
+//
+//						@Override
+//						public void onFailure(Throwable caught) {
+//							Window.alert("Error on fetching Zacon det");
+//						}
+//						@Override
+//						public void onSuccess(final ZaconDTO result) {
+//							display.getCenterPanel().clear();
+//							new RPCCall<MetaUnitMultivaluedEntityDTO>() {
+//
+//								@Override
+//								public void onFailure(Throwable arg0) {
+//								}
+//
+//								@Override
+//								public void onSuccess(MetaUnitMultivaluedEntityDTO res) {
+//									display.getCenterPanel().add(new ZaconDetailedView(result,res).asWidget());
+//								}
+//
+//								@Override
+//								protected void callService(
+//										AsyncCallback<MetaUnitMultivaluedEntityDTO> cb) {
+//									AdminSocioResearchService.Util.getInstance().getDatabankStructure("law",cb);
+//								}
+//							}.retry(2);
+//						}
+//
+//						@Override
+//						protected void callService(AsyncCallback<ZaconDTO> cb) {
+//							rpcService.getZacon(rv.getContents_id(), cb);
+//						}
+//					}.retry(2);
+//				}
 			}
 		});
+		
+		
 		display.getTreeForSelection().addSelectionHandler(new SelectionHandler<TreeItem>() {
 			@Override
 			public void onSelection(SelectionEvent<TreeItem> event) {

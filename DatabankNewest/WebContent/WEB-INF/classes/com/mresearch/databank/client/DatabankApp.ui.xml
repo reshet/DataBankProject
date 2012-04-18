@@ -10,19 +10,19 @@
    
   <g:ScrollPanel width="100%" height="100%">
   	  <g:VerticalPanel width="100%" height="100%">
-		 <g:VerticalPanel ui:field="verticalPanel" width="100%" height="100%">
-		</g:VerticalPanel>
-		    <g:HorizontalPanel>
-			      <g:HTMLPanel styleName="">
-			        <div>
-			          <a href="#">Contact us</a>
-			          |
-			          <a href="#">Privacy</a>
-			          |
-			          <a href="#">About</a>
-			        </div>
-			      </g:HTMLPanel>
-	       </g:HorizontalPanel>
-		</g:VerticalPanel>
+	     		<g:VerticalPanel ui:field="verticalPanel" width="100%" height="100%">
+				</g:VerticalPanel>
+				    <g:HorizontalPanel>
+					      <g:HTMLPanel styleName="">
+					        <div>
+					          <a href="#">Contact us</a>
+					          |
+					          <a href="#">Privacy</a>
+					          |
+					          <a href="#">About</a>
+					        </div>
+					      </g:HTMLPanel>
+			       </g:HorizontalPanel>        
+	  </g:VerticalPanel>
 	</g:ScrollPanel> 
 </ui:UiBinder> 
