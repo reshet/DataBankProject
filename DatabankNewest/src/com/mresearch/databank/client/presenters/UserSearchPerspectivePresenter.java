@@ -206,7 +206,7 @@ public class UserSearchPerspectivePresenter implements Presenter
 
 		      protected void callService(AsyncCallback<MetaUnitMultivaluedEntityDTO> cb)
 		      {
-		        AdminSocioResearchService.Util.getInstance().getDatabankStructure(type_def, cb);
+		        UserSocioResearchService.Util.getInstance().getDatabankStructure(type_def, cb);
 		      }
 
 		      public void onSuccess(MetaUnitMultivaluedEntityDTO result)

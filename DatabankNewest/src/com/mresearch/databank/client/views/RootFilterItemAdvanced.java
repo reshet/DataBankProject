@@ -183,7 +183,7 @@ public class RootFilterItemAdvanced extends TreeItem
 
       protected void callService(AsyncCallback<MetaUnitMultivaluedEntityDTO> cb)
       {
-        AdminSocioResearchService.Util.getInstance().getDatabankStructure(RootFilterItemAdvanced.this.type_to_filter, cb);
+        UserSocioResearchService.Util.getInstance().getDatabankStructure(RootFilterItemAdvanced.this.type_to_filter, cb);
       }
 
       public void onSuccess(MetaUnitMultivaluedEntityDTO result)

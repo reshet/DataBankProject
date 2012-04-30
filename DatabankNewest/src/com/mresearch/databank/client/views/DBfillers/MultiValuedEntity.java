@@ -30,6 +30,8 @@ import com.google.gwt.user.client.ui.Widget;
 import com.mresearch.databank.client.helper.RPCCall;
 import com.mresearch.databank.client.service.AdminSocioResearchService;
 import com.mresearch.databank.client.service.AdminSocioResearchServiceAsync;
+import com.mresearch.databank.client.service.UserSocioResearchService;
+import com.mresearch.databank.client.service.UserSocioResearchServiceAsync;
 import com.mresearch.databank.shared.JSON_Representation;
 import com.mresearch.databank.shared.MetaUnitDTO;
 import com.mresearch.databank.shared.MetaUnitDateDTO;
@@ -51,6 +53,8 @@ public class MultiValuedEntity extends Composite implements MetaUnitFiller,MetaU
 		initWidget(uiBinder.createAndBindUi(this));
 	}
 	private AdminSocioResearchServiceAsync service = AdminSocioResearchService.Util.getInstance();
+	private UserSocioResearchServiceAsync userService = UserSocioResearchService.Util.getInstance();
+	
 	@UiField Label entity_name;
 	@UiField ListBox items_list;
 	private MetaUnitMultivaluedEntityDTO dto;
@@ -169,7 +173,7 @@ public class MultiValuedEntity extends Composite implements MetaUnitFiller,MetaU
 				@Override
 				protected void callService(
 						AsyncCallback<HashMap<String, String>> cb) {
-					service.getEntityItem(id, cb);
+					userService.getEntityItem(id, cb);
 				}
 			}.retry(2);
 		}
@@ -190,7 +194,7 @@ public class MultiValuedEntity extends Composite implements MetaUnitFiller,MetaU
 
 		      protected void callService(AsyncCallback<MetaUnitMultivaluedEntityDTO> cb)
 		      {
-		        MultiValuedEntity.this.service.getMetaUnitMultivaluedEntityDTO_FlattenedItems(MultiValuedEntity.this.dto.getId(), cb);
+		        MultiValuedEntity.this.userService.getMetaUnitMultivaluedEntityDTO_FlattenedItems(MultiValuedEntity.this.dto.getId(), cb);
 		      }
 		    }
 		    .retry(2);
@@ -329,7 +333,7 @@ public class MultiValuedEntity extends Composite implements MetaUnitFiller,MetaU
 
            protected void callService(AsyncCallback<MetaUnitEntityItemDTO> cb)
            {
-             MultiValuedEntity.this.service.getEntityItemDTO(Long.valueOf(idd), cb);
+             MultiValuedEntity.this.userService.getEntityItemDTO(Long.valueOf(idd), cb);
            }
          }
          .retry(2);
@@ -369,7 +373,7 @@ public class MultiValuedEntity extends Composite implements MetaUnitFiller,MetaU
 
            protected void callService(AsyncCallback<MetaUnitEntityItemDTO> cb)
            {
-             MultiValuedEntity.this.service.getEntityItemDTO(Long.valueOf(idd), cb);
+             MultiValuedEntity.this.userService.getEntityItemDTO(Long.valueOf(idd), cb);
            }
          }
          .retry(2);
@@ -391,7 +395,7 @@ public class MultiValuedEntity extends Composite implements MetaUnitFiller,MetaU
 
 	          protected void callService(AsyncCallback<MetaUnitEntityItemDTO> cb)
 	          {
-	            MultiValuedEntity.this.service.getEntityItemDTO(prev_id, cb);
+	            MultiValuedEntity.this.userService.getEntityItemDTO(prev_id, cb);
 	          }
 	        }
 	        .retry(2);

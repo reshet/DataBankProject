@@ -1,5 +1,6 @@
 package com.mresearch.databank.client.views;
 
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 
 import com.google.gwt.core.client.GWT;
@@ -14,18 +15,29 @@ import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.CheckBox;
 import com.google.gwt.user.client.ui.Composite;
+import com.google.gwt.user.client.ui.FormPanel;
+import com.google.gwt.user.client.ui.HTMLPanel;
 import com.google.gwt.user.client.ui.HasText;
 import com.google.gwt.user.client.ui.HorizontalPanel;
 import com.google.gwt.user.client.ui.PopupPanel;
+import com.google.gwt.user.client.ui.PushButton;
 import com.google.gwt.user.client.ui.TextBox;
+import com.google.gwt.user.client.ui.ToggleButton;
 import com.google.gwt.user.client.ui.TreeItem;
+import com.google.gwt.user.client.ui.VerticalPanel;
 import com.google.gwt.user.client.ui.Widget;
+import com.google.gwt.user.client.rpc.AsyncCallback;
+import com.mresearch.databank.client.helper.RPCCall;
 import com.mresearch.databank.client.DatabankApp;
 import com.mresearch.databank.client.event.RecalculateDistributionsEvent;
+import com.mresearch.databank.client.event.RecalculateDistributionsEventHandler;
+import com.mresearch.databank.client.event.SaveHTMLEvent;
 import com.mresearch.databank.client.event.ShowVarDetailsEvent;
+import com.mresearch.databank.client.event.ShowVarPlotEvent;
 import com.mresearch.databank.client.presenters.UserResearchPerspectivePresenter;
 import com.mresearch.databank.shared.IPickableElement;
 import com.mresearch.databank.shared.UserAccountDTO;
+import com.mresearch.databank.shared.VarDTO_Detailed;
 
 public class AnalisysBarView extends Composite implements UserResearchPerspectivePresenter.AnalisysDisplay{
 
@@ -34,29 +46,86 @@ public class AnalisysBarView extends Composite implements UserResearchPerspectiv
 
 	interface AnalisysBarViewUiBinder extends UiBinder<Widget, AnalisysBarView> {
 	}
-	@UiField CheckBox weights_use,filters_use;
-	@UiField Button filters_details_btn,filters_add_btn,filters_delete_btn;
-	private SimpleEventBus eventBus;
+	//@UiField CheckBox weights_use,filters_use;
+	@UiField Button filters_details_btn;
+	private Button filters_add_btn,filters_delete_btn;
+	@UiField ToggleButton weights_use,filters_use;
+	@UiField PushButton saveHtmlBtn,plotBtn;
+	
+	final private SimpleEventBus eventBus;
 	private UserResearchPerspectivePresenter.Display display;
 	private Long current_research_id = null;
-	
-	public AnalisysBarView(SimpleEventBus bus,UserResearchPerspectivePresenter.Display display) {
+	private boolean w_use,f_use;
+	private FormPanel form;
+	private TextBox content = new TextBox();
+	String realPath = GWT.getModuleBaseURL();
+	public AnalisysBarView(SimpleEventBus bus,UserResearchPerspectivePresenter.Display display,boolean f_use,boolean w_use) {
 		initWidget(uiBinder.createAndBindUi(this));
 		this.eventBus = bus;
 		this.display = display;
+		this.w_use = w_use;
+		this.f_use = f_use;
+		filters_add_btn = new Button("+");
+		filters_delete_btn = new Button("-");
+		initSaveOption();
 		bind();
 	}
 	
 	
+	private void initSaveOption()
+	{
+		content.setVisible(false);
+		content.setName("content");
+		form = new FormPanel();
+		form.setAction(realPath+"htmlSave");
+		form.setMethod(FormPanel.METHOD_POST);
+		VerticalPanel panel = new VerticalPanel();
+		panel.add(content);
+		form.add(panel);
+	}
+	
 	private void bind()
 	{
-		this.getWeightsUse().addClickHandler(new ClickHandler() {
+		
+		
+			
+		
+		plotBtn.setStyleName("plotBtn");
+		saveHtmlBtn.setStyleName("htmlBtn");
+		weights_use.setStyleName("weightsBtn");
+		filters_use.setStyleName("filtersBtn");
+		
+		weights_use.setDown(w_use);
+		filters_use.setDown(f_use);
+		
+		
+		plotBtn.addClickHandler(new ClickHandler() {
 			@Override
-			public void onClick(ClickEvent event) {
-				UserAccountDTO dto = DatabankApp.get().getCurrentUser();
-				dto.setWeights_use(getWeightsUseState());
-				DatabankApp.get().updateUserAccountState();
-				current_research_id = DatabankApp.get().getCurrentUser().getCurrent_research();
+			public void onClick(ClickEvent arg0) {
+				eventBus.fireEvent(new ShowVarPlotEvent(0));
+			}
+		});
+		
+		saveHtmlBtn.addClickHandler(new ClickHandler() {
+			@Override
+			public void onClick(ClickEvent arg0) {
+				//eventBus.fireEvent(new SaveHTMLEvent());
+				String s;
+				try {
+					s = new String(display.getCenterPanel().toString().getBytes(),"UTF-8");
+					content.setText(s);
+					form.submit();
+				} catch (UnsupportedEncodingException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
+			}
+		});
+		
+		eventBus.addHandler(RecalculateDistributionsEvent.TYPE, new RecalculateDistributionsEventHandler() {
+			@Override
+			public void onRecalculateDistributions(RecalculateDistributionsEvent ev) {
 				TreeItem it = display.getSelectedItem();
 				if (it instanceof VarDescItem)
 				{
@@ -64,9 +133,43 @@ public class AnalisysBarView extends Composite implements UserResearchPerspectiv
 					eventBus.fireEvent(new ShowVarDetailsEvent(rv.getVar_id()));
 					//weights will be recalculated on server; may be not syncronized!!!
 				}
+			}
+		});
+		
+		
+		
+		
+		
+		this.getWeightsUse().addClickHandler(new ClickHandler() {
+			@Override
+			public void onClick(ClickEvent event) {
+				UserAccountDTO dto = DatabankApp.get().getCurrentUser();
+				dto.setWeights_use(getWeightsUseState());
 				
-				eventBus.fireEvent(new RecalculateDistributionsEvent(getWeightsUseState(), getWeightsUseState(),
-						DatabankApp.get().getCurrentUser().getFiltersToProcess(current_research_id)));
+				new RPCCall<UserAccountDTO>() {
+						
+					@Override
+					public void onFailure(Throwable caught) {
+						Window.alert("Error on updating account state!");
+					}
+		
+					@Override
+					public void onSuccess(UserAccountDTO result) {
+						DatabankApp.get().setCurrentUser(result);
+						current_research_id = DatabankApp.get().getCurrentUser().getCurrent_research();
+						
+						
+						eventBus.fireEvent(new RecalculateDistributionsEvent(getWeightsUseState(), getWeightsUseState(),
+								DatabankApp.get().getCurrentUser().getFiltersToProcess(current_research_id)));
+					}
+		
+					@Override
+					protected void callService(AsyncCallback<UserAccountDTO> cb) {
+						DatabankApp.get().getUserService().updateResearchState(DatabankApp.get().getCurrentUser(),cb);
+					}
+				}.retry(2);
+				//DatabankApp.get().updateUserAccountState();
+				
 				//rise event!
 				//dto.setFilters_use(display.getFiltersUseState());
 			}
@@ -76,22 +179,42 @@ public class AnalisysBarView extends Composite implements UserResearchPerspectiv
 			public void onClick(ClickEvent event) {
 				UserAccountDTO dto = DatabankApp.get().getCurrentUser();
 				dto.setFilters_use(getFiltersUseState());
-				DatabankApp.get().updateUserAccountState();
-				current_research_id = DatabankApp.get().getCurrentUser().getCurrent_research();
-				eventBus.fireEvent(new RecalculateDistributionsEvent(getWeightsUseState(), getWeightsUseState(),
-						DatabankApp.get().getCurrentUser().getFiltersToProcess(current_research_id)));
+				new RPCCall<UserAccountDTO>() {
+					
+					@Override
+					public void onFailure(Throwable caught) {
+						Window.alert("Error on updating account state!");
+					}
+		
+					@Override
+					public void onSuccess(UserAccountDTO result) {
+						DatabankApp.get().setCurrentUser(result);
+						current_research_id = DatabankApp.get().getCurrentUser().getCurrent_research();
+						eventBus.fireEvent(new RecalculateDistributionsEvent(getWeightsUseState(), getWeightsUseState(),
+								DatabankApp.get().getCurrentUser().getFiltersToProcess(current_research_id)));
+					}
+		
+					@Override
+					protected void callService(AsyncCallback<UserAccountDTO> cb) {
+						DatabankApp.get().getUserService().updateResearchState(DatabankApp.get().getCurrentUser(),cb);
+					}
+				}.retry(2);
+			
 			
 				//rise event!
 							//dto.setFilters_use(display.getFiltersUseState());
 			}
 		});
 		getFiltersDetailesBtn().addClickHandler(new ClickHandler() {
-			final PopupPanel panel = new PopupPanel(true);
+			final PopupPanel ppanel = new PopupPanel(true);
 			
 			@Override
 			public void onClick(ClickEvent event) {
-				panel.clear();
-				panel.setPopupPosition(event.getClientX(), event.getClientY());
+				ppanel.clear();
+				VerticalPanel panel = new VerticalPanel();
+				HorizontalPanel hpan = new HorizontalPanel();	
+				
+				ppanel.setPopupPosition(event.getClientX(), event.getClientY());
 				ArrayList<IPickableElement> elems = new ArrayList<IPickableElement>();
 				
 //				final ArrayList<String> filters = DatabankApp.get().getCurrentUser().getFilters(current_research_id);
@@ -149,10 +272,28 @@ public class AnalisysBarView extends Composite implements UserResearchPerspectiv
 							usage.set(index, new Integer(1));
 						}
 						DatabankApp.get().getCurrentUser().setFilters_usage(usage,current_research_id);
-						DatabankApp.get().updateUserAccountState();
-						eventBus.fireEvent(new RecalculateDistributionsEvent(getWeightsUseState(),getWeightsUseState(),
-								DatabankApp.get().getCurrentUser().getFiltersToProcess(current_research_id)));
-						panel.hide();
+						new RPCCall<UserAccountDTO>() {
+							
+							@Override
+							public void onFailure(Throwable caught) {
+								Window.alert("Error on updating account state!");
+							}
+				
+							@Override
+							public void onSuccess(UserAccountDTO result) {
+								DatabankApp.get().setCurrentUser(result);
+								current_research_id = DatabankApp.get().getCurrentUser().getCurrent_research();
+								eventBus.fireEvent(new RecalculateDistributionsEvent(getWeightsUseState(),getWeightsUseState(),
+										DatabankApp.get().getCurrentUser().getFiltersToProcess(current_research_id)));
+								ppanel.hide();
+							}
+				
+							@Override
+							protected void callService(AsyncCallback<UserAccountDTO> cb) {
+								DatabankApp.get().getUserService().updateResearchState(DatabankApp.get().getCurrentUser(),cb);
+							}
+						}.retry(2);
+						
 					}
 					
 					@Override
@@ -165,7 +306,12 @@ public class AnalisysBarView extends Composite implements UserResearchPerspectiv
 						return "Доступные фильтры:";
 					}
 				}));
-				panel.show();
+				
+				hpan.add(filters_add_btn);
+				hpan.add(filters_delete_btn);
+				panel.add(hpan);
+				ppanel.add(panel);
+				ppanel.show();
 			}
 		});
 		getFiltersAddBtn().addClickHandler(new ClickHandler() {
@@ -189,8 +335,26 @@ public class AnalisysBarView extends Composite implements UserResearchPerspectiv
 						filters.add(t.getText());
 						filter_categs.add(current_research_id);
 						filter_usage.add(0);
-						DatabankApp.get().updateUserAccountState();
-						Window.alert("Filter created:"+t.getText());
+						new RPCCall<UserAccountDTO>() {
+							
+							@Override
+							public void onFailure(Throwable caught) {
+								Window.alert("Error on updating account state!");
+							}
+				
+							@Override
+							public void onSuccess(UserAccountDTO result) {
+								DatabankApp.get().setCurrentUser(result);
+								current_research_id = DatabankApp.get().getCurrentUser().getCurrent_research();
+								Window.alert("Filter created:"+t.getText());
+							}
+				
+							@Override
+							protected void callService(AsyncCallback<UserAccountDTO> cb) {
+								DatabankApp.get().getUserService().updateResearchState(DatabankApp.get().getCurrentUser(),cb);
+							}
+						}.retry(2);
+						
 					}
 				});
 				hor.add(t);
@@ -247,10 +411,29 @@ public class AnalisysBarView extends Composite implements UserResearchPerspectiv
 							}
 							//if(filters_usage.contains(index))filters_usage.remove(filters_usage.indexOf(index));
 						}
-						DatabankApp.get().updateUserAccountState();
-						eventBus.fireEvent(new RecalculateDistributionsEvent(getWeightsUseState(), getWeightsUseState(),
-								DatabankApp.get().getCurrentUser().getFiltersToProcess(current_research_id)));
-						panel.hide();
+						new RPCCall<UserAccountDTO>() {
+							
+							@Override
+							public void onFailure(Throwable caught) {
+								Window.alert("Error on updating account state!");
+							}
+				
+							@Override
+							public void onSuccess(UserAccountDTO result) {
+								DatabankApp.get().setCurrentUser(result);
+								current_research_id = DatabankApp.get().getCurrentUser().getCurrent_research();
+								eventBus.fireEvent(new RecalculateDistributionsEvent(getWeightsUseState(), getWeightsUseState(),
+										DatabankApp.get().getCurrentUser().getFiltersToProcess(current_research_id)));
+								panel.hide();
+							}
+				
+							@Override
+							protected void callService(AsyncCallback<UserAccountDTO> cb) {
+								DatabankApp.get().getUserService().updateResearchState(DatabankApp.get().getCurrentUser(),cb);
+							}
+						}.retry(2);
+						
+						
 					}
 					
 					@Override
@@ -302,6 +485,11 @@ public class AnalisysBarView extends Composite implements UserResearchPerspectiv
 		return filters_add_btn;
 	}
 
+	
+	
+	
+	
+	
 	@Override
 	public HasClickHandlers getFiltersDeleteBtn() {
 		// TODO Auto-generated method stub

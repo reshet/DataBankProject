@@ -25,6 +25,7 @@ import javax.naming.NamingException;
 import org.apache.catalina.session.PersistentManager;
 import com.google.gwt.user.server.rpc.RemoteServiceServlet;
 import com.mplatforma.amr.service.remote.UserAccountBeanRemote;
+import com.mplatforma.amr.service.remote.UserSocioResearchBeanRemote;
 import com.mresearch.databank.client.service.UserAccountService;
 import com.mresearch.databank.shared.UserAccountDTO;
 
@@ -44,6 +45,22 @@ public class UserAccountServiceImpl extends RemoteServiceServlet implements
 		  obj = ic.lookup(jndiName);
 		  System.out.println("lookup returned " + obj);
 		  eao = (UserAccountBeanRemote) obj;
+		} catch (NamingException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	private static UserSocioResearchBeanRemote seao;
+	static
+	{
+		Object obj = new String("some");
+		try {
+		  InitialContext ic = new InitialContext();
+		  System.out.println("start lookup");
+		  final String jndiName = "java:global/DatabankEnterprise-ejb/UserSocioResearchRemoteBean";
+		  obj = ic.lookup(jndiName);
+		  System.out.println("lookup returned " + obj);
+		  seao = (UserSocioResearchBeanRemote) obj;
 		} catch (NamingException e) {
 			e.printStackTrace();
 		}
@@ -85,6 +102,9 @@ public void logout() {
 	this.getThreadLocalRequest().getSession().removeAttribute("user");
 }
 
+
+
+
 @Override
 public UserAccountDTO updateResearchState(UserAccountDTO dto_acc) {
 	UserAccountDTO userAcc =   (UserAccountDTO) this.getThreadLocalRequest().getSession().getAttribute("user");
@@ -99,6 +119,10 @@ public UserAccountDTO updateResearchState(UserAccountDTO dto_acc) {
 		}
 		else
 		{
+			if(dto_acc.getCurrent_research() == 0 && dto_acc.getCurrant_var() != 0)
+			{
+				dto_acc.setCurrent_research(seao.getVar(dto_acc.getCurrant_var(), null).getResearch_id());
+			}
 			this.getThreadLocalRequest().getSession().setAttribute("user", dto_acc);
 			return dto_acc;
 		}

@@ -8,6 +8,7 @@
 			color: olive;
 			font: bold;
 		}
+		/*
 		.gwt-MenuBar {
 		  cursor: default;
 		  width: 1120px;
@@ -155,6 +156,8 @@
 		  overflow: hidden;
 		}
 		
+		
+		*/
 		.mm-search {
 		    border: transparent solid 1px;
 		    border-radius: 4px;
@@ -181,8 +184,11 @@
 		    height: 20px;
 		    cursor: pointer;
 		}
+			.back{
+		background-color: #FFFFFF;
+	}
 	</ui:style>
-	<g:VerticalPanel>
+	<g:VerticalPanel width="100%" height="100%" horizontalAlignment="ALIGN_CENTER"  styleName="{style.back}">
 		
 <!-- 		<g:HorizontalPanel styleName="{style.mm}"> -->
 			

@@ -24,7 +24,15 @@ public class SocioResearchDTO implements Serializable,ICatalogizable,IPickableEl
 	private HashMap<String,String> filling;
         private String json_descriptor;
 
-	
+        private String description_text;
+        public String getDesctiption() {
+		return description_text;
+	}
+
+
+	public void setDesctiption(String desc) {
+		this.description_text = desc;
+	}
 	public SocioResearchDTO()
 	{
 		filling = new HashMap<String, String>();

@@ -19,12 +19,23 @@
 package com.mresearch.databank.client.service;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import com.google.gwt.core.client.GWT;
+import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.rpc.RemoteService;
 import com.google.gwt.user.client.rpc.RemoteServiceRelativePath;
 import com.mresearch.databank.shared.FilterBaseDTO;
+import com.mresearch.databank.shared.MetaUnitDateDTO;
+import com.mresearch.databank.shared.MetaUnitDoubleDTO;
+import com.mresearch.databank.shared.MetaUnitEntityItemDTO;
+import com.mresearch.databank.shared.MetaUnitIntegerDTO;
+import com.mresearch.databank.shared.MetaUnitMultivaluedDTO;
+import com.mresearch.databank.shared.MetaUnitMultivaluedEntityDTO;
+import com.mresearch.databank.shared.MetaUnitMultivaluedStructureDTO;
+import com.mresearch.databank.shared.MetaUnitStringDTO;
 import com.mresearch.databank.shared.OrgDTO;
+import com.mresearch.databank.shared.ResearchBundleDTO;
 import com.mresearch.databank.shared.ResearchFilesDTO;
 import com.mresearch.databank.shared.SSE_DTO;
 import com.mresearch.databank.shared.SocioResearchDTO;
@@ -67,5 +78,29 @@ public interface UserSocioResearchService extends RemoteService {
   
   ArrayList<OrgDTO> getOrgList();
   String doIndexSearch(String json_query,String [] types_to_search);
+  ResearchBundleDTO getResearchBundle(long research_id);
+  
+  
+  MetaUnitMultivaluedEntityDTO getDatabankStructure(String db_name);
+  MetaUnitMultivaluedDTO getMetaUnitMultivaluedFullDTO(long id);
+  MetaUnitIntegerDTO getMetaUnitInteger(long id);
+  MetaUnitDoubleDTO getMetaUnitDouble(long id);
+  MetaUnitDateDTO getMetaUnitDate(long id);
+  MetaUnitStringDTO getMetaUnitString(long id);
+  HashMap<String, String> getEntityItem(Long id);
+  MetaUnitEntityItemDTO getEntityItemDTO(Long paramLong);
+	
+  ArrayList<MetaUnitEntityItemDTO> getEntityItemSubitemsDTOs(Long paramLong);
+  MetaUnitMultivaluedEntityDTO getMetaUnitMultivaluedEntityDTO(long id);
+
+  MetaUnitMultivaluedStructureDTO getMetaUnitMultivaluedStructureDTO(long id);
+
+
+  MetaUnitMultivaluedEntityDTO getMetaUnitMultivaluedEntityDTO_FlattenedItems(long id);
+
+  ArrayList<Long> getEntityItemTaggedEntitiesIDs(Long id_item);
+  ArrayList<String> getEntityItemTaggedEntitiesIdentifiers(Long id_item);
+  ArrayList<Long> getEntityItemTaggedEntitiesIDs(Long id_item,String identifier);
+
 
 }

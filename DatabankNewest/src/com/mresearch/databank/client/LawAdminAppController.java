@@ -63,6 +63,9 @@ public class LawAdminAppController implements ValueChangeHandler<String>, AppCon
 			UiBinder<VerticalPanel, LawAdminAppController> {
 	}
 	
+	
+	
+	
   @UiField Anchor bankNav,articlesNav,logoutNav;
   @UiField VerticalPanel centerPanel;
   private VerticalPanel thisDock;

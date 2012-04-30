@@ -69,40 +69,22 @@ public interface AdminSocioResearchService extends RemoteService {
   Boolean deleteFileFromAccessor(long id_research,long id_file);
   Boolean addSSE(String clas,String kind,String value);
   Boolean updateFileAccessor(long research_id,ResearchFilesDTO dto);
-  MetaUnitMultivaluedEntityDTO getDatabankStructure(String db_name);
-  MetaUnitMultivaluedDTO getMetaUnitMultivaluedFullDTO(long id);
-  MetaUnitIntegerDTO getMetaUnitInteger(long id);
-  MetaUnitDoubleDTO getMetaUnitDouble(long id);
-  MetaUnitDateDTO getMetaUnitDate(long id);
-  MetaUnitStringDTO getMetaUnitString(long id);
   void updateMetaUnitStructure(MetaUnitDTO dto);
   void addMetaUnit(MetaUnitDTO dto,Long parent_unit_id);
   void addEntityItem(Long entity_id,String value,HashMap<String,String> filling);
   void deleteMetaUnit(Long id,Long unit_parent_id);
   void editEntityItem(Long entity_id,String value,HashMap<String,String> filling);
-  HashMap<String, String> getEntityItem(Long id);
 
   void addSubEntityItem(Long paramLong, String paramString, HashMap<String, String> paramHashMap);
-  MetaUnitEntityItemDTO getEntityItemDTO(Long paramLong);
-  ArrayList<MetaUnitEntityItemDTO> getEntityItemSubitemsDTOs(Long paramLong);
   void updateMetaUnitEntityItemLinks(MetaUnitEntityItemDTO paramMetaUnitEntityItemDTO1, MetaUnitEntityItemDTO paramMetaUnitEntityItemDTO2);
   void updateMetaUnitEntityItemLinks(MetaUnitEntityItemDTO paramMetaUnitEntityItemDTO);
 
 
-MetaUnitMultivaluedEntityDTO getMetaUnitMultivaluedEntityDTO(long id);
 
 
 void deleteEntityItem(Long id, Long entity_id);
 
 
-MetaUnitMultivaluedStructureDTO getMetaUnitMultivaluedStructureDTO(long id);
-
-
-MetaUnitMultivaluedEntityDTO getMetaUnitMultivaluedEntityDTO_FlattenedItems(long id);
-
-ArrayList<Long> getEntityItemTaggedEntitiesIDs(Long id_item);
-ArrayList<String> getEntityItemTaggedEntitiesIdentifiers(Long id_item);
-ArrayList<Long> getEntityItemTaggedEntitiesIDs(Long id_item,String identifier);
 void updateMetaUnitEntityItemLinks(Long item_id,ArrayList<Long> tagged_ids,String identifier);
 
 void updateVar(VarDTO_Detailed var);

@@ -6,15 +6,20 @@
 			font-weight: bold;
 		}
 	</ui:style>
-	<g:HorizontalPanel ui:field="researchCommandBar" height="25px" horizontalAlignment="left">
+	<g:HorizontalPanel ui:field="researchCommandBar" height="25px" horizontalAlignment="right">
 				<g:HTMLPanel>
 					<table>
 						<tr>
-							<td float="right"><g:CheckBox text="Взвешивание отключено" checked="false" ui:field="weights_use"></g:CheckBox></td>
+<!-- 							<td float="right"><g:CheckBox text="Взвешивание отключено" checked="false" ui:field="weights_use"></g:CheckBox></td>
 							<td float="right"><g:CheckBox text="Фильтры" checked="false" ui:field="filters_use"></g:CheckBox> </td>
-							<td float="right"><g:Button ui:field="filters_details_btn" text="Подробнее..."></g:Button></td>	
-							<td float="right"><g:Button ui:field="filters_add_btn" text="+"></g:Button></td>	
-							<td float="right"><g:Button ui:field="filters_delete_btn" text="-"></g:Button></td>			
+ -->
+ 							<td float="right"><g:PushButton ui:field="plotBtn" height="29px" width="29px"></g:PushButton></td>
+							<td float="right"><g:PushButton ui:field="saveHtmlBtn" height="29px" width="29px"></g:PushButton></td>
+							<td float="right"><g:ToggleButton height="29px" width="29px"  ui:field="weights_use"></g:ToggleButton></td>
+							<td float="right"><g:ToggleButton  height="29px" width="29px" ui:field="filters_use"></g:ToggleButton></td>
+  							<td float="right"><g:Button ui:field="filters_details_btn" text="Подробнее..."></g:Button></td>	
+<!-- 							<td float="right"><g:Button ui:field="filters_add_btn" text="+"></g:Button></td>	 -->
+<!-- 							<td float="right"><g:Button ui:field="filters_delete_btn" text="-"></g:Button></td> -->
 						</tr>
 					</table>
 				</g:HTMLPanel>

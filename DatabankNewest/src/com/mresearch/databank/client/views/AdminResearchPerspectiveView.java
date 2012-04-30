@@ -44,6 +44,7 @@ public class AdminResearchPerspectiveView extends Composite implements AdminRese
 	
 	
 	
+	
 	SimpleResearchList simpleResearchListItem;
 	RootConceptsList rootResearchConcepts;
 	RootConceptsList rootVarConcepts;

@@ -30,6 +30,7 @@ import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.CheckBox;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.ScrollPanel;
+import com.google.gwt.user.client.ui.SplitLayoutPanel;
 import com.google.gwt.user.client.ui.Tree;
 import com.google.gwt.user.client.ui.TreeItem;
 import com.google.gwt.user.client.ui.VerticalPanel;
@@ -39,7 +40,9 @@ import com.mresearch.databank.client.event.ShowResearchDetailsEvent;
 import com.mresearch.databank.client.helper.RPCCall;
 import com.mresearch.databank.client.presenters.UserResearchPerspectivePresenter;
 import com.mresearch.databank.client.service.AdminSocioResearchService;
+import com.mresearch.databank.client.service.UserSocioResearchService;
 import com.mresearch.databank.shared.MetaUnitMultivaluedEntityDTO;
+import com.mresearch.databank.shared.ResearchBundleDTO;
 import com.mresearch.databank.shared.SocioResearchDTO;
 import com.mresearch.databank.shared.SocioResearchDTO_Light;
 import com.mresearch.databank.shared.VarDTO;
@@ -61,7 +64,9 @@ public class UserResearchPerspectiveView extends Composite implements UserResear
 	
 	@UiField VerticalPanel centerPanel;
 //	VerticalPanel centralPanel;
-	@UiField Tree tree;
+	@UiField Tree tree,F_S_tree,F_V_tree;
+	@UiField ScrollPanel centerChild;
+	@UiField SplitLayoutPanel split_panel;
 	//HLayout panel;
 //	@UiField CheckBox weights_use,filters_use;
 //	@UiField Button filters_details_btn,filters_add_btn,filters_delete_btn;
@@ -91,17 +96,28 @@ public class UserResearchPerspectiveView extends Composite implements UserResear
 //		tree = new Tree();
 		//tree.setStyleName("research-catalog");
 		//TreeItem db = new TreeItem("_Банк данных_");
+		
+		
+		
+		
+		//split_panel.get
+		
+		split_panel.setWidgetMinSize(centerChild, 800);
+		//split_panel.get
 		simpleResearchListItem = new SimpleResearchList();
 		tree.addItem(simpleResearchListItem);
 		rootResearchConcepts = new RootConceptsList("socioresearch","Концепты каталогизации исследований");
 		tree.addItem(rootResearchConcepts);
 		
-		rootVarConcepts = new RootConceptsList("sociocar","Концепты каталогизации переменных");
+		rootVarConcepts = new RootConceptsList("sociovar","Концепты каталогизации переменных");
 		tree.addItem(rootVarConcepts);
-		tree.addItem(new RootFilterItemAdvanced(centerPanel,bus,"socioresearch","Фильтровать исследования"));
-		tree.addItem(new RootFilterItemAdvanced(centerPanel,bus,"sociovar","Фильтровать переменные"));
+		
+		F_S_tree.addItem(new RootFilterItemAdvanced(centerPanel,bus,"socioresearch","Фильтровать исследования"));
+		F_V_tree.addItem(new RootFilterItemAdvanced(centerPanel,bus,"sociovar","Фильтровать переменные"));
 
 
+		
+		
 		//tree.addItem(db);
 //		VLayout vLayout = new VLayout();
 //		vLayout.setAlign(Alignment.LEFT);  
@@ -193,35 +209,38 @@ public class UserResearchPerspectiveView extends Composite implements UserResear
 		// TODO Auto-generated method stub
 		
 	}
+	
 	@Override
 	public TreeItem getSelectedItem() {
 		// TODO Auto-generated method stub
 		return tree.getSelectedItem();
 	}
 	@Override
-	public void showResearchDetailes(final SocioResearchDTO dto) {
+	public void showResearchDetailes(final ResearchBundleDTO dto) {
 		
-		new RPCCall<MetaUnitMultivaluedEntityDTO>() {
+		centerPanel.clear();
+		UserResearchDescriptionView desc = new UserResearchDescriptionView(dto.getDto());
+		UserResearchDetailedView view = new UserResearchDetailedView(dto.getDto(),dto.getMeta());
+		UserResearchAdvancedFilesView files = new UserResearchAdvancedFilesView(dto.getDto().getID(),dto.getFiles_dto());
+		UserResearchDetailedFrameView frame = new UserResearchDetailedFrameView(desc,view, files);
+		centerPanel.add(frame);
 
-			@Override
-			public void onFailure(Throwable arg0) {
-			}
-
-			@Override
-			public void onSuccess(MetaUnitMultivaluedEntityDTO res) {
-				centerPanel.clear();
-				UserResearchDetailedView view = new UserResearchDetailedView(dto,res);
-				UserResearchAdvancedFilesView files = new UserResearchAdvancedFilesView(dto.getID());
-				UserResearchDetailedFrameView frame = new UserResearchDetailedFrameView(view, files);
-				centerPanel.add(frame);
-			}
-
-			@Override
-			protected void callService(
-					AsyncCallback<MetaUnitMultivaluedEntityDTO> cb) {
-				AdminSocioResearchService.Util.getInstance().getDatabankStructure("socioresearch", cb);
-			}
-		}.retry(2);
+//		new RPCCall<MetaUnitMultivaluedEntityDTO>() {
+//
+//			@Override
+//			public void onFailure(Throwable arg0) {
+//			}
+//
+//			@Override
+//			public void onSuccess(MetaUnitMultivaluedEntityDTO res) {
+//			}
+//
+//			@Override
+//			protected void callService(
+//					AsyncCallback<MetaUnitMultivaluedEntityDTO> cb) {
+//				UserSocioResearchService.Util.getInstance().getDatabankStructure("socioresearch", cb);
+//			}
+//		}.retry(2);
 		}
 	
 	@Override

@@ -17,6 +17,7 @@ import com.mresearch.databank.shared.ZaconDTO_Light;
 public class ZaconDescItem extends ConceptContentsItem{
 	public ZaconDescItem(ZaconDTO_Light dto)
 	{
+		
 		super(dto);
 	}
 }

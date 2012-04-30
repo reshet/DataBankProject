@@ -49,6 +49,7 @@ import com.mresearch.databank.client.service.AdminSocioResearchService;
 import com.mresearch.databank.client.service.AdminSocioResearchServiceAsync;
 import com.mresearch.databank.client.service.CatalogService;
 import com.mresearch.databank.client.service.CatalogServiceAsync;
+import com.mresearch.databank.client.service.UserSocioResearchService;
 //import com.mresearch.databank.client.service.StartPageServiceAsync;
 import com.mresearch.databank.client.service.UserSocioResearchServiceAsync;
 import com.mresearch.databank.client.views.AdminResearchAdvancedFilesEditView;
@@ -86,6 +87,7 @@ import com.mresearch.databank.shared.MetaUnitMultivaluedStructureDTO;
 import com.mresearch.databank.shared.NewsDTO;
 import com.mresearch.databank.shared.NewsSummaryDTO;
 import com.mresearch.databank.shared.RealVarDTO_Detailed;
+import com.mresearch.databank.shared.ResearchBundleDTO;
 import com.mresearch.databank.shared.SocioResearchDTO;
 import com.mresearch.databank.shared.SocioResearchDTO_Light;
 import com.mresearch.databank.shared.TextVarDTO_Detailed;
@@ -266,7 +268,7 @@ public class AdminResearchPerspectivePresenter implements Presenter
 								@Override
 								protected void callService(
 										AsyncCallback<ArrayList<Long>> cb) {
-									rpcAdminService.getEntityItemTaggedEntitiesIDs(concept_id,"socioresearch", cb);
+									rpcUserService.getEntityItemTaggedEntitiesIDs(concept_id,"socioresearch", cb);
 								}
 							}.retry(2);
 						}
@@ -679,7 +681,7 @@ public class AdminResearchPerspectivePresenter implements Presenter
 	
 	private void fetchResearchDetailes(final long id_research)
 	{
-		new RPCCall<SocioResearchDTO>() {
+		new RPCCall<ResearchBundleDTO>() {
 
 			@Override
 			public void onFailure(Throwable caught) {
@@ -688,39 +690,41 @@ public class AdminResearchPerspectivePresenter implements Presenter
 
 			
 			@Override
-			public void onSuccess(final SocioResearchDTO result) {
-				new RPCCall<MetaUnitMultivaluedEntityDTO>() {
-					@Override
-					public void onFailure(Throwable caught) {
-						Window.alert("Error on fetching DB structure"+caught.getMessage());
-						// TODO Auto-generated method stub
-					}
-					
-					
-					@Override
-					public void onSuccess(MetaUnitMultivaluedEntityDTO result2) {
-						AdminResearchDetailedView ad_view = new AdminResearchDetailedView(new UserResearchDetailedView(result,result2));
-						AdminResearchEditView ed_view = new AdminResearchEditView(result, result2);
-						AdminResearchGroupEditView gr_ed_view = new AdminResearchGroupEditView(result);
-						AdminResearchAdvancedFilesEditView files_ed_view = new AdminResearchAdvancedFilesEditView(id_research);
-							AdminResearchDetailedPresenter presenter = new AdminResearchDetailedPresenter(rpcUserService,rpcAdminService, eventBus, ad_view, ed_view,gr_ed_view,files_ed_view);
-						presenter.go(display.getCenterPanel(),null,null);
-					}
-
+			public void onSuccess(final ResearchBundleDTO result) {
 				
-					
-					@Override
-					protected void callService(
-							
-							AsyncCallback<MetaUnitMultivaluedEntityDTO> cb) {
-						rpcAdminService.getDatabankStructure("socioresearch", cb);
-					}
-				}.retry(2);
+				AdminResearchDetailedView ad_view = new AdminResearchDetailedView(new UserResearchDetailedView(result.getDto(),result.getMeta()));
+				AdminResearchEditView ed_view = new AdminResearchEditView(result.getDto(), result.getMeta());
+				AdminResearchGroupEditView gr_ed_view = new AdminResearchGroupEditView(result.getDto());
+				AdminResearchAdvancedFilesEditView files_ed_view = new AdminResearchAdvancedFilesEditView(id_research, result.getFiles_dto());
+					AdminResearchDetailedPresenter presenter = new AdminResearchDetailedPresenter(rpcUserService,rpcAdminService, eventBus, ad_view, ed_view,gr_ed_view,files_ed_view);
+				presenter.go(display.getCenterPanel(),null,null);
+//				new RPCCall<MetaUnitMultivaluedEntityDTO>() {
+//					@Override
+//					public void onFailure(Throwable caught) {
+//						Window.alert("Error on fetching DB structure"+caught.getMessage());
+//						// TODO Auto-generated method stub
+//					}
+//					
+//					
+//					@Override
+//					public void onSuccess(MetaUnitMultivaluedEntityDTO result2) {
+//					
+//					}
+//
+//				
+//					
+//					@Override
+//					protected void callService(
+//							
+//							AsyncCallback<MetaUnitMultivaluedEntityDTO> cb) {
+//						rpcUserService.getDatabankStructure("socioresearch", cb);
+//					}
+//				}.retry(2);
 			}
 
 			@Override
-			protected void callService(AsyncCallback<SocioResearchDTO> cb) {
-				rpcUserService.getResearch(id_research, cb);
+			protected void callService(AsyncCallback<ResearchBundleDTO> cb) {
+				rpcUserService.getResearchBundle(id_research, cb);
 			}
 		}.retry(3);
 	}
@@ -766,7 +770,7 @@ public class AdminResearchPerspectivePresenter implements Presenter
 					@Override
 					protected void callService(
 							AsyncCallback<MetaUnitMultivaluedEntityDTO> cb) {
-						AdminSocioResearchService.Util.getInstance().getDatabankStructure("sociovar", cb);
+						UserSocioResearchService.Util.getInstance().getDatabankStructure("sociovar", cb);
 					}
 				}.retry(2);
 			}

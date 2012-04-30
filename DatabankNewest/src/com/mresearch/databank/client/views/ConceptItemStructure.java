@@ -6,6 +6,7 @@ import com.mresearch.databank.client.helper.RPCCall;
 import com.mresearch.databank.client.service.AdminSocioResearchService;
 import com.mresearch.databank.client.service.AdminSocioResearchService.Util;
 import com.mresearch.databank.client.service.AdminSocioResearchServiceAsync;
+import com.mresearch.databank.client.service.UserSocioResearchService;
 import com.mresearch.databank.shared.MetaUnitDTO;
 import com.mresearch.databank.shared.MetaUnitMultivaluedEntityDTO;
 import com.mresearch.databank.shared.MetaUnitMultivaluedStructureDTO;
@@ -44,7 +45,7 @@ public class ConceptItemStructure extends ConceptItemEntity
 
       protected void callService(AsyncCallback<MetaUnitMultivaluedStructureDTO> cb)
       {
-        AdminSocioResearchService.Util.getInstance().getMetaUnitMultivaluedStructureDTO(ConceptItemStructure.this.getEntity_id().longValue(), cb);
+        UserSocioResearchService.Util.getInstance().getMetaUnitMultivaluedStructureDTO(ConceptItemStructure.this.getEntity_id().longValue(), cb);
       }
     }
     .retry(2);

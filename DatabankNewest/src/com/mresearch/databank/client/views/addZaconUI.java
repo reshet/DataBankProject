@@ -37,6 +37,7 @@ import com.mresearch.databank.client.service.AdminSocioResearchService;
 import com.mresearch.databank.client.service.AdminSocioResearchServiceAsync;
 import com.mresearch.databank.client.service.CatalogService;
 import com.mresearch.databank.client.service.CatalogServiceAsync;
+import com.mresearch.databank.client.service.UserSocioResearchService;
 import com.mresearch.databank.client.views.DBfillers.MultiValuedField;
 import com.mresearch.databank.client.views.DBviewers.MultiValuedFieldViewer;
 import com.mresearch.databank.shared.JSON_Representation;
@@ -114,7 +115,7 @@ public class addZaconUI extends Composite {
 			@Override
 			protected void callService(
 					AsyncCallback<MetaUnitMultivaluedEntityDTO> cb) {
-				AdminSocioResearchService.Util.getInstance().getDatabankStructure("law",cb);
+				UserSocioResearchService.Util.getInstance().getDatabankStructure("law",cb);
 			}
 		}.retry(2);
 	}

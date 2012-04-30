@@ -1,6 +1,7 @@
 package com.mresearch.databank.server;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
@@ -9,7 +10,16 @@ import com.google.gwt.user.server.rpc.RemoteServiceServlet;
 import com.mplatforma.amr.service.remote.UserSocioResearchBeanRemote;
 import com.mresearch.databank.client.service.UserSocioResearchService;
 import com.mresearch.databank.shared.FilterBaseDTO;
+import com.mresearch.databank.shared.MetaUnitDateDTO;
+import com.mresearch.databank.shared.MetaUnitDoubleDTO;
+import com.mresearch.databank.shared.MetaUnitEntityItemDTO;
+import com.mresearch.databank.shared.MetaUnitIntegerDTO;
+import com.mresearch.databank.shared.MetaUnitMultivaluedDTO;
+import com.mresearch.databank.shared.MetaUnitMultivaluedEntityDTO;
+import com.mresearch.databank.shared.MetaUnitMultivaluedStructureDTO;
+import com.mresearch.databank.shared.MetaUnitStringDTO;
 import com.mresearch.databank.shared.OrgDTO;
+import com.mresearch.databank.shared.ResearchBundleDTO;
 import com.mresearch.databank.shared.ResearchFilesDTO;
 import com.mresearch.databank.shared.SSE_DTO;
 import com.mresearch.databank.shared.SocioResearchDTO;
@@ -129,6 +139,99 @@ public class UserSocioResearchServiceImpl extends RemoteServiceServlet implement
 		return eao.getVarDTOs(keys);
 	}
 	
+	 @Override
+	  public MetaUnitMultivaluedEntityDTO getDatabankStructure(String db_name)
+	  {
+	    return eao.getDatabankStructure(db_name);
+	  }
 
-	
+     @Override
+	  public MetaUnitMultivaluedStructureDTO getMetaUnitMultivaluedStructureDTO(long id)
+	  {
+	    return eao.getMetaUnitMultivaluedStructureDTO(id);
+	  }
+
+     @Override
+	  public MetaUnitIntegerDTO getMetaUnitInteger(long id)
+	  {
+	    return null;
+	  }
+
+     @Override
+	  public MetaUnitDoubleDTO getMetaUnitDouble(long id)
+	  {
+	    return null;
+	  }
+
+     @Override
+	  public MetaUnitDateDTO getMetaUnitDate(long id)
+	  {
+	    return null;
+	  }
+
+     @Override
+	  public MetaUnitStringDTO getMetaUnitString(long id)
+	  {
+	    return null;
+	  }
+
+     @Override
+	  public HashMap<String, String> getEntityItem(Long id)
+	  {
+	    return eao.getEntityItem(id);
+	  }
+
+     @Override
+	  public MetaUnitMultivaluedEntityDTO getMetaUnitMultivaluedEntityDTO(long id)
+	  {
+	    return eao.getMetaUnitMultivaluedEntityDTO(id);
+	  }
+
+     @Override
+  	  public MetaUnitEntityItemDTO getEntityItemDTO(Long id)
+  	  {
+  	    return eao.getEntityItemDTO(id);
+  	  }
+
+        @Override
+  	  public ArrayList<MetaUnitEntityItemDTO> getEntityItemSubitemsDTOs(Long id)
+  	  {
+  	    return eao.getEntityItemSubitemsDTOs(id);
+  	  }
+
+        @Override
+  	  public MetaUnitMultivaluedEntityDTO getMetaUnitMultivaluedEntityDTO_FlattenedItems(long id)
+  	  {
+  	    return eao.getMetaUnitMultivaluedEntityDTO_FlattenedItems(id);
+  	  }
+
+	@Override
+	public MetaUnitMultivaluedDTO getMetaUnitMultivaluedFullDTO(long id) {
+		return eao.getMetaUnitMultivaluedEntityDTO(id);
+	}
+	@Override
+	public ArrayList<Long> getEntityItemTaggedEntitiesIDs(Long id_item) {
+		return eao.getEntityItemTaggedEntitiesIDs(id_item);
+	}
+	@Override
+	public ArrayList<String> getEntityItemTaggedEntitiesIdentifiers(Long id_item) {
+		return eao.getEntityItemTaggedEntitiesIdentifiers(id_item);
+	}
+	@Override
+	public ArrayList<Long> getEntityItemTaggedEntitiesIDs(Long id_item,
+			String identifier) {
+		return eao.getEntityItemTaggedEntitiesIDs(id_item, identifier);
+	}
+
+	@Override
+	public ResearchBundleDTO getResearchBundle(long research_id) {
+		
+		SocioResearchDTO dt = eao.getResearch(research_id);
+		ResearchFilesDTO fdt = eao.getResearchFiles(research_id);
+		MetaUnitMultivaluedEntityDTO mdt = eao.getDatabankStructure("socioresearch");
+		ResearchBundleDTO dto = new ResearchBundleDTO(dt,fdt,mdt);
+		
+		return dto;
+	}
+
 }

@@ -32,7 +32,6 @@ public class DatabankApp implements EntryPoint {
 	interface DatabankAppUiBinder extends UiBinder<ScrollPanel, DatabankApp> {}
 	private static final DatabankAppUiBinder binder = GWT.create(DatabankAppUiBinder.class);
 
-	
 	private static DatabankApp singleton;
 	private RootLayoutPanel root;
 	//private StartPagePerspectivePresenter startpagePresenter;
@@ -48,7 +47,10 @@ public class DatabankApp implements EntryPoint {
 	{
 		return singleton;
 	}
-	
+	public UserAccountServiceAsync getUserService()
+	{
+		return userService;
+	}
 	
 	
 	
@@ -88,27 +90,28 @@ public class DatabankApp implements EntryPoint {
 		});	
 		
 	}
-	public void updateUserAccountState()
-	{
-		new RPCCall<UserAccountDTO>() {
-
-			@Override
-			public void onFailure(Throwable caught) {
-				Window.alert("Error on updating account state!");
-			}
-
-			@Override
-			public void onSuccess(UserAccountDTO result) {
-				setCurrentUser(result);
-			}
-
-			@Override
-			protected void callService(AsyncCallback<UserAccountDTO> cb) {
-				userService.updateResearchState(getCurrentUser(),cb);
-			}
-		}.retry(2);
-
-	}
+	
+//	public void updateUserAccountState()
+//	{
+//		new RPCCall<UserAccountDTO>() {
+//
+//			@Override
+//			public void onFailure(Throwable caught) {
+//				Window.alert("Error on updating account state!");
+//			}
+//
+//			@Override
+//			public void onSuccess(UserAccountDTO result) {
+//				setCurrentUser(result);
+//			}
+//
+//			@Override
+//			protected void callService(AsyncCallback<UserAccountDTO> cb) {
+//				userService.updateResearchState(getCurrentUser(),cb);
+//			}
+//		}.retry(2);
+//
+//	}
 	public void login(String email,String password)
 	{
 		    userService.login(email, password,

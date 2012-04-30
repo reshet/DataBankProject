@@ -15,10 +15,11 @@ public class UserResearchDetailedFrameView extends Composite {
 	interface UserResearchDetailedFrameViewUiBinder extends
 			UiBinder<Widget, UserResearchDetailedFrameView> {
 	}
-	@UiField VerticalPanel filesPanel,viewPanel;
+	@UiField VerticalPanel filesPanel,viewPanel,descPanel;
 
-	public UserResearchDetailedFrameView(UserResearchDetailedView view,UserResearchAdvancedFilesView files) {
+	public UserResearchDetailedFrameView(UserResearchDescriptionView desc,UserResearchDetailedView view,UserResearchAdvancedFilesView files) {
 		initWidget(uiBinder.createAndBindUi(this));
+		descPanel.add(desc);
 		filesPanel.add(files);
 		viewPanel.add(view);
 	}

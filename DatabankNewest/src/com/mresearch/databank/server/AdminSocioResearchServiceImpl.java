@@ -130,42 +130,7 @@ public class AdminSocioResearchServiceImpl extends RemoteServiceServlet implemen
 	    return eao.updateFileAccessor(research_id, dto);
 	  }
 
-      @Override
-	  public MetaUnitMultivaluedEntityDTO getDatabankStructure(String db_name)
-	  {
-	    return eao.getDatabankStructure(db_name);
-	  }
-
-      @Override
-	  public MetaUnitMultivaluedStructureDTO getMetaUnitMultivaluedStructureDTO(long id)
-	  {
-	    return eao.getMetaUnitMultivaluedStructureDTO(id);
-	  }
-
-      @Override
-	  public MetaUnitIntegerDTO getMetaUnitInteger(long id)
-	  {
-	    return null;
-	  }
-
-      @Override
-	  public MetaUnitDoubleDTO getMetaUnitDouble(long id)
-	  {
-	    return null;
-	  }
-
-      @Override
-	  public MetaUnitDateDTO getMetaUnitDate(long id)
-	  {
-	    return null;
-	  }
-
-      @Override
-	  public MetaUnitStringDTO getMetaUnitString(long id)
-	  {
-	    return null;
-	  }
-
+     
       @Override
 	  public void updateMetaUnitStructure(MetaUnitDTO dto)
 	  {
@@ -202,42 +167,14 @@ public class AdminSocioResearchServiceImpl extends RemoteServiceServlet implemen
 	    eao.editEntityItem(entity_id, value, filling);
 	  }
 
-      @Override
-	  public HashMap<String, String> getEntityItem(Long id)
-	  {
-	    return eao.getEntityItem(id);
-	  }
-
-      @Override
-	  public MetaUnitMultivaluedEntityDTO getMetaUnitMultivaluedEntityDTO(long id)
-	  {
-	    return eao.getMetaUnitMultivaluedEntityDTO(id);
-	  }
-
+      
       @Override
 	  public void addSubEntityItem(Long parent_id, String value, HashMap<String, String> filling)
 	  {
 	    eao.addSubEntityItem(parent_id, value, filling);
 	  }
 
-      @Override
-	  public MetaUnitEntityItemDTO getEntityItemDTO(Long id)
-	  {
-	    return eao.getEntityItemDTO(id);
-	  }
-
-      @Override
-	  public ArrayList<MetaUnitEntityItemDTO> getEntityItemSubitemsDTOs(Long id)
-	  {
-	    return eao.getEntityItemSubitemsDTOs(id);
-	  }
-
-      @Override
-	  public MetaUnitMultivaluedEntityDTO getMetaUnitMultivaluedEntityDTO_FlattenedItems(long id)
-	  {
-	    return eao.getMetaUnitMultivaluedEntityDTO_FlattenedItems(id);
-	  }
-
+   
       @Override
 	  public void updateMetaUnitEntityItemLinks(MetaUnitEntityItemDTO old, MetaUnitEntityItemDTO nev)
 	  {
@@ -249,23 +186,6 @@ public class AdminSocioResearchServiceImpl extends RemoteServiceServlet implemen
 	  {
 	    eao.updateMetaUnitEntityItemLinks(dto);
 	  }
-	@Override
-	public MetaUnitMultivaluedDTO getMetaUnitMultivaluedFullDTO(long id) {
-		return eao.getMetaUnitMultivaluedEntityDTO(id);
-	}
-	@Override
-	public ArrayList<Long> getEntityItemTaggedEntitiesIDs(Long id_item) {
-		return eao.getEntityItemTaggedEntitiesIDs(id_item);
-	}
-	@Override
-	public ArrayList<String> getEntityItemTaggedEntitiesIdentifiers(Long id_item) {
-		return eao.getEntityItemTaggedEntitiesIdentifiers(id_item);
-	}
-	@Override
-	public ArrayList<Long> getEntityItemTaggedEntitiesIDs(Long id_item,
-			String identifier) {
-		return eao.getEntityItemTaggedEntitiesIDs(id_item, identifier);
-	}
 	@Override
 	public void updateMetaUnitEntityItemLinks(Long item_id,
 			ArrayList<Long> tagged_ids, String identifier) {

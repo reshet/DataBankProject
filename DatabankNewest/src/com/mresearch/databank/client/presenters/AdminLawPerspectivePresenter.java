@@ -51,6 +51,7 @@ import com.mresearch.databank.client.service.AdminSocioResearchServiceAsync;
 import com.mresearch.databank.client.service.CatalogService;
 import com.mresearch.databank.client.service.CatalogServiceAsync;
 import com.mresearch.databank.client.service.StartPageServiceAsync;
+import com.mresearch.databank.client.service.UserSocioResearchService;
 import com.mresearch.databank.client.service.UserSocioResearchServiceAsync;
 import com.mresearch.databank.client.views.AdminResearchDetailedView;
 import com.mresearch.databank.client.views.AdminResearchEditView;
@@ -182,7 +183,7 @@ public class AdminLawPerspectivePresenter implements Presenter
 								@Override
 								protected void callService(
 										AsyncCallback<MetaUnitMultivaluedEntityDTO> cb) {
-									AdminSocioResearchService.Util.getInstance().getDatabankStructure("law",cb);
+									UserSocioResearchService.Util.getInstance().getDatabankStructure("law",cb);
 								}
 							}.retry(2);
 							

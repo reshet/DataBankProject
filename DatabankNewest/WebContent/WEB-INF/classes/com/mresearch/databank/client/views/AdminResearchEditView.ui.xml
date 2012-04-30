@@ -24,7 +24,9 @@
 	<g:HTMLPanel>
 		<h3>Редактирование метаданных исследования...</h3>
 	</g:HTMLPanel>
+			<g:VerticalPanel ui:field="descriptionEditor"></g:VerticalPanel>	
 			<g:VerticalPanel ui:field="elasticDBfields"></g:VerticalPanel>	
+			
 			<g:HorizontalPanel>
 				<g:Label styleName="{style.category}">Взвешивание:</g:Label>
 				<g:ListBox ui:field="weights" />

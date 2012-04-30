@@ -48,6 +48,8 @@ import com.mresearch.databank.shared.OrgDTO;
 import com.mresearch.databank.shared.SSE_DTO;
 import com.mresearch.databank.shared.SearchTaskResearchDTO;
 import com.mresearch.databank.shared.SocioResearchDTO;
+import com.smartgwt.client.types.Overflow;
+import com.smartgwt.client.widgets.RichTextEditor;
 
 public class AdminResearchEditView extends Composite implements AdminResearchDetailedPresenter.EditDisplay{
 
@@ -68,6 +70,7 @@ public class AdminResearchEditView extends Composite implements AdminResearchDet
 	@UiField Button confirmBtn,deleteBtn;
 	@UiField VerticalPanel elasticDBfields;
 	@UiField ListBox weights;
+	@UiField VerticalPanel descriptionEditor;
 	private final PopupPanel addOrgPopupPanel = new PopupPanel();
 	public AdminResearchEditView() {
 		initWidget(uiBinder.createAndBindUi(this));
@@ -83,6 +86,7 @@ public class AdminResearchEditView extends Composite implements AdminResearchDet
 	private MetaUnitMultivaluedEntityDTO _db_;
 	private MultiValuedField mv;
 	private SocioResearchDTO dto;
+	RichTextEditor richTextEditor;  
 	public AdminResearchEditView(SocioResearchDTO dto,MetaUnitMultivaluedEntityDTO db_entity)
 	{
 		this();
@@ -109,12 +113,35 @@ public class AdminResearchEditView extends Composite implements AdminResearchDet
 	private void renderDBfillers()
 	{
 		
+		descriptionEditor.clear();
 		
+        richTextEditor = new RichTextEditor();
+        richTextEditor.setHeight(400);  
+        richTextEditor.setWidth("100%");
+        //richTextEditor.setOverflow(Overflow.HIDDEN);  
+        richTextEditor.setCanDragResize(true);  
+        //richTextEditor.setShowEdges(true);  
+  
+        // Standard control group options include  
+        // "fontControls", "formatControls", "styleControls" and "colorControls"  
+        //richTextEditor.setControlGroups(new String[]{"fontControls", "styleControls"});  
+        richTextEditor.setValue(dto.getDesctiption());  
+        
+        descriptionEditor.add(richTextEditor);
+       // layout.addMember();  
 		
 		
 		elasticDBfields.clear();
 		mv = new MultiValuedField(_db_, null,dto.getFilling(),"");
 		elasticDBfields.add(mv);
+		
+		
+		
+		
+		
+		
+		
+		
 	}
 	public void addPublication(String name,String doi,String url)
 	{
@@ -172,6 +199,7 @@ public class AdminResearchEditView extends Composite implements AdminResearchDet
 	
 
 	
+	
 	@Override
 	public MetaUnitFiller getDBfiller() {
 		return mv;
@@ -183,5 +211,9 @@ public class AdminResearchEditView extends Composite implements AdminResearchDet
 	@Override
 	public MetaUnitEntityItemRegistrator getDBregistrator() {
 		return mv;
+	}
+	@Override
+	public String getDescription() {
+		return richTextEditor.getValue();
 	}
 }

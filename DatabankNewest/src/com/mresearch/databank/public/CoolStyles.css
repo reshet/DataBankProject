@@ -247,7 +247,7 @@ div.h2 {
 
 /** Стили картинок */
 
-img { margin-top:30px; border:none;}
+/* img { margin-top:30px; border:none;} */
 
 /** Главное меню */
 div#mm {
@@ -367,36 +367,136 @@ div.search-submit {
 .mm-47 { background-color: #c24019; }
 
 
+
+.plotBtn{
+    outline: none;
+    border: none;
+    margin: 1px; /* border size */
+    background: transparent url(icons/icon_06_1.png);
+}
+.plotBtn-down{
+    margin: 1px;
+    border: 1px #529510; /* margin size */
+    background: transparent url(icons/icon_06_2.png) center no-repeat;
+}
+
+.plotBtn-down-hovering {
+    margin: 1px;
+    border: 1px #529510; /* margin size */
+    background: transparent url(icons/icon_06_2.png) center no-repeat;
+}
+.plotBtn-up-hovering {
+    margin: 1px;
+    border: 1px #529510; /* margin size */
+    background: transparent url(icons/icon_06_2.png) center no-repeat;
+}
+
+.htmlBtn{
+    outline: none;
+    border: none;
+    margin: 1px; /* border size */
+    background: transparent url(icons/icon_03_1.png);
+}
+.htmlBtn-down{
+    margin: 1px;
+    border: 1px #529510; /* margin size */
+    background: transparent url(icons/icon_03_2.png) center no-repeat;
+}
+
+.htmlBtn-down-hovering {
+    margin: 1px;
+    border: 1px #529510; /* margin size */
+    background: transparent url(icons/icon_03_2.png) center no-repeat;
+}
+.htmlBtn-up-hovering {
+    margin: 1px;
+    border: 1px #529510; /* margin size */
+    background: transparent url(icons/icon_03_2.png) center no-repeat;
+}
+
+.filtersBtn{
+    outline: none;
+    border: none;
+    margin: 1px; /* border size */
+    backgroud: transparent url(icons/icon_09_2.png) center no-repeat;
+}
+.filtersBtn-down{
+    margin: 1px;
+    border: 1px #529510; /* margin size */
+    background: transparent url(icons/icon_09_1.png) center no-repeat;
+}
+
+.filtersBtn-down-hovering {
+    margin: 1px;
+    border: 1px #529510; /* margin size */
+    background: transparent url(icons/icon_09_2.png) center no-repeat;
+}
+.filtersBtn-up-hovering {
+    margin: 1px;
+    border: 1px #529510; /* margin size */
+    background: transparent url(icons/icon_09_2.png) center no-repeat;
+}
+
+.weightsBtn{
+    outline: none;
+    border: none;
+    margin: 1px; /* border size */
+    background: transparent url(i/icon_weight_3.png) center no-repeat;
+}
+.weightsBtn-down{
+    margin: 1px;
+    border: 1px #529510; /* margin size */
+    background: transparent url(i/icon_weight_1.png) center no-repeat;
+}
+
+.weightsBtn-down-hovering {
+    margin: 1px;
+    border: 1px #529510; /* margin size */
+    background: transparent url(i/icon_weight_2.png) center no-repeat;
+}
+.weightsBtn-up-hovering {
+    margin: 1px;
+    border: 1px #529510; /* margin size */
+    background: transparent url(i/icon_weight_2.png) center no-repeat;
+}
+
 .line-separator{
 	height:1px;
 	background:#69c014;
 	border-bottom:1px solid #313030;
 }
-.gwt-Button .gwt-CheckBox .gwt-Label{
-	font-family: neosans_R;
-}
 .gwt-Button{
+	background-color: #69c014;
 	background: #69c014;
 	color: white;
 }
-.gwt-Tree {
-	
+.gwt-Button .gwt-CheckBox .gwt-Label{
+	font-family: 'NeoSansPro-Light';
 }
 
+.gwt-SplitLayoutPanel-VDragger {
+		  background: #69c014;
+		  cursor: col-resize;
+		  border: 2px solid #69c014;
+		}
+
 .gwt-Tree .gwt-TreeItem {
-	font-family: Trebuchet MS;
-	font-size:  14px;
-	color:656565;
-	font-weight: bold;
+	font-family: 'NeoSansPro-Light';
+	font-size:  13px;
+	color:#353535;
+	font-weight: normal;
+	padding: 0px 0px 0px 0px;
+ 	margin: 0px 0px 0px 0px;
+  	cursor: pointer;
 }
 
 .gwt-Tree .gwt-TreeItem-selected {
-	color:434343;	
-}
+
+} 
 
 .gwt-TabLayoutPanel {
   height: 100%;
-  background-color: #E8E8E8;
+  background-color: #FFFFFF;
   position: relative;
   clear: both;        
   overflow: hidden;
@@ -426,6 +526,7 @@ div.search-submit {
     border-top: #ffffff solid 2px;
     cursor: pointer;
     border-left: #ffffff solid 2px; border-right: #ffffff solid 2px; 
+    background-color: #FFFFFF;
 }
 .gwt-TabLayoutPanel .gwt-TabLayoutPanelTab:hover {
 	border-left: #eeeeee solid 2px;
@@ -471,6 +572,92 @@ div.search-submit {
 	
 }
 
+/* 
+.gwt-DialogBox .Caption {
+  background: #F1F1F1;
+  padding: 4px 8px 4px 4px;
+  cursor: default;
+  font-family: Arial Unicode MS, Arial, sans-serif;
+  font-weight: bold;
+  border-bottom: 1px solid #bbbbbb;
+  border-top: 1px solid #D2D2D2;
+}
+.gwt-DialogBox .dialogContent {
+}
+.gwt-DialogBox .dialogMiddleCenter {
+  padding: 3px;
+  background: white;
+} */
+/* .gwt-DialogBox .dialogBottomCenter {
+  background: url(i/hborder.png) repeat-x 0px -2945px;
+  -background: url(i/hborder_ie6.png) repeat-x 0px -2144px;
+}
+.gwt-DialogBox .dialogMiddleLeft {
+  background: url(i/vborder.png) repeat-y -31px 0px;
+}
+.gwt-DialogBox .dialogMiddleRight {
+  background: url(i/vborder.png) repeat-y -32px 0px;
+  -background: url(i/vborder_ie6.png) repeat-y -32px 0px;
+} */
+./* gwt-DialogBox .dialogTopLeftInner {
+  width: 10px;
+  height: 8px;
+  zoom: 1;
+}
+.gwt-DialogBox .dialogTopRightInner {
+  width: 12px;
+  zoom: 1;
+}
+.gwt-DialogBox .dialogBottomLeftInner {
+  width: 10px;
+  height: 12px;
+  zoom: 1;
+}
+.gwt-DialogBox .dialogBottomRightInner {
+  width: 12px;
+  height: 12px;
+  zoom: 1;
+} */
+/* .gwt-DialogBox .dialogTopLeft {
+  background: url(i/circles.png) no-repeat -20px 0px;
+  -background: url(i/circles_ie6.png) no-repeat -20px 0px;
+}
+.gwt-DialogBox .dialogTopRight {
+  background: url(i/circles.png) no-repeat -28px 0px;
+  -background: url(i/circles_ie6.png) no-repeat -28px 0px;
+}
+.gwt-DialogBox .dialogBottomLeft {
+  background: url(i/circles.png) no-repeat 0px -36px;
+  -background: url(i/circles_ie6.png) no-repeat 0px -36px;
+}
+.gwt-DialogBox .dialogBottomRight {
+  background: url(i/circles.png) no-repeat -8px -36px;
+  -background: url(i/circles_ie6.png) no-repeat -8px -36px;
+} */
+
+/* html>body .gwt-DialogBox {
+}
+* html .gwt-DialogBox .dialogTopLeftInner {
+  width: 10px;
+  overflow: hidden;
+}
+* html .gwt-DialogBox .dialogTopRightInner {
+  width: 12px;
+  overflow: hidden;
+}
+* html .gwt-DialogBox .dialogBottomLeftInner {
+  width: 10px;
+  height: 12px;
+  overflow: hidden;
+}
+* html .gwt-DialogBox .dialogBottomRightInner {
+  width: 12px;
+  height: 12px;
+  overflow: hidden;
+}
+.cw-DialogBox {
+} */
+
 .category {
 	font-family: neosans_LI;
 	color: #772222;
@@ -479,73 +666,145 @@ div.search-submit {
 	vertical-align: text-top;
 }
 
-.jfk-checkbox {
-	-webkit-border-radius: 1px;
-	-moz-border-radius: 1px;
-	border-radius: 1px;
-	background-color: rgba(255, 255, 255, .05);
-	border: 1px solid #c6c6c6;
-	border: 1px solid rgba(155, 155, 155, .57);
-	font-size: 1px;
-	height: 11px;
-	margin: 0 4px 0 1px;
-	outline: 0;
-	vertical-align: text-bottom;
-	width: 11px
+
+
+
+
+
+.GWTUpld, table.GWTUpld td {
+	font-family: Verdana, Arial;
+	font-size: 12px;
 }
 
-.jfk-checkbox-undetermined {
-	background-color: #fff;
-	background-color: rgba(255, 255, 255, .65)
+.GWTUpld form, 
+.GWTUpld .upld-form-elements {
+	padding: 0px;
+	vertical-align: top;
 }
 
-.jfk-checkbox-checked {
-	background-color: #fff;
-	background-color: rgba(255, 255, 255, .65)
+.GWTUpld .upld-status {
+	font-family: arial;
+	font-size: 12px;
+	font-weight: bold;
+}
+.GWTUpld .upld-status div.cancel {
+	background: url(images/cancel-upld.gif) no-repeat;
+	width: 12px;
+	height: 12px;
+	cursor: pointer;
+	margin-top: 1px;
 }
 
-.jfk-checkbox-hover {
-	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .1);
-	-moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .1);
-	box-shadow: inset 0 1px 1px rgba(0, 0, 0, .1);
-	border: 1px solid #b2b2b2
+* html .GWTUpld .upld-status div.cancel {
+	width: 14px;
+	height: 10px;
+	margin-top: 2px;
 }
 
-.jfk-checkbox-active {
-	background-color: #ebebeb
+.GWTUpld .upld-status div.cancel:hover {
+	background: url(images/cancel-upld-hover.gif) no-repeat;
 }
 
-.jfk-checkbox-focused {
-	border: 1px solid #4d90fe
+.GWTUpld .upld-status .filename {
+	overflow: hidden;
+	white-space: nowrap;
+	margin-left: 8px;
+	margin-right: 10px;
+	height: 100%;
+}
+.GWTUpld .upld-status .status {
+	padding-left: 8px;
+	white-space: nowrap;
+	height: 100%;
+}
+.GWTUpld .upld-status .status-success {
+	color: green;
+}
+.GWTUpld .upld-status .status-error,
+.GWTUpld .upld-status .status-canceled {
+	color: red;
 }
 
-.jfk-checkbox-clearOutline.jfk-checkbox-focused {
-	border: 1px solid #c6c6c6;
-	border: 1px solid rgba(155, 155, 155, .57)
+.GWTUpld .prgbar-back {
+	background: #ffffff none repeat scroll 0 0;
+	border: 1px solid #999999;
+	height: 10px;
+	overflow: hidden;
+	padding: 1px;
+	width: 100px;
+	float: left;
+}
+* html .GWTUpld .prgbar-back {
+	height: 12px;
+	margin-top: 2px;
+}
+.GWTUpld .prgbar-done {
+	background: #d4e4ff none repeat scroll 0 0;
+	font-size: 0;
+	height: 100%;
+	float: left;
+}
+.GWTUpld .prgbar-msg {
+	position: absolute;
+	z-index: 9;
+	font-size: 9px;
+	font-weight: normal;
+	margin-left: 3px;
 }
 
-.jfk-checkbox-disabled,.jfk-checkbox-clearOutline.jfk-checkbox-disabled
-	{
-	background-color: #fff;
-	border: 1px solid #f1f1f1;
-	cursor: default
+* html .GWTUpld .prgbar-msg {
+	top: 0px;
+	left: 4px;
 }
 
-.jfk-checkbox-checkmark {
-	height: 15px;
-	outline: 0;
-	width: 15px;
-	left: 0;
-	position: relative;
-	top: -3px
+.GWTUpld .changed {
+	color: red;
+	font-weight: bold;  
+	text-decoration: blink;
+}
+.gwt-PopupPanel .GWTUpld {
+	border: 2px groove #F6A828;
+	padding: 10px;
+	background: #bf984c;
+  -moz-border-radius-bottomleft: 6px;
+  -moz-border-radius-bottomright: 6px;
+  -moz-border-radius-topleft: 6px;
+  -moz-border-radius-topright: 6px;
+	
 }
 
-.jfk-checkbox-undetermined .jfk-checkbox-checkmark {
-	background: url(//ssl.gstatic.com/ui/v1/menu/checkmark-partial.png)
-		no-repeat -5px -3px
+.GWTUpld .DecoratedFileUpload {
+	margin-right: 5px;
 }
 
-.jfk-checkbox-checked .jfk-checkbox-checkmark {
-	background: url(//ssl.gstatic.com/ui/v1/menu/checkmark.png) no-repeat
-		-5px -3px
+.GWTUpld .DecoratedFileUpload .gwt-Button,
+.GWTUpld .DecoratedFileUpload .gwt-Anchor,
+.GWTUpld .DecoratedFileUpload .gwt-Label {
+	white-space: nowrap;
+	font-size: 10px;
+}
+
+.GWTUpld .gwt-Button, .GWTUpld .gwt-FileUpload {
+	font-size: 10px;
+	min-height: 15px;
+}
+
+.GWTUpld .DecoratedFileUpload .gwt-Anchor,
+.GWTUpld .DecoratedFileUpload .gwt-Label {
+	color: blue;
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+.GWTUpld .gwt-Button:HOVER,
+.GWTUpld .DecoratedFileUpload .gwt-Button-over,
+.GWTUpld .DecoratedFileUpload .gwt-Anchor-over,
+.GWTUpld .DecoratedFileUpload .gwt-Label-over {
+	color: #af6b29;
+}
+
+.GWTUpld .DecoratedFileUpload-disabled .gwt-Button,
+.GWTUpld .DecoratedFileUpload-disabled .gwt-Anchor,
+.GWTUpld .DecoratedFileUpload-disabled .gwt-Label {
+	color: grey;
 }

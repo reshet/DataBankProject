@@ -7,6 +7,7 @@ import com.google.gwt.json.client.JSONString;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.uibinder.client.UiHandler;
+import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.DialogBox;
@@ -17,6 +18,8 @@ import com.google.gwt.user.client.ui.VerticalPanel;
 import com.google.gwt.user.client.ui.Widget;
 import com.mresearch.databank.client.helper.RPCCall;
 import com.mresearch.databank.client.service.AdminSocioResearchService;
+import com.mresearch.databank.client.service.UserSocioResearchService;
+import com.mresearch.databank.client.service.UserSocioResearchServiceAsync;
 import com.mresearch.databank.client.service.AdminSocioResearchService.Util;
 import com.mresearch.databank.client.service.AdminSocioResearchServiceAsync;
 import com.mresearch.databank.shared.JSON_Representation;
@@ -32,6 +35,7 @@ public class MultiValuedEntityMultiselected extends Composite
   private static MultiValuedEntityMultiselectedUiBinder uiBinder = (MultiValuedEntityMultiselectedUiBinder)GWT.create(MultiValuedEntityMultiselectedUiBinder.class);
 
   private AdminSocioResearchServiceAsync service = AdminSocioResearchService.Util.getInstance();
+	private UserSocioResearchServiceAsync userService = UserSocioResearchService.Util.getInstance();
 
   @UiField
   Label entity_name;
@@ -76,9 +80,12 @@ public class MultiValuedEntityMultiselected extends Composite
         }else
         {
         	int index = dto.getItem_names().indexOf(val);
-            long idd = ((Long)dto.getItem_ids().get(index)).longValue();
-            this.initial_selected_ids.add(Long.valueOf(idd));
-            this.selected_ids.add(Long.valueOf(idd));
+        	if(index != -1)
+        	{
+        	      long idd = ((Long)dto.getItem_ids().get(index)).longValue();
+                  this.initial_selected_ids.add(Long.valueOf(idd));
+                  this.selected_ids.add(Long.valueOf(idd));
+           }
         }
       }
     }
@@ -213,7 +220,7 @@ public class MultiValuedEntityMultiselected extends Composite
 
           protected void callService(AsyncCallback<MetaUnitEntityItemDTO> cb)
           {
-            MultiValuedEntityMultiselected.this.service.getEntityItemDTO(oldl, cb);
+            MultiValuedEntityMultiselected.this.userService.getEntityItemDTO(oldl, cb);
           }
         }
         .retry(2);
@@ -234,9 +241,11 @@ public class MultiValuedEntityMultiselected extends Composite
             {
               public void onFailure(Throwable caught)
               {
+            	  Window.alert("Error link upd:"+caught.getMessage());
               }
 
               public void onSuccess(Void result) {
+            	  Window.alert("Links populated!");
               }
 
               protected void callService(AsyncCallback<Void> cb) {
@@ -246,9 +255,10 @@ public class MultiValuedEntityMultiselected extends Composite
             .retry(2);
           }
 
+          
           protected void callService(AsyncCallback<MetaUnitEntityItemDTO> cb)
           {
-            MultiValuedEntityMultiselected.this.service.getEntityItemDTO(oldl, cb);
+            MultiValuedEntityMultiselected.this.userService.getEntityItemDTO(oldl, cb);
           }
         }
         .retry(2);

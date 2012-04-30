@@ -3,6 +3,7 @@
 	xmlns:g="urn:import:com.google.gwt.user.client.ui"
 	xmlns:views="urn:import:com.mresearch.databank.client.views">
 	<ui:style>
+	
 		.tableStyle table {
 		    font-family: 'Trebuchet MS', Verdana, Arial, Helvetica;
 		    font-size: 14px;
@@ -23,7 +24,7 @@
 		    color: #656565;
 		    text-align: right;
 		    border-right: #cccccc solid 1px;
-		    /*border-bottom: #e5e5e5 solid 1px;*/
+		    border-bottom: #e5e5e5 solid 1px;
 		    padding: 2px 5px;
 		
 		}
@@ -31,37 +32,60 @@
 		.tableStyle tr > th:first-child, .tableStyle  tr > td:first-child  {
 		    color: #4d4d4d;
 		    text-align: left;
-		    border-right: #cccccc double 3px;
+		    border-right: #cccccc solid 3px;
 		    
 		 
 		}
+		
+		
+		
 		.analisys{
 			text-align: right;
 		
 		}
+		.text_f
+		{
+			font-weight: bold;
+		}
 	</ui:style>
+	
 	<g:HTMLPanel>
 		<g:HorizontalPanel ui:field="analysis_bar" styleName="{style.analisys}">
 		</g:HorizontalPanel>
 		<h2>Просмотр переменной</h2>
 		<g:HTMLPanel ui:field="main_html">
-			<table>
-				<tr>
-					<td>Имя переменной: </td><td><g:Label ui:field="varCode"></g:Label></td>
-				</tr>
-				<tr>
-					<td>Текст вопроса: </td><td><g:Label ui:field="varText"></g:Label></td>
-				</tr>
-			</table>
+
+				<g:HorizontalPanel spacing="5">
+					<g:Label styleName="{style.text_f}">Текст вопроса:  </g:Label>
+					<g:Label ui:field="varText"></g:Label>
+				</g:HorizontalPanel>
+				
 				<g:FlexTable ui:field="codeSchemeTbl" styleName="{style.tableStyle}"></g:FlexTable>
 				<br/>
 				Переменная использовалась:
 				<g:FlexTable ui:field="generalizedTbl"></g:FlexTable>
 			<br/>
-			<g:VerticalPanel ui:field="elasticDBfields"></g:VerticalPanel>
+			<table>
+				<tr>
+					<th>
+						<div class="gray25 bold">
+							<g:Label ui:field="concept_name"></g:Label>
+						</div>
+					</th>
+					
+					<th>
+						<div class="gray40">
+							<g:Label ui:field="concept_value"></g:Label>
+						</div>
+					</th>
+				</tr>
+			</table>
+			
 		</g:HTMLPanel>
-		<g:HorizontalPanel ui:field="save_pnl"></g:HorizontalPanel>
-		<g:VerticalPanel ui:field="graph_pnl" width="800px" height="700px"></g:VerticalPanel>
+		
+<!-- 		<g:HorizontalPanel ui:field="save_pnl"></g:HorizontalPanel> -->
+<!-- 		<g:VerticalPanel ui:field="graph_pnl" width="800px" height="700px"></g:VerticalPanel> -->
 	</g:HTMLPanel>
+	
 	
 </ui:UiBinder> 

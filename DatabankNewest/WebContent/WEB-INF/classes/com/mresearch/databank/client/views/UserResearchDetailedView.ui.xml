@@ -2,43 +2,24 @@
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
 	xmlns:g="urn:import:com.google.gwt.user.client.ui">
 	<ui:style>
-		.tableStyle table {
-		    font-family: 'Trebuchet MS', Verdana, Arial, Helvetica;
-		    font-size: 14px;
-		    color: #4d4d4d;
-		    border-collapse: collapse;
-		}
-		
-		.tableStyle th {
-		    text-align: right;
-		    min-width: 100px;
-		    font-weight: normal;
-		    padding: 2px 5px;
-		    border-right: #cccccc solid 1px;
-		    /*border-bottom: #e5e5e5 solid 1px;*/
-		}
-		
-		.tableStyle td {
-		    color: #656565;
-		    text-align: right;
-		    border-right: #cccccc solid 1px;
-		    /*border-bottom: #e5e5e5 solid 1px;*/
-		    padding: 2px 5px;
-		
-		}
-		
-		.tableStyle tr > th:first-child, .tableStyle  tr > td:first-child  {
-		    color: #4d4d4d;
-		    text-align: left;
-		    border-right: #cccccc double 3px;
-		}
+
 		
 	</ui:style>
 	<g:VerticalPanel>
-		<g:HTMLPanel styleName="{style.tableStyle}">
+		<g:HTMLPanel>
 			<h3>Метаданные исследования</h3>
+			<table>
+				<tr>
+					<td>
+						<g:VerticalPanel ui:field="elasticDBfieldNames"></g:VerticalPanel>
+					</td>
+					<td>
+						<g:VerticalPanel ui:field="elasticDBfieldValues"></g:VerticalPanel>
+					</td>
+				</tr>
+			</table>
 		</g:HTMLPanel>	
-		<g:VerticalPanel ui:field="elasticDBfields"></g:VerticalPanel>
+		
 		<g:HorizontalPanel>
 				<g:Label>Взвешивание:</g:Label>
 				<g:Label ui:field="weights">Без взвешивания.</g:Label>

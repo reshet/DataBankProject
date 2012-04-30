@@ -60,6 +60,7 @@ public class AdminResearchDetailedPresenter implements Presenter{
 		 MetaUnitFiller getDBfiller();
 		 MetaUnitCollector getDBcollector();
 		 MetaUnitEntityItemRegistrator getDBregistrator();
+		 String getDescription();
 		 
 	 }
 	
@@ -171,6 +172,7 @@ public class AdminResearchDetailedPresenter implements Presenter{
 		HashMap<String, String> mapp = edit_display.getDBcollector().returnCollectedMap();
 		dto.setName(mapp.get("socioresearch_name"));
 		dto.setFilling(mapp);
+		dto.setDesctiption(edit_display.getDescription());
 		return dto;
 		
 	}
@@ -194,7 +196,7 @@ public class AdminResearchDetailedPresenter implements Presenter{
 
 			@Override
 			protected void callService(AsyncCallback<MetaUnitMultivaluedEntityDTO> cb) {
-				rpcAdminService.getDatabankStructure("socioresearch", cb);
+				rpcUserService.getDatabankStructure("socioresearch", cb);
 			}
 
 			@Override
@@ -209,6 +211,8 @@ public class AdminResearchDetailedPresenter implements Presenter{
 	
 	
 	
+	
+
 	
 	
 		private void fetchResearchDetailes(final long id_research)

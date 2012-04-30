@@ -69,6 +69,10 @@ public class MultiValuedEntityViewer extends Composite{
 	
 	
 	
+	
+	
+	
+	
 	private void renderSubUnits()
 	{
 		items_list.setText("");

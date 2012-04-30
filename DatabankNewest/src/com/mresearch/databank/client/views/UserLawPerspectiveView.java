@@ -34,6 +34,7 @@ import com.mresearch.databank.client.helper.RPCCall;
 import com.mresearch.databank.client.presenters.UserLawPerspectivePresenter;
 import com.mresearch.databank.client.presenters.UserResearchPerspectivePresenter;
 import com.mresearch.databank.client.service.AdminSocioResearchService;
+import com.mresearch.databank.client.service.UserSocioResearchService;
 import com.mresearch.databank.shared.MetaUnitMultivaluedEntityDTO;
 import com.mresearch.databank.shared.SocioResearchDTO;
 import com.mresearch.databank.shared.VarDTO;
@@ -129,7 +130,7 @@ public class UserLawPerspectiveView extends Composite implements UserLawPerspect
 			@Override
 			protected void callService(
 					AsyncCallback<MetaUnitMultivaluedEntityDTO> cb) {
-				AdminSocioResearchService.Util.getInstance().getDatabankStructure("law",cb);
+				UserSocioResearchService.Util.getInstance().getDatabankStructure("law",cb);
 			}
 		}.retry(2);
 		

@@ -9,6 +9,7 @@ import com.mresearch.databank.client.service.AdminSocioResearchService.Util;
 import com.mresearch.databank.client.service.AdminSocioResearchServiceAsync;
 import com.mresearch.databank.client.service.CatalogService;
 import com.mresearch.databank.client.service.CatalogServiceAsync;
+import com.mresearch.databank.client.service.UserSocioResearchService;
 import com.mresearch.databank.shared.MetaUnitDTO;
 import com.mresearch.databank.shared.MetaUnitMultivaluedEntityDTO;
 import com.mresearch.databank.shared.MetaUnitMultivaluedStructureDTO;
@@ -59,7 +60,7 @@ public class RootConceptsList extends ConceptItemEntity
 
       protected void callService(AsyncCallback<MetaUnitMultivaluedEntityDTO> cb)
       {
-        AdminSocioResearchService.Util.getInstance().getDatabankStructure(concept_type, cb);
+        UserSocioResearchService.Util.getInstance().getDatabankStructure(concept_type, cb);
       }
     }
     .retry(2);

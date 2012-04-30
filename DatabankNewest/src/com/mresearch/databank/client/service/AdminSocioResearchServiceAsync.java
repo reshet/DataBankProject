@@ -38,14 +38,6 @@ public interface AdminSocioResearchServiceAsync {
 			String category, AsyncCallback<Boolean> callback);
 	void deleteFileFromAccessor(long id_research, long id_file,
 			AsyncCallback<Boolean> callback);
-	void getDatabankStructure(String db_name,
-			AsyncCallback<MetaUnitMultivaluedEntityDTO> callback);
-	void getMetaUnitMultivaluedFullDTO(long id,
-			AsyncCallback<MetaUnitMultivaluedDTO> callback);
-	void getMetaUnitInteger(long id, AsyncCallback<MetaUnitIntegerDTO> callback);
-	void getMetaUnitDate(long id, AsyncCallback<MetaUnitDateDTO> callback);
-	void getMetaUnitDouble(long id, AsyncCallback<MetaUnitDoubleDTO> callback);
-	void getMetaUnitString(long id, AsyncCallback<MetaUnitStringDTO> callback);
 	void updateMetaUnitStructure(MetaUnitDTO dto, AsyncCallback<Void> callback);
 	void addMetaUnit(MetaUnitDTO dto, Long parent_unit_id,
 			AsyncCallback<Void> callback);
@@ -56,13 +48,8 @@ public interface AdminSocioResearchServiceAsync {
 	void deleteEntityItem(Long id, Long entity_id, AsyncCallback<Void> callback);
 	void editEntityItem(Long entity_id, String value,
 			HashMap<String, String> filling, AsyncCallback<Void> callback);
-	void getEntityItem(Long id, AsyncCallback<HashMap<String, String>> callback);
 	void addSubEntityItem(Long paramLong, String paramString,
 			HashMap<String, String> paramHashMap, AsyncCallback<Void> callback);
-	void getEntityItemDTO(Long paramLong,
-			AsyncCallback<MetaUnitEntityItemDTO> callback);
-	void getEntityItemSubitemsDTOs(Long paramLong,
-			AsyncCallback<ArrayList<MetaUnitEntityItemDTO>> callback);
 	void updateMetaUnitEntityItemLinks(
 			MetaUnitEntityItemDTO paramMetaUnitEntityItemDTO1,
 			MetaUnitEntityItemDTO paramMetaUnitEntityItemDTO2,
@@ -71,18 +58,6 @@ public interface AdminSocioResearchServiceAsync {
 			MetaUnitEntityItemDTO paramMetaUnitEntityItemDTO,
 			AsyncCallback<Void> callback);
 	
-	void getMetaUnitMultivaluedEntityDTO(long id,
-			AsyncCallback<MetaUnitMultivaluedEntityDTO> callback);
-	void getMetaUnitMultivaluedStructureDTO(long id,
-			AsyncCallback<MetaUnitMultivaluedStructureDTO> callback);
-	void getMetaUnitMultivaluedEntityDTO_FlattenedItems(long id,
-			AsyncCallback<MetaUnitMultivaluedEntityDTO> callback);
-	void getEntityItemTaggedEntitiesIDs(Long id_item,
-			AsyncCallback<ArrayList<Long>> callback);
-	void getEntityItemTaggedEntitiesIdentifiers(Long id_item,
-			AsyncCallback<ArrayList<String>> callback);
-	void getEntityItemTaggedEntitiesIDs(Long id_item, String identifier,
-			AsyncCallback<ArrayList<Long>> callback);
 	void updateMetaUnitEntityItemLinks(Long item_id,
 			ArrayList<Long> tagged_ids, String identifier,
 			AsyncCallback<Void> callback);

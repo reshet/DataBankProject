@@ -22,9 +22,11 @@ import com.google.gwt.user.client.ui.RadioButton;
 import com.google.gwt.user.client.ui.VerticalPanel;
 import com.google.gwt.user.client.ui.Widget;
 import com.mresearch.databank.client.DatabankApp;
+import com.mresearch.databank.client.event.RecalculateDistributionsEvent;
 import com.mresearch.databank.client.helper.RPCCall;
 import com.mresearch.databank.client.service.UserSocioResearchService;
 import com.mresearch.databank.client.service.UserSocioResearchServiceAsync;
+import com.mresearch.databank.shared.UserAccountDTO;
 import com.mresearch.databank.shared.VarDTO;
 import com.mresearch.databank.shared.VarDTO_Light;
 //There MVP pattern is ommited)
@@ -36,6 +38,8 @@ public class UserResearchVar2DDView extends Composite {
 	interface UserResearchVar2DDViewUiBinder extends
 			UiBinder<Widget, UserResearchVar2DDView> {
 	}
+	
+	
 	private long research_id;
 	@UiField ListBox var1_lbox,var2_lbox;
 	@UiField Button build_btn;
@@ -50,17 +54,34 @@ public class UserResearchVar2DDView extends Composite {
 	@UiField HorizontalPanel target_panel;
 	@UiField HTMLPanel content_panel;
 	@UiField VerticalPanel selected_vars;
-	public UserResearchVar2DDView(long research_id) {
+	public UserResearchVar2DDView(final long research_id) {
 		initWidget(uiBinder.createAndBindUi(this));
 		
 		DatabankApp.get().getCurrentUser().setCurrent_research(research_id);
-		DatabankApp.get().updateUserAccountState();
+		new RPCCall<UserAccountDTO>() {
+			
+			@Override
+			public void onFailure(Throwable caught) {
+				Window.alert("Error on updating account state!");
+			}
+
+			@Override
+			public void onSuccess(UserAccountDTO result) {
+				DatabankApp.get().setCurrentUser(result);
+				target_panel.add(new SaveHTMLAddon(content_panel));
+				var1_lbox.addItem("Загрузка переменных...");
+				var2_lbox.addItem("Загрузка переменных...");
+				UserResearchVar2DDView.this.research_id = research_id;
+				fetchVarsList();
+			}
+
+			@Override
+			protected void callService(AsyncCallback<UserAccountDTO> cb) {
+				DatabankApp.get().getUserService().updateResearchState(DatabankApp.get().getCurrentUser(),cb);
+			}
+		}.retry(2);
 		
-		target_panel.add(new SaveHTMLAddon(content_panel));
-		var1_lbox.addItem("Загрузка переменных...");
-		var2_lbox.addItem("Загрузка переменных...");
-		this.research_id = research_id;
-		fetchVarsList();
+		
 	}
 	@UiHandler(value="build_btn")
 	public void onBuildBtnClick(ClickEvent e)

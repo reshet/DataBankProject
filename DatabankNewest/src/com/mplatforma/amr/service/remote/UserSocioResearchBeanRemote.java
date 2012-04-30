@@ -1,21 +1,11 @@
 package com.mplatforma.amr.service.remote;
 
-import java.util.ArrayList;
-import java.util.List;
-
+import com.mresearch.databank.shared.*;
 import javax.ejb.Remote;
 
-import com.mresearch.databank.shared.FilterBaseDTO;
-import com.mresearch.databank.shared.OrgDTO;
-import com.mresearch.databank.shared.ResearchFilesDTO;
-import com.mresearch.databank.shared.SSE_DTO;
-import com.mresearch.databank.shared.SocioResearchDTO;
-import com.mresearch.databank.shared.SocioResearchDTO_Light;
-import com.mresearch.databank.shared.SocioResearchFilesDTO;
-import com.mresearch.databank.shared.UserAccountDTO;
-import com.mresearch.databank.shared.VarDTO;
-import com.mresearch.databank.shared.VarDTO_Detailed;
-import com.mresearch.databank.shared.VarDTO_Light;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 @Remote
 public interface UserSocioResearchBeanRemote {
@@ -33,4 +23,20 @@ public interface UserSocioResearchBeanRemote {
     ArrayList<OrgDTO> getOrgList();
     String doIndexSearch(String json_query,String [] types_to_search);
     ArrayList<VarDTO_Light> getVarDTOs(ArrayList<Long> keys);
+    
+    MetaUnitMultivaluedEntityDTO getDatabankStructure(String db_name);
+      MetaUnitMultivaluedEntityDTO getMetaUnitMultivaluedEntityDTO(long id);
+      MetaUnitMultivaluedEntityDTO getMetaUnitMultivaluedEntityDTO_FlattenedItems(long id);
+      MetaUnitMultivaluedStructureDTO getMetaUnitMultivaluedStructureDTO(long id);
+      
+    
+    HashMap<String, String> getEntityItem(Long id);
+      ArrayList<String> getEntityItemSubitemsNames(Long id_item);
+      ArrayList<Long> getEntityItemSubitemsIDs(Long id_item);
+      ArrayList<Long> getEntityItemTaggedEntitiesIDs(Long id_item);
+       ArrayList<Long> getEntityItemTaggedEntitiesIDs(Long id_item,String identifier);
+      ArrayList<String> getEntityItemTaggedEntitiesIdentifiers(Long id_item);
+      MetaUnitEntityItemDTO getEntityItemDTO(Long id);
+      ArrayList<MetaUnitEntityItemDTO> getEntityItemSubitemsDTOs(Long id);
+      
 }

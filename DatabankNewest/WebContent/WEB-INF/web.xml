@@ -29,6 +29,12 @@
     <servlet-name>uploadServlet</servlet-name>
     <servlet-class>com.mresearch.databank.server.RxUploadServlet</servlet-class>
   </servlet>
+   <servlet>
+    <servlet-name>htmlSave</servlet-name>
+    <servlet-class>com.mresearch.databank.server.HtmlSaveServlet</servlet-class>
+  </servlet>
+  
+  
   <servlet-mapping>
     <servlet-name>greetServlet</servlet-name>
     <url-pattern>/databanknewest/greet</url-pattern>
@@ -52,6 +58,10 @@
   <servlet-mapping>
     <servlet-name>rxStorageServe</servlet-name>
     <url-pattern>/databanknewest/serve</url-pattern>
+  </servlet-mapping>
+   <servlet-mapping>
+    <servlet-name>htmlSave</servlet-name>
+    <url-pattern>/databanknewest/htmlSave</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
     <servlet-name>uploadServlet</servlet-name>

@@ -15,6 +15,8 @@ import com.google.gwt.user.client.ui.Widget;
 
 import com.mresearch.databank.client.views.DBfillers.MultiValuedField;
 import com.mresearch.databank.client.views.DBviewers.MultiValuedFieldViewer;
+import com.mresearch.databank.client.views.DBviewers.NiceMultiValuedFieldViewer;
+import com.mresearch.databank.client.views.DBviewers.NiceMultiValuedValuesViewer;
 import com.mresearch.databank.shared.MetaUnitEntityItemDTO;
 import com.mresearch.databank.shared.MetaUnitMultivaluedEntityDTO;
 import com.mresearch.databank.shared.SearchTaskResearchDTO;
@@ -32,7 +34,7 @@ public class UserResearchDetailedView extends Composite {
 	public UserResearchDetailedView() {
 		initWidget(uiBinder.createAndBindUi(this));
 	}
-	@UiField VerticalPanel elasticDBfields;
+	@UiField VerticalPanel elasticDBfieldNames,elasticDBfieldValues;
 	@UiField Label weights;
 	public static String arrToStr(ArrayList<String> data)
 	{
@@ -92,6 +94,7 @@ public class UserResearchDetailedView extends Composite {
 		
 		
 		
+		
 //		if(dto.getStart_date() != null && dto.getEnd_date() != null)
 //			this.dateResearch.setText(dto.getStart_date().toString()+" - "+dto.getEnd_date().toString());
 //		this.genGeathering.setText(dto.getGen_geathering());
@@ -112,8 +115,14 @@ public class UserResearchDetailedView extends Composite {
 	
 	private void renderDBfillers()
 	{
-		elasticDBfields.clear();
-		MultiValuedFieldViewer mv = new MultiValuedFieldViewer(db,dto.getFilling(),"");
-		elasticDBfields.add(mv);
+		elasticDBfieldNames.clear();
+		elasticDBfieldValues.clear();
+		
+		NiceMultiValuedFieldViewer mv = new NiceMultiValuedFieldViewer(db,dto.getFilling(),"");
+		NiceMultiValuedValuesViewer mv2 = new NiceMultiValuedValuesViewer(db,dto.getFilling(),"");
+		
+		elasticDBfieldNames.add(mv);
+		elasticDBfieldValues.add(mv2);
+		
 	}
 }

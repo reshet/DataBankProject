@@ -44,7 +44,7 @@ public class ConceptItemItem extends ConceptItemEntity
       }
       protected void callService(AsyncCallback<ArrayList<MetaUnitEntityItemDTO>> cb)
       {
-        AdminSocioResearchService.Util.getInstance().getEntityItemSubitemsDTOs(ConceptItemItem.this.getEntity_id(), cb);
+        UserSocioResearchService.Util.getInstance().getEntityItemSubitemsDTOs(ConceptItemItem.this.getEntity_id(), cb);
       }
     }
     .retry(2);
@@ -101,46 +101,52 @@ public class ConceptItemItem extends ConceptItemEntity
 			}
 			@Override
 			protected void callService(AsyncCallback<MetaUnitEntityItemDTO> cb) {
-				AdminSocioResearchService.Util.getInstance().getEntityItemDTO(getEntity_id(), cb);
+				UserSocioResearchService.Util.getInstance().getEntityItemDTO(getEntity_id(), cb);
 			  }
 		}.retry(2);		
 	}
 	
 	private void refreshResearches(final ArrayList<Long> research_ids)
 	{
-		new RPCCall<ArrayList<SocioResearchDTO_Light>>() {
-			@Override
-			public void onFailure(Throwable arg0) {
-			}
-			@Override
-			public void onSuccess(ArrayList<SocioResearchDTO_Light> res) {
-				displayResearchList(res);
-			}
-
-			@Override
-			protected void callService(
-					AsyncCallback<ArrayList<SocioResearchDTO_Light>> cb) {
-				UserSocioResearchService.Util.getInstance().getResearchDTOs(research_ids, cb);
-			}
-		}.retry(2);
+		if(research_ids.size()>0)
+		{
+			new RPCCall<ArrayList<SocioResearchDTO_Light>>() {
+				@Override
+				public void onFailure(Throwable arg0) {
+				}
+				@Override
+				public void onSuccess(ArrayList<SocioResearchDTO_Light> res) {
+					displayResearchList(res);
+				}
+	
+				@Override
+				protected void callService(
+						AsyncCallback<ArrayList<SocioResearchDTO_Light>> cb) {
+					UserSocioResearchService.Util.getInstance().getResearchDTOs(research_ids, cb);
+				}
+			}.retry(2);
+		}
 	}
 	
 	private void refreshVars(final ArrayList<Long> var_ids)
 	{
-		new RPCCall<ArrayList<VarDTO_Light>>() {
-			@Override
-			public void onFailure(Throwable arg0) {
-			}
-			@Override
-			public void onSuccess(ArrayList<VarDTO_Light> res) {
-				displayVarList(res);
-			}
-
-			@Override
-			protected void callService(
-					AsyncCallback<ArrayList<VarDTO_Light>> cb) {
-				UserSocioResearchService.Util.getInstance().getVarDTOs(var_ids, cb);
-			}
-		}.retry(2);
+		if(var_ids.size()>0)
+		{
+			new RPCCall<ArrayList<VarDTO_Light>>() {
+				@Override
+				public void onFailure(Throwable arg0) {
+				}
+				@Override
+				public void onSuccess(ArrayList<VarDTO_Light> res) {
+					displayVarList(res);
+				}
+	
+				@Override
+				protected void callService(
+						AsyncCallback<ArrayList<VarDTO_Light>> cb) {
+					UserSocioResearchService.Util.getInstance().getVarDTOs(var_ids, cb);
+				}
+			}.retry(2);
+		}
 	}
 }

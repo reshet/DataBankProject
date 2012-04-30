@@ -42,6 +42,7 @@ import com.mresearch.databank.client.event.ShowVarDetailsEventHandler;
 import com.mresearch.databank.client.helper.RPCCall;
 import com.mresearch.databank.client.service.AdminSocioResearchService;
 import com.mresearch.databank.client.service.StartPageServiceAsync;
+import com.mresearch.databank.client.service.UserSocioResearchService;
 import com.mresearch.databank.client.service.UserSocioResearchServiceAsync;
 import com.mresearch.databank.client.views.ConceptItemItem;
 import com.mresearch.databank.client.views.ConceptItemEntity;
@@ -63,6 +64,7 @@ import com.mresearch.databank.shared.MetaUnitMultivaluedEntityDTO;
 import com.mresearch.databank.shared.NewsDTO;
 import com.mresearch.databank.shared.NewsSummaryDTO;
 import com.mresearch.databank.shared.RealVarDTO_Detailed;
+import com.mresearch.databank.shared.ResearchBundleDTO;
 import com.mresearch.databank.shared.SocioResearchDTO;
 import com.mresearch.databank.shared.SocioResearchDTO_Light;
 import com.mresearch.databank.shared.TextVarDTO_Detailed;
@@ -96,7 +98,7 @@ public class UserResearchPerspectivePresenter implements Presenter
 		 Widget asWidget();
 		 void showLoadingLabel();
 		 TreeItem getSelectedItem();
-		 void showResearchDetailes(SocioResearchDTO dto);
+		 void showResearchDetailes(ResearchBundleDTO dto);
 		 VerticalPanel getCenterPanel();
 		 void findInResearchList(Long id);
 		 
@@ -221,6 +223,11 @@ public class UserResearchPerspectivePresenter implements Presenter
 			}
 		});
 		
+		
+		
+		
+		
+		
 		eventBus.addHandler(ShowResearchDetailsEvent.TYPE, new ShowResearchDetailsEventHandler() {
 			@Override
 			public void onShowResearchDetails(ShowResearchDetailsEvent event) {
@@ -284,7 +291,7 @@ public class UserResearchPerspectivePresenter implements Presenter
 						@Override
 						protected void callService(
 								AsyncCallback<MetaUnitMultivaluedEntityDTO> cb) {
-							AdminSocioResearchService.Util.getInstance().getDatabankStructure("sociovar", cb);
+							UserSocioResearchService.Util.getInstance().getDatabankStructure("sociovar", cb);
 						}
 					}.retry(2);
 		
@@ -348,7 +355,7 @@ public class UserResearchPerspectivePresenter implements Presenter
 	}
 	private void fetchResearchDetailes(final Long id_research)
 	{
-		new RPCCall<SocioResearchDTO>() {
+		new RPCCall<ResearchBundleDTO>() {
 
 			@Override
 			public void onFailure(Throwable caught) {
@@ -356,13 +363,13 @@ public class UserResearchPerspectivePresenter implements Presenter
 			}
 
 			@Override
-			public void onSuccess(SocioResearchDTO result) {
+			public void onSuccess(ResearchBundleDTO result) {
 				display.showResearchDetailes(result);
 			}
 
 			@Override
-			protected void callService(AsyncCallback<SocioResearchDTO> cb) {
-				rpcService.getResearch(id_research, cb);
+			protected void callService(AsyncCallback<ResearchBundleDTO> cb) {
+				rpcService.getResearchBundle(id_research, cb);
 			}
 		}.retry(3);
 	}

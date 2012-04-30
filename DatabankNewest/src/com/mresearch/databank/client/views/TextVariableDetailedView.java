@@ -18,12 +18,14 @@ import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.MultiWordSuggestOracle;
 import com.google.gwt.user.client.ui.VerticalPanel;
 import com.google.gwt.user.client.ui.Widget;
+import com.mresearch.databank.client.DatabankApp;
 import com.mresearch.databank.client.presenters.UserResearchPerspectivePresenter;
 import com.mresearch.databank.client.views.DBviewers.MultiValuedFieldViewer;
 import com.mresearch.databank.client.views.DBviewers.VarMultiValuedFieldViewer;
 import com.mresearch.databank.shared.MetaUnitMultivaluedEntityDTO;
 import com.mresearch.databank.shared.RealVarDTO_Detailed;
 import com.mresearch.databank.shared.TextVarDTO_Detailed;
+import com.mresearch.databank.shared.UserAccountDTO;
 import com.mresearch.databank.shared.VarDTO;
 import com.mresearch.databank.shared.VarDTO_Detailed;
 
@@ -47,7 +49,8 @@ public class TextVariableDetailedView extends Composite {
 		initWidget(uiBinder.createAndBindUi(this));
 		this.dto = dto;
 		this.db = dt;
-		analysis_bar.add(new AnalisysBarView(bus, display));
+		UserAccountDTO user = DatabankApp.get().getCurrentUser();
+		analysis_bar.add(new AnalisysBarView(bus, display,user.getFilters_use()>0?true:false,user.getWeights_use()>0?true:false));
 		
 		varCode.setText(dto.getCode());
 		varText.setText(dto.getLabel());

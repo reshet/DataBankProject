@@ -1,0 +1,809 @@
+/* @font-face { */
+/*     font-family: 'NeoSansPro-Light'; */
+/*     src: url('i/neosanspro-light.eot'); */
+/*     src: url('i/neosanspro-light.eot?#iefix') format('embedded-opentype'), */
+/*         url('i/neosanspro-light.woff') format('woff'), */
+/*         url('i/neosanspro-light.ttf') format('truetype'), */
+/*         url('i/neosanspro-light.svg#neosanspro-light') format('svg'); */
+/*     font-weight: normal; */
+/*     font-stretch:normal; */
+/*     font-style: normal; */
+/* } */
+
+/* @font-face { */
+/*     font-family: 'NeoSansPro-Medium'; */
+/*     src: url('i/neosanspro-medium.eot'); */
+/*     src: url('i/neosanspro-medium.eot?#iefix') format('embedded-opentype'), */
+/*         url('i/neosanspro-medium.woff') format('woff'), */
+/*         url('i/neosanspro-medium.ttf') format('truetype'), */
+/*         url('i/neosanspro-medium.svg#neosanspro-medium') format('svg'); */
+/*     font-weight: normal; */
+/*     font-style: normal; */
+/* } */
+
+/* @font-face { */
+/* 	font-family: neosans_LI; */
+/* 	src: url('NeoSans/NeoSansPro-LightItalic.otf'); */
+/* } */
+/* @font-face { */
+/* 	font-family: neosans_R; */
+/* 	src: url('NeoSans/NeoSansPro-Regular.otf'); */
+/* }@font-face { */
+/* 	font-family: neosans_I; */
+/* 	src: url('NeoSans/NeoSansPro-Italic.otf'); */
+/* }@font-face { */
+/* 	font-family: neosans_BI; */
+/* 	src: url('NeoSans/NeoSansPro-BoldItalic.otf'); */
+/* }@font-face { */
+/* 	font-family: neosans_B; */
+/* 	src: url('NeoSans/NeoSansPro-Bold.otf'); */
+/* }@font-face { */
+/* 	font-family: neosans_M; */
+/* 	src: url('NeoSans/NeoSansPro-Medium.otf'); */
+/* } */
+
+root { 
+    display: block;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+}
+
+@font-face {
+    font-family: 'NeoSansPro-Light';
+    src: url('i/neosanspro-light.eot');
+    src: url('i/neosanspro-light.eot?#iefix') format('embedded-opentype'),
+        url('i/neosanspro-light.woff') format('woff'),
+        url('i/neosanspro-light.ttf') format('truetype'),
+        url('i/neosanspro-light.svg#neosanspro-light') format('svg');
+    font-weight: normal;
+    font-stretch:normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'NeoSansPro-Medium';
+    src: url('i/neosanspro-medium.eot');
+    src: url('i/neosanspro-medium.eot?#iefix') format('embedded-opentype'),
+        url('i/neosanspro-medium.woff') format('woff'),
+        url('i/neosanspro-medium.ttf') format('truetype'),
+        url('i/neosanspro-medium.svg#neosanspro-medium') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/** Общие стили */
+.green { color: #69c014; }
+.dark-green { color: #529510; }
+.red { color: #e95830; }
+.dark-red { color: #db372a; }
+.blue {color: #3c77ba;}
+.yellow { color: #e5aa23; }
+.italic { font-style: italic; }
+.bold { font-weight: bold; }
+.frac { color: #a9a9a9; }
+.yellow-marker { background-color: #fff469; color: #000; }
+.op06 { opacity: 0.6; }
+.gray0 { color: #000; }
+.gray25 { color: #3f3f3f; }
+.gray40 { color: #666666; }
+.gray50 { color: #808080; }
+.gray66 { color: #a8a8a8; }
+.gray80 { color: #d0d0d0; }
+.ident { text-indent: 40px; }
+.clearboth { clear: both; }
+.right { text-align: right; }
+
+/** Стили заголовков и параграфов */
+h1, h1.header {
+    font-family: 'NeoSansPro-Light', 'Trebuchet MS', Arial, Helvetica;
+    font-size: 36px;
+    line-height: 100%;
+    margin: 10px 0;
+}
+h1.header { 
+    font-size: 22px; 
+    line-height: 120%;
+}
+
+h2 {
+    font-family: 'NeoSansPro-Medium', 'Trebuchet MS', Arial, Helvetica;
+    font-size: 22px;
+    line-height: 100%;
+    margin: 10px 0;
+}
+
+h2.article {
+    font-size: 18px;
+    line-height: 100%;
+}
+
+p {
+    font-family: 'Trebuchet MS', Verdana, Arial, Helvetica;
+    font-size: 14px;
+    color: #3f3f3f;
+    line-height: 19px;
+    padding: 0;
+    margin: 0;
+}
+
+p.links {
+    margin: 9px 0;
+    line-height: 115%;
+}
+
+p.links a:hover{ color:#214d98; text-decoration:none;}
+
+p.links a:hover span.yellow {color: #e5aa23;}
+
+p.links a:hover span.link {text-decoration:underline;}
+
+
+p.breadcrumbs {
+    font-family: 'NeoSansPro-Medium', 'Trebuchet MS', Arial, Helvetica;
+    font-size: 18px;
+}
+
+p.figure-caption {
+    font-family: Georgia;
+    font-size: 12px;
+    font-style: italic;
+    line-height: 120%;
+}
+
+/** Стили ссылок */
+a {
+    font-family: 'Trebuchet MS';
+    font-size: 14px;
+    text-decoration: none; 
+}
+
+a:hover { text-decoration: underline; }
+
+a.more {
+    text-decoration: underline;
+    color: #3c77ba;
+}
+
+/** Тут начинаются стили для таблиц */
+
+
+div.cell {
+    border-bottom: #e5e5e5 solid 1px;
+}
+/** тут заканчиваются стили для таблиц */
+
+/** Стили блочной верстки */
+div#container {
+    position: relative;
+    width: 1120px;
+    margin: 0 auto;
+    overflow: auto;
+}
+
+div.column280 {
+    position: relative;
+    width: 260px;
+    float: left;
+    padding-right: 20px; 
+}
+
+div.column560 {
+    position: relative;
+    width: 540px;
+    float: left;
+    padding-right: 20px; 
+}
+
+div.column640 {
+    position: relative;
+    width: 620px;
+    float: left;
+    padding-right: 20px; 
+}
+
+div.column100 {
+    position: relative;
+    width: 80px;
+    float: left;
+    padding-right: 20px; 
+}
+
+div.column440 {
+    position: relative;
+    width: 420px;
+    float: left;
+    padding-right: 20px; 
+}
+
+div.figure {
+    width: 560px;
+}
+
+div.figure-caption {
+    border-top: #e1e1e1 solid 5px;
+    width: 560px;
+    padding-top: 5px;
+}
+
+div.logo {
+    width: 465px;
+    height: 36px;
+    background: transparent url(i/logo.png) left top no-repeat;
+}
+
+div.spacer50 {
+    clear: both;
+    height: 50px;
+}
+
+div.h2 {
+    position: relative;
+    clear: both;
+    padding: 20px 0;
+}
+
+/** Стили картинок */
+
+/* img { margin-top:30px; border:none;} */
+
+/** Главное меню */
+div#mm {
+    position: relative;
+    height: 51px;
+    background: transparent url(i/mainmenu-bg.png) left top repeat-x;
+}
+
+div.mm-container {
+    width: 1120px;
+    height: 51px;
+    margin: 0 auto;
+}
+
+div.mm-title {
+    position: relative;
+    float: left;
+    background: transparent url(i/mainmenu-title.png) scroll 0 22px no-repeat;
+    width: 280px;
+    height: 51px;
+}
+
+div.mm-item, div.mm-hover:hover, div.mm-item-holder {
+    width: 140px;
+}
+
+div.mm-item, div.mm-hover:hover {
+    position: relative;
+    height: 45px;
+    float: left;
+    font-family: 'Trebuchet MS', Verdana, Arial, Helvetica;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 0 8px 0 8px;
+    color: #fff;
+    cursor: pointer;
+}
+
+div.mm-hover:hover { background-color: #000; }
+
+div.mm-caption {
+    position: absolute;
+    bottom: 6px;
+}
+
+div.mm-item-holder {
+    position: absolute;
+    top: 45px;
+    z-index: 10;
+    display: none;
+}
+
+div.mm-search {
+    position: relative;
+    height: 28px;
+    float: left;
+    font-family: 'Trebuchet MS', Verdana, Arial, Helvetica;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 17px 8px 0 8px;
+}
+
+input.mm-search {
+    border: transparent solid 1px;
+    border-radius: 4px;
+    background: transparent;
+    color: #fff;
+    font-family: 'Trebuchet MS', Verdana, Arial, Helvetica;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 3px;
+}
+input.highlight-search { 
+    border-color: #696969; 
+    background: transparent url(i/search-submit.png) right center no-repeat;
+}
+div.search-submit {
+	background: transparent url(i/search-submit.png) right center no-repeat;
+    position: absolute;
+    right: 11px;
+    bottom: 6px;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.mm-11 { background-color: #69c014; }
+.mm-12 { background-color: #5fad12; }
+.mm-13 { background-color: #529510; }
+.mm-14 { background-color: #437b0d; }
+.mm-15 { background-color: #386b08; }
+.mm-16 { background-color: #2f5c05; }
+.mm-17 { background-color: #244703; }
+
+.mm-21 { background-color: #e95830; }
+.mm-22 { background-color: #d34c27; }
+.mm-23 { background-color: #d64e29; }
+.mm-24 { background-color: #c04220; }
+.mm-25 { background-color: #a53315; }
+.mm-26 { background-color: #8b270d; }
+.mm-27 { background-color: #731b04; }
+
+.mm-31 { background-color: #3c77ba; }
+.mm-32 { background-color: #2c65a5; }
+.mm-33 { background-color: #215590; }
+.mm-34 { background-color: #164478; }
+.mm-35 { background-color: #0f3968; }
+.mm-36 { background-color: #092e58; }
+.mm-37 { background-color: #042040; }
+
+.mm-41 { background-color: #f1bb2b; }
+.mm-42 { background-color: #ebac29; }
+.mm-43 { background-color: #e39626; }
+.mm-44 { background-color: #da7e22; }
+.mm-45 { background-color: #d36c20; }
+.mm-46 { background-color: #cb571d; }
+.mm-47 { background-color: #c24019; }
+
+
+
+.plotBtn{
+    outline: none;
+    border: none;
+    margin: 1px; /* border size */
+    background: transparent url(icons/icon_06_1.png);
+}
+.plotBtn-down{
+    margin: 1px;
+    border: 1px #529510; /* margin size */
+    background: transparent url(icons/icon_06_2.png) center no-repeat;
+}
+
+.plotBtn-down-hovering {
+    margin: 1px;
+    border: 1px #529510; /* margin size */
+    background: transparent url(icons/icon_06_2.png) center no-repeat;
+}
+.plotBtn-up-hovering {
+    margin: 1px;
+    border: 1px #529510; /* margin size */
+    background: transparent url(icons/icon_06_2.png) center no-repeat;
+}
+
+.htmlBtn{
+    outline: none;
+    border: none;
+    margin: 1px; /* border size */
+    background: transparent url(icons/icon_03_1.png);
+}
+.htmlBtn-down{
+    margin: 1px;
+    border: 1px #529510; /* margin size */
+    background: transparent url(icons/icon_03_2.png) center no-repeat;
+}
+
+.htmlBtn-down-hovering {
+    margin: 1px;
+    border: 1px #529510; /* margin size */
+    background: transparent url(icons/icon_03_2.png) center no-repeat;
+}
+.htmlBtn-up-hovering {
+    margin: 1px;
+    border: 1px #529510; /* margin size */
+    background: transparent url(icons/icon_03_2.png) center no-repeat;
+}
+
+.filtersBtn{
+    outline: none;
+    border: none;
+    margin: 1px; /* border size */
+    backgroud: transparent url(i/icon_filter_3.png) center no-repeat;
+}
+.filtersBtn-down{
+    margin: 1px;
+    border: 1px #529510; /* margin size */
+    background: transparent url(i/icon_filter_2.png) center no-repeat;
+}
+
+.filtersBtn-down-hovering {
+    margin: 1px;
+    border: 1px #529510; /* margin size */
+    background: transparent url(i/icon_filter_1.png) center no-repeat;
+}
+.filtersBtn-up-hovering {
+    margin: 1px;
+    border: 1px #529510; /* margin size */
+    background: transparent url(i/icon_filter_1.png) center no-repeat;
+}
+
+.weightsBtn{
+    outline: none;
+    border: none;
+    margin: 1px; /* border size */
+    background: transparent url(i/icon_weight_3.png) center no-repeat;
+}
+.weightsBtn-down{
+    margin: 1px;
+    border: 1px #529510; /* margin size */
+    background: transparent url(i/icon_weight_1.png) center no-repeat;
+}
+
+.weightsBtn-down-hovering {
+    margin: 1px;
+    border: 1px #529510; /* margin size */
+    background: transparent url(i/icon_weight_2.png) center no-repeat;
+}
+.weightsBtn-up-hovering {
+    margin: 1px;
+    border: 1px #529510; /* margin size */
+    background: transparent url(i/icon_weight_2.png) center no-repeat;
+}
+
+.line-separator{
+	height:1px;
+	background:#69c014;
+	border-bottom:1px solid #313030;
+}
+.gwt-Button .gwt-CheckBox .gwt-Label{
+	font-family: neosans_R;
+}
+.gwt-Button{
+	background: #69c014;
+	color: white;
+}
+
+.gwt-SplitLayoutPanel-VDragger {
+		  background: #69c014;
+		  cursor: col-resize;
+		  border: 2px solid #69c014;
+		}
+
+.gwt-Tree .gwt-TreeItem {
+	font-family: 'NeoSansPro-Light';
+	font-size:  12px;
+	color:#656565;
+	font-weight: normal;
+	padding: 0px 0px 0px 0px;
+ 	margin: 0px 0px 0px 0px;
+  	cursor: pointer;
+}
+
+.gwt-Tree .gwt-TreeItem-selected {
+	color:#69c014;	
+} 
+
+.gwt-TabLayoutPanel {
+  height: 100%;
+  background-color: #FFFFFF;
+  position: relative;
+  clear: both;        
+  overflow: hidden;
+  background: url(i/gray.png) repeat-x bottom center;
+}
+
+/** the tab bar */
+.gwt-TabLayoutPanel .gwt-TabLayoutPanelTabs {
+  height: 100%;
+  background-color: #E8E8E8;
+  position: relative;
+  clear: both;        
+  overflow: hidden;
+  background: url(i/gray.png) repeat-x bottom center;
+}
+
+/** the individual tab in the tab bar */
+.gwt-TabLayoutPanel .gwt-TabLayoutPanelTab {
+	position: relative;
+    float: left;
+    height: 20px;
+    font-family:'Trebuchet MS', Verdana, Arial, Helvetica;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 7px;
+    color: #656565;
+    border-top: #ffffff solid 2px;
+    cursor: pointer;
+    border-left: #ffffff solid 2px; border-right: #ffffff solid 2px; 
+    background-color: #FFFFFF;
+}
+.gwt-TabLayoutPanel .gwt-TabLayoutPanelTab:hover {
+	border-left: #eeeeee solid 2px;
+    border-top: #eeeeee solid 2px;
+    border-right: #eeeeee solid 2px;
+}
+.gwt-TabLayoutPanel .gwt-TabLayoutPanelTab-selected {
+    color: #69c014;
+    border-left: #d6d6d6 solid 2px;
+    border-top: #d6d6d6 solid 2px;
+    border-right: #d6d6d6 solid 2px;
+    border-bottom: #fff solid 2px;
+}
+
+.gwt-TabLayoutPanel .gwt-TabLayoutPanelContent {
+ 
+}
+
+.gwt-TabLayoutPanel .gwt-TabLayoutPanelTabInner {
+}
+
+.gwt-TabBar {
+}
+
+.gwt-TabBarItem {
+}
+.gwt-TabBarItem :hover{
+	   
+}
+
+.gwt-TabBarItem-selected {
+	
+}
+
+.gwt-CheckBox {
+
+}
+/* .gwt-CheckBox-checked { */
+/* 	background: url(//ssl.gstatic.com/ui/v1/menu/checkmark.png) no-repeat -5px -3px */
+/* } */
+
+.gwt-CheckBox-disabled {
+	
+}
+
+/* 
+.gwt-DialogBox .Caption {
+  background: #F1F1F1;
+  padding: 4px 8px 4px 4px;
+  cursor: default;
+  font-family: Arial Unicode MS, Arial, sans-serif;
+  font-weight: bold;
+  border-bottom: 1px solid #bbbbbb;
+  border-top: 1px solid #D2D2D2;
+}
+.gwt-DialogBox .dialogContent {
+}
+.gwt-DialogBox .dialogMiddleCenter {
+  padding: 3px;
+  background: white;
+} */
+/* .gwt-DialogBox .dialogBottomCenter {
+  background: url(i/hborder.png) repeat-x 0px -2945px;
+  -background: url(i/hborder_ie6.png) repeat-x 0px -2144px;
+}
+.gwt-DialogBox .dialogMiddleLeft {
+  background: url(i/vborder.png) repeat-y -31px 0px;
+}
+.gwt-DialogBox .dialogMiddleRight {
+  background: url(i/vborder.png) repeat-y -32px 0px;
+  -background: url(i/vborder_ie6.png) repeat-y -32px 0px;
+} */
+./* gwt-DialogBox .dialogTopLeftInner {
+  width: 10px;
+  height: 8px;
+  zoom: 1;
+}
+.gwt-DialogBox .dialogTopRightInner {
+  width: 12px;
+  zoom: 1;
+}
+.gwt-DialogBox .dialogBottomLeftInner {
+  width: 10px;
+  height: 12px;
+  zoom: 1;
+}
+.gwt-DialogBox .dialogBottomRightInner {
+  width: 12px;
+  height: 12px;
+  zoom: 1;
+} */
+/* .gwt-DialogBox .dialogTopLeft {
+  background: url(i/circles.png) no-repeat -20px 0px;
+  -background: url(i/circles_ie6.png) no-repeat -20px 0px;
+}
+.gwt-DialogBox .dialogTopRight {
+  background: url(i/circles.png) no-repeat -28px 0px;
+  -background: url(i/circles_ie6.png) no-repeat -28px 0px;
+}
+.gwt-DialogBox .dialogBottomLeft {
+  background: url(i/circles.png) no-repeat 0px -36px;
+  -background: url(i/circles_ie6.png) no-repeat 0px -36px;
+}
+.gwt-DialogBox .dialogBottomRight {
+  background: url(i/circles.png) no-repeat -8px -36px;
+  -background: url(i/circles_ie6.png) no-repeat -8px -36px;
+} */
+
+/* html>body .gwt-DialogBox {
+}
+* html .gwt-DialogBox .dialogTopLeftInner {
+  width: 10px;
+  overflow: hidden;
+}
+* html .gwt-DialogBox .dialogTopRightInner {
+  width: 12px;
+  overflow: hidden;
+}
+* html .gwt-DialogBox .dialogBottomLeftInner {
+  width: 10px;
+  height: 12px;
+  overflow: hidden;
+}
+* html .gwt-DialogBox .dialogBottomRightInner {
+  width: 12px;
+  height: 12px;
+  overflow: hidden;
+}
+.cw-DialogBox {
+} */
+
+.category {
+	font-family: neosans_LI;
+	color: #772222;
+	font-weight: bold;
+	font: 16px;
+	vertical-align: text-top;
+}
+
+
+
+
+
+
+.GWTUpld, table.GWTUpld td {
+	font-family: Verdana, Arial;
+	font-size: 12px;
+}
+
+.GWTUpld form, 
+.GWTUpld .upld-form-elements {
+	padding: 0px;
+	vertical-align: top;
+}
+
+.GWTUpld .upld-status {
+	font-family: arial;
+	font-size: 12px;
+	font-weight: bold;
+}
+.GWTUpld .upld-status div.cancel {
+	background: url(images/cancel-upld.gif) no-repeat;
+	width: 12px;
+	height: 12px;
+	cursor: pointer;
+	margin-top: 1px;
+}
+
+* html .GWTUpld .upld-status div.cancel {
+	width: 14px;
+	height: 10px;
+	margin-top: 2px;
+}
+
+.GWTUpld .upld-status div.cancel:hover {
+	background: url(images/cancel-upld-hover.gif) no-repeat;
+}
+
+.GWTUpld .upld-status .filename {
+	overflow: hidden;
+	white-space: nowrap;
+	margin-left: 8px;
+	margin-right: 10px;
+	height: 100%;
+}
+.GWTUpld .upld-status .status {
+	padding-left: 8px;
+	white-space: nowrap;
+	height: 100%;
+}
+.GWTUpld .upld-status .status-success {
+	color: green;
+}
+.GWTUpld .upld-status .status-error,
+.GWTUpld .upld-status .status-canceled {
+	color: red;
+}
+
+.GWTUpld .prgbar-back {
+	background: #ffffff none repeat scroll 0 0;
+	border: 1px solid #999999;
+	height: 10px;
+	overflow: hidden;
+	padding: 1px;
+	width: 100px;
+	float: left;
+}
+* html .GWTUpld .prgbar-back {
+	height: 12px;
+	margin-top: 2px;
+}
+.GWTUpld .prgbar-done {
+	background: #d4e4ff none repeat scroll 0 0;
+	font-size: 0;
+	height: 100%;
+	float: left;
+}
+.GWTUpld .prgbar-msg {
+	position: absolute;
+	z-index: 9;
+	font-size: 9px;
+	font-weight: normal;
+	margin-left: 3px;
+}
+
+* html .GWTUpld .prgbar-msg {
+	top: 0px;
+	left: 4px;
+}
+
+.GWTUpld .changed {
+	color: red;
+	font-weight: bold;  
+	text-decoration: blink;
+}
+.gwt-PopupPanel .GWTUpld {
+	border: 2px groove #F6A828;
+	padding: 10px;
+	background: #bf984c;
+  -moz-border-radius-bottomleft: 6px;
+  -moz-border-radius-bottomright: 6px;
+  -moz-border-radius-topleft: 6px;
+  -moz-border-radius-topright: 6px;
+	
+}
+
+.GWTUpld .DecoratedFileUpload {
+	margin-right: 5px;
+}
+
+.GWTUpld .DecoratedFileUpload .gwt-Button,
+.GWTUpld .DecoratedFileUpload .gwt-Anchor,
+.GWTUpld .DecoratedFileUpload .gwt-Label {
+	white-space: nowrap;
+	font-size: 10px;
+}
+
+.GWTUpld .gwt-Button, .GWTUpld .gwt-FileUpload {
+	font-size: 10px;
+	min-height: 15px;
+}
+
+.GWTUpld .DecoratedFileUpload .gwt-Anchor,
+.GWTUpld .DecoratedFileUpload .gwt-Label {
+	color: blue;
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+.GWTUpld .gwt-Button:HOVER,
+.GWTUpld .DecoratedFileUpload .gwt-Button-over,
+.GWTUpld .DecoratedFileUpload .gwt-Anchor-over,
+.GWTUpld .DecoratedFileUpload .gwt-Label-over {
+	color: #af6b29;
+}
+
+.GWTUpld .DecoratedFileUpload-disabled .gwt-Button,
+.GWTUpld .DecoratedFileUpload-disabled .gwt-Anchor,
+.GWTUpld .DecoratedFileUpload-disabled .gwt-Label {
+	color: grey;
+}

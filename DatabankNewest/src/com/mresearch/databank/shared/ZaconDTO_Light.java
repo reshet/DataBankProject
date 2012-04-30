@@ -9,6 +9,7 @@ import java.util.HashMap;
 public class ZaconDTO_Light implements Serializable,ICatalogizable,IPickableElement{
 	/**
 	 * 
+	 * 
 	 */
 	private static final long serialVersionUID = -2443613870378329241L;
 	private long id;
