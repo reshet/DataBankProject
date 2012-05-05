@@ -225,9 +225,9 @@ public class MultiValuedEntity extends Composite implements MetaUnitFiller,MetaU
 //			}
 			items_list.addItem(dto_name);
 		}
-		if(filling.containsKey(base_name+"_"+dto.getUnique_name()))
+		if(filling.containsKey(base_name))
 		{
-			  String val = (String)this.filling.get(base_name+"_"+this.dto.getUnique_name());
+			  String val = (String)this.filling.get(base_name);
 		      if (val != null)
 		      {
 		        int index = this.dto.getItem_names().indexOf(val);

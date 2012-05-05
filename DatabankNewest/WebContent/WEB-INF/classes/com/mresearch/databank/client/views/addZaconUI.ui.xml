@@ -23,10 +23,10 @@
 				<h2>Добавить новый закон в банк ...
 				</h2> 
 			</div>
-			<g:VerticalPanel ui:field="elasticDBfields">
-			<g:Label width="500px">Краткое содержание: </g:Label><g:TextArea ui:field="_abstract"></g:TextArea>
-				
-   	  	    </g:VerticalPanel>
+			
+			<g:VerticalPanel ui:field="elasticDBfields"/>
+			<g:Label width="500px">Краткое содержание: </g:Label>
+			<g:VerticalPanel ui:field="descriptionEditor"></g:VerticalPanel>
 			<g:VerticalPanel ui:field="uploadPanel">
 <!-- 				<g:Label ui:field="statusField">Выбрать файл...</g:Label> -->
 			</g:VerticalPanel>

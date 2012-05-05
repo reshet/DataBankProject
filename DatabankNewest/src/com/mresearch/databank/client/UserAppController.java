@@ -28,6 +28,8 @@ import com.google.gwt.event.dom.client.KeyDownEvent;
 import com.google.gwt.event.dom.client.KeyDownHandler;
 import com.google.gwt.event.dom.client.KeyPressEvent;
 import com.google.gwt.event.dom.client.KeyPressHandler;
+import com.google.gwt.event.dom.client.MouseDownEvent;
+import com.google.gwt.event.dom.client.MouseDownHandler;
 import com.google.gwt.event.dom.client.MouseOutEvent;
 import com.google.gwt.event.dom.client.MouseOutHandler;
 import com.google.gwt.event.dom.client.MouseOverEvent;
@@ -47,6 +49,7 @@ import com.google.gwt.user.client.ui.DockLayoutPanel;
 import com.google.gwt.user.client.ui.MenuBar;
 import com.google.gwt.user.client.ui.MenuItem;
 import com.google.gwt.user.client.ui.PopupPanel;
+import com.google.gwt.user.client.ui.PushButton;
 import com.google.gwt.user.client.ui.ScrollPanel;
 import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.VerticalPanel;
@@ -104,6 +107,7 @@ public class UserAppController implements ValueChangeHandler<String>, AppControl
  // @UiField MenuBar menuBar,menuBar1,menuBar2,menuBar3,menuBar4;
   @UiField VerticalPanel centerPanel;
   @UiField TextBox searchBox;
+///  @UiField PushButton searchBtn;
  // @UiField Button searchCmd;
   
   //private DockLayoutPanel thisDock;
@@ -135,6 +139,7 @@ public class UserAppController implements ValueChangeHandler<String>, AppControl
 //    //menuBar.setWidth("500px");
 //    menuBar4.setAnimationEnabled(true);
 //   // bind_menu();
+    
     
     
     bind();
@@ -228,6 +233,12 @@ public class UserAppController implements ValueChangeHandler<String>, AppControl
 			doViewUserLaw();
 		}
 	});
+    searchBox.addMouseDownHandler(new MouseDownHandler() {
+		@Override
+		public void onMouseDown(MouseDownEvent arg0) {
+			searchBox.setText("");	
+		}
+	});
    searchBox.addMouseOverHandler(new MouseOverHandler() {
 	@Override
 	public void onMouseOver(MouseOverEvent ev) {
@@ -239,6 +250,7 @@ public class UserAppController implements ValueChangeHandler<String>, AppControl
 	@Override
 	public void onMouseOut(MouseOutEvent arg0) {
 		searchBox.removeStyleDependentName("highlight");
+		searchBox.setText("Поиск");
 	}
    });
    searchBox.addKeyDownHandler(new KeyDownHandler() {
@@ -252,6 +264,13 @@ public class UserAppController implements ValueChangeHandler<String>, AppControl
 		}
 	}
    });
+  // searchBtn.addStyleName("searchBtn");
+//   searchBtn.addClickHandler(new ClickHandler() {
+//	@Override
+//	public void onClick(ClickEvent arg0) {
+//		doViewSearchResults(searchBox.getText());
+//	}
+//   });
    
 //    searchCmd.addClickHandler(new ClickHandler() {
 //		@Override
@@ -324,8 +343,11 @@ public class UserAppController implements ValueChangeHandler<String>, AppControl
 	    History.newItem("user-law");
 }  private void doViewSearchResults(String searchstr)
   {
-	  if (searchstr != null && !searchstr.equals(""))
+	  if (searchstr != null && !searchstr.equals("")&& !searchstr.equals("Поиск"))
+	  {
+		  searchBox.setText("Поиск");
 		  History.newItem("search-results@query="+searchstr);
+	  }
   }
 
 //public void go(DockLayoutPanel mainPanel)

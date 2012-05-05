@@ -2,13 +2,31 @@
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
 	xmlns:g="urn:import:com.google.gwt.user.client.ui">
 	<ui:style>
-		
+		.st
+		{
+			margin-left: 30px;
+		}
 	</ui:style>
 	<g:VerticalPanel>
-		<g:HTMLPanel>
-			<g:VerticalPanel ui:field="elasticDBfields">
-			</g:VerticalPanel>
-			<g:HorizontalPanel ui:field="link_panel"></g:HorizontalPanel>
+		<g:HTMLPanel styleName="{style.st}">
+			<div class="column640">
+			  <div class="h2">
+	                    <h2 class="article red"><g:Label ui:field="name"/></h2>
+	           </div>
+	           
+				<div class="column560">
+	                <p class="gray25">
+							<g:HTML ui:field="html">
+							</g:HTML>
+					</p>
+				</div>
+				<div class="dark-red right">
+				<g:HorizontalPanel spacing="10">
+					<g:HorizontalPanel ui:field="link_panel"></g:HorizontalPanel>
+					<g:Anchor ui:field="show_meta" text="Доп. информация"></g:Anchor>
+				</g:HorizontalPanel>
+				</div>
+			</div>
 		</g:HTMLPanel>
 	</g:VerticalPanel>
 </ui:UiBinder> 

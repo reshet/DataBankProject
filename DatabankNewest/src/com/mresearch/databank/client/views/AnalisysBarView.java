@@ -34,6 +34,8 @@ import com.mresearch.databank.client.event.RecalculateDistributionsEventHandler;
 import com.mresearch.databank.client.event.SaveHTMLEvent;
 import com.mresearch.databank.client.event.ShowVarDetailsEvent;
 import com.mresearch.databank.client.event.ShowVarPlotEvent;
+import com.mresearch.databank.client.event.ShowVar2DDEvent;
+
 import com.mresearch.databank.client.presenters.UserResearchPerspectivePresenter;
 import com.mresearch.databank.shared.IPickableElement;
 import com.mresearch.databank.shared.UserAccountDTO;
@@ -50,7 +52,7 @@ public class AnalisysBarView extends Composite implements UserResearchPerspectiv
 	@UiField Button filters_details_btn;
 	private Button filters_add_btn,filters_delete_btn;
 	@UiField ToggleButton weights_use,filters_use;
-	@UiField PushButton saveHtmlBtn,plotBtn;
+	@UiField PushButton saveHtmlBtn,plotBtn,dim2Btn;
 	
 	final private SimpleEventBus eventBus;
 	private UserResearchPerspectivePresenter.Display display;
@@ -94,10 +96,11 @@ public class AnalisysBarView extends Composite implements UserResearchPerspectiv
 		saveHtmlBtn.setStyleName("htmlBtn");
 		weights_use.setStyleName("weightsBtn");
 		filters_use.setStyleName("filtersBtn");
+		dim2Btn.setStyleName("filters2Btn");
 		
 		weights_use.setDown(w_use);
 		filters_use.setDown(f_use);
-		
+		dim2Btn.setVisible(true);
 		
 		plotBtn.addClickHandler(new ClickHandler() {
 			@Override
@@ -106,6 +109,12 @@ public class AnalisysBarView extends Composite implements UserResearchPerspectiv
 			}
 		});
 		
+		dim2Btn.addClickHandler(new ClickHandler() {
+			@Override
+			public void onClick(ClickEvent arg0) {
+				eventBus.fireEvent(new ShowVar2DDEvent(DatabankApp.get().getCurrentUser().getCurrent_research()));
+			}
+		});
 		saveHtmlBtn.addClickHandler(new ClickHandler() {
 			@Override
 			public void onClick(ClickEvent arg0) {
@@ -135,6 +144,8 @@ public class AnalisysBarView extends Composite implements UserResearchPerspectiv
 				}
 			}
 		});
+		
+		
 		
 		
 		

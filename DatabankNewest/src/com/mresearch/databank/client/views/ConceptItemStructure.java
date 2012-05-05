@@ -13,9 +13,9 @@ import com.mresearch.databank.shared.MetaUnitMultivaluedStructureDTO;
 
 public class ConceptItemStructure extends ConceptItemEntity
 {
-  public ConceptItemStructure(String name, Long id)
+  public ConceptItemStructure(String name, Long id,String sys_name,String base_path)
   {
-    super(name, id);
+    super(name, id,sys_name,base_path);
   }
 
   public void refreshContents() {
@@ -25,6 +25,8 @@ public class ConceptItemStructure extends ConceptItemEntity
       {
       }
 
+      
+      
       public void onSuccess(MetaUnitMultivaluedStructureDTO result)
       {
         ConceptItemStructure.this.removeItems();

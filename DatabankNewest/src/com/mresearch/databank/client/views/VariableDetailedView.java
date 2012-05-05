@@ -115,6 +115,9 @@ public class VariableDetailedView extends Composite {
 	
 	
 	
+	
+	
+	
 	private MetaUnitMultivaluedEntityDTO db;
 	private VarDTO_Detailed dto;
 	public VariableDetailedView(VarDTO_Detailed dto,MetaUnitMultivaluedEntityDTO dt,SimpleEventBus bus,UserResearchPerspectivePresenter.Display display)

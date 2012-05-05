@@ -53,7 +53,7 @@ public class AdminLawPerspectiveView extends Composite implements AdminLawPerspe
 		//tree.setStyleName("research-catalog");
 		TreeItem db = new TreeItem("_Банк законодательства_");
 		simpleZaconListItem = new SimpleZaconList();
-		rootDataLawConcepts = new RootConceptsList("DataLaw","Концепты каталогизации законодательства");
+		rootDataLawConcepts = new RootConceptsList("law","Концепты каталогизации законодательства");
 		db.addItem(simpleZaconListItem);
 		db.addItem(rootDataLawConcepts);
 		tree.addItem(db);

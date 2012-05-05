@@ -11,11 +11,10 @@ public class ZaconDTO extends ZaconDTO_Light{
 	 * 
 	 */
 	private static final long serialVersionUID = -2443613870378329241L;
-	private String contents = "���������";
+	private String contents = "";
 	private HashMap<String,String> filling;
 //	private ArrayList<String> key_words,authors;
 //	private Date date,accept_date,decline_date;
-//	
 	private String json_desctiptor;
 	public String getJson_desctiptor() {
 		return json_desctiptor;
@@ -27,10 +26,12 @@ public class ZaconDTO extends ZaconDTO_Light{
 	}
 	private Long enclosure_key;
 	public ZaconDTO(){}
-	public ZaconDTO(String header, String contents)
+	public ZaconDTO(long id,String header, String contents,long encl_k,HashMap<String,String> fill)
 	{
-		super(header);
-		this.contents = contents;		
+		super(id,header);
+		this.contents = contents;
+                this.enclosure_key = encl_k;
+                this.filling = fill;
 	}
 	public String getContents() {
 		return contents;

@@ -37,6 +37,8 @@ import com.mresearch.databank.client.event.ShowResearchDetailsEvent;
 import com.mresearch.databank.client.event.ShowResearchDetailsEventHandler;
 import com.mresearch.databank.client.event.ShowStartPageMainEvent;
 import com.mresearch.databank.client.event.ShowStartPageMainEventHandler;
+import com.mresearch.databank.client.event.ShowVar2DDEvent;
+import com.mresearch.databank.client.event.ShowVar2DDEventHandler;
 import com.mresearch.databank.client.event.ShowVarDetailsEvent;
 import com.mresearch.databank.client.event.ShowVarDetailsEventHandler;
 import com.mresearch.databank.client.helper.RPCCall;
@@ -171,10 +173,7 @@ public class UserResearchPerspectivePresenter implements Presenter
 					eventBus.fireEvent(new ShowResearchDetailsEvent(rv.getContents_id()));
 				}else if (it instanceof ResearchVarList)
 				{
-					ResearchVarList rv = (ResearchVarList)it;
-					display.getCenterPanel().clear();
 					
-					display.getCenterPanel().add(new UserResearchVar2DDView(rv.getResearch_id()));
 				}
 				else if (it instanceof ResearchDescItem)
 				{
@@ -247,6 +246,14 @@ public class UserResearchPerspectivePresenter implements Presenter
 				//fetchResearchDetailes(event.getResearch_id());
 			}
 		});
+		eventBus.addHandler(ShowVar2DDEvent.TYPE, new ShowVar2DDEventHandler() {
+			@Override
+			public void onShowVar2DD(ShowVar2DDEvent event) {
+				display.getCenterPanel().clear();
+				
+				display.getCenterPanel().add(new UserResearchVar2DDView(event.getRes_id(),eventBus,display));
+			}
+		});
 		//		eventBus.addHandler(ShowStartPageMainEvent.TYPE, new ShowStartPageMainEventHandler() {
 //			@Override
 //			public void onShowStartPageMain(ShowStartPageMainEvent event) {
@@ -254,6 +261,7 @@ public class UserResearchPerspectivePresenter implements Presenter
 //			}
 //		});
 	}
+	
 	private void fetchVariableDetailes(final Long id_var)
 	{
 		new RPCCall<VarDTO_Detailed>() {

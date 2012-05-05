@@ -70,6 +70,10 @@ public class SearchResultsGrid extends VerticalPanel
     ListGridField[] fields = new ListGridField[2 + used_map.size()];
     ListGridField id_f = new ListGridField("_id", "ID");
     ListGridField type_f = new ListGridField("_type", "Тип сущности");
+    
+    id_f.setWidth(25);
+    type_f.setWidth(70);
+    
     int j = 2;
     fields[0] = id_f;
     fields[1] = type_f;
@@ -80,6 +84,7 @@ public class SearchResultsGrid extends VerticalPanel
       fields[(j++)] = field;
     }
 
+    
     
     
     

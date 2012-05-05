@@ -9,15 +9,15 @@ import java.util.HashMap;
 public class ZaconDTO_Light implements Serializable,ICatalogizable,IPickableElement{
 	/**
 	 * 
-	 * 
 	 */
 	private static final long serialVersionUID = -2443613870378329241L;
 	private long id;
-	private String header = "���������";
+	private String header = "";
 	private String number;
 	public ZaconDTO_Light(){}
-	public ZaconDTO_Light(String header)
+	public ZaconDTO_Light(long id,String header)
 	{
+                this.id = id;
 		this.header = header;
 	}
 	public String getHeader() {

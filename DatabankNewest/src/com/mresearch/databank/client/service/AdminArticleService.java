@@ -20,6 +20,7 @@ package com.mresearch.databank.client.service;
 
 import java.util.ArrayList;
 
+import com.google.gwt.core.client.GWT;
 import com.google.gwt.user.client.rpc.RemoteService;
 import com.google.gwt.user.client.rpc.RemoteServiceRelativePath;
 import com.mresearch.databank.shared.ArticleDTO;
@@ -33,6 +34,15 @@ import com.mresearch.databank.shared.ZaconDTO_Light;
 public interface AdminArticleService extends RemoteService {
 
 
+	public static class Util {
+		private static AdminArticleServiceAsync instance;
+		public static AdminArticleServiceAsync getInstance(){
+			if (instance == null) {
+				instance = GWT.create(AdminArticleService.class);
+			}
+			return instance;
+		}
+	}	
   Boolean deleteArticle(Long id);
 
   ArticleDTO getArticle(Long id);

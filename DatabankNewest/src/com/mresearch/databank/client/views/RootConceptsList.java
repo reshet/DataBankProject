@@ -22,7 +22,7 @@ public class RootConceptsList extends ConceptItemEntity
 
   public RootConceptsList(String concept_type, String concepts_name)
   {
-    super(concepts_name, null);
+    super(concepts_name, null,concept_type,"");
     this.concept_type = concept_type;
     this.concept_name = concepts_name;
     setText(this.concept_name);
@@ -31,6 +31,7 @@ public class RootConceptsList extends ConceptItemEntity
     refreshContents();
   }
 
+  
   public void refreshContents()
   {
     new RPCCall<MetaUnitMultivaluedEntityDTO>()

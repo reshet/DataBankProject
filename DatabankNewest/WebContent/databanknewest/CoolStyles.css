@@ -238,6 +238,10 @@ div.spacer50 {
     clear: both;
     height: 50px;
 }
+div.spacer25 {
+    clear: both;
+    height: 50px;
+}
 
 div.h2 {
     position: relative;
@@ -391,6 +395,36 @@ div.search-submit {
     background: transparent url(icons/icon_06_2.png) center no-repeat;
 }
 
+
+
+.filtersBtn{
+    outline: none;
+    border: none;
+    margin: 1px; /* border size */
+    backgroud: transparent url(icons/icon_09_3.png);
+}
+.filtersBtn-down{
+    margin: 1px;
+    border: 1px #529510; /* margin size */
+    background: transparent url(icons/icon_09_1.png) center no-repeat;
+}
+.filtersBtn-up{
+    margin: 1px;
+    border: 1px #529510; /* margin size */
+    background: transparent url(icons/icon_09_3.png) center no-repeat;
+}
+
+.filtersBtn-down-hovering {
+    margin: 1px;
+    border: 1px #529510; /* margin size */
+    background: transparent url(icons/icon_09_2.png) center no-repeat;
+}
+.filtersBtn-up-hovering {
+    margin: 1px;
+    border: 1px #529510; /* margin size */
+    background: transparent url(icons/icon_09_2.png) center no-repeat;
+}
+
 .htmlBtn{
     outline: none;
     border: none;
@@ -414,29 +448,33 @@ div.search-submit {
     background: transparent url(icons/icon_03_2.png) center no-repeat;
 }
 
-.filtersBtn{
+.filters2Btn{
     outline: none;
     border: none;
     margin: 1px; /* border size */
-    backgroud: transparent url(icons/icon_09_2.png) center no-repeat;
+    backgroud: transparent url(icons/icon_10_1.png);
 }
-.filtersBtn-down{
+.filters2Btn-down{
     margin: 1px;
     border: 1px #529510; /* margin size */
-    background: transparent url(icons/icon_09_1.png) center no-repeat;
+    background: transparent url(icons/icon_10_1.png) center no-repeat;
+}
+.filters2Btn-up{
+    margin: 1px;
+    border: 1px #529510; /* margin size */
+    background: transparent url(icons/icon_10_1.png) center no-repeat;
 }
 
-.filtersBtn-down-hovering {
+.filters2Btn-down-hovering {
     margin: 1px;
     border: 1px #529510; /* margin size */
-    background: transparent url(icons/icon_09_2.png) center no-repeat;
+    background: transparent url(icons/icon_10_2.png) center no-repeat;
 }
-.filtersBtn-up-hovering {
+.filters2Btn-up-hovering {
     margin: 1px;
     border: 1px #529510; /* margin size */
-    background: transparent url(icons/icon_09_2.png) center no-repeat;
+    background: transparent url(icons/icon_10_2.png) center no-repeat;
 }
-
 .weightsBtn{
     outline: none;
     border: none;
@@ -458,6 +496,29 @@ div.search-submit {
     margin: 1px;
     border: 1px #529510; /* margin size */
     background: transparent url(i/icon_weight_2.png) center no-repeat;
+}
+
+.searchBtn{
+    outline: none;
+    border: none;
+    margin: 1px; /* border size */
+    backgroud: transparent url(i/search-submit.png) center no-repeat;
+}
+.searchBtn-down{
+    margin: 1px;
+    border: 1px; /* margin size */
+    background: transparent url(i/search-submit.png) center no-repeat;
+}
+
+.searchBtn-down-hovering {
+    margin: 1px;
+    border: 1px; /* margin size */
+    background: transparent url(i/search-submit.png) center no-repeat;
+}
+.searchBtn-up-hovering {
+    margin: 1px;
+    border: 1px; /* margin size */
+    background: transparent url(i/search-submit.png) center no-repeat;
 }
 
 .line-separator{

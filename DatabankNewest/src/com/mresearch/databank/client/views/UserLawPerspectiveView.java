@@ -24,6 +24,7 @@ import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.CheckBox;
 import com.google.gwt.user.client.ui.Composite;
+import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.Tree;
 import com.google.gwt.user.client.ui.TreeItem;
 import com.google.gwt.user.client.ui.VerticalPanel;
@@ -66,6 +67,12 @@ public class UserLawPerspectiveView extends Composite implements UserLawPerspect
 		tree.addItem(new RootFilterItemAdvanced(centerPanel,bus,"law","Фильтр"));
 
 		//tree.addItem(db);
+		
+		
+	
+		
+		
+		
 		
 		
 		//db.setState(true);
@@ -112,7 +119,7 @@ public class UserLawPerspectiveView extends Composite implements UserLawPerspect
 		return tree.getSelectedItem();
 	}
 	@Override
-	public void showZaconDetailes(final ZaconDTO dto) {
+	public void showZaconDetailes(final ZaconDTO dto,final String path) {
 		centerPanel.clear();
 		
 		new RPCCall<MetaUnitMultivaluedEntityDTO>() {
@@ -123,7 +130,7 @@ public class UserLawPerspectiveView extends Composite implements UserLawPerspect
 
 			@Override
 			public void onSuccess(MetaUnitMultivaluedEntityDTO res) {
-				ZaconDetailedView view = new ZaconDetailedView(dto,res);
+				ZaconDetailedView view = new ZaconDetailedView(dto,res,path);
 				centerPanel.add(view);
 			}
 
@@ -163,9 +170,37 @@ public class UserLawPerspectiveView extends Composite implements UserLawPerspect
 //			}
 //		}
 	}
+	
 	@Override
 	public HasSelectionHandlers<TreeItem> getTreeForSelection() {
 		return tree;
+	}
+	@Override
+	public void showZaconIndex(final ArrayList<ZaconDTO> dtos, final String path) {
+		centerPanel.clear();
+		
+		new RPCCall<MetaUnitMultivaluedEntityDTO>() {
+
+			@Override
+			public void onFailure(Throwable arg0) {
+			}
+
+			@Override
+			public void onSuccess(MetaUnitMultivaluedEntityDTO res) {
+				centerPanel.add(new HTML("<p class=\"breadcrumbs\"><a href=\"#\" class=\"dark-red\">"+path+"</a></p><div class=\"spacer50\"></div>"));
+				for(ZaconDTO dt:dtos)
+				{
+					ZaconIndexedView view = new ZaconIndexedView(dt,res);
+					centerPanel.add(view);
+				}
+			}
+
+			@Override
+			protected void callService(
+					AsyncCallback<MetaUnitMultivaluedEntityDTO> cb) {
+				UserSocioResearchService.Util.getInstance().getDatabankStructure("law",cb);
+			}
+		}.retry(2);
 	}
 	
 }

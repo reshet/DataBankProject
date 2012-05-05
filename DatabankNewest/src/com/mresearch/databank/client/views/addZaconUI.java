@@ -43,6 +43,7 @@ import com.mresearch.databank.client.views.DBviewers.MultiValuedFieldViewer;
 import com.mresearch.databank.shared.JSON_Representation;
 import com.mresearch.databank.shared.MetaUnitMultivaluedEntityDTO;
 import com.mresearch.databank.shared.ZaconDTO;
+import com.smartgwt.client.widgets.RichTextEditor;
 
 public class addZaconUI extends Composite {
 
@@ -74,7 +75,7 @@ public class addZaconUI extends Composite {
 	
 	//@UiField
 	//TextBox _name,_number;
-	@UiField TextArea _abstract;
+	//@UiField TextArea _abstract;
 	//, _keywords;
 	//@UiField DatePicker date,date_accept,date_decline;
 	//_org_prompter;
@@ -93,12 +94,33 @@ public class addZaconUI extends Composite {
 	private MetaUnitMultivaluedEntityDTO db;
 	private MultiValuedField mv;
 	@UiField VerticalPanel elasticDBfields;
+	@UiField VerticalPanel descriptionEditor;
+	private RichTextEditor richTextEditor;
 	
-	private void renderDBfillers(String catalogization_str)
+	private void renderDBfillers(String cat_sys_name,String catalogization_str)
 	{
+		
+		descriptionEditor.clear();
+		
+        richTextEditor = new RichTextEditor();
+        richTextEditor.setHeight(400);  
+        richTextEditor.setWidth("100%");
+        //richTextEditor.setOverflow(Overflow.HIDDEN);  
+        richTextEditor.setCanDragResize(true);  
+        //richTextEditor.setShowEdges(true);  
+  
+        // Standard control group options include  
+        // "fontControls", "formatControls", "styleControls" and "colorControls"  
+        //richTextEditor.setControlGroups(new String[]{"fontControls", "styleControls"});  
+        richTextEditor.setValue("Краткое содержание");  
+        
+        descriptionEditor.add(richTextEditor);
+		
 		elasticDBfields.clear();
 		final HashMap<String,String> map = new HashMap<String,String>();
-		map.put("law_catalog", catalogization_str);
+		//map.put("law_catalog", catalogization_str);
+		map.put(cat_sys_name, catalogization_str);
+		
 		new RPCCall<MetaUnitMultivaluedEntityDTO>() {
 
 			@Override
@@ -121,7 +143,7 @@ public class addZaconUI extends Composite {
 	}
 	
 	@UiConstructor
-	public addZaconUI(String firstName,Long root_concept,String root_concept_name) {
+	public addZaconUI(String root_concept_sysname,Long root_concept,String root_concept_name) {
 		initWidget(uiBinder.createAndBindUi(this));
 		this.root_concept = root_concept;
 		status = new Label("Добавить документ...");
@@ -193,7 +215,10 @@ public class addZaconUI extends Composite {
 			}
 		    });
 		    */
-		renderDBfillers(root_concept_name);
+		
+		
+		
+		renderDBfillers(root_concept_sysname,root_concept_name);
 		
 	}
 
@@ -242,23 +267,25 @@ public class addZaconUI extends Composite {
 	
 	private void fillFormValues()
 	{
-		currentArt_DTO.setContents(_abstract.getText());
+		currentArt_DTO.setContents(richTextEditor.getValue());
 		currentArt_DTO.setEnclosure_key(blobkey);
 	
 		
 		JSON_Representation json = mv.getJSON();
-		mv.populateItemsLinksTo(currentArt_DTO.getId(), "law");
+		//mv.populateItemsLinksTo(currentArt_DTO.getId(), "law");
 		currentArt_DTO.setJson_desctiptor(json.getObj().toString());
 		HashMap<String, String> mapp = mv.returnCollectedMap();
 		//curr.setName(mapp.get("socioresearch_name"));
-		if(!_abstract.getText().equals(""))mapp.put("law_contents", _abstract.getText());
+		if(!richTextEditor.getValue().equals(""))mapp.put("law_contents", richTextEditor.getValue().replaceAll("\\<.*?\\>", ""));
 		currentArt_DTO.setFilling(mapp);
 		currentArt_DTO.setHeader(mapp.get("law_name"));
 		currentArt_DTO.setNumber(mapp.get("law_number"));
 		
 	}
-	private void catagolize(final String article_id)
+	private void catagolize(final Long zacon_id)
 	{
+		
+		
 //        if (root_concept != null)
 //        {
 //       	 	catalogService.getCatalogContentsIDs(root_concept, new AsyncCallback<ArrayList<String>>() {
@@ -283,6 +310,7 @@ public class addZaconUI extends Composite {
 //			});
 //        }
 	}
+	
 	private void createZacon()
 	{
 		fillFormValues();
@@ -291,14 +319,15 @@ public class addZaconUI extends Composite {
 			@Override
 			public void onFailure(Throwable arg0) {
 				// TODO Auto-generated method stub
-				
+				 Window.alert("ERROR Updated ZACON!");
 			}
 
 			@Override
-			public void onSuccess(ZaconDTO arg0) {
+			public void onSuccess(ZaconDTO res) {
 				  Window.alert("Updated ZACON!");
-				  
+				mv.populateItemsLinksTo(res.getId(), "law");
 			}
+			
 
 			@Override
 			protected void callService(AsyncCallback<ZaconDTO> cb) {

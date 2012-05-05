@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.ClickEvent;
+import com.google.gwt.event.shared.SimpleEventBus;
 import com.google.gwt.i18n.client.NumberFormat;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
@@ -24,6 +25,7 @@ import com.google.gwt.user.client.ui.Widget;
 import com.mresearch.databank.client.DatabankApp;
 import com.mresearch.databank.client.event.RecalculateDistributionsEvent;
 import com.mresearch.databank.client.helper.RPCCall;
+import com.mresearch.databank.client.presenters.UserResearchPerspectivePresenter;
 import com.mresearch.databank.client.service.UserSocioResearchService;
 import com.mresearch.databank.client.service.UserSocioResearchServiceAsync;
 import com.mresearch.databank.shared.UserAccountDTO;
@@ -54,10 +56,13 @@ public class UserResearchVar2DDView extends Composite {
 	@UiField HorizontalPanel target_panel;
 	@UiField HTMLPanel content_panel;
 	@UiField VerticalPanel selected_vars;
-	public UserResearchVar2DDView(final long research_id) {
+	@UiField HorizontalPanel analysis_bar;
+	public UserResearchVar2DDView(final long research_id,SimpleEventBus bus,UserResearchPerspectivePresenter.Display display) {
 		initWidget(uiBinder.createAndBindUi(this));
 		
 		DatabankApp.get().getCurrentUser().setCurrent_research(research_id);
+		UserAccountDTO user = DatabankApp.get().getCurrentUser();
+		analysis_bar.add(new AnalisysBarView(bus, display,user.getFilters_use()>0?true:false,user.getWeights_use()>0?true:false));
 		new RPCCall<UserAccountDTO>() {
 			
 			@Override

@@ -58,6 +58,10 @@ public class SearchResultsGenericGrid extends VerticalPanel
     ListGridField type_f = new ListGridField("_type", "Тип сущности");
     ListGridField contents_f = new ListGridField("_contents", "Содержание");
 
+    id_f.setWidth(25);
+    type_f.setWidth(70);
+   // contents_f.setWidth(600);
+    
     fields[0] = id_f;
     fields[1] = type_f;
     fields[2] = contents_f;

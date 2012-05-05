@@ -17,6 +17,7 @@ public interface AdminLawBeanRemote {
   ZaconDTO getZacon(Long id);
   ZaconDTO updateZacon(ZaconDTO Zacon);
   ArrayList<ZaconDTO_Light> getZaconDTOs(ArrayList<Long> keys);
+  
   ArrayList<ZaconDTO> getZaconDTOs_Normal(ArrayList<Long> keys);
   ArrayList<ZaconDTO_Light> getZaconsAll();
 

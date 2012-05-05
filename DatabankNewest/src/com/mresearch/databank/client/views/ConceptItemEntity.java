@@ -1,4 +1,4 @@
-package com.mresearch.databank.client.views;
+	package com.mresearch.databank.client.views;
 
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.TreeItem;
@@ -18,14 +18,21 @@ public class ConceptItemEntity extends TreeItem
   implements ICatalogizationConcept
 {
   private Long entity_id;
-
-  public ConceptItemEntity(String name, Long id)
+  private String entity_system_name;
+  private String catalog_path;
+  public ConceptItemEntity(String name, Long id,String sys_name,String base_path)
   {
     super(name);
     this.entity_id = id;
+    this.entity_system_name = sys_name;
+    this.catalog_path = !base_path.equals("")?base_path+"/"+name:name;
   }
 
-  public void refreshContents() {
+  public String getEntity_system_name() {
+	return entity_system_name;
+}
+
+public void refreshContents() {
     new RPCCall<MetaUnitMultivaluedEntityDTO>()
     {
       public void onFailure(Throwable caught)
@@ -50,7 +57,7 @@ public class ConceptItemEntity extends TreeItem
         }
         for (int i = 0; i < result.getItem_ids().size(); i++)
         {
-          ConceptItemEntity.this.addItem(new ConceptItemItem((String)result.getItem_names().get(i), (Long)result.getItem_ids().get(i)));
+          ConceptItemEntity.this.addItem(new ConceptItemItem((String)result.getItem_names().get(i), (Long)result.getItem_ids().get(i),getEntity_system_name(),getCatalog_path()));
         }
       }
 
@@ -65,14 +72,18 @@ public class ConceptItemEntity extends TreeItem
 
   
   protected ConceptItemEntity composeConceptNode(MetaUnitMultivaluedEntityDTO dto) {
-    ConceptItemEntity it = new ConceptItemEntity(dto.getDesc(), Long.valueOf(dto.getId()));
+    ConceptItemEntity it = new ConceptItemEntity(dto.getDesc(), Long.valueOf(dto.getId()),getEntity_system_name()+"_"+dto.getUnique_name(),getCatalog_path());
     for (int i = 0; i < dto.getItem_ids().size(); i++)
     {
-      it.addItem(new ConceptItemItem((String)dto.getItem_names().get(i), (Long)dto.getItem_ids().get(i)));
+      it.addItem(new ConceptItemItem((String)dto.getItem_names().get(i), (Long)dto.getItem_ids().get(i),getEntity_system_name()+"_"+dto.getUnique_name(),it.getCatalog_path()));
     }
     return it;
   }
-  public Long getEntity_id() {
+  public String getCatalog_path() {
+	return catalog_path;
+}
+
+public Long getEntity_id() {
     return this.entity_id;
   }
   public void setEntity_id(Long entity_id) {
@@ -81,7 +92,7 @@ public class ConceptItemEntity extends TreeItem
 
   protected ConceptItemStructure composeConceptsTree(MetaUnitMultivaluedDTO dto) {
     boolean hasConceptInside = false;
-    ConceptItemStructure it = new ConceptItemStructure(dto.getDesc(), Long.valueOf(dto.getId()));
+    ConceptItemStructure it = new ConceptItemStructure(dto.getDesc(), Long.valueOf(dto.getId()),getEntity_system_name()+"_"+dto.getUnique_name(),getCatalog_path());
     for (MetaUnitDTO dt : dto.getSub_meta_units())
     {
       if ((dt instanceof MetaUnitMultivaluedStructureDTO))

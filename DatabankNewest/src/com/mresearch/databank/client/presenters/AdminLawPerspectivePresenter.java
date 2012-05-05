@@ -177,7 +177,7 @@ public class AdminLawPerspectivePresenter implements Presenter
 
 								@Override
 								public void onSuccess(MetaUnitMultivaluedEntityDTO res) {
-									display.getCenterPanel().add(new ZaconDetailedView(result,res).asWidget());
+									display.getCenterPanel().add(new ZaconDetailedView(result,res,"Все законы").asWidget());
 								}
 
 								@Override
@@ -203,7 +203,14 @@ public class AdminLawPerspectivePresenter implements Presenter
 					//RootConceptsList rcl = (RootConceptsList)it;
 					//rcl.refreshContents();
 					eventBus.fireEvent(new CreateConceptEnabledEvent(true));
-				}else if (it instanceof ConceptItem<?>)
+				}
+				else if (it instanceof ConceptItemItem)
+				{
+					//RootConceptsList rcl = (RootConceptsList)it;
+					//rcl.refreshContents();
+					eventBus.fireEvent(new AddArticleEnabledEvent());
+				}
+				else if (it instanceof ConceptItem<?>)
 				{
 //					eventBus.fireEvent(new CreateConceptEnabledEvent(false));
 //					eventBus.fireEvent(new AddArticleEnabledEvent());
@@ -383,6 +390,7 @@ public class AdminLawPerspectivePresenter implements Presenter
 				TreeItem it = display.getSelectedItem();
 				Long key = null;
 				String name = null;
+				String sys_name = null;
 				if (it instanceof ConceptItem<?>)
 				{
 					key = ((ConceptItem<?>)it).getConcept_id();
@@ -391,8 +399,10 @@ public class AdminLawPerspectivePresenter implements Presenter
 				{
 					ConceptItemItem item = (ConceptItemItem)it;
 					name = item.getText();
+					key = item.getEntity_id();
+					sys_name = item.getEntity_system_name();
 				}
-				display.getCenterPanel().add(new addZaconUI("First name",key,name));
+				display.getCenterPanel().add(new addZaconUI(sys_name,key,name));
 			}
 		});
 		eventBus.addHandler(ShowResearchDetailsEvent.TYPE, new ShowResearchDetailsEventHandler() {

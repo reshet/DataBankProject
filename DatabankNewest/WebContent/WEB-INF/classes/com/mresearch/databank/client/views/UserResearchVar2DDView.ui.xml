@@ -22,7 +22,7 @@
 		    color: #656565;
 		    text-align: right;
 		    border-right: #cccccc solid 1px;
-		    /*border-bottom: #e5e5e5 solid 1px;*/
+		    border-bottom: #e5e5e5 solid 1px;
 		    padding: 2px 5px;
 		
 		}
@@ -30,10 +30,19 @@
 		.tableStyle tr > th:first-child, .tableStyle  tr > td:first-child  {
 		    color: #4d4d4d;
 		    text-align: left;
-		    border-right: #cccccc double 3px;
+		    border-right: #cccccc solid 3px;
+		    
+		 
+		}
+		
+		.analisys{
+			text-align: right;
+		
 		}
 	</ui:style>
 	<g:VerticalPanel>
+		<g:HorizontalPanel ui:field="analysis_bar" styleName="{style.analisys}">
+		</g:HorizontalPanel>
 		<g:HTMLPanel>
 			<table>
 				<th>

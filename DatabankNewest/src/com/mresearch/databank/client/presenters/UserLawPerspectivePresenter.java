@@ -35,6 +35,7 @@ import com.mresearch.databank.client.event.ShowVarDetailsEventHandler;
 import com.mresearch.databank.client.event.ShowZaconDetailsEvent;
 import com.mresearch.databank.client.event.ShowZaconDetailsEventHandler;
 import com.mresearch.databank.client.helper.RPCCall;
+import com.mresearch.databank.client.service.AdminArticleService;
 import com.mresearch.databank.client.service.AdminArticleServiceAsync;
 import com.mresearch.databank.client.service.AdminSocioResearchService;
 import com.mresearch.databank.client.service.StartPageServiceAsync;
@@ -47,6 +48,7 @@ import com.mresearch.databank.client.views.ConceptContentsItem;
 import com.mresearch.databank.client.views.ConceptItem;
 import com.mresearch.databank.client.views.IPickBinder;
 
+import com.mresearch.databank.client.views.ConceptItemItem;
 import com.mresearch.databank.client.views.PickElementsTableView;
 import com.mresearch.databank.client.views.ResearchDescItem;
 import com.mresearch.databank.client.views.ResearchVarList;
@@ -77,7 +79,9 @@ public class UserLawPerspectivePresenter implements Presenter
 		 Widget asWidget();
 		 void showLoadingLabel();
 		 TreeItem getSelectedItem();
-		 void showZaconDetailes(ZaconDTO dto);
+		 void showZaconDetailes(ZaconDTO dto,String path);
+		 void showZaconIndex(ArrayList<ZaconDTO> dtos,String path);
+		 
 		 VerticalPanel getCenterPanel();
 		 void findInZaconList(Long id);
 	 }
@@ -102,7 +106,7 @@ public class UserLawPerspectivePresenter implements Presenter
 			 String id = p_values.get(index);
 			 Long idd = Long.parseLong(id);
 			 display.findInZaconList(idd);
-			 fetchZaconDetailes(idd);
+			 fetchZaconDetailes(idd,"Законодательство");
 			 // eventBus.fireEvent(new ShowResearchDetailsEvent(id));
 		 }
 	}
@@ -171,9 +175,18 @@ public class UserLawPerspectivePresenter implements Presenter
 					ZaconDescItem rv = (ZaconDescItem)it;
 					//fetchResearchVarData(it, rv.getResearch_id());
 					eventBus.fireEvent(new ShowZaconDetailsEvent(rv.getContents_id()));
+				}else if (it instanceof ConceptItemItem)
+				{
+					ConceptItemItem rv = (ConceptItemItem)it;
+					rv.refreshTaggedEntitiesIDs();
+					if(rv.getLaw_ids().size()>0)fetchZaconIndex(rv.getLaw_ids(),rv.getCatalog_path());
+					//fetchResearchVarData(it, rv.getResearch_id());
+					//eventBus.fireEvent(new ShowZaconDetailsEvent(rv.getContents_id()));
 				}
 			}
 		});
+		
+		
 		display.getTreeForOpen().addOpenHandler(new OpenHandler<TreeItem>() {
 			@Override
 			public void onOpen(OpenEvent<TreeItem> event) {
@@ -186,6 +199,13 @@ public class UserLawPerspectivePresenter implements Presenter
 				{
 					RootConceptsList rcl = (RootConceptsList)it;
 					rcl.refreshContents();
+				}else if (it instanceof ConceptItemItem)
+				{
+					ConceptItemItem rv = (ConceptItemItem)it;
+					rv.refreshContents();
+					//if(rv.getLaw_ids().size()>0)fetchZaconIndex(rv.getLaw_ids());
+					//fetchResearchVarData(it, rv.getResearch_id());
+					//eventBus.fireEvent(new ShowZaconDetailsEvent(rv.getContents_id()));
 				}
 			}
 		});
@@ -195,7 +215,7 @@ public class UserLawPerspectivePresenter implements Presenter
 			public void onShowZaconDetails(ShowZaconDetailsEvent event) {
 				display.getCenterPanel().clear();
 				display.getCenterPanel().add(new HTML("<h2>Загрузка данных...</h2>"));
-				fetchZaconDetailes(event.getZacon_id());
+				fetchZaconDetailes(event.getZacon_id(),"Законодательство");
 			}
 		});
 //		eventBus.addHandler(ShowVarDetailsEvent.TYPE, new ShowVarDetailsEventHandler() {
@@ -239,7 +259,7 @@ public class UserLawPerspectivePresenter implements Presenter
 		}.retry(3);
 	}
 	
-	private void fetchZaconDetailes(final Long id_Zacon)
+	private void fetchZaconDetailes(final Long id_Zacon,final String path)
 	{
 		new RPCCall<ZaconDTO>() {
 
@@ -250,12 +270,32 @@ public class UserLawPerspectivePresenter implements Presenter
 
 			@Override
 			public void onSuccess(ZaconDTO result) {
-				display.showZaconDetailes(result);
+				display.showZaconDetailes(result,path);
 			}
 
 			@Override
 			protected void callService(AsyncCallback<ZaconDTO> cb) {
 				rpcService.getZacon(id_Zacon, cb);
+			}
+		}.retry(3);
+	}
+	private void fetchZaconIndex(final ArrayList<Long> law_ids,final String path)
+	{
+		new RPCCall<ArrayList<ZaconDTO>>() {
+
+			@Override
+			public void onFailure(Throwable caught) {
+				Window.alert("Error on getting zacon detailes index:"+caught.getMessage());
+			}
+
+			@Override
+			public void onSuccess(ArrayList<ZaconDTO> result) {
+				display.showZaconIndex(result,path);
+			}
+
+			@Override
+			protected void callService(AsyncCallback<ArrayList<ZaconDTO>> cb) {
+				AdminArticleService.Util.getInstance().getZaconDTOs_Normal(law_ids, cb);
 			}
 		}.retry(3);
 	}
