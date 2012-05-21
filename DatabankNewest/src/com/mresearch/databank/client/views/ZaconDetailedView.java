@@ -23,6 +23,7 @@ import com.google.gwt.user.client.ui.Widget;
 import com.mresearch.databank.client.views.DBviewers.MultiValuedFieldViewer;
 import com.mresearch.databank.client.views.DBviewers.NiceMultiValuedFieldViewer;
 import com.mresearch.databank.client.views.DBviewers.NiceMultiValuedValuesViewer;
+import com.mresearch.databank.client.views.DBviewers.NiceMultiValuedViewer;
 import com.mresearch.databank.shared.MetaUnitMultivaluedEntityDTO;
 import com.mresearch.databank.shared.ZaconDTO;
 import com.sun.org.apache.xpath.internal.operations.And;
@@ -64,6 +65,8 @@ public class ZaconDetailedView extends Composite {
 		//this._abstract.setText(dto.getContents());
 		//this._number.setText(dto.getNumber());
 		
+		
+		
 		this.dto =  dto;
 		this.db = dt;
 		this.html.setHTML(dto.getContents()==null?"":dto.getContents());
@@ -92,22 +95,26 @@ public class ZaconDetailedView extends Composite {
 		private void renderDBfillers()
 		{
 			
+			
 			elasticDBfieldNames.clear();
-			elasticDBfieldValues.clear();
+			//elasticDBfieldValues.clear();
+			
 			
 			if(dto.getFilling()== null)dto.setFilling(new HashMap<String, String>());
 			
-			NiceMultiValuedFieldViewer mv = new NiceMultiValuedFieldViewer(db,dto.getFilling(),"");
-			NiceMultiValuedValuesViewer mv2 = new NiceMultiValuedValuesViewer(db,dto.getFilling(),"");
+			ArrayList<String> exclude = new ArrayList<String>();
+			exclude.add("contents");
+			NiceMultiValuedViewer mv = new NiceMultiValuedViewer(db,dto.getFilling(),"",exclude);
+			//NiceMultiValuedValuesViewer mv2 = new NiceMultiValuedValuesViewer(db,dto.getFilling(),"");
 			
 			elasticDBfieldNames.add(mv);
-			elasticDBfieldValues.add(mv2);
+			//elasticDBfieldValues.add(mv2);
 			
 			
 			HorizontalPanel h = new HorizontalPanel();
 			h.setSpacing(6);
 			h.add(elasticDBfieldNames);
-			h.add(elasticDBfieldValues);
+			//h.add(elasticDBfieldValues);
 			
 			//MultiValuedFieldViewer mv = new MultiValuedFieldViewer(db,dto.getFilling(),"");
 			
@@ -124,8 +131,8 @@ public class ZaconDetailedView extends Composite {
 		    // Create a dialog box and set the caption text
 		    final PopupPanel dialogBox = new PopupPanel();
 		    //dialogBox.setText("График распределения");
-		    dialogBox.setHeight("400px");
-		    dialogBox.setWidth("400px");
+		   // dialogBox.setHeight("400px");
+		  // dialogBox.setWidth("400px");
 		    // Create a table to layout the content
 		    VerticalPanel dialogContents = new VerticalPanel();
 		    dialogContents.setWidth("100%");

@@ -153,6 +153,7 @@ public class UserResearchPerspectiveView extends Composite implements UserResear
 		for(SocioResearchDTO_Light dto:researchList)
 		{
 			ResearchDescItem research_node = new ResearchDescItem(dto);
+			research_node.addItem(new ResearchMetadataItem(dto));
 			research_node.addItem(new ResearchVarList(dto));
 			//for(String )
 			simpleResearchListItem.addItem(research_node);

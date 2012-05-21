@@ -52,6 +52,7 @@ import com.mresearch.databank.client.views.IPickBinder;
 import com.mresearch.databank.client.views.PickElementsTableView;
 import com.mresearch.databank.client.views.RealVariableDetailedView;
 import com.mresearch.databank.client.views.ResearchDescItem;
+import com.mresearch.databank.client.views.ResearchMetadataItem;
 import com.mresearch.databank.client.views.ResearchVarList;
 import com.mresearch.databank.client.views.SimpleResearchList;
 import com.mresearch.databank.client.views.TextVariableDetailedView;
@@ -175,9 +176,9 @@ public class UserResearchPerspectivePresenter implements Presenter
 				{
 					
 				}
-				else if (it instanceof ResearchDescItem)
+				else if (it instanceof ResearchMetadataItem)
 				{
-					ResearchDescItem rv = (ResearchDescItem)it;
+					ResearchMetadataItem rv = (ResearchMetadataItem)it;
 					current_research_id = rv.getContents_id();
 					//fetchResearchVarData(it, rv.getResearch_id());
 					eventBus.fireEvent(new ShowResearchDetailsEvent(rv.getContents_id()));

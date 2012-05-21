@@ -542,7 +542,7 @@ div.search-submit {
 		}
 
 .gwt-Tree .gwt-TreeItem {
-	font-family: 'NeoSansPro-Light';
+	font-family: 'NeoSansPro-Medium';
 	font-size:  13px;
 	color:#353535;
 	font-weight: normal;
@@ -551,10 +551,26 @@ div.search-submit {
   	cursor: pointer;
 }
 
-.gwt-Tree .gwt-TreeItem-selected {
-
-} 
-
+.research_section .gwt-TreeItem-selected
+		{
+		   background-color: #529510;
+		   background: #529510;
+		}
+.law_section .gwt-TreeItem-selected
+		{
+		   background-color: #d64e29;
+		   background: #d64e29;
+		}		
+.publication_section .gwt-TreeItem-selected
+		{
+		   background-color: #e39626;
+		   background: #e39626;
+		}	
+.jury_section .gwt-TreeItem-selected
+		{
+		   background-color: #215590;
+		   background: #215590;
+		}	
 .gwt-TabLayoutPanel {
   height: 100%;
   background-color: #FFFFFF;

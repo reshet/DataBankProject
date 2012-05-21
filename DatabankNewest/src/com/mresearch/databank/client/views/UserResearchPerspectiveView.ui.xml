@@ -12,11 +12,7 @@
 			border: 3px solid #69c014;
 		}
 		
-		.gwt-TreeItem-selected
-		{
-		   background-color: #529510;
-		   background: #529510;
-		}
+		
 	</ui:style>
 	<g:VerticalPanel width="100%" horizontalAlignment="ALIGN_CENTER" height="100%">
 				

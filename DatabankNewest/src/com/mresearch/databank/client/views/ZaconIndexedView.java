@@ -26,6 +26,7 @@ import com.mresearch.databank.client.event.ShowZaconDetailsEvent;
 import com.mresearch.databank.client.views.DBviewers.MultiValuedFieldViewer;
 import com.mresearch.databank.client.views.DBviewers.NiceMultiValuedFieldViewer;
 import com.mresearch.databank.client.views.DBviewers.NiceMultiValuedValuesViewer;
+import com.mresearch.databank.client.views.DBviewers.NiceMultiValuedViewer;
 import com.mresearch.databank.shared.MetaUnitMultivaluedEntityDTO;
 import com.mresearch.databank.shared.ZaconDTO;
 import com.sun.org.apache.xpath.internal.operations.And;
@@ -49,7 +50,7 @@ public class ZaconIndexedView extends Composite {
 	@UiField HTML html;
 	@UiField Label name;
 	VerticalPanel elasticDBfieldNames = new VerticalPanel();
-	VerticalPanel elasticDBfieldValues = new VerticalPanel();
+	//VerticalPanel elasticDBfieldValues = new VerticalPanel();
 	public String arrToStr(ArrayList<String> arr)
 	{
 		String ans = "";
@@ -69,7 +70,7 @@ public class ZaconIndexedView extends Composite {
 		//this._number.setText(dto.getNumber());
 		this.dto =  dto;
 		this.db = dt;
-		this.html.setHTML(dto.getContents()==null?"":dto.getContents());
+		this.html.setHTML(dto.getContents()==null?"":dto.getContents().replaceAll("\\<.*?>",""));
 		this.name.setText(dto.getHeader());
 //		authors.setText(arrToStr(dto.getAuthors()));
 //		keywords.setText(arrToStr(dto.getKey_words()));
@@ -99,21 +100,22 @@ public class ZaconIndexedView extends Composite {
 		{
 			
 			elasticDBfieldNames.clear();
-			elasticDBfieldValues.clear();
+			//elasticDBfieldValues.clear();
 			
 			if(dto.getFilling()== null)dto.setFilling(new HashMap<String, String>());
 			
-			NiceMultiValuedFieldViewer mv = new NiceMultiValuedFieldViewer(db,dto.getFilling(),"");
-			NiceMultiValuedValuesViewer mv2 = new NiceMultiValuedValuesViewer(db,dto.getFilling(),"");
+			NiceMultiValuedViewer mv = new NiceMultiValuedViewer(db,dto.getFilling(),"",null);
+			//NiceMultiValuedFieldViewer mv = new NiceMultiValuedFieldViewer(db,dto.getFilling(),"");
+			//NiceMultiValuedValuesViewer mv2 = new NiceMultiValuedValuesViewer(db,dto.getFilling(),"");
 			
 			elasticDBfieldNames.add(mv);
-			elasticDBfieldValues.add(mv2);
+			//elasticDBfieldValues.add(mv2);
 			
 			
 			HorizontalPanel h = new HorizontalPanel();
 			h.setSpacing(6);
 			h.add(elasticDBfieldNames);
-			h.add(elasticDBfieldValues);
+			//h.add(elasticDBfieldValues);
 			
 			//MultiValuedFieldViewer mv = new MultiValuedFieldViewer(db,dto.getFilling(),"");
 			
@@ -130,8 +132,8 @@ public class ZaconIndexedView extends Composite {
 		    // Create a dialog box and set the caption text
 		    final PopupPanel dialogBox = new PopupPanel();
 		    //dialogBox.setText("График распределения");
-		    dialogBox.setHeight("400px");
-		    dialogBox.setWidth("400px");
+		   // dialogBox.setHeight("400px");
+		   // dialogBox.setWidth("400px");
 		    // Create a table to layout the content
 		    VerticalPanel dialogContents = new VerticalPanel();
 		    dialogContents.setWidth("100%");
@@ -151,6 +153,7 @@ public class ZaconIndexedView extends Composite {
 		        });
 		    dialogContents.add(w);
 		    dialogContents.add(closeButton);
+		   // dialogContents.
 		    dialogBox.setWidget(dialogContents);
 		    return dialogBox;
 		    

@@ -17,6 +17,7 @@ import com.mresearch.databank.client.views.DBfillers.MultiValuedField;
 import com.mresearch.databank.client.views.DBviewers.MultiValuedFieldViewer;
 import com.mresearch.databank.client.views.DBviewers.NiceMultiValuedFieldViewer;
 import com.mresearch.databank.client.views.DBviewers.NiceMultiValuedValuesViewer;
+import com.mresearch.databank.client.views.DBviewers.NiceMultiValuedViewer;
 import com.mresearch.databank.shared.MetaUnitEntityItemDTO;
 import com.mresearch.databank.shared.MetaUnitMultivaluedEntityDTO;
 import com.mresearch.databank.shared.SearchTaskResearchDTO;
@@ -34,7 +35,8 @@ public class UserResearchDetailedView extends Composite {
 	public UserResearchDetailedView() {
 		initWidget(uiBinder.createAndBindUi(this));
 	}
-	@UiField VerticalPanel elasticDBfieldNames,elasticDBfieldValues;
+	@UiField VerticalPanel elasticDBfieldNames;
+	//;,elasticDBfieldValues;
 	@UiField Label weights;
 	public static String arrToStr(ArrayList<String> data)
 	{
@@ -116,13 +118,15 @@ public class UserResearchDetailedView extends Composite {
 	private void renderDBfillers()
 	{
 		elasticDBfieldNames.clear();
-		elasticDBfieldValues.clear();
+		//elasticDBfieldValues.clear();
+		//ArrayList<String> exclude = new ArrayList<String>();
+		NiceMultiValuedViewer mv = new NiceMultiValuedViewer(db,dto.getFilling(),"",null);
+		//NiceMultiValuedFieldViewer mv = new NiceMultiValuedFieldViewer(db,dto.getFilling(),"");
+		//NiceMultiValuedValuesViewer mv2 = new NiceMultiValuedValuesViewer(db,dto.getFilling(),"");
 		
-		NiceMultiValuedFieldViewer mv = new NiceMultiValuedFieldViewer(db,dto.getFilling(),"");
-		NiceMultiValuedValuesViewer mv2 = new NiceMultiValuedValuesViewer(db,dto.getFilling(),"");
 		
 		elasticDBfieldNames.add(mv);
-		elasticDBfieldValues.add(mv2);
+		//elasticDBfieldValues.add(mv2);
 		
 	}
 }

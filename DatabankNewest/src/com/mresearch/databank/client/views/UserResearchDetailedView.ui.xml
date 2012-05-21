@@ -8,16 +8,17 @@
 	<g:VerticalPanel>
 		<g:HTMLPanel>
 			<h3>Метаданные исследования</h3>
-			<table>
-				<tr>
-					<td>
-						<g:VerticalPanel ui:field="elasticDBfieldNames"></g:VerticalPanel>
-					</td>
-					<td>
-						<g:VerticalPanel ui:field="elasticDBfieldValues"></g:VerticalPanel>
-					</td>
-				</tr>
-			</table>
+			<g:VerticalPanel ui:field="elasticDBfieldNames"></g:VerticalPanel>
+				
+<!-- 			<table> -->
+<!-- 				<tr> -->
+<!-- 					<td> -->
+<!-- 					</td> -->
+<!-- 					<td> -->
+<!-- 						<g:VerticalPanel ui:field="elasticDBfieldValues"></g:VerticalPanel> -->
+<!-- 					</td> -->
+<!-- 				</tr> -->
+<!-- 			</table> -->
 		</g:HTMLPanel>	
 		
 		<g:HorizontalPanel>
