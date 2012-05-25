@@ -62,6 +62,7 @@ import com.mresearch.databank.client.event.ShowVarDetailsEventHandler;
 import com.mresearch.databank.client.presenters.Presenter;
 import com.mresearch.databank.client.presenters.StartPagePerspectivePresenter;
 import com.mresearch.databank.client.presenters.UserLawPerspectivePresenter;
+import com.mresearch.databank.client.presenters.UserPubPerspectivePresenter;
 //import com.mresearch.databank.client.presenters.UserNewsPerspectivePresenter;
 import com.mresearch.databank.client.presenters.UserResearchPerspectivePresenter;
 import com.mresearch.databank.client.presenters.UserSearchPerspectivePresenter;
@@ -76,6 +77,8 @@ import com.mresearch.databank.client.service.UserSocioResearchService;
 import com.mresearch.databank.client.service.UserSocioResearchServiceAsync;
 import com.mresearch.databank.client.views.StartPagePerspectiveView;
 import com.mresearch.databank.client.views.UserLawPerspectiveView;
+import com.mresearch.databank.client.views.UserPublicationPerspectiveView;
+
 //import com.mresearch.databank.client.views.UserNewsPerspectiveView;
 import com.mresearch.databank.client.views.UserResearchPerspectiveView;
 import com.mresearch.databank.client.views.UserSearchPerspectiveView;
@@ -100,7 +103,7 @@ public class UserAppController implements ValueChangeHandler<String>, AppControl
   
   
 	
-  @UiField Anchor mainNav,researchNav,lawNav,juryNav,commentNav;
+  @UiField Anchor mainNav,researchNav,lawNav,juryNav,pubNav;
   //@UiField Anchor mainNav,newsNav,researchNav,lawNav,juryNav,
   @UiField Anchor loginNav;
  // @UiField MenuItem mainNav,researchNav,lawNav,juryNav;
@@ -233,6 +236,12 @@ public class UserAppController implements ValueChangeHandler<String>, AppControl
 			doViewUserLaw();
 		}
 	});
+    pubNav.addClickHandler(new ClickHandler() {
+		@Override
+		public void onClick(ClickEvent event) {
+			doViewUserPub();
+		}
+	});
     searchBox.addMouseDownHandler(new MouseDownHandler() {
 		@Override
 		public void onMouseDown(MouseDownEvent arg0) {
@@ -341,7 +350,11 @@ public class UserAppController implements ValueChangeHandler<String>, AppControl
   }
   private void doViewUserLaw() {
 	    History.newItem("user-law");
-}  private void doViewSearchResults(String searchstr)
+  }
+  private void doViewUserPub() {
+    History.newItem("user-pub");
+  }
+  private void doViewSearchResults(String searchstr)
   {
 	  if (searchstr != null && !searchstr.equals("")&& !searchstr.equals("Поиск"))
 	  {
@@ -431,6 +444,17 @@ public class UserAppController implements ValueChangeHandler<String>, AppControl
     	  
     	  
     	  presenter = new UserLawPerspectivePresenter(articleService, eventBus, new UserLawPerspectiveView(eventBus));
+    	  ArrayList<String> param_names,param_values;
+    	  param_names = new ArrayList<String>();
+    	  param_values = new ArrayList<String>();
+    	  parsePathToken(token, param_names, param_values);
+    	  presenter.go(centerPanel,param_names,param_values);
+    	  
+      }
+      else if(token.startsWith("user-pub")){
+    	  
+    	  
+    	  presenter = new UserPubPerspectivePresenter(articleService, eventBus, new UserPublicationPerspectiveView(eventBus));
     	  ArrayList<String> param_names,param_values;
     	  param_names = new ArrayList<String>();
     	  param_values = new ArrayList<String>();

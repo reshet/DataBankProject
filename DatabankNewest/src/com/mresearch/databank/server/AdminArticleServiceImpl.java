@@ -54,13 +54,20 @@ import org.w3c.dom.Element;
 
 import com.google.gwt.user.server.rpc.RemoteServiceServlet;
 
+import com.mplatforma.amr.service.remote.AdminJuryBeanRemote;
 import com.mplatforma.amr.service.remote.AdminLawBeanRemote;
+import com.mplatforma.amr.service.remote.AdminPubBeanRemote;
 import com.mplatforma.amr.service.remote.AdminSocioResearchBeanRemote;
 import com.mresearch.databank.client.service.AdminArticleService;
 import com.mresearch.databank.client.service.AdminSocioResearchService;
 import com.mresearch.databank.shared.ArticleDTO;
+import com.mresearch.databank.shared.ConsultationDTO;
+import com.mresearch.databank.shared.ConsultationDTO_Light;
 import com.mresearch.databank.shared.OrgDTO;
+import com.mresearch.databank.shared.PublicationDTO;
+import com.mresearch.databank.shared.PublicationDTO_Light;
 import com.mresearch.databank.shared.SocioResearchDTO;
+import com.mresearch.databank.shared.TopicDTO;
 import com.mresearch.databank.shared.ZaconDTO;
 import com.mresearch.databank.shared.ZaconDTO_Light;
 
@@ -73,6 +80,8 @@ public class AdminArticleServiceImpl extends RemoteServiceServlet implements
     AdminArticleService {
 
 	private static AdminLawBeanRemote eao;
+	private static AdminPubBeanRemote eao2;
+	private static AdminJuryBeanRemote eao3;
 	static
 	{
 		Object obj = new String("some");
@@ -83,6 +92,18 @@ public class AdminArticleServiceImpl extends RemoteServiceServlet implements
 		  obj = ic.lookup(jndiName);
 		  System.out.println("lookup returned " + obj);
 		  eao = (AdminLawBeanRemote) obj;
+		  
+		  
+		  final String jndiName2 = "java:global/DatabankEnterprise-ejb/AdminPubRemoteBean";
+		  obj = ic.lookup(jndiName2);
+		  System.out.println("lookup returned " + obj);
+		  eao2 = (AdminPubBeanRemote) obj;
+		  
+		  
+		  final String jndiName3 = "java:global/DatabankEnterprise-ejb/AdminJuryRemoteBean";
+		  obj = ic.lookup(jndiName3);
+		  System.out.println("lookup returned " + obj);
+		  eao3 = (AdminJuryBeanRemote) obj;
 		} catch (NamingException e) {
 			e.printStackTrace();
 		}
@@ -144,5 +165,88 @@ public ArrayList<ZaconDTO_Light> getZaconsAll() {
 public ArrayList<ZaconDTO> getZaconDTOs_Normal(ArrayList<Long> keys) {
 	return eao.getZaconDTOs_Normal(keys);
 }
+
+@Override
+public Boolean deletePublication(Long id) {
+	return eao2.deletePublication(id);
+}
+
+@Override
+public PublicationDTO getPublication(Long id) {
+	return eao2.getPublication(id);
+}
+
+@Override
+public PublicationDTO updatePublication(PublicationDTO aDTO) {
+	return eao2.updatePublication(aDTO);
+}
+
+@Override
+public ArrayList<PublicationDTO_Light> getPublicationDTOs(ArrayList<Long> keys) {
+	return eao2.getPublicationDTOs(keys);
+}
+
+@Override
+public ArrayList<PublicationDTO_Light> getPublicationsAll() {
+	return eao2.getPublicationsAll();
+}
+
+@Override
+public ArrayList<PublicationDTO> getPublicationDTOs_Normal(ArrayList<Long> keys) {
+	return eao2.getPublicationDTOs_Normal(keys);
+}
+
+@Override
+public ArrayList<PublicationDTO_Light> getPublications(int limit, int offset) {
+	return eao2.getPublications(limit, offset);
+}
+
+@Override
+public ArrayList<TopicDTO> getTopics() {
+	return eao2.getTopics();
+}
+
+/////////////////////
+
+@Override
+public Boolean deleteConsultation(Long id) {
+	return eao3.deleteConsultation(id);
+}
+
+@Override
+public ConsultationDTO getConsultation(Long id) {
+	return eao3.getConsultation(id);
+}
+
+@Override
+public ConsultationDTO updateConsultation(ConsultationDTO aDTO) {
+	return eao3.updateConsultation(aDTO);
+}
+
+@Override
+public ArrayList<ConsultationDTO_Light> getConsultationDTOs(ArrayList<Long> keys) {
+	return eao3.getConsultationDTOs(keys);
+}
+
+@Override
+public ArrayList<ConsultationDTO_Light> getConsultationsAll() {
+	return eao3.getConsultationsAll();
+}
+
+@Override
+public ArrayList<ConsultationDTO> getConsultationDTOs_Normal(ArrayList<Long> keys) {
+	return eao3.getConsultationDTOs_Normal(keys);
+}
+
+@Override
+public ArrayList<ConsultationDTO_Light> getConsultations(int limit, int offset) {
+	return eao3.getConsultations(limit, offset);
+}
+
+@Override
+public ArrayList<TopicDTO> getJuryTopics() {
+	return eao3.getTopics();
+}
+
 
 } // end class

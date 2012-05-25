@@ -11,7 +11,7 @@
 		.tableResearch
 		{
 			font-weight: normal;
-			padding: 5px;
+			padding: 2px;
 			margin-left: 15px;
 		}
 	</ui:style>

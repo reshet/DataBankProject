@@ -79,8 +79,10 @@ body {
 .dark-green { color: #529510; }
 .red { color: #e95830; }
 .dark-red { color: #db372a; }
+
 .blue {color: #3c77ba;}
 .yellow { color: #e5aa23; }
+.dark-yellow { color: #d36c20; }
 .italic { font-style: italic; }
 .bold { font-weight: bold; }
 .frac { color: #a9a9a9; }
@@ -258,6 +260,11 @@ div#mm {
     position: relative;
     height: 51px;
     background: transparent url(i/mainmenu-bg.png) left top repeat-x;
+}
+
+div.vert_separator {
+    width: 2px;
+    background: transparent url(i/gray.png) left top repeat-y;
 }
 
 div.mm-container {

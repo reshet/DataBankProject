@@ -1,0 +1,25 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui">
+	<ui:style>
+		
+	</ui:style>
+	<g:VerticalPanel>
+		<g:HTMLPanel>
+	        <h1 class="yellow"><g:Label ui:field="name"/></h1>
+         	<div class="column560">
+                <p class="gray25">
+						<g:HTML ui:field="html">
+						</g:HTML>
+				</p>
+				<div class="dark-yellow right">
+				<g:HorizontalPanel spacing="5">
+					<g:Anchor ui:field="show_deeper" text="Подробнее..."></g:Anchor>
+					<g:HorizontalPanel ui:field="link_panel"></g:HorizontalPanel>
+					<g:Anchor ui:field="show_meta" text="Доп. информация"></g:Anchor>
+				</g:HorizontalPanel>
+				</div>
+			</div>
+		</g:HTMLPanel>
+	</g:VerticalPanel>
+</ui:UiBinder> 

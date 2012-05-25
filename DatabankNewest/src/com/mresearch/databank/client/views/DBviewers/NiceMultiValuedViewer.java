@@ -93,8 +93,8 @@ public class NiceMultiValuedViewer extends Composite {
 					subunits_table.setWidget(counter, 1, new SimpleFieldValueViewer(def_val));
 					subunits_table.getCellFormatter().setWordWrap(counter, 0, true);
 					subunits_table.getCellFormatter().setWordWrap(counter, 1, true);
-					subunits_table.setCellSpacing(10);
-					subunits_table.setCellPadding(10);
+					subunits_table.setCellSpacing(5);
+					subunits_table.setCellPadding(3);
 					
 					
 					counter++;

@@ -261,10 +261,10 @@
 								</div>
 							</div>
 						</g:Anchor>
-						<g:Anchor href="javascript:;" ui:field="commentNav">
+						<g:Anchor href="javascript:;" ui:field="pubNav">
 							<div class="mm-item mm-41 mm-hover">
 								<div class="mm-caption">
-									Актуальный комментарий
+									Публикации
 								</div>
 							</div>
 						</g:Anchor>
@@ -328,6 +328,8 @@
 					</g:VerticalPanel>
 				</div>
 			</g:HTMLPanel>
-			<g:Anchor href="javascript:;" ui:field="loginNav" styleName="{style.login}">Войти!</g:Anchor>
+			<g:HorizontalPanel horizontalAlignment="ALIGN_RIGHT" width="100%" height="100%">
+				<g:Anchor href="javascript:;" ui:field="loginNav" styleName="{style.login}">Войти!</g:Anchor>
+			</g:HorizontalPanel>
 	</g:VerticalPanel>
 </ui:UiBinder> 

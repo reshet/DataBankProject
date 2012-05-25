@@ -138,6 +138,7 @@ public class MultiValuedField extends Composite implements MetaUnitFiller,MetaUn
 		}
 	}
 	
+	
 	private void rebuildJSON()
 	{
 		JSONObject obj = new JSONObject();
@@ -149,8 +150,9 @@ public class MultiValuedField extends Composite implements MetaUnitFiller,MetaUn
 	      JSON_Representation cur_json = filler.getJSON();
 	      for (String key : cur_json.getObj().keySet())
 	      {
-	        obj.put(this.dto.getUnique_name() + "_" + key, cur_json.getObj().get(key));
-	      }
+	        //obj.put(this.dto.getUnique_name() + "_" + key, cur_json.getObj().get(key));
+	    	  obj.put(key, cur_json.getObj().get(key));
+	 	  }
 
 	    }
 		current_json = new JSON_Representation(obj);

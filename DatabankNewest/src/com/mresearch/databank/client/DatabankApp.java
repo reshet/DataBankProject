@@ -151,6 +151,10 @@ public class DatabankApp implements EntryPoint {
 		    		{
 		    			appController = new LawAdminAppController(eventBus);
 		    		}
+		    		else if (getCurrentUser().getAccountType().equals("pubAdmin"))
+		    		{
+		    			appController = new PubAdminAppController(eventBus);
+		    		}
 //		    		else if (getCurrentUser().getAccountType().equals("juryConsultant"))
 //		    		{
 //		    			appController = new JuryAppController(eventBus);

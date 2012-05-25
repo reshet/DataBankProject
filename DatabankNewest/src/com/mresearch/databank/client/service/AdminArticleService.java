@@ -24,9 +24,14 @@ import com.google.gwt.core.client.GWT;
 import com.google.gwt.user.client.rpc.RemoteService;
 import com.google.gwt.user.client.rpc.RemoteServiceRelativePath;
 import com.mresearch.databank.shared.ArticleDTO;
+import com.mresearch.databank.shared.ConsultationDTO;
+import com.mresearch.databank.shared.ConsultationDTO_Light;
 import com.mresearch.databank.shared.OrgDTO;
+import com.mresearch.databank.shared.PublicationDTO;
+import com.mresearch.databank.shared.PublicationDTO_Light;
 import com.mresearch.databank.shared.ResearchFilesDTO;
 import com.mresearch.databank.shared.SocioResearchDTO;
+import com.mresearch.databank.shared.TopicDTO;
 import com.mresearch.databank.shared.ZaconDTO;
 import com.mresearch.databank.shared.ZaconDTO_Light;
 
@@ -64,4 +69,23 @@ public interface AdminArticleService extends RemoteService {
   ArrayList<ZaconDTO_Light> getZaconDTOs(ArrayList<Long> keys);
   ArrayList<ZaconDTO> getZaconDTOs_Normal(ArrayList<Long> keys);
   ArrayList<ZaconDTO_Light> getZaconsAll();
+  
+  
+  Boolean deletePublication(Long id);
+  PublicationDTO getPublication(Long id);
+  PublicationDTO updatePublication(PublicationDTO Publication);
+  ArrayList<PublicationDTO_Light> getPublicationDTOs(ArrayList<Long> keys);
+  ArrayList<PublicationDTO> getPublicationDTOs_Normal(ArrayList<Long> keys);
+  ArrayList<PublicationDTO_Light> getPublicationsAll();
+  ArrayList<PublicationDTO_Light> getPublications(int limit,int offset);
+  ArrayList<TopicDTO> getTopics();
+  
+  Boolean deleteConsultation(Long id);
+  ConsultationDTO getConsultation(Long id);
+  ConsultationDTO updateConsultation(ConsultationDTO Consultation);
+  ArrayList<ConsultationDTO_Light> getConsultationDTOs(ArrayList<Long> keys);
+  ArrayList<ConsultationDTO> getConsultationDTOs_Normal(ArrayList<Long> keys);
+  ArrayList<ConsultationDTO_Light> getConsultationsAll();
+  ArrayList<ConsultationDTO_Light> getConsultations(int limit,int offset);
+  ArrayList<TopicDTO> getJuryTopics();
 }
