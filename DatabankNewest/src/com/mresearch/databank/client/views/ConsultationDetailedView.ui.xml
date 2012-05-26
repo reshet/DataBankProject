@@ -1,0 +1,33 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:g="urn:import:com.google.gwt.user.client.ui">
+	<ui:style>
+		.st
+		{
+			margin-left: 30px;
+		}
+	</ui:style>
+	<g:VerticalPanel>
+		<g:HTMLPanel styleName="{style.st}">
+			<div class="column640">
+			  <h4 class="blue"><g:Label ui:field="name"/></h4>
+	        
+	          <div class="column560">
+	                <p class="gray25">
+							<g:HTML ui:field="question">
+							</g:HTML>
+					</p>
+				    <p class="gray50">
+							<g:HTML ui:field="answer">
+							</g:HTML>
+					</p>
+				</div>
+				<div class="blue right">
+				<g:HorizontalPanel spacing="10" horizontalAlignment="ALIGN_RIGHT">
+					<g:Anchor ui:field="show_meta" text="Доп. информация"></g:Anchor>
+				</g:HorizontalPanel>
+				</div>
+			</div>
+		</g:HTMLPanel>
+	</g:VerticalPanel>
+</ui:UiBinder> 

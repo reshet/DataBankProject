@@ -39,6 +39,8 @@ public abstract class FilterDataDiapasonView extends Composite implements IFilte
 		this.diapason_name.setText(diapason_name);
 		this.dto = dt;
 	    this.base_name = b_name;
+	    from_value.setWidth("60px");
+	    to_value.setWidth("60px");
 //		from_value.addKeyDownHandler(new KeyDownHandler() {
 //			@Override
 //			public void onKeyDown(KeyDownEvent event) {

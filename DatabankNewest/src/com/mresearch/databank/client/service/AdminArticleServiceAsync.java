@@ -7,9 +7,11 @@ import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.mresearch.databank.shared.ArticleDTO;
 import com.mresearch.databank.shared.ConsultationDTO;
 import com.mresearch.databank.shared.ConsultationDTO_Light;
+import com.mresearch.databank.shared.JuryBundleDTO;
 import com.mresearch.databank.shared.OrgDTO;
 import com.mresearch.databank.shared.PublicationDTO;
 import com.mresearch.databank.shared.PublicationDTO_Light;
+import com.mresearch.databank.shared.PublicationsBundleDTO;
 import com.mresearch.databank.shared.SocioResearchDTO;
 import com.mresearch.databank.shared.TopicDTO;
 import com.mresearch.databank.shared.ZaconDTO;
@@ -83,4 +85,8 @@ public interface AdminArticleServiceAsync {
 			AsyncCallback<ArrayList<ConsultationDTO_Light>> callback);
 
 	void getJuryTopics(AsyncCallback<ArrayList<TopicDTO>> callback);
+
+	void getJuryStartup(AsyncCallback<JuryBundleDTO> callback);
+
+	void getPubStartup(AsyncCallback<PublicationsBundleDTO> callback);
 }

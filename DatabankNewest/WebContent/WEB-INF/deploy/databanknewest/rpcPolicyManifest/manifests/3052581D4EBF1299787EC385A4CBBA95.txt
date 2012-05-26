@@ -1,0 +1,2 @@
+serviceClass: com.mresearch.databank.client.service.AdminArticleService
+path: 48A73F9CE06EEA635924B44E66134C94.gwt.rpc

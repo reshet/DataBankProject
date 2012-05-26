@@ -129,32 +129,34 @@ public class UserPublicationPerspectiveView extends Composite implements UserPub
 	
 	
 	@Override
-	public void showPublicationIndex(final ArrayList<PublicationDTO> dtos, final String path) {
+	public void showPublicationIndex(final ArrayList<PublicationDTO> dtos, final String path,MetaUnitMultivaluedEntityDTO meta) {
 		centerPanel.clear();
 		
-		centerPanel.add(new HTMLPanel("<p class=\"breadcrumbs\"><a href=\"#\" class=\"dark-yellow\">"+path+"</a></p>"));
+		centerPanel.add(new HTMLPanel("<a href=\"#\" class=\"dark-yellow\"><h1 class=\"header\">"+path+"</h1></a>"));
 		
-		new RPCCall<MetaUnitMultivaluedEntityDTO>() {
-
-			@Override
-			public void onFailure(Throwable arg0) {
-			}
-
-			@Override
-			public void onSuccess(MetaUnitMultivaluedEntityDTO res) {
-				
-				for(PublicationDTO dt:dtos)
-				{	
-					centerPanel.add(new PublicationIndexedView(dt, res));
-				}
-			}
-
-			@Override
-			protected void callService(
-					AsyncCallback<MetaUnitMultivaluedEntityDTO> cb) {
-				UserSocioResearchService.Util.getInstance().getDatabankStructure("publication",cb);
-			}
-		}.retry(2);
+		for(PublicationDTO dt:dtos)
+		{	
+			centerPanel.add(new PublicationIndexedView(dt,meta));
+		}
+		
+//		new RPCCall<MetaUnitMultivaluedEntityDTO>() {
+//
+//			@Override
+//			public void onFailure(Throwable arg0) {
+//			}
+//
+//			@Override
+//			public void onSuccess(MetaUnitMultivaluedEntityDTO res) {
+//				
+//				
+//			}
+//
+//			@Override
+//			protected void callService(
+//					AsyncCallback<MetaUnitMultivaluedEntityDTO> cb) {
+//				UserSocioResearchService.Util.getInstance().getDatabankStructure("publication",cb);
+//			}
+//		}.retry(2);
 		
 	}
 

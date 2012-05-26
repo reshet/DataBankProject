@@ -63,9 +63,11 @@ import com.mresearch.databank.client.service.AdminSocioResearchService;
 import com.mresearch.databank.shared.ArticleDTO;
 import com.mresearch.databank.shared.ConsultationDTO;
 import com.mresearch.databank.shared.ConsultationDTO_Light;
+import com.mresearch.databank.shared.JuryBundleDTO;
 import com.mresearch.databank.shared.OrgDTO;
 import com.mresearch.databank.shared.PublicationDTO;
 import com.mresearch.databank.shared.PublicationDTO_Light;
+import com.mresearch.databank.shared.PublicationsBundleDTO;
 import com.mresearch.databank.shared.SocioResearchDTO;
 import com.mresearch.databank.shared.TopicDTO;
 import com.mresearch.databank.shared.ZaconDTO;
@@ -246,6 +248,16 @@ public ArrayList<ConsultationDTO_Light> getConsultations(int limit, int offset) 
 @Override
 public ArrayList<TopicDTO> getJuryTopics() {
 	return eao3.getTopics();
+}
+
+@Override
+public JuryBundleDTO getJuryStartup() {
+	return eao3.getStartup();
+}
+
+@Override
+public PublicationsBundleDTO getPubStartup() {
+	return eao2.getStartup();
 }
 
 

@@ -19,6 +19,7 @@ public class TopicDTO implements Serializable,ICatalogizable,IPickableElement{
 	{
         this.id = id;
 		this.header = header;
+		 this.items = items;
 	}
 	public String getHeader() {
 		return header;

@@ -131,6 +131,11 @@ p {
     margin: 0;
 }
 
+a span.info
+{
+	font-size: 11px;
+}
+
 p.links {
     margin: 9px 0;
     line-height: 115%;
@@ -168,6 +173,8 @@ a.more {
     text-decoration: underline;
     color: #3c77ba;
 }
+
+
 
 /** Тут начинаются стили для таблиц */
 
@@ -263,7 +270,7 @@ div#mm {
 }
 
 div.vert_separator {
-    width: 2px;
+    width: 3px;
     background: transparent url(i/gray.png) left top repeat-y;
 }
 

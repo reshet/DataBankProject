@@ -16,4 +16,6 @@ public interface AdminPubBeanRemote {
   ArrayList<PublicationDTO_Light> getPublicationsAll();
   ArrayList<PublicationDTO_Light> getPublications(int limit,int offset);
   ArrayList<TopicDTO> getTopics();
+  
+  PublicationsBundleDTO getStartup();
 }

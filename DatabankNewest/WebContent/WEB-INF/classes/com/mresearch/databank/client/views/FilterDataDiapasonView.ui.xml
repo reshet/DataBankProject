@@ -9,7 +9,7 @@
 		<g:Label ui:field="diapason_name"></g:Label>
 		<g:HorizontalPanel>
 			<g:Label text="С:"></g:Label>
-			<third:DatePicker ui:field="from_value"></third:DatePicker>
+			<third:DatePicker ui:field="from_value" ></third:DatePicker>
 			<g:Label text="До:"></g:Label>
 			<third:DatePicker ui:field="to_value"></third:DatePicker>
 		</g:HorizontalPanel>

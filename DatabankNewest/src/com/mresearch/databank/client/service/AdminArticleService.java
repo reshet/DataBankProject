@@ -26,9 +26,11 @@ import com.google.gwt.user.client.rpc.RemoteServiceRelativePath;
 import com.mresearch.databank.shared.ArticleDTO;
 import com.mresearch.databank.shared.ConsultationDTO;
 import com.mresearch.databank.shared.ConsultationDTO_Light;
+import com.mresearch.databank.shared.JuryBundleDTO;
 import com.mresearch.databank.shared.OrgDTO;
 import com.mresearch.databank.shared.PublicationDTO;
 import com.mresearch.databank.shared.PublicationDTO_Light;
+import com.mresearch.databank.shared.PublicationsBundleDTO;
 import com.mresearch.databank.shared.ResearchFilesDTO;
 import com.mresearch.databank.shared.SocioResearchDTO;
 import com.mresearch.databank.shared.TopicDTO;
@@ -88,4 +90,7 @@ public interface AdminArticleService extends RemoteService {
   ArrayList<ConsultationDTO_Light> getConsultationsAll();
   ArrayList<ConsultationDTO_Light> getConsultations(int limit,int offset);
   ArrayList<TopicDTO> getJuryTopics();
+
+  JuryBundleDTO getJuryStartup();
+   PublicationsBundleDTO getPubStartup();
 }

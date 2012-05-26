@@ -17,8 +17,11 @@ import com.mresearch.databank.client.helper.RPCCall;
 import com.mresearch.databank.client.service.AdminArticleService;
 import com.mresearch.databank.client.service.AdminArticleServiceAsync;
 import com.mresearch.databank.client.views.ConceptItemItem;
+import com.mresearch.databank.shared.JuryBundleDTO;
+import com.mresearch.databank.shared.MetaUnitMultivaluedEntityDTO;
 import com.mresearch.databank.shared.PublicationDTO;
 import com.mresearch.databank.shared.PublicationDTO_Light;
+import com.mresearch.databank.shared.PublicationsBundleDTO;
 import com.mresearch.databank.shared.TopicDTO;
 
 public class UserPubPerspectivePresenter implements Presenter
@@ -28,16 +31,18 @@ public class UserPubPerspectivePresenter implements Presenter
 		 Widget asWidget();
 		 void showLoadingLabel();
 		 void showPublicationDetailes(PublicationDTO dto,String path);
-		 void showPublicationIndex(ArrayList<PublicationDTO> dtos,String path);
 		 void showTopics(ArrayList<TopicDTO> topics);
 		 VerticalPanel getCenterPanel();
 		 void findInPublicationList(Long id);
+		void showPublicationIndex(ArrayList<PublicationDTO> dtos, String path,
+				MetaUnitMultivaluedEntityDTO meta);
 	 }
 	 
 	 public static String PRESENTER_PATH="Публикации";
 	 private final AdminArticleServiceAsync rpcService;
 	 private final SimpleEventBus eventBus;
 	 private final Display display;
+	 private PublicationsBundleDTO bundle;
 	 public UserPubPerspectivePresenter(AdminArticleServiceAsync rpcService,SimpleEventBus eventBus,
 		      Display view) {
 		    this.rpcService = rpcService;
@@ -49,8 +54,9 @@ public class UserPubPerspectivePresenter implements Presenter
 	public void go(HasWidgets container,ArrayList<String> p_names,ArrayList<String> p_values) {
 		 container.clear();
 		 container.add(display.asWidget());
-		 fetchPublicationListData();
-		 fetchPublicationTopics();
+		 fetchStartup();
+		// fetchPublicationListData();
+		// fetchPublicationTopics();
 		 if (p_names.contains("showPublication"))
 		 {
 			 int index = p_names.indexOf("showPublication");
@@ -162,6 +168,7 @@ public class UserPubPerspectivePresenter implements Presenter
 	}
 	private void fetchPublicationIndex(final ArrayList<Long> pub_ids,final String path)
 	{
+		if(pub_ids!=null && pub_ids.size()>0)
 		new RPCCall<ArrayList<PublicationDTO>>() {
 
 			@Override
@@ -171,7 +178,7 @@ public class UserPubPerspectivePresenter implements Presenter
 
 			@Override
 			public void onSuccess(ArrayList<PublicationDTO> result) {
-				display.showPublicationIndex(result,path);
+				display.showPublicationIndex(result,path,bundle.getPubMeta());
 			}
 
 			@Override
@@ -180,4 +187,31 @@ public class UserPubPerspectivePresenter implements Presenter
 			}
 		}.retry(3);
 	}
+	
+	
+	private void fetchStartup()
+	{
+		new RPCCall<PublicationsBundleDTO>() {
+
+			@Override
+			public void onFailure(Throwable paramThrowable) {
+				
+			}
+
+			@Override
+			public void onSuccess(PublicationsBundleDTO res) {
+				bundle = res;
+				display.showTopics(res.getTops());
+				display.showPublicationIndex(res.getLast_index_dtos(),UserPubPerspectivePresenter.PRESENTER_PATH+"/"+"Последние",res.getPubMeta());
+				display.setPublicationListData(bundle.getLast_l_index_dtos());
+			}
+
+			@Override
+			protected void callService(AsyncCallback<PublicationsBundleDTO> cb) {
+				rpcService.getPubStartup(cb);
+			}
+		}.retry(2);
+	}
+	
+	
 }

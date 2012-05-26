@@ -187,7 +187,7 @@ public class UserLawPerspectiveView extends Composite implements UserLawPerspect
 
 			@Override
 			public void onSuccess(MetaUnitMultivaluedEntityDTO res) {
-				centerPanel.add(new HTML("<p class=\"breadcrumbs\"><a href=\"#\" class=\"dark-red\">"+path+"</a></p><div class=\"spacer50\"></div>"));
+				centerPanel.add(new HTML("<a href=\"#\" class=\"dark-red\"><h1 class=\"header\">"+path+"</h1></a>"));
 				for(ZaconDTO dt:dtos)
 				{
 					ZaconIndexedView view = new ZaconIndexedView(dt,res);

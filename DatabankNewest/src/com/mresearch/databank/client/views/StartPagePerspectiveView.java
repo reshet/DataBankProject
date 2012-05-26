@@ -81,6 +81,7 @@ public class StartPagePerspectiveView extends Composite implements StartPagePers
 		//mainPageArticle.setHTML(data);
 	}
 
+	
 	@Override
 	public void setNewsData(ArrayList<String> data) {
 //		int i = 0;
