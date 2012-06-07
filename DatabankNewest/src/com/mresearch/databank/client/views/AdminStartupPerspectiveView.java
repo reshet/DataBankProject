@@ -64,6 +64,8 @@ public class AdminStartupPerspectiveView extends Composite implements AdminStart
 			laws_table.setWidget(i++, 0, sel );
 		}
 	}
+	
+	
 	private void displayRes(){
 		res_table.clear();
 		int i = 0;

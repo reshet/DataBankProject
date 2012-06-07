@@ -36,6 +36,7 @@ public class SearchResultsGenericGrid extends VerticalPanel
     
     
     
+    
 
     ListGrid countryGrid = new ListGrid();
     countryGrid.setWidth("768");
