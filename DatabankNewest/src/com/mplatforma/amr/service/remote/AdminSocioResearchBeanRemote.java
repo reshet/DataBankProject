@@ -8,6 +8,7 @@ import com.mresearch.databank.shared.MetaUnitMultivaluedStructureDTO;
 import com.mresearch.databank.shared.OrgDTO;
 import com.mresearch.databank.shared.ResearchFilesDTO;
 import com.mresearch.databank.shared.SocioResearchDTO;
+import com.mresearch.databank.shared.StartupBundleDTO;
 import com.mresearch.databank.shared.UserAccountDTO;
 import javax.ejb.Remote;
 
@@ -42,4 +43,6 @@ public interface AdminSocioResearchBeanRemote {
       void updateMetaUnitEntityItemLinks(MetaUnitEntityItemDTO old,MetaUnitEntityItemDTO nev);
       void updateMetaUnitEntityItemLinks(MetaUnitEntityItemDTO dto);
       void updateMetaUnitEntityItemLinks(Long item_id,ArrayList<Long> tagged_ids,String identifier);
+      
+      void setStartupContent(StartupBundleDTO dto);
 }

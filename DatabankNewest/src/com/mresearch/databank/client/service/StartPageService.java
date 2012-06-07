@@ -9,9 +9,10 @@ import com.mresearch.databank.shared.ArticleDTO;
 import com.mresearch.databank.shared.NewsDTO;
 import com.mresearch.databank.shared.NewsSummaryDTO;
 import com.mresearch.databank.shared.SocioResearchDTO;
+import com.mresearch.databank.shared.StartupBundleDTO;
 import com.mresearch.databank.shared.VarDTO;
 
-@RemoteServiceRelativePath("StartPageService")
+@RemoteServiceRelativePath("startPageService")
 public interface StartPageService extends RemoteService {
 	/**
 	 * Utility class for simplifying access to the instance of async service.
@@ -21,4 +22,5 @@ public interface StartPageService extends RemoteService {
 	ArticleDTO getArticle(String article_id);
 	ArticleDTO getMainPageArticle();
 	ArrayList<NewsDTO> getNews(int latest);
+	StartupBundleDTO getStartupContent();
 }

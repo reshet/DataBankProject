@@ -127,13 +127,7 @@ public class UserSearchPerspectivePresenter implements Presenter
 	@Override
 	public void go(HasWidgets container,ArrayList<String> p_names,ArrayList<String> p_values) {
 		
-		if (p_names.contains("query"))
-		{
-			this.qu = p_values.get(p_names.indexOf("query"));
-			display.setGeneralTabVisible();
-			display.setGeneralQueryText(this.qu);
-			getMappingStructure();
-		} 
+		
 //		if(p_names.contains("advancedSearchResearch"))
 //		{
 //			SearchTaskResearchDTO dto = new SearchTaskResearchDTO();
@@ -161,8 +155,17 @@ public class UserSearchPerspectivePresenter implements Presenter
 //		 panel.add(new ImprovedSearchView());
 //		 panel_scr.add(panel);
 //		 container.add(panel_scr);
-		 display.setQueryStr(this.qu);
+		 if (p_names.contains("query"))
+			{
+				this.qu = p_values.get(p_names.indexOf("query"));
+				 display.setQueryStr(this.qu);
+
+				//display.setGeneralTabVisible();
+				//display.setGeneralQueryText(this.qu);
+				getMappingStructure();
+			} 
 	}
+	
 	
 	public void bind()
 	{	
@@ -360,8 +363,8 @@ public class UserSearchPerspectivePresenter implements Presenter
 	        
 	        
 	        
-	        display.getCenterPanel().add(new HTML("<H2>ПОИСКОВЫЙ ЗАПРОС:</H2><br><p>" + query + "</p>"));
-	        display.getCenterPanel().add(new HTML("<H3>ОТВЕТ ДВИЖКА:</H3><br><p>" + result + "</p>"));
+	        //display.getCenterPanel().add(new HTML("<H2>ПОИСКОВЫЙ ЗАПРОС:</H2><br><p>" + query + "</p>"));
+	        //display.getCenterPanel().add(new HTML("<H3>ОТВЕТ ДВИЖКА:</H3><br><p>" + result + "</p>"));
 	        if(display.getTypesToSearch().length == 1)
 	        {
 	        	display.getCenterPanel().add(new SearchResultsGrid(eventBus,tot, hiters, mapping));

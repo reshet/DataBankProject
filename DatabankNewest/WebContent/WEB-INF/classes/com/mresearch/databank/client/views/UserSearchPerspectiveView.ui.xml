@@ -66,8 +66,8 @@
 							<g:Label text="Область поиска" styleName="{style.large_text}"/>
 							<g:CheckBox checked="true" text="Всё" ui:field="all"/>
 							<g:CheckBox text="Исследования" ui:field="socioresearch"/>
-							<g:CheckBox text="Концепты"/>
-							<g:CheckBox text="Опросы"/>
+<!-- 							<g:CheckBox text="Концепты"/> -->
+<!-- 							<g:CheckBox text="Опросы"/> -->
 							<g:CheckBox text="Переменные" ui:field="sociovars"/>
 							<g:CheckBox text="Публикации" ui:field="publications"/>
 							<g:CheckBox text="Законодательство" ui:field="laws"/>

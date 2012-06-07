@@ -64,14 +64,13 @@ public class ZaconDetailedView extends Composite {
 		//this._name.setText(dto.getHeader());
 		//this._abstract.setText(dto.getContents());
 		//this._number.setText(dto.getNumber());
-		
-		
-		
 		this.dto =  dto;
 		this.db = dt;
 		this.html.setHTML(dto.getContents()==null?"":dto.getContents());
 		this.name.setText(dto.getHeader());
 	//	this.path.setText(path);
+		
+		
 //		authors.setText(arrToStr(dto.getAuthors()));
 //		keywords.setText(arrToStr(dto.getKey_words()));
 //		if (dto.getDate() != null)date.setText(dto.getDate().toString());

@@ -166,6 +166,7 @@ public class AdminResearchDetailedPresenter implements Presenter{
 		dto.setVar_weight_id(edit_display.getWeightVarID());
 		dto.setVar_weight_name(edit_display.getWeightVarName(edit_display.getWeightVarID()));
 		
+		
 		JSON_Representation json = edit_display.getDBfiller().getJSON();
 		edit_display.getDBregistrator().populateItemsLinksTo(dto.getId(), "socioresearch");
 		dto.setJson_descriptor(json.getObj().toString());

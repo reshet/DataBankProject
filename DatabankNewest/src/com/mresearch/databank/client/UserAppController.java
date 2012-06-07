@@ -54,11 +54,17 @@ import com.google.gwt.user.client.ui.ScrollPanel;
 import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.VerticalPanel;
 import com.google.gwt.user.client.ui.Widget;
+import com.mresearch.databank.client.event.ShowConsultationDetailsEvent;
+import com.mresearch.databank.client.event.ShowPublicationDetailsEvent;
+import com.mresearch.databank.client.event.ShowPublicationDetailsEventHandler;
+import com.mresearch.databank.client.event.ShowConsultationDetailsEventHandler;
 import com.mresearch.databank.client.event.ShowResearchDetailsEvent;
 import com.mresearch.databank.client.event.ShowResearchDetailsEventHandler;
 import com.mresearch.databank.client.event.ShowStartPageMainEvent;
 import com.mresearch.databank.client.event.ShowVarDetailsEvent;
 import com.mresearch.databank.client.event.ShowVarDetailsEventHandler;
+import com.mresearch.databank.client.event.ShowZaconDetailsEvent;
+import com.mresearch.databank.client.event.ShowZaconDetailsEventHandler;
 import com.mresearch.databank.client.presenters.Presenter;
 import com.mresearch.databank.client.presenters.StartPagePerspectivePresenter;
 import com.mresearch.databank.client.presenters.UserLawPerspectivePresenter;
@@ -310,7 +316,7 @@ public class UserAppController implements ValueChangeHandler<String>, AppControl
     eventBus.addHandler(ShowResearchDetailsEvent.TYPE, new ShowResearchDetailsEventHandler() {
 		@Override
 		public void onShowResearchDetails(ShowResearchDetailsEvent event) {
-			 if(History.getToken().startsWith("search-results"))doViewUserResearch(event.getResearch_id());
+			 if(History.getToken().startsWith("search-results")||History.getToken().startsWith("user-main"))doViewUserResearch(event.getResearch_id());
 		}
 	});
     
@@ -320,10 +326,32 @@ public class UserAppController implements ValueChangeHandler<String>, AppControl
 		
 		@Override
 		public void onShowVarDetails(ShowVarDetailsEvent event) {
-			if(History.getToken().startsWith("search-results"))doViewUserResearchVar(event.getVar_id());
+			if(History.getToken().startsWith("search-results")||History.getToken().startsWith("user-main"))doViewUserResearchVar(event.getVar_id());
 		}
 	});
-//    eventBus.addHandler(FriendAddEvent.TYPE, new FriendAddEventHandler() {
+    eventBus.addHandler(ShowZaconDetailsEvent.TYPE, new ShowZaconDetailsEventHandler() {
+		
+		@Override
+		public void onShowZaconDetails(ShowZaconDetailsEvent event) {
+			if(History.getToken().startsWith("search-results")||History.getToken().startsWith("user-main"))doViewUserZacon(event.getZacon_id());
+		}
+	});
+    
+    eventBus.addHandler(ShowPublicationDetailsEvent.TYPE, new ShowPublicationDetailsEventHandler() {
+		
+		@Override
+		public void onShowPublicationDetails(ShowPublicationDetailsEvent event) {
+			if(History.getToken().startsWith("search-results")||History.getToken().startsWith("user-main"))doViewUserPublication(event.getPublication_id());
+		}
+	});
+    eventBus.addHandler(ShowConsultationDetailsEvent.TYPE, new ShowConsultationDetailsEventHandler() {
+		
+  		@Override
+  		public void onShowConsultationDetails(ShowConsultationDetailsEvent event) {
+  			if(History.getToken().startsWith("search-results")||History.getToken().startsWith("user-main"))doViewUserConsult(event.getConsultation_id());
+  		}
+  	});
+    //    eventBus.addHandler(FriendAddEvent.TYPE, new FriendAddEventHandler() {
 //      public void onAddFriend(FriendAddEvent event) {
 //        doAddNewFriend();
 //      }
@@ -347,7 +375,7 @@ public class UserAppController implements ValueChangeHandler<String>, AppControl
   private void doViewStartPageNews() {
 	    History.newItem("user-news");
   }
-  private void doViewUserResearch() {
+  public void doViewUserResearch() {
 	    History.newItem("user-research");
  }
   private void doViewUserResearch(long id) {
@@ -356,13 +384,22 @@ public class UserAppController implements ValueChangeHandler<String>, AppControl
   private void doViewUserResearchVar(long id) {
 	    History.newItem("user-research@showVar="+id);
   }
-  private void doViewUserLaw() {
+  public void doViewUserLaw() {
 	    History.newItem("user-law");
   }
-  private void doViewUserPub() {
+  public void doViewUserPub() {
     History.newItem("user-pub");
   }
-  private void doViewUserJury() {
+  private void doViewUserPublication(long id) {
+	    History.newItem("user-pub@showPub="+id);
+  }
+  private void doViewUserZacon(long id) {
+	    History.newItem("user-law@showZacon="+id);
+  }
+  private void doViewUserConsult(long id) {
+	    History.newItem("user-jury@showConsult="+id);
+  }
+  public void doViewUserJury() {
 	    History.newItem("user-jury");
 	  }
   private void doViewSearchResults(String searchstr)
@@ -371,6 +408,7 @@ public class UserAppController implements ValueChangeHandler<String>, AppControl
 	  {
 		  searchBox.setText("Поиск");
 		  History.newItem("search-results@query="+searchstr);
+	      History.fireCurrentHistoryState();
 	  }
   }
 
@@ -488,6 +526,8 @@ public class UserAppController implements ValueChangeHandler<String>, AppControl
     	  String [] arr = token.split("=");
     	  String query = arr[1];
     	
+    	  
+    	  
     	  
     	  
      	  ArrayList<String> param_names,param_values;

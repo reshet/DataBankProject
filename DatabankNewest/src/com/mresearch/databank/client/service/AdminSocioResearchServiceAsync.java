@@ -17,6 +17,7 @@ import com.mresearch.databank.shared.OrgDTO;
 import com.mresearch.databank.shared.ResearchFilesDTO;
 import com.mresearch.databank.shared.SocioResearchDTO;
 import com.mresearch.databank.shared.SocioResearchFilesDTO;
+import com.mresearch.databank.shared.StartupBundleDTO;
 import com.mresearch.databank.shared.VarDTO_Detailed;
 
 public interface AdminSocioResearchServiceAsync {
@@ -62,6 +63,7 @@ public interface AdminSocioResearchServiceAsync {
 			ArrayList<Long> tagged_ids, String identifier,
 			AsyncCallback<Void> callback);
 	void updateVar(VarDTO_Detailed var, AsyncCallback<Void> callback);
+	void setStartupContent(StartupBundleDTO dto, AsyncCallback<Void> callback);
 	
 	
 }

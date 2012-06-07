@@ -24,7 +24,7 @@
 	<g:VerticalPanel>
 			<g:HorizontalPanel styleName="{style.mainMenu}">
 				<g:Anchor href="javascript:;" ui:field="bankNav" styleName="{style.mainMenu}">Банк данных</g:Anchor>
-				<g:Anchor href="javascript:;" ui:field="articlesNav" styleName="{style.mainMenu}">Статьи</g:Anchor>
+				<g:Anchor href="javascript:;" ui:field="startupNav" styleName="{style.mainMenu}">Стартовая</g:Anchor>
 				<g:Anchor href="javascript:;" ui:field="logoutNav" styleName="{style.login}">
 					Выйти
 				</g:Anchor>

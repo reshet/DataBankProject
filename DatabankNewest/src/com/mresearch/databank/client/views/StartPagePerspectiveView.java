@@ -2,6 +2,7 @@ package com.mresearch.databank.client.views;
 
 import java.awt.ScrollPane;
 import java.util.ArrayList;
+import java.util.Date;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.HasClickHandlers;
@@ -13,12 +14,16 @@ import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.DockLayoutPanel;
 import com.google.gwt.user.client.ui.FlexTable;
 import com.google.gwt.user.client.ui.HTML;
+import com.google.gwt.user.client.ui.HTMLPanel;
 import com.google.gwt.user.client.ui.Image;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.ScrollPanel;
 import com.google.gwt.user.client.ui.VerticalPanel;
 import com.google.gwt.user.client.ui.Widget;
 import com.mresearch.databank.client.presenters.StartPagePerspectivePresenter;
+import com.mresearch.databank.shared.PublicationDTO_Light;
+import com.mresearch.databank.shared.SocioResearchDTO_Light;
+import com.mresearch.databank.shared.ZaconDTO_Light;
 
 public class StartPagePerspectiveView extends Composite implements StartPagePerspectivePresenter.Display{
 
@@ -38,9 +43,10 @@ public class StartPagePerspectiveView extends Composite implements StartPagePers
 //	
 	
 	//@UiField ScrollPanel scroller;
-	
+	@UiField VerticalPanel research_links,pub_links,law_links,cons_links;
 	public StartPagePerspectiveView() {
 		initWidget(uiBinder.createAndBindUi(this));
+		cons_links.add(new JuryDescItemViewAll(new ZaconDTO_Light(0,"")));
 	//	scroller.setAlwaysShowScrollBars(true);
 	//	StartPagePerspectivePresenter
 	}
@@ -114,5 +120,32 @@ public class StartPagePerspectiveView extends Composite implements StartPagePers
 	public Widget asWidget()
 	{
 		return this;
+	}
+
+	@Override
+	public void setTopResearches(ArrayList<SocioResearchDTO_Light> arr) {
+		for(SocioResearchDTO_Light dto:arr)
+		{
+			research_links.add(new ResearchDescItemView(dto));
+		}
+		research_links.add(new ResearchDescItemViewAll(new SocioResearchDTO_Light(new Long(0),"")));
+	}
+
+	@Override
+	public void setTopLaws(ArrayList<ZaconDTO_Light> arr) {
+		for(ZaconDTO_Light dto:arr)
+		{
+			law_links.add(new ZaconDescItemView(dto));
+		}
+		law_links.add(new ZaconDescItemViewAll(new ZaconDTO_Light(0, "")));
+	}
+
+	@Override
+	public void setTopPubs(ArrayList<PublicationDTO_Light> arr) {
+		for(PublicationDTO_Light dto:arr)
+		{
+			pub_links.add(new PublicationDescItemView(dto));
+		}
+		pub_links.add(new PublicationDescItemViewAll(new PublicationDTO_Light(0,"",new Date())));
 	}
 }

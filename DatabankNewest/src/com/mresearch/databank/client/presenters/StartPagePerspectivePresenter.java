@@ -16,6 +16,10 @@ import com.mresearch.databank.client.helper.RPCCall;
 import com.mresearch.databank.client.service.StartPageServiceAsync;
 import com.mresearch.databank.shared.ArticleDTO;
 import com.mresearch.databank.shared.NewsSummaryDTO;
+import com.mresearch.databank.shared.PublicationDTO_Light;
+import com.mresearch.databank.shared.SocioResearchDTO_Light;
+import com.mresearch.databank.shared.StartupBundleDTO;
+import com.mresearch.databank.shared.ZaconDTO_Light;
 
 public class StartPagePerspectivePresenter implements Presenter
 {
@@ -28,6 +32,9 @@ public class StartPagePerspectivePresenter implements Presenter
 //		 HasClickHandlers getLoginLink();
 		 void setMainPageArticle(String html);
 		 void setNewsData(ArrayList<String> data);
+		 void setTopResearches(ArrayList<SocioResearchDTO_Light>  arr);
+		 void setTopLaws(ArrayList<ZaconDTO_Light>  arr);
+		 void setTopPubs(ArrayList<PublicationDTO_Light> arr);
 		 Widget asWidget();
 	 }
 	 private final StartPageServiceAsync rpcService;
@@ -44,8 +51,9 @@ public class StartPagePerspectivePresenter implements Presenter
 	public void go(HasWidgets container,ArrayList<String> p_names,ArrayList<String> p_values) {
 		 container.clear();
 		 container.add(display.asWidget());
-		 showMainPageArticle();
-		 fetchNewsData();
+		 fetchStartupContent();
+		// showMainPageArticle();
+		// fetchNewsData();
 	}
 	
 	public void bind()
@@ -56,6 +64,27 @@ public class StartPagePerspectivePresenter implements Presenter
 //				showMainPageArticle();
 //			}
 //		});
+	}
+	private void fetchStartupContent()
+	{
+		new RPCCall<StartupBundleDTO>() {
+			@Override
+			public void onFailure(Throwable arg0) {
+			
+			}
+
+			@Override
+			public void onSuccess(StartupBundleDTO res) {
+				display.setTopResearches(res.getTop_researchs());
+				display.setTopPubs(res.getIndex_last());
+				display.setTopLaws(res.getImportant_laws());
+			}
+
+			@Override
+			protected void callService(AsyncCallback<StartupBundleDTO> cb) {
+				rpcService.getStartupContent(cb);
+			}
+		}.retry(2);
 	}
 	
 	private void showMainPageArticle()

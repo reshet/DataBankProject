@@ -15,6 +15,7 @@ import gwtupload.client.IUploader.OnFinishUploaderHandler;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
+import com.google.gwt.json.client.JSONString;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiConstructor;
 import com.google.gwt.uibinder.client.UiFactory;
@@ -156,6 +157,14 @@ public class updateConsultationUI extends Composite {
 		
 		JSON_Representation json = mv.getJSON();
 		//mv.populateItemsLinksTo(currentArt_DTO.getId(), "law");
+		if(json.getObj().containsKey("consultation_answer"))
+		{
+			json.getObj().put("consultation_answer",new JSONString(answer.getText().replaceAll("\\<.*?\\>", "")));
+		}
+		if(json.getObj().containsKey("consultation_question"))
+		{
+			json.getObj().put("consultation_question",new JSONString(question.getText().replaceAll("\\<.*?\\>", "")));
+		}
 		dto.setJson_desctiptor(json.getObj().toString());
 		HashMap<String, String> mapp = mv.returnCollectedMap();
 		if(!answer.getText().equals(""))mapp.put("consultation_answer",answer.getText().replaceAll("\\<.*?\\>", ""));

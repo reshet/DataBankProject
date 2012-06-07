@@ -5,8 +5,12 @@ import com.google.gwt.json.client.JSONArray;
 import com.google.gwt.json.client.JSONObject;
 import com.google.gwt.json.client.JSONString;
 import com.google.gwt.user.client.ui.VerticalPanel;
+import com.mresearch.databank.client.event.ShowConsultationDetailsEvent;
+import com.mresearch.databank.client.event.ShowConsultationIndexEvent;
+import com.mresearch.databank.client.event.ShowPublicationDetailsEvent;
 import com.mresearch.databank.client.event.ShowResearchDetailsEvent;
 import com.mresearch.databank.client.event.ShowVarDetailsEvent;
+import com.mresearch.databank.client.event.ShowZaconDetailsEvent;
 import com.smartgwt.client.widgets.grid.ListGrid;
 import com.smartgwt.client.widgets.grid.ListGridField;
 import com.smartgwt.client.widgets.grid.ListGridRecord;
@@ -41,6 +45,7 @@ public class SearchResultsGrid extends VerticalPanel
     countryGrid.setShowAllRecords(Boolean.valueOf(true));
     countryGrid.setWrapCells(Boolean.valueOf(true));
     countryGrid.setCellHeight(46);
+    countryGrid.setAutoFitFieldWidths(true);
 
     HashMap<String,String> used_map = new HashMap<String,String>();
     final ListGridRecord[] records = new ListGridRecord[hits.size()];
@@ -72,7 +77,7 @@ public class SearchResultsGrid extends VerticalPanel
     ListGridField type_f = new ListGridField("_type", "Тип сущности");
     
     id_f.setWidth(25);
-    type_f.setWidth(70);
+    type_f.setWidth(140);
     
     int j = 2;
     fields[0] = id_f;
@@ -80,7 +85,8 @@ public class SearchResultsGrid extends VerticalPanel
 
     for (String key : used_map.keySet())
     {
-      ListGridField field = new ListGridField(key, (String)used_map.get(key), 120);
+      ListGridField field = new ListGridField(key, (String)used_map.get(key));
+     // field.setA
       fields[(j++)] = field;
     }
 
@@ -108,6 +114,18 @@ public class SearchResultsGrid extends VerticalPanel
 			if(type.equals("sociovar"))
 			{
 				bus.fireEvent(new ShowVarDetailsEvent(id));
+			}
+			if(type.equals("law"))
+			{
+				bus.fireEvent(new ShowZaconDetailsEvent(id));
+			}
+			if(type.equals("publication"))
+			{
+				bus.fireEvent(new ShowPublicationDetailsEvent(id));
+			}
+			if(type.equals("consultation"))
+			{
+				bus.fireEvent(new ShowConsultationDetailsEvent(id));
 			}
 		}
 	});

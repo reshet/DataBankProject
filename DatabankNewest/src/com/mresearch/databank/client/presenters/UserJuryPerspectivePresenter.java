@@ -62,9 +62,9 @@ public class UserJuryPerspectivePresenter implements Presenter
 		 fetchStartup();
 		 //fetchConsultationListData();
 		 //fetchConsultationTopics();
-		 if (p_names.contains("showConsultation"))
+		 if (p_names.contains("showConsult"))
 		 {
-			 int index = p_names.indexOf("showConsultation");
+			 int index = p_names.indexOf("showConsult");
 			 String id = p_values.get(index);
 			 Long idd = Long.parseLong(id);
 			 display.findInConsultationList(idd);
@@ -174,6 +174,7 @@ public class UserJuryPerspectivePresenter implements Presenter
 			}
 		}.retry(3);
 	}
+	
 	
 	
 	

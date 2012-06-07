@@ -19,7 +19,7 @@ import com.mresearch.databank.shared.VarDTO_Light;
 
 public class VarDescItem extends TreeItem{
 	private long var_id;
-	public static int LABEL_SHORTAGE_NUMBER = 60;
+	public static int LABEL_SHORTAGE_NUMBER = 45;
 	public VarDescItem(final VarDTO_Light dto)
 	{
 		super();

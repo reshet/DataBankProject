@@ -19,6 +19,8 @@ import com.mresearch.databank.client.helper.RPCCall;
 
 //import com.mresearch.databank.client.service.StartPageService;
 //import com.mresearch.databank.client.service.StartPageServiceAsync;
+import com.mresearch.databank.client.service.StartPageService;
+import com.mresearch.databank.client.service.StartPageServiceAsync;
 import com.mresearch.databank.client.service.UserAccountService;
 import com.mresearch.databank.client.service.UserAccountServiceAsync;
 //import com.mresearch.databank.client.views.HighChartSingleBarPanel;
@@ -138,8 +140,8 @@ public class DatabankApp implements EntryPoint {
 		            
 		    		if (getCurrentUser().getAccountType().equals("simpleUser"))
 		    		{
-		    			//StartPageServiceAsync startpageService = GWT.create(StartPageService.class);
-		    			appController = new UserAppController(null, eventBus);
+		    			StartPageServiceAsync startpageService = GWT.create(StartPageService.class);
+		    			appController = new UserAppController(startpageService, eventBus);
 		    		}else 
 		    			
 		    		if (getCurrentUser().getAccountType().equals("researchAdmin"))
@@ -210,7 +212,10 @@ public class DatabankApp implements EntryPoint {
 		//startpagePresenter.go(outer);
 	}
 	
-	 public SimpleEventBus getEventBus() {
+	 public AppController getAppController() {
+		return appController;
+	}
+	public SimpleEventBus getEventBus() {
 		    return eventBus;
 		  }
 

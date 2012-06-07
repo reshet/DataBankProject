@@ -37,6 +37,7 @@ import com.mresearch.databank.shared.OrgDTO;
 import com.mresearch.databank.shared.ResearchFilesDTO;
 import com.mresearch.databank.shared.SocioResearchDTO;
 import com.mresearch.databank.shared.SocioResearchFilesDTO;
+import com.mresearch.databank.shared.StartupBundleDTO;
 import com.mresearch.databank.shared.VarDTO_Detailed;
 
 @RemoteServiceRelativePath("adminResearchService")
@@ -88,6 +89,8 @@ void deleteEntityItem(Long id, Long entity_id);
 void updateMetaUnitEntityItemLinks(Long item_id,ArrayList<Long> tagged_ids,String identifier);
 
 void updateVar(VarDTO_Detailed var);
+
+void setStartupContent(StartupBundleDTO dto);
   //ArrayList<E>
 //  SocioResearchDTO addResearch(SocioResearchDTO research);
 }

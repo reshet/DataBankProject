@@ -116,6 +116,8 @@ public class UserPublicationPerspectiveView extends Composite implements UserPub
 		
 	}
 	
+	
+	
 	@Override
 	public VerticalPanel getCenterPanel() {
 		return centerPanel;

@@ -92,35 +92,18 @@
 	                <p>Открытый банк данных, касающийся вопросов распространения 
 	                    и применения русского языка лица и государственные органы 
 	                    имеют право</p>
-	                <h1 class="green">Picasa</h1>
-	                <h1 class="green">Публикации</h1>
-	                <h1 class="green">Статистика</h1>
+	               <g:VerticalPanel ui:field="research_links">
+	               </g:VerticalPanel>
 	            </div>
 	            <div class="column280">
 	                <h2 class="red">Законодательство</h2>
 	                <p>Актуальный архив правовой информации косающейся вопросов 
 	                    русского языка в правовом поле украинского государства</p>
-	                <p class="links">
-	                    <a href="#" class="red">Закон Украины &laquo;Об информации&raquo;</a>
-	                </p>
-	                <p class="links">
-	                    <a href="#" class="red">Конституция</a>
-	                </p>
-	                <p class="links">
-	                    <a href="#" class="red">Закон &laquo;О языках Украинской ССР&raquo;</a>
-	                </p>
-	                <p class="links">
-	                    <a href="#" class="red">Декларация прав национальностей</a>
-	                </p>
-	                <p class="links">
-	                    <a href="#" class="red">Закон &laquo;О национальных меншинствах на Украине&raquo;</a>
-	                </p>
-	                <p class="links">
-	                    <a href="#" class="red">Закон &laquo;О ратификации Европейской хартии региональных языков&raquo;</a>
-	                </p>
-	                <p>
-	                    <a href="#" class="more">Весь архив &rarr;</a>
-	                </p>
+	               <g:VerticalPanel ui:field="law_links">
+	               </g:VerticalPanel>
+<!-- 	                <p> -->
+<!-- 	                    <a href="#" class="more">Весь архив &rarr;</a> -->
+<!-- 	                </p> -->
 	
 	            </div>
 	            <div class="column280">
@@ -132,30 +115,22 @@
 	                    сведений, необходимых им для реализации ими своих прав, свобод
 	                    и законных интересов.
 	                </p>
-	                <p>
-	                    <a href="#" class="more">Чем мы можем вам помочь &rarr;</a><br/>
-	                </p>
+	                <g:VerticalPanel ui:field="cons_links">
+	                </g:VerticalPanel>
+<!-- 	                <p> -->
+<!-- 	                    <a href="#" class="more">Чем мы можем вам помочь &rarr;</a><br/> -->
+<!-- 	                </p> -->
 	            </div>
 	            <div class="column280">
 	                <h2 class="yellow">Аналитика</h2>
 	                <p>Актуальная аналитическая информация косающейся вопросов русского
 	                    языка в правовом поле украинского государства
 	                </p>
-	                <p class="links">
-	                    <a href="#" class="blue"><span class="yellow italic">05.03.2012 </span><span class="link">Тема выборов: объединение оппозиционных сил.</span></a>
-	                </p>
-	                <p class="links">
-	                    <a href="#" class="blue"><span class="yellow italic">05.03.2012 </span><span class="link">Состояние основателя Facebook скоро составит около 21 миллиарда долларов.</span></a>
-	                </p>
-	                <p class="links">
-	                    <a href="#" class="blue"><span class="yellow italic">03.03.2012 </span><span class="link">Ситуация вокруг Ирана.</span></a>
-	                </p>
-	                <p class="links">
-	                    <a href="#" class="blue"><span class="yellow italic">02.03.2012 </span><span class="link">Сегодня единственная украинская подводная лодка Запорожье U-001 Военно-Морских Сил Украины впервые за последние несколько лет.</span></a>
-	                </p>
-	                <p class="links">
-	                    <a href="#" class="more">Вся аналитика &rarr;</a><br/>
-	                </p>
+	               <g:VerticalPanel ui:field="pub_links">
+	               </g:VerticalPanel>
+<!-- 	                <p class="links"> -->
+<!-- 	                    <a href="#" class="more">Вся аналитика &rarr;</a><br/> -->
+<!-- 	                </p> -->
 	            </div>
 	
 	            <!-- спэйсер --><div style="height: 50px; clear:both; position: relative;"></div><!-- спэйсер -->

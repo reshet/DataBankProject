@@ -54,18 +54,18 @@ public class UserPubPerspectivePresenter implements Presenter
 	public void go(HasWidgets container,ArrayList<String> p_names,ArrayList<String> p_values) {
 		 container.clear();
 		 container.add(display.asWidget());
-		 fetchStartup();
+		
 		// fetchPublicationListData();
 		// fetchPublicationTopics();
-		 if (p_names.contains("showPublication"))
+		 if (p_names.contains("showPub"))
 		 {
-			 int index = p_names.indexOf("showPublication");
+			 int index = p_names.indexOf("showPub");
 			 String id = p_values.get(index);
 			 Long idd = Long.parseLong(id);
 			 display.findInPublicationList(idd);
 			 fetchPublicationDetailes(idd,UserPubPerspectivePresenter.PRESENTER_PATH);
 			 // eventBus.fireEvent(new ShowResearchDetailsEvent(id));
-		 }
+		 }else fetchStartup();
 	}
 	
 	

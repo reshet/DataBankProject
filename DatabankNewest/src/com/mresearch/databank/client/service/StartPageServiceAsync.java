@@ -7,6 +7,7 @@ import com.mresearch.databank.shared.ArticleDTO;
 import com.mresearch.databank.shared.NewsDTO;
 import com.mresearch.databank.shared.NewsSummaryDTO;
 import com.mresearch.databank.shared.SocioResearchDTO;
+import com.mresearch.databank.shared.StartupBundleDTO;
 import com.mresearch.databank.shared.VarDTO;
 
 public interface StartPageServiceAsync {
@@ -20,4 +21,6 @@ public interface StartPageServiceAsync {
 	void getArticle(String article_id, AsyncCallback<ArticleDTO> callback);
 
 	void getMainPageArticle(AsyncCallback<ArticleDTO> callback);
+
+	void getStartupContent(AsyncCallback<StartupBundleDTO> callback);
 }

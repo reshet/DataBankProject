@@ -8,6 +8,10 @@
     <servlet-name>userAccountService</servlet-name>
     <servlet-class>com.mresearch.databank.server.UserAccountServiceImpl</servlet-class>
   </servlet>
+   <servlet>
+    <servlet-name>startPageService</servlet-name>
+    <servlet-class>com.mresearch.databank.server.StartPageServiceImpl</servlet-class>
+  </servlet>
   <servlet>
     <servlet-name>userResearchService</servlet-name>
     <servlet-class>com.mresearch.databank.server.UserSocioResearchServiceImpl</servlet-class>
@@ -42,6 +46,10 @@
   <servlet-mapping>
     <servlet-name>userAccountService</servlet-name>
     <url-pattern>/databanknewest/userAccountService</url-pattern>
+  </servlet-mapping>
+   <servlet-mapping>
+    <servlet-name>startPageService</servlet-name>
+    <url-pattern>/databanknewest/startPageService</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
     <servlet-name>userResearchService</servlet-name>

@@ -38,16 +38,22 @@ import com.mresearch.databank.client.event.ShowResearchDetailsEvent;
 import com.mresearch.databank.client.event.ShowResearchDetailsEventHandler;
 import com.mresearch.databank.client.event.ShowStartPageMainEvent;
 import com.mresearch.databank.client.presenters.AdminResearchPerspectivePresenter;
+import com.mresearch.databank.client.presenters.AdminStartupPerspectivePresenter;
 import com.mresearch.databank.client.presenters.Presenter;
 //import com.mresearch.databank.client.presenters.StartPagePerspectivePresenter;
 //import com.mresearch.databank.client.presenters.UserNewsPerspectivePresenter;
 //import com.mresearch.databank.client.presenters.UserResearchPerspectivePresenter;
 import com.mresearch.databank.client.service.AdminSocioResearchService;
 import com.mresearch.databank.client.service.AdminSocioResearchServiceAsync;
+import com.mresearch.databank.client.service.StartPageService;
+import com.mresearch.databank.client.service.StartPageServiceAsync;
+import com.mresearch.databank.client.service.UserAccountService;
+import com.mresearch.databank.client.service.UserAccountServiceAsync;
 //import com.mresearch.databank.client.service.StartPageServiceAsync;
 import com.mresearch.databank.client.service.UserSocioResearchService;
 import com.mresearch.databank.client.service.UserSocioResearchServiceAsync;
 import com.mresearch.databank.client.views.AdminResearchPerspectiveView;
+import com.mresearch.databank.client.views.AdminStartupPerspectiveView;
 //import com.mresearch.databank.client.views.StartPagePerspectiveView;
 //import com.mresearch.databank.client.views.UserNewsPerspectiveView;
 //import com.mresearch.databank.client.views.UserResearchPerspectiveView;
@@ -67,11 +73,13 @@ public class ResearchAdminAppController implements ValueChangeHandler<String>, A
 			UiBinder<VerticalPanel, ResearchAdminAppController> {
 	}
 	
-  @UiField Anchor bankNav,articlesNav,logoutNav;
+  @UiField Anchor bankNav,startupNav,logoutNav;
   @UiField VerticalPanel centerPanel;
   private VerticalPanel thisDock;
   private final UserSocioResearchServiceAsync researchUserService = GWT.create(UserSocioResearchService.class);
   private final AdminSocioResearchServiceAsync researchAdminService = GWT.create(AdminSocioResearchService.class);
+  private final StartPageServiceAsync userSPService = GWT.create(StartPageService.class);
+  
   public ResearchAdminAppController(SimpleEventBus eventBus) {
 	//initWidget();
 	thisDock = uiBinder.createAndBindUi(this);
@@ -94,11 +102,11 @@ public class ResearchAdminAppController implements ValueChangeHandler<String>, A
 			doViewDatabank();
 		}
 	});
-    articlesNav.addClickHandler(new ClickHandler() {
+    startupNav.addClickHandler(new ClickHandler() {
 		@Override
 		public void onClick(ClickEvent event) {
 			//eventBus.fireEvent(new ShowStartPageMainEvent());
-			doViewArticlesCatalog();
+			doViewStartupConfig();
 		}
 	});
     
@@ -133,8 +141,8 @@ public class ResearchAdminAppController implements ValueChangeHandler<String>, A
   private void doViewDatabank() {
     History.newItem("researchadmin-databank");
   }
-  private void doViewArticlesCatalog() {
-	    History.newItem("researchadmin-articles");
+  private void doViewStartupConfig() {
+	    History.newItem("researchadmin-startup");
   }
   //public void go(DockLayoutPanel mainPanel)
   
@@ -161,6 +169,10 @@ public class ResearchAdminAppController implements ValueChangeHandler<String>, A
       //presenter.go();
       if(token.equals("researchadmin-databank")){
     	  presenter = new AdminResearchPerspectivePresenter(researchUserService, researchAdminService, eventBus, new AdminResearchPerspectiveView(eventBus));
+          presenter.go(centerPanel,null,null);
+      }else
+	  if(token.equals("researchadmin-startup")){
+    	  presenter = new AdminStartupPerspectivePresenter(userSPService, researchAdminService, eventBus, new AdminStartupPerspectiveView(eventBus));
           presenter.go(centerPanel,null,null);
       }
     }

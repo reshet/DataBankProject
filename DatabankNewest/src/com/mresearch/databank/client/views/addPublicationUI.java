@@ -14,6 +14,7 @@ import gwtupload.client.IUploader.OnFinishUploaderHandler;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
+import com.google.gwt.json.client.JSONString;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiConstructor;
 import com.google.gwt.uibinder.client.UiField;
@@ -274,10 +275,15 @@ public class addPublicationUI extends Composite {
 		
 		JSON_Representation json = mv.getJSON();
 		//mv.populateItemsLinksTo(currentArt_DTO.getId(), "law");
+		if(json.getObj().containsKey("publication_contents"))
+		{
+			json.getObj().put("publication_contents",new JSONString(richTextEditor.getValue().replaceAll("\\<.*?\\>", "")));
+		}
 		currentArt_DTO.setJson_desctiptor(json.getObj().toString());
 		HashMap<String, String> mapp = mv.returnCollectedMap();
 		//curr.setName(mapp.get("socioresearch_name"));
 		if(!richTextEditor.getValue().equals(""))mapp.put("publication_contents", richTextEditor.getValue().replaceAll("\\<.*?\\>", ""));
+		
 		currentArt_DTO.setFilling(mapp);
 		currentArt_DTO.setHeader(mapp.get("publication_name"));
 		currentArt_DTO.setSubheading(mapp.get("publication_subheading"));

@@ -42,6 +42,7 @@ import com.mresearch.databank.shared.MetaUnitStringDTO;
 import com.mresearch.databank.shared.OrgDTO;
 import com.mresearch.databank.shared.ResearchFilesDTO;
 import com.mresearch.databank.shared.SocioResearchDTO;
+import com.mresearch.databank.shared.StartupBundleDTO;
 import com.mresearch.databank.shared.UserAccountDTO;
 import com.mresearch.databank.shared.VarDTO_Detailed;
 
@@ -194,6 +195,10 @@ public class AdminSocioResearchServiceImpl extends RemoteServiceServlet implemen
 	@Override
 	public void updateVar(VarDTO_Detailed var) {
 		eao.updateVar(var);
+	}
+	@Override
+	public void setStartupContent(StartupBundleDTO dto) {
+		eao.setStartupContent(dto);
 	}
 	
 /*	

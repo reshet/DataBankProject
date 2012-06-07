@@ -1,0 +1,2 @@
+serviceClass: com.mresearch.databank.client.service.StartPageService
+path: 2FDA0D88B0C389011F7EAC93B21313F8.gwt.rpc

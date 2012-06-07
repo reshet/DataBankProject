@@ -4,8 +4,11 @@ import com.google.gwt.event.shared.SimpleEventBus;
 import com.google.gwt.json.client.JSONObject;
 import com.google.gwt.json.client.JSONString;
 import com.google.gwt.user.client.ui.VerticalPanel;
+import com.mresearch.databank.client.event.ShowConsultationDetailsEvent;
+import com.mresearch.databank.client.event.ShowPublicationDetailsEvent;
 import com.mresearch.databank.client.event.ShowResearchDetailsEvent;
 import com.mresearch.databank.client.event.ShowVarDetailsEvent;
+import com.mresearch.databank.client.event.ShowZaconDetailsEvent;
 import com.smartgwt.client.widgets.grid.ListGrid;
 import com.smartgwt.client.widgets.grid.ListGridField;
 import com.smartgwt.client.widgets.grid.ListGridRecord;
@@ -32,9 +35,10 @@ public class SearchResultsGenericGrid extends VerticalPanel
     //g.setFilt
     
     
+    
 
     ListGrid countryGrid = new ListGrid();
-    countryGrid.setWidth("100%");
+    countryGrid.setWidth("768");
     countryGrid.setHeight("100%");
     countryGrid.setShowAllRecords(Boolean.valueOf(true));
     countryGrid.setWrapCells(Boolean.valueOf(true));
@@ -49,7 +53,12 @@ public class SearchResultsGenericGrid extends VerticalPanel
       ListGridRecord rec = new ListGridRecord();
       rec.setAttribute("_id", ((JSONString)hit_c.get("_id")).stringValue());
       rec.setAttribute("_type", ((JSONString)hit_c.get("_type")).stringValue());
-      rec.setAttribute("_contents", hit.toString());
+      StringBuilder contents = new StringBuilder();
+      for(String key:hit.keySet())
+      {
+    	  contents.append(hit.get(key)+".");
+      }
+      rec.setAttribute("_contents", contents.toString());
       records[(i++)] = rec;
     }
 
@@ -59,7 +68,7 @@ public class SearchResultsGenericGrid extends VerticalPanel
     ListGridField contents_f = new ListGridField("_contents", "Содержание");
 
     id_f.setWidth(25);
-    type_f.setWidth(70);
+    type_f.setWidth(120);
    // contents_f.setWidth(600);
     
     fields[0] = id_f;
@@ -72,15 +81,30 @@ public class SearchResultsGenericGrid extends VerticalPanel
 		@Override
 		public void onCellDoubleClick(CellDoubleClickEvent event) {
 			int row = event.getRowNum();
-			int id = records[row].getAttributeAsInt("_id");
+			
+			
+			
+			int id = Integer.parseInt(records[row].getAttributeAsString("_id"));
 			String type = records[row].getAttributeAsString("_type");
 			if(type.equals("research"))
 			{
 				bus.fireEvent(new ShowResearchDetailsEvent(id));
-			}
+			}else
 			if(type.equals("sociovar"))
 			{
 				bus.fireEvent(new ShowVarDetailsEvent(id));
+			}
+			else if(type.equals("law"))
+			{
+				bus.fireEvent(new ShowZaconDetailsEvent(id));
+			}
+			else if(type.equals("publication"))
+			{
+				bus.fireEvent(new ShowPublicationDetailsEvent(id));
+			}
+			else if(type.equals("consultation"))
+			{
+				bus.fireEvent(new ShowConsultationDetailsEvent(id));
 			}
 		}
 	});

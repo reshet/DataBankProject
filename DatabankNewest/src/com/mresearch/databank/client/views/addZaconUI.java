@@ -13,6 +13,7 @@ import gwtupload.client.IUploader.OnFinishUploaderHandler;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
+import com.google.gwt.json.client.JSONString;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiConstructor;
 import com.google.gwt.uibinder.client.UiField;
@@ -273,6 +274,10 @@ public class addZaconUI extends Composite {
 		
 		JSON_Representation json = mv.getJSON();
 		//mv.populateItemsLinksTo(currentArt_DTO.getId(), "law");
+		if(json.getObj().containsKey("law_contents"))
+		{
+			json.getObj().put("law_contents",new JSONString(richTextEditor.getValue().replaceAll("\\<.*?\\>", "")));
+		}
 		currentArt_DTO.setJson_desctiptor(json.getObj().toString());
 		HashMap<String, String> mapp = mv.returnCollectedMap();
 		//curr.setName(mapp.get("socioresearch_name"));
