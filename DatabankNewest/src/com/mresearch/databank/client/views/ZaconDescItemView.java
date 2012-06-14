@@ -35,7 +35,9 @@ public class ZaconDescItemView extends Composite {
 		this.dto = dto;
 		//String pub_date = dto.getDate().getDate()+"."+(dto.getDate().getMonth()+1)+"."+(dto.getDate().getYear()+1900);
 		//pub_date = "<span class=\"yellow italic\">"+pub_date+"</span>";
-		String txt = dto.getHeader().length()>60?dto.getHeader().substring(0, 60)+"...":dto.getHeader();
+		//String txt = dto.getHeader().length()>60?dto.getHeader().substring(0, 60)+"...":dto.getHeader();
+		String txt = dto.getHeader();
+		
 		pub_link.setHTML("<span class=\"dark-red\">"+txt+"</span>");
 	}
 	

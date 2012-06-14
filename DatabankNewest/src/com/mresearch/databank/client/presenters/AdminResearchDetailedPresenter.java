@@ -158,7 +158,15 @@ public class AdminResearchDetailedPresenter implements Presenter{
 				updateResearch(composeDTOtoUpdate());
 			}
 		});
+			edit_display.getDeleteBtn().addClickHandler(new ClickHandler() {
+				@Override
+				public void onClick(ClickEvent arg0) {
+					deleteResearch(edit_display.getResearchID());
+				}
+			});
 	}
+	
+	
 	private SocioResearchDTO composeDTOtoUpdate()
 	{
 		SocioResearchDTO dto = new SocioResearchDTO();
@@ -359,7 +367,27 @@ public class AdminResearchDetailedPresenter implements Presenter{
 			}
 		}.retry(3);
 	}
-	
+	void deleteResearch(final long id)
+	{
+		new RPCCall<Boolean>() {
+
+			@Override
+			public void onFailure(Throwable arg0) {
+				Window.alert("Er while del");
+			}
+
+			@Override
+			public void onSuccess(Boolean res) {
+				if(res)Window.alert("Deleted!");
+				
+			}
+
+			@Override
+			protected void callService(AsyncCallback<Boolean> cb) {
+				rpcAdminService.deleteResearch(id, cb);
+			}
+		}.retry(1);
+	}
 	
 	void fetchWeightVarCandidates(final long research_ID)
 	{

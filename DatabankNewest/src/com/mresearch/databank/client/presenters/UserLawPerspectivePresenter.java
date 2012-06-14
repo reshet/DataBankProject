@@ -58,6 +58,7 @@ import com.mresearch.databank.client.views.SimpleResearchList;
 import com.mresearch.databank.client.views.SimpleZaconList;
 import com.mresearch.databank.client.views.VarDescItem;
 import com.mresearch.databank.client.views.VariableDetailedView;
+import com.mresearch.databank.client.views.WrappedCustomLabel;
 import com.mresearch.databank.client.views.ZaconDescItem;
 import com.mresearch.databank.client.views.ZaconDetailedView;
 import com.mresearch.databank.client.views.ZaconsShortView;
@@ -112,9 +113,11 @@ public class UserLawPerspectivePresenter implements Presenter
 	}
 	
 	
+	
 	public void bind()
 	{
 		display.getTree().addMouseDownHandler(new MouseDownHandler() {
+			
 			@Override
 			public void onMouseDown(MouseDownEvent event) {
 				TreeItem it = display.getSelectedItem();
@@ -164,15 +167,19 @@ public class UserLawPerspectivePresenter implements Presenter
 		
 		
 		display.getTreeForSelection().addSelectionHandler(new SelectionHandler<TreeItem>() {
+			private WrappedCustomLabel prevItem;
 			@Override
 			public void onSelection(SelectionEvent<TreeItem> event) {
 				TreeItem it = display.getSelectedItem();
+				if(prevItem!=null)prevItem.getLabel().removeStyleDependentName("selected");
 				if (it instanceof SimpleZaconList)
 				{
 					//fetchResearchListData();
 				}else if (it instanceof ZaconDescItem)
 				{
 					ZaconDescItem rv = (ZaconDescItem)it;
+					rv.getLabel().addStyleDependentName("selected");
+					prevItem = (WrappedCustomLabel)rv;
 					//fetchResearchVarData(it, rv.getResearch_id());
 					eventBus.fireEvent(new ShowZaconDetailsEvent(rv.getContents_id()));
 				}else if (it instanceof ConceptItemItem)

@@ -25,8 +25,9 @@ public class SimpleConsultationList extends TreeItem implements ICatalogizationC
 		super();
 		setText("Все вопросы");
 		addItem("Загрузка...");
-		setStyleName("style.gwt-TreeItem", true);
+		//setStyleName("style.gwt-TreeItem", true);
 	}
+	
 	@Override
 	public void refreshContents() {
 		new RPCCall<ArrayList<ConsultationDTO_Light>>() {

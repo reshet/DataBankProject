@@ -16,5 +16,7 @@ public class ResearchDescItem extends ConceptContentsItem{
 	public ResearchDescItem(SocioResearchDTO_Light dto)
 	{
 		super(dto);
+		
 	}
 }
+

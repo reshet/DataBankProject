@@ -27,7 +27,9 @@ public class ResearchDescItemView extends Composite {
 	public ResearchDescItemView(SocioResearchDTO_Light dto) {
 		initWidget(uiBinder.createAndBindUi(this));
 		this.dto = dto;
-		String txt = dto.getName().length()>60?dto.getName().substring(0, 60)+"...":dto.getName();
+		//String txt = dto.getName().length()>60?dto.getName().substring(0, 60)+"...":dto.getName();
+		String txt = dto.getName();
+		
 		pub_link.setHTML("<span class=\"dark-green\">"+txt+"</span>");
 	}
 	

@@ -16,6 +16,7 @@ import com.google.gwt.user.client.ui.CheckBox;
 import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.TextBox;
+import com.google.gwt.user.client.ui.Tree;
 import com.google.gwt.user.client.ui.TreeItem;
 import com.google.gwt.user.client.ui.VerticalPanel;
 import com.mresearch.databank.client.helper.RPCCall;
@@ -40,7 +41,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import org.zenika.widget.client.datePicker.DatePicker;
 
-public class RootFilterItemAdvanced extends TreeItem
+public class RootFilterItemAdvanced extends VerticalPanel
 {
   private VerticalPanel results_viewer;
   private Button doFilterBtn;
@@ -165,6 +166,8 @@ public class RootFilterItemAdvanced extends TreeItem
   }
 
   private String type_to_filter;
+  private Tree tree = new Tree();
+  private TreeItem root = new TreeItem();
   public RootFilterItemAdvanced(VerticalPanel display,SimpleEventBus ev_bus,String type_to_filter,String filter_caption)
   {
     this.doFilterBtn = new Button("Поехали!");
@@ -172,7 +175,13 @@ public class RootFilterItemAdvanced extends TreeItem
     this.results_viewer = display;
     this.bus = ev_bus;
     this.type_to_filter = type_to_filter;
-    setWidget(this.doUseFilters);
+    root.setState(true);
+    tree.addItem(root);
+    root.setWidget(doUseFilters);
+    //add(this.doUseFilters);
+    add(tree);
+   // root.addItem()
+    
 
     new RPCCall<MetaUnitMultivaluedEntityDTO>()
     {
@@ -188,8 +197,8 @@ public class RootFilterItemAdvanced extends TreeItem
 
       public void onSuccess(MetaUnitMultivaluedEntityDTO result)
       {
-        RootFilterItemAdvanced.this.buildFiltersTree(RootFilterItemAdvanced.this, result.getUnique_name() + "_", result.getSub_meta_units(), RootFilterItemAdvanced.this.mapping);
-        RootFilterItemAdvanced.this.addItem(RootFilterItemAdvanced.this.doFilterBtn);
+        RootFilterItemAdvanced.this.buildFiltersTree(root,result.getUnique_name() + "_", result.getSub_meta_units(), RootFilterItemAdvanced.this.mapping);
+        RootFilterItemAdvanced.this.add(RootFilterItemAdvanced.this.doFilterBtn);
         RootFilterItemAdvanced.this.bindReactions();
       }
     }
@@ -274,8 +283,8 @@ public class RootFilterItemAdvanced extends TreeItem
           hiters.add(hit);
         }
 
-        RootFilterItemAdvanced.this.results_viewer.add(new HTML("<H2>ПОИСКОВЫЙ ЗАПРОС:</H2><br><p>" + query + "</p>"));
-        RootFilterItemAdvanced.this.results_viewer.add(new HTML("<H3>ОТВЕТ ДВИЖКА:</H3><br><p>" + result + "</p>"));
+        //RootFilterItemAdvanced.this.results_viewer.add(new HTML("<H2>ПОИСКОВЫЙ ЗАПРОС:</H2><br><p>" + query + "</p>"));
+       // RootFilterItemAdvanced.this.results_viewer.add(new HTML("<H3>ОТВЕТ ДВИЖКА:</H3><br><p>" + result + "</p>"));
 
         RootFilterItemAdvanced.this.results_viewer.add(new SearchResultsGrid(bus,tot, hiters, RootFilterItemAdvanced.this.mapping));
       }

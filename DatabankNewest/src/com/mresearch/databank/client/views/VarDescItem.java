@@ -17,20 +17,23 @@ import com.mresearch.databank.shared.SocioResearchDTO;
 import com.mresearch.databank.shared.VarDTO;
 import com.mresearch.databank.shared.VarDTO_Light;
 
-public class VarDescItem extends TreeItem{
+public class VarDescItem extends TreeItem implements WrappedCustomLabel{
 	private long var_id;
 	public static int LABEL_SHORTAGE_NUMBER = 45;
+	private Label l = new Label();
+	public Label getLabel(){return l;}
 	public VarDescItem(final VarDTO_Light dto)
 	{
 		super();
 		this.var_id = dto.getId();
 		int end = dto.getLabel().length() > VarDescItem.LABEL_SHORTAGE_NUMBER? VarDescItem.LABEL_SHORTAGE_NUMBER:dto.getLabel().length();
 		//this.setText(dto.getCode()+": "+dto.getLabel());
-		Label l = new Label();
+		
 		l.setWordWrap(true);
 		l.setWidth("200px");
 		l.setText(dto.getCode()+": "+dto.getLabel().substring(0, end));
 		this.setWidget(l);
+		l.setStylePrimaryName("gwt-TreeItem");
 		
 		this.setTitle(dto.getCode()+": "+dto.getLabel());
 		

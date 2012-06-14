@@ -25,7 +25,7 @@ public class SimpleZaconList extends TreeItem implements ICatalogizationConcept{
 		super();
 		setText("Все законы");
 		addItem("Загрузка...");
-		setStyleName("style.gwt-TreeItem", true);
+		//setStyleName("style.gwt-TreeItem", true);
 	}
 	@Override
 	public void refreshContents() {

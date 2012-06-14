@@ -47,6 +47,8 @@ import com.mresearch.databank.client.views.ResearchVarList;
 import com.mresearch.databank.client.views.RootConceptsList;
 import com.mresearch.databank.client.views.SimplePublicationList;
 import com.mresearch.databank.client.views.addPublicationUI;
+import com.mresearch.databank.client.views.updatePublicationUI;
+import com.mresearch.databank.client.views.updateZaconUI;
 import com.mresearch.databank.shared.CatalogConceptDTO;
 import com.mresearch.databank.shared.ConceptBinder;
 import com.mresearch.databank.shared.MetaUnitMultivaluedEntityDTO;
@@ -138,8 +140,27 @@ public class AdminPubPerspectivePresenter implements Presenter
 
 								@Override
 								public void onSuccess(MetaUnitMultivaluedEntityDTO res) {
-									display.getCenterPanel().add(new PublicationDetailedView(result,res,"Все публикации").asWidget());
+									//display.getCenterPanel().add(new PublicationDetailedView(result,res,"Все публикации").asWidget());
+									display.getCenterPanel().clear();
+									TreeItem it = display.getSelectedItem();
+									Long key = null;
+									String name = null;
+									String sys_name = null;
+									if (it instanceof ConceptItem<?>)
+									{
+										key = ((ConceptItem<?>)it).getConcept_id();
+									}
+									if(it instanceof ConceptItemItem)
+									{
+										ConceptItemItem item = (ConceptItemItem)it;
+										name = item.getText();
+										key = item.getEntity_id();
+										sys_name = item.getEntity_system_name();
+									}
+									
+									display.getCenterPanel().add(new updatePublicationUI(result, res,sys_name,key,name));
 								}
+								
 
 								@Override
 								protected void callService(

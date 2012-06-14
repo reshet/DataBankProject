@@ -77,6 +77,7 @@ import com.mresearch.databank.client.views.VarDescItem;
 import com.mresearch.databank.client.views.VariableDetailedView;
 import com.mresearch.databank.client.views.ZaconDescItem;
 import com.mresearch.databank.client.views.ZaconDetailedView;
+import com.mresearch.databank.client.views.updateZaconUI;
 
 import com.mresearch.databank.client.views.addResearchUI;
 import com.mresearch.databank.client.views.addZaconUI;
@@ -174,10 +175,29 @@ public class AdminLawPerspectivePresenter implements Presenter
 								@Override
 								public void onFailure(Throwable arg0) {
 								}
+								
 
 								@Override
 								public void onSuccess(MetaUnitMultivaluedEntityDTO res) {
-									display.getCenterPanel().add(new ZaconDetailedView(result,res,"Все законы").asWidget());
+									//display.getCenterPanel().add(new ZaconDetailedView(result,res,"Все законы").asWidget());
+									display.getCenterPanel().clear();
+									TreeItem it = display.getSelectedItem();
+									Long key = null;
+									String name = null;
+									String sys_name = null;
+									if (it instanceof ConceptItem<?>)
+									{
+										key = ((ConceptItem<?>)it).getConcept_id();
+									}
+									if(it instanceof ConceptItemItem)
+									{
+										ConceptItemItem item = (ConceptItemItem)it;
+										name = item.getText();
+										key = item.getEntity_id();
+										sys_name = item.getEntity_system_name();
+									}
+									
+									display.getCenterPanel().add(new updateZaconUI(result, res,sys_name,key,name));
 								}
 
 								@Override

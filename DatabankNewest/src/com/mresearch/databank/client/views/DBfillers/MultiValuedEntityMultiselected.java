@@ -146,11 +146,12 @@ public class MultiValuedEntityMultiselected extends Composite
     p.show();
   }
 
+  
   private void rebuildJSON()
   {
     JSONObject obj = new JSONObject();
 
-    obj.put(this.dto.getUnique_name(), new JSONString(this.items_list.getText()));
+    obj.put(base_name, new JSONString(this.items_list.getText()));
 
     this.current_json = new JSON_Representation(obj);
   }

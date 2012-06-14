@@ -25,7 +25,7 @@ public class SimplePublicationList extends TreeItem implements ICatalogizationCo
 		super();
 		setText("Все публикации");
 		addItem("Загрузка...");
-		setStyleName("style.gwt-TreeItem", true);
+		//setStyleName("style.gwt-TreeItem", true);
 	}
 	@Override
 	public void refreshContents() {
@@ -44,7 +44,7 @@ public class SimplePublicationList extends TreeItem implements ICatalogizationCo
 					//ResearchVarList research_node = new ResearchVarList(dto);
 					//for(String )
 					//r_desc.addItem(research_node);
-					SimplePublicationList.this.addItem(new PublicationDescItemView(dto));
+					SimplePublicationList.this.addItem(new PublicationDescItem(dto));
 					//SimpleResearchList.this.addItem(research_node);
 				}
 		

@@ -58,14 +58,16 @@ public class UserLawPerspectiveView extends Composite implements UserLawPerspect
 	public UserLawPerspectiveView(SimpleEventBus bus) {
 		initWidget(uiBinder.createAndBindUi(this));
 		//tree = new Tree();
-		//tree.setStyleName("research-catalog");
+		tree.setStyleName("law_section");
 		//TreeItem db = new TreeItem("_Банк законодательства_");
 		simpleZaconListItem = new SimpleZaconList();
-		tree.addItem(simpleZaconListItem);
 		rootDataLawConcepts = new RootConceptsList("law", "Рубрикатор");
+		RootFilterItemAdvanced i = new RootFilterItemAdvanced(centerPanel,bus,"law","Фильтр");
+		//i.setState(true,true);
+		tree.addItem(simpleZaconListItem);
 		tree.addItem(rootDataLawConcepts);
-		tree.addItem(new RootFilterItemAdvanced(centerPanel,bus,"law","Фильтр"));
-
+		tree.addItem(i);
+		
 		//tree.addItem(db);
 		
 		

@@ -62,6 +62,7 @@ import com.mresearch.databank.client.views.UserResearchDetailedView;
 import com.mresearch.databank.client.views.VarDescItem;
 import com.mresearch.databank.client.views.VariableDetailedView;
 import com.mresearch.databank.client.views.UserResearchVar2DDView;
+import com.mresearch.databank.client.views.WrappedCustomLabel;
 import com.mresearch.databank.shared.ArticleDTO;
 import com.mresearch.databank.shared.MetaUnitMultivaluedEntityDTO;
 import com.mresearch.databank.shared.NewsDTO;
@@ -159,21 +160,29 @@ public class UserResearchPerspectivePresenter implements Presenter
 //			}
 //		});
 		display.getTreeForSelection().addSelectionHandler(new SelectionHandler<TreeItem>() {
+			private VarDescItem prevVar;
+			private WrappedCustomLabel prevRes;
 			@Override
 			public void onSelection(SelectionEvent<TreeItem> event) {
 				TreeItem it = display.getSelectedItem();
+				if(prevRes!=null)prevRes.getLabel().removeStyleDependentName("selected");
+				if(prevVar!=null)prevVar.getLabel().removeStyleDependentName("selected");
+				
 				if (it instanceof SimpleResearchList)
 				{
 					//fetchResearchListData();
 				}else if (it instanceof ResearchDescItem)
 				{
 					ResearchDescItem rv = (ResearchDescItem)it;
+					rv.getLabel().addStyleDependentName("selected");
+					prevRes = (WrappedCustomLabel)rv;
 					//fetchResearchVarData(it, rv.getResearch_id());
 					
 					current_research_id = rv.getContents_id();
 					eventBus.fireEvent(new ShowResearchDetailsEvent(rv.getContents_id()));
 				}else if (it instanceof ResearchVarList)
 				{
+					
 					
 				}
 				else if (it instanceof ResearchMetadataItem)
@@ -185,6 +194,8 @@ public class UserResearchPerspectivePresenter implements Presenter
 				}else if (it instanceof VarDescItem)
 				{
 					VarDescItem rv = (VarDescItem)it;
+					rv.getLabel().addStyleDependentName("selected");
+					prevVar = rv;
 					//fetchResearchVarData(it, rv.getResearch_id());
 					eventBus.fireEvent(new ShowVarDetailsEvent(rv.getVar_id()));
 				//	eventBus.fireEvent(new AddResearchDisabledEvent());

@@ -101,19 +101,25 @@ public class UserResearchPerspectiveView extends Composite implements UserResear
 		
 		
 		//split_panel.get
-		
+		tree.setStyleName("research_section");
 		split_panel.setWidgetMinSize(centerChild, 800);
 		//split_panel.get
 		simpleResearchListItem = new SimpleResearchList();
 		tree.addItem(simpleResearchListItem);
 		rootResearchConcepts = new RootConceptsList("socioresearch","Концепты каталогизации исследований");
+		//rootResearchConcepts.setState(true);
 		tree.addItem(rootResearchConcepts);
 		
 		rootVarConcepts = new RootConceptsList("sociovar","Концепты каталогизации переменных");
+		//rootVarConcepts.setState(true);
 		tree.addItem(rootVarConcepts);
 		
-		F_S_tree.addItem(new RootFilterItemAdvanced(centerPanel,bus,"socioresearch","Фильтровать исследования"));
-		F_V_tree.addItem(new RootFilterItemAdvanced(centerPanel,bus,"sociovar","Фильтровать переменные"));
+		RootFilterItemAdvanced f1 = new RootFilterItemAdvanced(centerPanel,bus,"socioresearch","Фильтровать исследования");
+		F_S_tree.addItem(f1);
+		//f1.setState(true);
+		RootFilterItemAdvanced f2 = new RootFilterItemAdvanced(centerPanel,bus,"sociovar","Фильтровать переменные");
+		F_V_tree.addItem(f2);
+		//f2.setState(true);
 
 
 		

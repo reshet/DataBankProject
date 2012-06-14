@@ -27,7 +27,7 @@ public class RootConceptsList extends ConceptItemEntity
     this.concept_name = concepts_name;
     setText(this.concept_name);
     addItem("Загрузка...");
-    setStyleName("style.gwt-TreeItem", true);
+    //setStyleName("style.gwt-TreeItem", true);
     refreshContents();
   }
 

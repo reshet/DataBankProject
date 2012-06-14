@@ -1,6 +1,7 @@
 	package com.mresearch.databank.client.views;
 
 import com.google.gwt.user.client.rpc.AsyncCallback;
+import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.TreeItem;
 import com.mresearch.databank.client.helper.RPCCall;
 import com.mresearch.databank.client.service.AdminSocioResearchService;
@@ -14,16 +15,22 @@ import com.mresearch.databank.shared.MetaUnitMultivaluedEntityDTO;
 import com.mresearch.databank.shared.MetaUnitMultivaluedStructureDTO;
 import java.util.ArrayList;
 
-public class ConceptItemEntity extends TreeItem
-  implements ICatalogizationConcept
+public class ConceptItemEntity extends TreeItem implements WrappedCustomLabel,ICatalogizationConcept
 {
   private Long entity_id;
   private String entity_system_name;
   private String catalog_path;
+  private Label l;
   public ConceptItemEntity(String name, Long id,String sys_name,String base_path)
   {
-    super(name);
-    this.entity_id = id;
+    //super(name);
+    this.l = new Label(name);
+    l.setWordWrap(true);
+    l.setWidth("200px");
+	this.setWidget(l);
+	l.setStylePrimaryName("gwt-TreeItem");
+	this.setTitle(name);
+	this.entity_id = id;
     this.entity_system_name = sys_name;
     this.catalog_path = !base_path.equals("")?base_path+"/"+name:name;
   }
@@ -113,4 +120,9 @@ public Long getEntity_id() {
     if (hasConceptInside) return it;
     return null;
   }
+
+@Override
+public Label getLabel() {
+	return l;
+}
 }
