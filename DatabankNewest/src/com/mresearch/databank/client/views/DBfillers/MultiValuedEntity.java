@@ -231,9 +231,13 @@ public class MultiValuedEntity extends Composite implements MetaUnitFiller,MetaU
 		      if (val != null)
 		      {
 		        int index = this.dto.getItem_names().indexOf(val);
-		        this.items_list.setSelectedIndex(index);
+		        if(index>=0)
+		        {
+		        	this.items_list.setSelectedIndex(index);
 
-		        this.previous_item_id = ((Long)this.dto.getItem_ids().get(index)).longValue();
+			        this.previous_item_id = ((Long)this.dto.getItem_ids().get(index)).longValue();
+
+		        }		 
 		      }
 		}
 	}
@@ -242,8 +246,9 @@ public class MultiValuedEntity extends Composite implements MetaUnitFiller,MetaU
 	private void rebuildJSON()
 	{
 		JSONObject obj = new JSONObject();
-
-	    obj.put(base_name, new JSONString(this.items_list.getItemText(this.items_list.getSelectedIndex())));
+		int index =-1;
+		index = this.items_list.getSelectedIndex();
+	    if(index>=0)obj.put(base_name, new JSONString(this.items_list.getItemText(index)));
 	    this.current_json = new JSON_Representation(obj);
 	    
 	    //this.populateItemsLinksTo(id, identifier);

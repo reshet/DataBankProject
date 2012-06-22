@@ -32,6 +32,9 @@
 			</g:VerticalPanel>
 			<br/><br/>
 			<g:Button ui:field="submitButton"> Подтвердить!</g:Button>
+			<VerticalPanel horizontalAlignment="ALIGN_RIGHT">
+				<g:Button ui:field="delButton"> Удалить!</g:Button>
+			</VerticalPanel>
 			
 			
 <!-- 			<br/><br/> -->

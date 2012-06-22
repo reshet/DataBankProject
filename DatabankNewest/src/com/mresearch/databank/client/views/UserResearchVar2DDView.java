@@ -226,7 +226,7 @@ public class UserResearchVar2DDView extends Composite {
 			the2DD_table.setWidget(0, i+1, new Label(var2.getV_label_values().get(i)));
 		}
 		
-		NumberFormat formatter = NumberFormat.getFormat("0.00");
+		NumberFormat formatter = NumberFormat.getFormat("0.0");
         
 		if(show_frequences.getValue() == true)
 		{

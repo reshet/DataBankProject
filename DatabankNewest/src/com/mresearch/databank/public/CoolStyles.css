@@ -632,25 +632,84 @@ div.search-submit {
     border-bottom: #fff solid 2px;
 }
 
-.gwt-TabLayoutPanel .gwt-TabLayoutPanelContent {
+/* .gwt-TabLayoutPanel .gwt-TabLayoutPanelContent { */
  
-}
+/* } */
 
-.gwt-TabLayoutPanel .gwt-TabLayoutPanelTabInner {
-}
+/* .gwt-TabLayoutPanel .gwt-TabLayoutPanelTabInner { */
+/* } */
 
-.gwt-TabBar {
-}
+/* .gwt-TabBar { */
+/* } */
 
-.gwt-TabBarItem {
-}
-.gwt-TabBarItem :hover{
+/* .gwt-TabBarItem { */
+/* } */
+/* .gwt-TabBarItem :hover{ */
 	   
+/* } */
+
+/* .gwt-TabBarItem-selected { */
+	
+/* } */
+
+
+/*
+NEW TABS
+
+*/
+.gwt-DecoratedTabBar {
+    padding-top: 4px;
+    padding-right: 14px;
+    padding-left: 4px;
+    padding-bottom: 0;
+    cursor: default;
+    color: #009100;
+    font-weight: bold;
+    text-align: center;
+    background: #fafafa;
 }
 
-.gwt-TabBarItem-selected {
-	
+/** The tab bar items the users click on*/
+.gwt-DecoratedTabBar .gwt-TabBarItem {
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    cursor: pointer;
+    padding-top: 3px;
+    padding-right: 10px;
+    padding-left: 10px;
+    padding-bottom: 5px;
+    background: #fff;
+    color: #7a7a7a;
+    margin-right: 3px;
 }
+
+/** The tab bar items the users click on - selected version*/
+.gwt-DecoratedTabBar .gwt-TabBarItem-selected {
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    cursor: pointer;
+    padding-top: 3px;
+    padding-right: 10px;
+    padding-left: 10px;
+    padding-bottom: 5px;
+    background: #1d6bbb;
+    color: #fff;
+}
+
+/** the body of the tab*/
+.gwt-TabPanelBottom {
+    border-top: 3px solid #1d6bbb;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+
+    padding: 6px;
+    background: #fff;
+}
+
+
+
+
+
 
 .gwt-CheckBox {
 

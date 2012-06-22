@@ -61,30 +61,11 @@ public class updatePublicationUI extends Composite {
 	interface addPublicationUIUiBinder extends UiBinder<Widget, updatePublicationUI> {
 	}
 
-	
-//	@UiField
-//	FileUpload fileUpload;
-	
 	@UiField
 	Button submitButton;
-	//,submitOriginalUpload;
-	
-//	@UiField
-//	FormPanel formPanel;
-	
+	@UiField Button delButton;
 	@UiField
 	VerticalPanel uploadPanel;
-	
-	//@UiField
-	//TextBox _name,_number;
-	//@UiField TextArea _abstract;
-	//, _keywords;
-	//@UiField DatePicker date,date_accept,date_decline;
-	//_org_prompter;
-	
-	//@UiField
-	//FormPanel original_upload;
-	
 	private Label status;
 	private Button parse_spss_cmd;
 	private boolean doc_uploaded = false;
@@ -99,9 +80,30 @@ public class updatePublicationUI extends Composite {
 	@UiField VerticalPanel descriptionEditor;
 	private RichTextEditor richTextEditor;
 	
+	@UiHandler(value="delButton")
+	public void doDel(ClickEvent e)
+	{
+		delete();
+	}
+	private void delete()
+	{
+		new RPCCall<Boolean>() {
+			@Override
+			public void onFailure(Throwable arg0) {
+				Window.alert("Consult delete failed!");
+			}
+			@Override
+			public void onSuccess(Boolean arg0) {
+				Window.alert("Consult deleted!");
+			}
+			@Override
+			protected void callService(AsyncCallback<Boolean> cb) {
+				adminArticleService.deletePublication(currentArt_DTO.getId(), cb);
+			}
+		}.retry(2);
+	}
 	private void renderDBfillers(PublicationDTO dto,MetaUnitMultivaluedEntityDTO res,String cat_sys_name,String catalogization_str)
 	{
-		
 		descriptionEditor.clear();
 		
         richTextEditor = new RichTextEditor();

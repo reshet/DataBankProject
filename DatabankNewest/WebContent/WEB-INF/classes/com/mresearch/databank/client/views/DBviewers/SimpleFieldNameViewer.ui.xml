@@ -11,7 +11,7 @@
 	</ui:style>
 	<g:HTMLPanel>
 		<div class="gray25 bold">
-		<g:Label ui:field="field_name"></g:Label>
+		<g:HTML ui:field="field_name"></g:HTML>
 		</div>
 	</g:HTMLPanel>
 </ui:UiBinder> 

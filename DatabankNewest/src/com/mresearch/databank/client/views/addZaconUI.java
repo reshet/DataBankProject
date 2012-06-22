@@ -44,6 +44,7 @@ import com.mresearch.databank.client.views.DBviewers.MultiValuedFieldViewer;
 import com.mresearch.databank.shared.JSON_Representation;
 import com.mresearch.databank.shared.MetaUnitMultivaluedEntityDTO;
 import com.mresearch.databank.shared.ZaconDTO;
+import com.smartgwt.client.types.Overflow;
 import com.smartgwt.client.widgets.RichTextEditor;
 
 public class addZaconUI extends Composite {
@@ -106,7 +107,7 @@ public class addZaconUI extends Composite {
         richTextEditor = new RichTextEditor();
         richTextEditor.setHeight(400);  
         richTextEditor.setWidth("100%");
-        //richTextEditor.setOverflow(Overflow.HIDDEN);  
+        richTextEditor.setOverflow(Overflow.HIDDEN);  
         richTextEditor.setCanDragResize(true);  
         //richTextEditor.setShowEdges(true);  
   
@@ -114,6 +115,8 @@ public class addZaconUI extends Composite {
         // "fontControls", "formatControls", "styleControls" and "colorControls"  
         //richTextEditor.setControlGroups(new String[]{"fontControls", "styleControls"});  
         richTextEditor.setValue("Краткое содержание");  
+        richTextEditor.sendToBack();
+       // richTextEditor.
         
         descriptionEditor.add(richTextEditor);
 		

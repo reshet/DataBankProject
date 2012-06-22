@@ -49,7 +49,7 @@ public class UserLawPerspectiveView extends Composite implements UserLawPerspect
 	interface UserResearchPerspectiveViewUiBinder extends
 			UiBinder<Widget, UserLawPerspectiveView> {
 	}
-	@UiField VerticalPanel centerPanel;
+	@UiField VerticalPanel centerPanel,filter_pnl;
 	@UiField Tree tree;
 	SimpleZaconList simpleZaconListItem;
 	RootConceptsList rootDataLawConcepts;
@@ -66,7 +66,7 @@ public class UserLawPerspectiveView extends Composite implements UserLawPerspect
 		//i.setState(true,true);
 		tree.addItem(simpleZaconListItem);
 		tree.addItem(rootDataLawConcepts);
-		tree.addItem(i);
+		filter_pnl.add(i);
 		
 		//tree.addItem(db);
 		

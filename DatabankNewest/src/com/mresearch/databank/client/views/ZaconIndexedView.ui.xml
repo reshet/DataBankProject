@@ -17,11 +17,21 @@
 				</p>
 			</div>
 			<div class="dark-red right">
-			<g:HorizontalPanel spacing="10">
-				<g:Anchor ui:field="show_deeper" text="Подробнее..."></g:Anchor>
-				<g:HorizontalPanel ui:field="link_panel"></g:HorizontalPanel>
-				<g:Anchor ui:field="show_meta" text="Доп. информация"></g:Anchor>
-			</g:HorizontalPanel>
+			<g:HTMLPanel>
+				<table>
+					<tr>
+						<td>
+							<g:Anchor ui:field="show_deeper" text="Подробнее..."></g:Anchor>
+						</td>
+						<td>
+							<g:HorizontalPanel ui:field="link_panel"></g:HorizontalPanel>
+						</td>
+						<td align="right">
+							<g:Anchor ui:field="show_meta" text="Доп. информация"></g:Anchor>
+						</td>
+					</tr>
+				</table>
+			</g:HTMLPanel>
 			</div>
 		</g:HTMLPanel>
 	</g:VerticalPanel>

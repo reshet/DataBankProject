@@ -20,16 +20,73 @@
 				<g:center>
 					<g:ScrollPanel   width="100%" height="100%">
 						<g:VerticalPanel width="100%" height="100%" horizontalAlignment="ALIGN_LEFT">
-							<g:HTMLPanel>
-							<g:Tree ui:field="tree" animationEnabled="true">
-							</g:Tree>
-							<div class="line-separator"></div>
-							<g:Tree ui:field="F_S_tree" animationEnabled="true">
-							</g:Tree>
-							<div class="line-separator"></div>
-							<g:Tree ui:field="F_V_tree" animationEnabled="true">
-							</g:Tree>
-							</g:HTMLPanel>
+						
+							<g:DecoratedTabPanel animationEnabled="true" height="600px" width="310px" ui:field="decortab">
+								<g:Tab text="Каталог" selected="true">
+										<g:VerticalPanel ui:field="catalogPanel" width="100%" height="100%">
+											<g:Tree ui:field="tree" animationEnabled="true">
+											</g:Tree>
+										</g:VerticalPanel>
+								</g:Tab>
+								<g:Tab text="Фильтр">
+									<g:ScrollPanel width="100%" height="100%">
+										<g:VerticalPanel ui:field="filterPanel">
+												<g:HTMLPanel>
+												<g:Tree ui:field="F_S_tree" animationEnabled="true">
+												</g:Tree>
+												<div class="line-separator"></div>
+												<g:Tree ui:field="F_V_tree" animationEnabled="true">
+												</g:Tree>
+												</g:HTMLPanel>
+											
+										</g:VerticalPanel>
+									</g:ScrollPanel>
+								</g:Tab>
+									
+							</g:DecoratedTabPanel>
+<!-- 							<g:TabLayoutPanel barHeight="30" visible="true" width="300px" height="600px"> -->
+<!-- 								<g:tab> -->
+<!-- 									<g:header> -->
+<!-- 										Каталог -->
+<!-- 									</g:header> -->
+<!-- 									<g:ScrollPanel width="100%" height="100%"> -->
+<!-- 										<g:VerticalPanel ui:field="catalogPanel"> -->
+<!-- 											<g:Tree ui:field="tree" animationEnabled="true"> -->
+<!-- 											</g:Tree> -->
+<!-- 										</g:VerticalPanel> -->
+<!-- 									</g:ScrollPanel> -->
+<!-- 								</g:tab> -->
+<!-- 								<g:tab> -->
+<!-- 									<g:header> -->
+<!-- 										Фильтр -->
+<!-- 									</g:header> -->
+<!-- 									<g:ScrollPanel width="100%" height="100%"> -->
+<!-- 										<g:VerticalPanel ui:field="filterPanel"> -->
+<!-- 												<g:HTMLPanel> -->
+<!-- 												<g:Tree ui:field="F_S_tree" animationEnabled="true"> -->
+<!-- 												</g:Tree> -->
+<!-- 												<div class="line-separator"></div> -->
+<!-- 												<g:Tree ui:field="F_V_tree" animationEnabled="true"> -->
+<!-- 												</g:Tree> -->
+<!-- 												</g:HTMLPanel> -->
+											
+<!-- 										</g:VerticalPanel> -->
+<!-- 									</g:ScrollPanel> -->
+<!-- 								</g:tab> -->
+<!-- 							</g:TabLayoutPanel> -->
+							
+						
+						
+<!-- 							<g:HTMLPanel> -->
+<!-- 							<g:Tree ui:field="tree" animationEnabled="true"> -->
+<!-- 							</g:Tree> -->
+<!-- 							<div class="line-separator"></div> -->
+<!-- 							<g:Tree ui:field="F_S_tree" animationEnabled="true"> -->
+<!-- 							</g:Tree> -->
+<!-- 							<div class="line-separator"></div> -->
+<!-- 							<g:Tree ui:field="F_V_tree" animationEnabled="true"> -->
+<!-- 							</g:Tree> -->
+<!-- 							</g:HTMLPanel> -->
 							
 						</g:VerticalPanel>
 					</g:ScrollPanel>

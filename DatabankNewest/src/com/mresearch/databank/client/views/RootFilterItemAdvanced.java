@@ -45,7 +45,7 @@ public class RootFilterItemAdvanced extends VerticalPanel
 {
   private VerticalPanel results_viewer;
   private Button doFilterBtn;
-  private CheckBox doUseFilters;
+  private TreeItem doUseFilters;
   private UserSocioResearchServiceAsync service = (UserSocioResearchServiceAsync)GWT.create(UserSocioResearchService.class);
   private AdminSocioResearchServiceAsync service_adm = AdminSocioResearchService.Util.getInstance();
   private SimpleEventBus bus;
@@ -171,15 +171,20 @@ public class RootFilterItemAdvanced extends VerticalPanel
   public RootFilterItemAdvanced(VerticalPanel display,SimpleEventBus ev_bus,String type_to_filter,String filter_caption)
   {
     this.doFilterBtn = new Button("Поехали!");
-    this.doUseFilters = new CheckBox(filter_caption);
+    //this.doUseFilters = new TreeItem(filter_caption);
     this.results_viewer = display;
     this.bus = ev_bus;
     this.type_to_filter = type_to_filter;
-    root.setState(true);
     tree.addItem(root);
-    root.setWidget(doUseFilters);
+    //root.setWidget(doUseFilters);
+    root.setText(filter_caption);
     //add(this.doUseFilters);
     add(tree);
+    
+    this.setWidth("100%");
+    this.setHeight("100%");
+    
+    
    // root.addItem()
     
 
@@ -199,6 +204,7 @@ public class RootFilterItemAdvanced extends VerticalPanel
       {
         RootFilterItemAdvanced.this.buildFiltersTree(root,result.getUnique_name() + "_", result.getSub_meta_units(), RootFilterItemAdvanced.this.mapping);
         RootFilterItemAdvanced.this.add(RootFilterItemAdvanced.this.doFilterBtn);
+        root.setState(true);
         RootFilterItemAdvanced.this.bindReactions();
       }
     }

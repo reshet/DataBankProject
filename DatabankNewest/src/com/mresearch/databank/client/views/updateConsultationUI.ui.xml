@@ -38,6 +38,9 @@
 			<br/><br/>
 			<g:CheckBox ui:field="do_publish">Опубликовано</g:CheckBox>
 			<g:Button ui:field="submitButton"> Ответить!</g:Button>
+			<VerticalPanel horizontalAlignment="ALIGN_RIGHT">
+				<g:Button ui:field="delButton"> Удалить!</g:Button>
+			</VerticalPanel>
 
 
 		</div>

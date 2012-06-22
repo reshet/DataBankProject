@@ -67,7 +67,7 @@ public class AdminResearchPerspectiveView extends Composite implements AdminRese
 		//TreeItem db = new TreeItem("_Банк данных_");
 		simpleResearchListItem = new SimpleResearchList();
 		rootResearchConcepts = new RootConceptsList("socioresearch","Концепты каталогизации исследований");
-		rootVarConcepts = new RootConceptsList("sociocar","Концепты каталогизации переменных");
+		rootVarConcepts = new RootConceptsList("sociovar","Концепты каталогизации переменных");
 		tree.addItem(simpleResearchListItem);
 		tree.addItem(rootResearchConcepts);
 		tree.addItem(rootVarConcepts);

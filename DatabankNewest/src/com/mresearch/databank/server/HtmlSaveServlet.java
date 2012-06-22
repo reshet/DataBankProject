@@ -17,6 +17,7 @@ import com.mresearch.databank.shared.UserAccountDTO;
 
 
 
+
 public class HtmlSaveServlet extends HttpServlet {
 
 	private static UserSocioResearchBeanRemote eao;
@@ -36,30 +37,37 @@ public class HtmlSaveServlet extends HttpServlet {
 	}
 public void doPost(HttpServletRequest req, HttpServletResponse res)
     throws IOException {
-		res.setContentType("application/octet-stream");
+		//res.setContentType("application/octet-stream");
+		res.setContentType("text/html");
 		//res.setCharacterEncoding("UTF-8");
-			
+		
+		
 		String original_file_name = "saved_distr.html";
 		res.setHeader( "Content-Disposition", "attachment; filename=\"" + original_file_name +"\"" );
         //res.setHeader("Content-Type", "text/html");
         String st = (String) req.getParameter("content");
-        st = new String(st.getBytes(),"UTF-8");
+        //st = new String(st.getBytes(),"UTF-8");
+        
         HttpSession session = req.getSession(true);
         UserAccountDTO userAcc =   (UserAccountDTO) session.getAttribute("user");
        // st = new String(st.getBytes(),"UTF-8");
         
         String dd = getHeaderSection(userAcc)+getResearchSection(userAcc)+getWeightsSection(userAcc)+getFiltersSection(userAcc);
         //userAcc.
-       // dd = new String(dd.getBytes("cp1251"),"UTF-8");
-        String stt ="<html><head><meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\"></head><body>"+dd+"</body></html>"; 
+        dd = new String(dd.getBytes("UTF-8"),"ISO-8859-1");
+        String stt ="<html><head><meta http-equiv=\"content-type\" content=\"text/html;charset=UTF-8\"></head><body>"+st+"</body></html>"; 
         //String s = URL.decode(st);
         
-        res.getWriter().println(stt);
+      //  res.getWriter().println(stt);
       //res.setCharacterEncoding("UTF-8");
     	//res.setCharacterEncoding("CP1251");
-    	String sttt ="<html><head><meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\"></head><body>"+st+"</body></html>"; 
-    	 res.getWriter().println(sttt);
-        res.getWriter().close();
+    	String sttt ="<html><head><meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\"></head><body>"+res.getCharacterEncoding()+dd+"</body></html>"; 
+    	 res.getWriter().println(res.getCharacterEncoding()+dd);
+    	//res.setCharacterEncoding("cp1251");
+     	
+    	 res.getWriter().println(stt);
+    	     
+    	 res.getWriter().close();
         //res.setHeader("Location", info.getFilename());   
         //res.
         

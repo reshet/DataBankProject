@@ -4,7 +4,7 @@
 	<ui:style>
 		
 	</ui:style>
-	<g:TabLayoutPanel barHeight="30" visible="true" width="1000px" height="800px">
+	<g:TabLayoutPanel barHeight="30" visible="true" width="100%" height="100%">
 		<g:tab>
 			<g:header>
 				Просмотр

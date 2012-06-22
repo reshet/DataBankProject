@@ -120,14 +120,9 @@ public class AnalisysBarView extends Composite implements UserResearchPerspectiv
 			public void onClick(ClickEvent arg0) {
 				//eventBus.fireEvent(new SaveHTMLEvent());
 				String s;
-				try {
-					s = new String(display.getCenterPanel().toString().getBytes(),"UTF-8");
-					content.setText(s);
-					form.submit();
-				} catch (UnsupportedEncodingException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
+				s = new String(display.getCenterPanel().toString().getBytes());
+				content.setText(s);
+				form.submit();
 				
 			}
 		});

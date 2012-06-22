@@ -16,19 +16,19 @@
 					<g:ListBox ui:field="items_list"></g:ListBox>
 				</td>
 				<td>
-					<g:Anchor ui:field="add">+Добавить</g:Anchor>
+					<g:Anchor ui:field="add">+Доб</g:Anchor>
 				</td>
 				<td>
-					<g:Anchor ui:field="addsub">+Доб подюнит</g:Anchor>
+					<g:Anchor ui:field="addsub">+Юнит</g:Anchor>
 				</td>
 				<td>
-					<g:Anchor ui:field="delete">-Удалить</g:Anchor>
+					<g:Anchor ui:field="delete">-Удл</g:Anchor>
 				</td>
 				<td>
 					<g:Anchor ui:field="edit_item">изменить</g:Anchor>
 				</td>
 				<td>
-					<g:Anchor ui:field="edit">редактировать</g:Anchor>
+					<g:Anchor ui:field="edit">ред.</g:Anchor>
 				</td>
 			</tr>
 		</table>

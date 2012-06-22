@@ -67,45 +67,50 @@ public class AdminResearchDetailedPresenter implements Presenter{
 	public interface GroupEditDisplay
 	 {
 		 //String getResearchID();
-		 ArrayList<String> getConcepts();
-		 ArrayList<String> getPublications();
-		 ArrayList<String> getPublications_dois();
-		 ArrayList<String> getResearchers();
-		 String getMethod();
-		 String getOrgImplID();
-		 String getOrgOrderedID();
-		 String getSelectionApprchCompl();
-		 String getSelectionApprchRand();
-		 
-		 //int getSelectionSize();
-		 String getGenerealG();
-		 Date getStartDate();
-		 Date getEndDate();
-		 //String getName();	
+//		 ArrayList<String> getConcepts();
+//		 ArrayList<String> getPublications();
+//		 ArrayList<String> getPublications_dois();
+//		 ArrayList<String> getResearchers();
+//		 String getMethod();
+//		 String getOrgImplID();
+//		 String getOrgOrderedID();
+//		 String getSelectionApprchCompl();
+//		 String getSelectionApprchRand();
+//		 
+//		 //int getSelectionSize();
+//		 String getGenerealG();
+//		 Date getStartDate();
+//		 Date getEndDate();
+//		 //String getName();	
 		 //String getWeightVarID();
 		 HasClickHandlers getCondirmBtn();
 		 HasClickHandlers getDeleteBtn();
-		 HasClickHandlers getAddOrgImplPopup();
-		 HasClickHandlers getAddOrgOrderPopup();
-		 
-		 HasClickHandlers getAddOrgImplBtn();
-		 HasClickHandlers getAddOrgOrderBtn();
+//		 HasClickHandlers getAddOrgImplPopup();
+//		 HasClickHandlers getAddOrgOrderPopup();
+//		 
+//		 HasClickHandlers getAddOrgImplBtn();
+//		 HasClickHandlers getAddOrgOrderBtn();
 		 HasClickHandlers getEthalonSelector();
 		 void updateViewedDTO(SocioResearchDTO dto);
-		 void setOrgImpl(ArrayList<String> names,ArrayList<String> ids);
-		 String getOrgImplName(String org_impl_id);
-		 String getOrgOrderName(String org_order_id);
+		 String getDescription();
+//		 void setOrgImpl(ArrayList<String> names,ArrayList<String> ids);
+//		 String getOrgImplName(String org_impl_id);
+//		 String getOrgOrderName(String org_order_id);
+		 MetaUnitFiller getDBfiller();
+		 MetaUnitCollector getDBcollector();
+		 MetaUnitEntityItemRegistrator getDBregistrator();
+		 
 		 long getEthalonSelectedID();
 		 VerticalPanel getPickResearchesToPropagatePanel();
 		// String getWeightVarName(String weight_var_id);
-		 void setOrgOrder(ArrayList<String> names,ArrayList<String> ids);	 
+//		 void setOrgOrder(ArrayList<String> names,ArrayList<String> ids);	 
 		 //void setVarsWeight(ArrayList<String> names,ArrayList<String> ids);
 		 void setResearchesAvaible(ArrayList<String> names,ArrayList<Long> ids);
 		 Widget asWidget();
-		 OrgDTO getAddOrgDTO();
-		 Widget getPopupAddOrg();
-		 void setOrgPopupPosition(int x, int y);
-		 void setOrgPopupVisibility(boolean b);
+//		 OrgDTO getAddOrgDTO();
+//		 Widget getPopupAddOrg();
+//		 void setOrgPopupPosition(int x, int y);
+//		 void setOrgPopupVisibility(boolean b);
 	 }
 	public interface FilesEditDisplay
 	 {
@@ -186,6 +191,24 @@ public class AdminResearchDetailedPresenter implements Presenter{
 		
 	}
 	
+	private SocioResearchDTO composeDTOtoUpdateGrouped()
+	{
+		SocioResearchDTO dto = new SocioResearchDTO();
+		dto.setId(gr_edit_displ.getEthalonSelectedID());
+		//dto.setVar_weight_id(edit_display.getWeightVarID());
+		//dto.setVar_weight_name(edit_display.getWeightVarName(edit_display.getWeightVarID()));
+		
+		
+		JSON_Representation json = gr_edit_displ.getDBfiller().getJSON();
+		gr_edit_displ.getDBregistrator().populateItemsLinksTo(dto.getId(), "socioresearch");
+		dto.setJson_descriptor(json.getObj().toString());
+		HashMap<String, String> mapp = gr_edit_displ.getDBcollector().returnCollectedMap();
+		dto.setName(mapp.get("socioresearch_name"));
+		dto.setFilling(mapp);
+		dto.setDesctiption(gr_edit_displ.getDescription());
+		return dto;
+		
+	}
 	
 	
 	
@@ -256,7 +279,7 @@ public class AdminResearchDetailedPresenter implements Presenter{
 
 			@Override
 			public void onSuccess(SocioResearchDTO result) {
-				Window.alert("Research updated!");
+				Window.alert("Исследование обновлено!");
 			}
 
 			@Override
@@ -265,6 +288,7 @@ public class AdminResearchDetailedPresenter implements Presenter{
 			}
 		}.retry(3);
 	}
+	
 	void updateResearchGrouped(final SocioResearchDTO dto)
 	{
 		new RPCCall<SocioResearchDTO>() {
@@ -276,7 +300,7 @@ public class AdminResearchDetailedPresenter implements Presenter{
 
 			@Override
 			public void onSuccess(SocioResearchDTO result) {
-				Window.alert("Research updated!");
+				Window.alert("Исследование "+result.getId()+" обновлено в группе!");
 			}
 
 			@Override
@@ -339,7 +363,7 @@ public class AdminResearchDetailedPresenter implements Presenter{
 					
 					@Override
 					public void processPickChoice(ArrayList<Long> selected_keys) {
-						SocioResearchDTO dto = composeDTOtoUpdate();
+						SocioResearchDTO dto = composeDTOtoUpdateGrouped();
 						for(Long key:selected_keys)
 						{
 							dto.setId(key);
@@ -378,7 +402,8 @@ public class AdminResearchDetailedPresenter implements Presenter{
 
 			@Override
 			public void onSuccess(Boolean res) {
-				if(res)Window.alert("Deleted!");
+				if(res)Window.alert("Deleted!");else
+					Window.alert("Er server while del");
 				
 			}
 

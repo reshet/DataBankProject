@@ -17,7 +17,7 @@
 			margin: 10,10,10,10;
 		}
 	</ui:style>
-	<g:HTMLPanel>
+	<g:HTMLPanel width="100%" height="100%">
 		<div class="style.general">
 			<div class="style.heading">
 				<h2>Редактирование закона в банке ...
@@ -32,6 +32,9 @@
 			</g:VerticalPanel>
 			<br/><br/>
 			<g:Button ui:field="submitButton"> Подтвердить!</g:Button>
+			<VerticalPanel horizontalAlignment="ALIGN_RIGHT">
+				<g:Button ui:field="delButton"> Удалить!</g:Button>
+			</VerticalPanel>
 			
 			
 <!-- 			<br/><br/> -->

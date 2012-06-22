@@ -29,6 +29,8 @@ import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.CheckBox;
 import com.google.gwt.user.client.ui.Composite;
+import com.google.gwt.user.client.ui.DecoratedTabBar;
+import com.google.gwt.user.client.ui.DecoratedTabPanel;
 import com.google.gwt.user.client.ui.ScrollPanel;
 import com.google.gwt.user.client.ui.SplitLayoutPanel;
 import com.google.gwt.user.client.ui.Tree;
@@ -62,11 +64,13 @@ public class UserResearchPerspectiveView extends Composite implements UserResear
 	}
 	
 	
+	
 	@UiField VerticalPanel centerPanel;
 //	VerticalPanel centralPanel;
 	@UiField Tree tree,F_S_tree,F_V_tree;
 	@UiField ScrollPanel centerChild;
 	@UiField SplitLayoutPanel split_panel;
+	@UiField DecoratedTabPanel decortab;
 	//HLayout panel;
 //	@UiField CheckBox weights_use,filters_use;
 //	@UiField Button filters_details_btn,filters_add_btn,filters_delete_btn;
@@ -110,6 +114,8 @@ public class UserResearchPerspectiveView extends Composite implements UserResear
 		//rootResearchConcepts.setState(true);
 		tree.addItem(rootResearchConcepts);
 		
+		
+		
 		rootVarConcepts = new RootConceptsList("sociovar","Концепты каталогизации переменных");
 		//rootVarConcepts.setState(true);
 		tree.addItem(rootVarConcepts);
@@ -119,9 +125,13 @@ public class UserResearchPerspectiveView extends Composite implements UserResear
 		//f1.setState(true);
 		RootFilterItemAdvanced f2 = new RootFilterItemAdvanced(centerPanel,bus,"sociovar","Фильтровать переменные");
 		F_V_tree.addItem(f2);
+		
+		
+		decortab.selectTab(0);
 		//f2.setState(true);
 
 
+		
 		
 		
 		//tree.addItem(db);

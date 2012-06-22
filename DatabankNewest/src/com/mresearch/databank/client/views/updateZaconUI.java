@@ -95,6 +95,8 @@ public class updateZaconUI extends Composite {
 	private MetaUnitMultivaluedEntityDTO db;
 	private MultiValuedField mv;
 	@UiField VerticalPanel elasticDBfields;
+	@UiField Button delButton;
+	
 	@UiField VerticalPanel descriptionEditor;
 	private RichTextEditor richTextEditor;
 	
@@ -208,7 +210,28 @@ public class updateZaconUI extends Composite {
 		
 		renderDBfillers(dto,res,root_concept_sysname,root_concept_name);
 	}
-
+	@UiHandler(value="delButton")
+	public void doDel(ClickEvent e)
+	{
+		delete();
+	}
+	private void delete()
+	{
+		new RPCCall<Boolean>() {
+			@Override
+			public void onFailure(Throwable arg0) {
+				Window.alert("Consult delete failed!");
+			}
+			@Override
+			public void onSuccess(Boolean arg0) {
+				Window.alert("Consult deleted!");
+			}
+			@Override
+			protected void callService(AsyncCallback<Boolean> cb) {
+				adminArticleService.deleteZacon(currentArt_DTO.getId(), cb);
+			}
+		}.retry(2);
+	}
 	private void processUploadResponse(String response)
 	{
 		try

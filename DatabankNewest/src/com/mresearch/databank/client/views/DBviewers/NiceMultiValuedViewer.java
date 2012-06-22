@@ -70,7 +70,7 @@ public class NiceMultiValuedViewer extends Composite {
 	}
 	
 	private int counter = 0;
-	private void doShowItems(MetaUnitMultivaluedDTO dt)
+	private void doShowItems(MetaUnitMultivaluedDTO dt,String suffix,int left_margin)
 	{
 		
 		Collection<MetaUnitDTO> base = dt.getSub_meta_units();
@@ -80,22 +80,37 @@ public class NiceMultiValuedViewer extends Composite {
 			if(dto instanceof MetaUnitMultivaluedStructureDTO)
 			{
 				MetaUnitMultivaluedStructureDTO dto_str = (MetaUnitMultivaluedStructureDTO)dto;
-				doShowItems(dto_str);
+				subunits_table.setWidget(counter, 0, new SimpleFieldNameViewer(dto, null, null,left_margin));
+				subunits_table.getCellFormatter().setWordWrap(counter, 0, true);
+				subunits_table.setCellSpacing(5);
+				subunits_table.setCellPadding(3);
+				counter++;
+				String local_suff = "";
+				if(!suffix.equals(""))
+					local_suff = suffix+"_"+dto_str.getUnique_name();
+				else local_suff = new String(dto_str.getUnique_name());
+			
+				
+				
+				doShowItems(dto_str,local_suff,left_margin+24);
 			}else
 			//if(dto instanceof MetaUnitStringDTO)
 			{
 				//MetaUnitStringDTO dto_str = (MetaUnitStringDTO)dto;
 				String def_val= null;
-				if(filling.containsKey(base_name+"_"+dto.getUnique_name()))def_val = filling.get(base_name+"_"+dto.getUnique_name());
-				if(exclude_fields == null || !exclude_fields.contains(dto.getUnique_name()))
+				String key = null;
+				if(suffix!= null && !suffix.equals(""))key = base_name+"_"+suffix+"_"+dto.getUnique_name();
+					else key = base_name+"_"+dto.getUnique_name();
+				
+				if(filling.containsKey(key))def_val = filling.get(key);
+				if(exclude_fields == null || !exclude_fields.contains(key))
 				{
-					subunits_table.setWidget(counter, 0, new SimpleFieldNameViewer(dto, null, def_val));
+					subunits_table.setWidget(counter, 0, new SimpleFieldNameViewer(dto, null, def_val,left_margin));
 					subunits_table.setWidget(counter, 1, new SimpleFieldValueViewer(def_val));
 					subunits_table.getCellFormatter().setWordWrap(counter, 0, true);
 					subunits_table.getCellFormatter().setWordWrap(counter, 1, true);
 					subunits_table.setCellSpacing(5);
 					subunits_table.setCellPadding(3);
-					
 					
 					counter++;
 				}
@@ -108,7 +123,7 @@ public class NiceMultiValuedViewer extends Composite {
 		subunits_table.clear();
 		counter = 0;
 		
-		doShowItems(dto);
+		doShowItems(dto,"",0);
 		//			if(dto instanceof MetaUnitDateDTO)
 //			{
 //				MetaUnitDateDTO dto_str = (MetaUnitDateDTO)dto;

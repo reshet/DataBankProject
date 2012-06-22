@@ -75,7 +75,31 @@ public class updateConsultationUI extends Composite {
 	@UiField Label question;
 	@UiField TextArea answer;
 	@UiField CheckBox do_publish;
+	@UiField Button delButton;
 	private ConsultationDTO dto;
+	
+	@UiHandler(value="delButton")
+	public void doDel(ClickEvent e)
+	{
+		delete();
+	}
+	private void delete()
+	{
+		new RPCCall<Boolean>() {
+			@Override
+			public void onFailure(Throwable arg0) {
+				Window.alert("Consult delete failed!");
+			}
+			@Override
+			public void onSuccess(Boolean arg0) {
+				Window.alert("Consult deleted!");
+			}
+			@Override
+			protected void callService(AsyncCallback<Boolean> cb) {
+				adminArticleService.deleteConsultation(dto.getId(), cb);
+			}
+		}.retry(2);
+	}
 	private void renderDBfillers(ConsultationDTO dt,String cat_sys_name,String catalogization_str)
 	{
 		elasticDBfields.clear();

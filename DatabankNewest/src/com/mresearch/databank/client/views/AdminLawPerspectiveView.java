@@ -59,6 +59,8 @@ public class AdminLawPerspectiveView extends Composite implements AdminLawPerspe
 		tree.addItem(db);
 		//treePanel.add(tree);
 	}
+	
+	
 	private void displayArticleList()
 	{
 //		simpleZaconListItem.removeItems();

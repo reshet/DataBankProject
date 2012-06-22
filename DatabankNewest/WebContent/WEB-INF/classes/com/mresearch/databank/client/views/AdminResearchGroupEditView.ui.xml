@@ -34,90 +34,18 @@
 					<td>
 						<g:ListBox ui:field="ethalonSelector"></g:ListBox>
 					</td>
-					
 				</tr>
-				<tr>
-				<td class="{style.category}">Дата исследования:</td>
+			<tr>
 				<td>
-					<table>
-						<tr>
-							<td>Дата начала полевого этапа:</td>
-							<td><third:DatePicker ui:field="date_p_start"></third:DatePicker></td>
-						</tr>
-						<tr>
-							<td>Дата окончания:</td>
-							<td><third:DatePicker ui:field="date_p_end"></third:DatePicker></td>
-						</tr>
-					</table>
+					<g:VerticalPanel ui:field="descriptionEditor"></g:VerticalPanel>
 				</td>
-			</tr>
+			</tr>	
 			<tr>
-				<td class="{style.category}">Генеральная совокупность:</td>
-				<td><g:TextArea ui:field="genGeathering" width="450px" height="80px">"Geathering" of research</g:TextArea></td>
-			</tr>
-<!-- 			<tr> -->
-<!-- 				<td class="{style.category}">Объем выборки:</td> -->
-<!-- 				<td><g:TextBox ui:field="selectionSize" >"Selection" size</g:TextBox></td> -->
-<!-- 			</tr> -->
-			
-			<tr>
-				<td class="{style.category}">Способ реализации выборки:</td>
 				<td>
-					<g:VerticalPanel>
-						<g:RadioButton ui:field="random_btn_true" text="Случайная" name="some1"></g:RadioButton>
-						<g:RadioButton ui:field="random_btn_false" text="Не случайная" name="some2"></g:RadioButton>
-					</g:VerticalPanel>
-				</td>
-				<td width="300px">
-					<g:VerticalPanel width="300px">
-						<g:RadioButton ui:field="complex_btn_unistep" text="Одноступенчатая" name="some3"></g:RadioButton>
-						<g:RadioButton ui:field="complex_btn_multistep" text="Многоступенчатая" name="some4"> </g:RadioButton>
-					</g:VerticalPanel>
-				</td>
-				<td></td>
-			</tr>
-			<tr>
-				<td class="{style.category}">Организация, которая провела исследование:</td>
-				<td><g:ListBox ui:field="orgImpl"/><g:Anchor ui:field="orgImplAdd"><a>+ Добавить организацию</a> </g:Anchor></td>
-			</tr>
-			<tr>
-				<td class="{style.category}">Организация-заказчик:</td>
-				<td><g:ListBox ui:field="orgPrompt"/><g:Anchor ui:field="orgPromptAdd"><a>+ Добавить организацию</a> </g:Anchor></td>
-			</tr>
-			<tr>
-				<td class="{style.category}">Публикации, связаные с исследованием:</td>
-				<td>
-					<g:VerticalPanel>
-						<g:FlexTable ui:field="flexPubl_tbl"></g:FlexTable>
-						<g:HorizontalPanel>
-							<g:Button ui:field="addPublBtn" text="+"></g:Button>
-							<g:Button ui:field="delPublBtn" text="-"></g:Button>
-						</g:HorizontalPanel>
-					</g:VerticalPanel>
+					<g:VerticalPanel ui:field="elasticDBfields"></g:VerticalPanel>
 				</td>
 			</tr>
-			<tr>
-				<td class="{style.category}">Исследователи, связаные с проектом:</td>
-				<td><g:TextArea ui:field="researchers"  width="450px" height="80px">Researchers: Paniotto-Co</g:TextArea></td>
-			</tr>
-			<tr>
-				<td class="{style.category}">Метод сбора информации:</td>
-				<td><g:TextArea ui:field="method"  width="450px" height="80px">
-				Info geathering methods</g:TextArea></td>
-			</tr>
-<!-- 			<tr> -->
-<!-- 				<td class="{style.category}">Взвешивание:</td> -->
-<!-- 				<td><g:ListBox ui:field="weights" /></td> -->
-<!-- 			</tr> -->
-			
-			<tr>
 				
-				<td class="{style.category}">Концепты:</td>
-				<td><g:TextArea ui:field="concepts"  width="450px" height="80px">Search and catalogization concepts, consept1,concept2,concept3,
-						concept3,concept3,concept3,concept3,concept3,concept3,concept3,
-						concept3,concept3,concept3,concept3;
-				</g:TextArea></td>
-			</tr>
 			<tr>
 				<td>
 					<g:VerticalPanel ui:field="researchesToPropogate"></g:VerticalPanel>

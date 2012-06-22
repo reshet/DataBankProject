@@ -83,7 +83,7 @@ public class NiceMultiValuedFieldViewer extends Composite {
 				//MetaUnitStringDTO dto_str = (MetaUnitStringDTO)dto;
 				String def_val= null;
 				if(filling.containsKey(base_name+"_"+dto.getUnique_name()))def_val = filling.get(base_name+"_"+dto.getUnique_name());
-				subunits_table.setWidget(i++, 0, new SimpleFieldNameViewer(dto, null, def_val));
+				subunits_table.setWidget(i++, 0, new SimpleFieldNameViewer(dto, null, def_val,0));
 			}
 //			if(dto instanceof MetaUnitDateDTO)
 //			{

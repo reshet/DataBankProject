@@ -694,7 +694,7 @@ public class AdminResearchPerspectivePresenter implements Presenter
 				
 				AdminResearchDetailedView ad_view = new AdminResearchDetailedView(new UserResearchDetailedView(result.getDto(),result.getMeta()));
 				AdminResearchEditView ed_view = new AdminResearchEditView(result.getDto(), result.getMeta());
-				AdminResearchGroupEditView gr_ed_view = new AdminResearchGroupEditView(result.getDto());
+				AdminResearchGroupEditView gr_ed_view = new AdminResearchGroupEditView(result.getDto(),result.getMeta());
 				AdminResearchAdvancedFilesEditView files_ed_view = new AdminResearchAdvancedFilesEditView(id_research, result.getFiles_dto());
 					AdminResearchDetailedPresenter presenter = new AdminResearchDetailedPresenter(rpcUserService,rpcAdminService, eventBus, ad_view, ed_view,gr_ed_view,files_ed_view);
 				presenter.go(display.getCenterPanel(),null,null);
