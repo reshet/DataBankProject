@@ -23,6 +23,10 @@
 				<h2>Редактирование закона в банке ...
 				</h2> 
 			</div>
+			<g:Button ui:field="submitButton"> Подтвердить!</g:Button>
+			<VerticalPanel horizontalAlignment="ALIGN_RIGHT">
+				<g:Button ui:field="delButton"> Удалить!</g:Button>
+			</VerticalPanel>
 			
 			<g:VerticalPanel ui:field="elasticDBfields"/>
 			<g:Label width="500px">Краткое содержание: </g:Label>
@@ -30,11 +34,6 @@
 			<g:VerticalPanel ui:field="uploadPanel">
 <!-- 				<g:Label ui:field="statusField">Выбрать файл...</g:Label> -->
 			</g:VerticalPanel>
-			<br/><br/>
-			<g:Button ui:field="submitButton"> Подтвердить!</g:Button>
-			<VerticalPanel horizontalAlignment="ALIGN_RIGHT">
-				<g:Button ui:field="delButton"> Удалить!</g:Button>
-			</VerticalPanel>
 			
 			
 <!-- 			<br/><br/> -->
@@ -46,6 +45,7 @@
 <!--         	<g:Button ui:field="submitOriginalUpload">Submit original upload</g:Button> -->
 		</div>
 	</g:HTMLPanel>
+	
 	
 <!--	<g:FormPanel ui:field="formPanel">-->
 <!--		<g:Button ui:field="submitButton"> Добавить SPSS файл</g:Button>-->

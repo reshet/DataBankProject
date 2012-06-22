@@ -24,6 +24,11 @@
 				</h2>
 				 
 			</div>
+			<g:CheckBox ui:field="do_publish">Опубликовано</g:CheckBox>
+			<g:Button ui:field="submitButton"> Ответить!</g:Button>
+			<VerticalPanel horizontalAlignment="ALIGN_RIGHT">
+				<g:Button ui:field="delButton"> Удалить!</g:Button>
+			</VerticalPanel>
 			<h4><g:Label ui:field="question"></g:Label>
 				</h4>
 				<h3>
@@ -36,12 +41,7 @@
 			
 			
 			<br/><br/>
-			<g:CheckBox ui:field="do_publish">Опубликовано</g:CheckBox>
-			<g:Button ui:field="submitButton"> Ответить!</g:Button>
-			<VerticalPanel horizontalAlignment="ALIGN_RIGHT">
-				<g:Button ui:field="delButton"> Удалить!</g:Button>
-			</VerticalPanel>
-
+			
 
 		</div>
 	</g:HTMLPanel>
