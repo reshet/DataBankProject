@@ -10,6 +10,7 @@ import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.uibinder.client.UiHandler;
 import com.google.gwt.user.client.Window;
+import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.Anchor;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.Composite;
@@ -20,11 +21,15 @@ import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.PopupPanel;
 import com.google.gwt.user.client.ui.VerticalPanel;
 import com.google.gwt.user.client.ui.Widget;
+import com.mresearch.databank.client.helper.RPCCall;
+import com.mresearch.databank.client.service.AdminArticleService;
+import com.mresearch.databank.client.service.AdminArticleServiceAsync;
 import com.mresearch.databank.client.views.DBviewers.MultiValuedFieldViewer;
 import com.mresearch.databank.client.views.DBviewers.NiceMultiValuedFieldViewer;
 import com.mresearch.databank.client.views.DBviewers.NiceMultiValuedValuesViewer;
 import com.mresearch.databank.client.views.DBviewers.NiceMultiValuedViewer;
 import com.mresearch.databank.shared.MetaUnitMultivaluedEntityDTO;
+import com.mresearch.databank.shared.SocioResearchFilesDTO;
 import com.mresearch.databank.shared.ZaconDTO;
 import com.sun.org.apache.xpath.internal.operations.And;
 
@@ -36,12 +41,14 @@ public class ZaconDetailedView extends Composite {
 	interface ZaconDetailedViewUiBinder extends
 			UiBinder<Widget, ZaconDetailedView> {
 	}
+	private final AdminArticleServiceAsync adminLawService = GWT
+		      .create(AdminArticleService.class);
 
 	//@UiField Label _name,_abstract,_number;
 	//keywords,authors,date,date_accept,date_decline;
 	//@UiField Hyperlink _enc_link;
-	@UiField HorizontalPanel link_panel;
-	@UiField Anchor show_meta;
+	//@UiField HorizontalPanel link_panel;
+	@UiField Anchor show_meta,show_files;
 	@UiField HTML html;
 	@UiField Label name;
 	//@UiField Label path;
@@ -77,10 +84,10 @@ public class ZaconDetailedView extends Composite {
 //		if (dto.getAccept_date() != null)date_accept.setText(dto.getAccept_date().toString());
 //		if (dto.getDecline_date() != null)date_decline.setText(dto.getDecline_date().toString());
 //		
-		String realPath = GWT.getModuleBaseURL();
+		//String realPath = GWT.getModuleBaseURL();
 		
 		//_enc_link.setTargetHistoryToken();
-		link_panel.add(new HTML("<a href=\""+realPath+"serve?blob-key="+dto.getEnclosure_key()+"\">Скачать документ </a>"));
+		//link_panel.add(new HTML("<a href=\""+realPath+"serve?blob-key="+dto.getEnclosure_key()+"\">Скачать документ </a>"));
 		//renderDBfillers();
 		}
 		
@@ -90,6 +97,11 @@ public class ZaconDetailedView extends Composite {
 	public void onShowMeta(ClickEvent ev)
 	{
 		renderDBfillers();
+	}
+	@UiHandler(value="show_files")
+	public void onShowFiels(ClickEvent ev)
+	{
+		doShowFiles();
 	}
 		private void renderDBfillers()
 		{
@@ -124,7 +136,35 @@ public class ZaconDetailedView extends Composite {
 			dialogBox.center();
 	        dialogBox.show();
 		}
-		
+		private void doShowFiles()
+		{
+			new RPCCall<SocioResearchFilesDTO>() {
+
+				@Override
+				public void onFailure(Throwable arg0) {
+					
+				}
+
+				@Override
+				public void onSuccess(SocioResearchFilesDTO res) {
+					UserLawFilesView h = new UserLawFilesView(dto.getId(), "Вложения:", res);
+					final PopupPanel dialogBox = createDialogBox(h);
+				    dialogBox.setGlassEnabled(true);
+				    dialogBox.setAnimationEnabled(true);
+				    
+					dialogBox.center();
+			        dialogBox.show();
+				}
+
+				@Override
+				protected void callService(
+						AsyncCallback<SocioResearchFilesDTO> cb) {
+					adminLawService.getFilesInCategory(dto.getId(), "Вложения:", cb);
+				}
+			}.retry(2);
+			
+			
+		}
 		
 		private PopupPanel createDialogBox(Widget w) {
 		    // Create a dialog box and set the caption text

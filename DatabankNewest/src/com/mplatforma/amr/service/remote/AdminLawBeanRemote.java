@@ -21,4 +21,8 @@ public interface AdminLawBeanRemote {
   ArrayList<ZaconDTO> getZaconDTOs_Normal(ArrayList<Long> keys);
   ArrayList<ZaconDTO_Light> getZaconsAll();
 
+  Boolean addFileToAccessor(long id_research,long id_file,String desc,String category);
+  Boolean deleteFileFromAccessor(long id_research,long id_file);
+  SocioResearchFilesDTO getFilesInCategory(long research_id,String category);
+  Boolean updateFileAccessor(long research_id,ResearchFilesDTO dto);
 }

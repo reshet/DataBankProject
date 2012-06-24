@@ -139,6 +139,7 @@ public class MultiValuedField extends Composite implements MetaUnitFiller,MetaUn
 	}
 	
 	
+	
 	private void rebuildJSON()
 	{
 		JSONObject obj = new JSONObject();

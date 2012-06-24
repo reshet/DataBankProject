@@ -16,6 +16,14 @@ public class ZaconDTO extends ZaconDTO_Light{
 //	private ArrayList<String> key_words,authors;
 //	private Date date,accept_date,decline_date;
 	private String json_desctiptor;
+	private Long file_accessor_id;
+	public Long getFile_accessor_id() {
+		return file_accessor_id;
+	}
+
+	public void setFile_accessor_id(Long file_accessor_id) {
+		this.file_accessor_id = file_accessor_id;
+	}
 	public String getJson_desctiptor() {
 		return json_desctiptor;
 	}

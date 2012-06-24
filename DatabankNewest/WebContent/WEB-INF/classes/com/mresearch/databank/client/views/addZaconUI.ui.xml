@@ -17,6 +17,7 @@
 			margin: 10,10,10,10;
 		}
 	</ui:style>
+	
 	<g:HTMLPanel>
 		<div class="style.general">
 			<div class="style.heading">
@@ -27,24 +28,12 @@
 			<g:VerticalPanel ui:field="elasticDBfields"/>
 			<g:Label width="500px">Краткое содержание: </g:Label>
 			<g:VerticalPanel ui:field="descriptionEditor"></g:VerticalPanel>
-			<g:VerticalPanel ui:field="uploadPanel">
+<!-- 			<g:VerticalPanel ui:field="uploadPanel"> -->
 <!-- 				<g:Label ui:field="statusField">Выбрать файл...</g:Label> -->
-			</g:VerticalPanel>
+<!-- 			</g:VerticalPanel> -->
 			<br/><br/>
 			<g:Button ui:field="submitButton"> Добавить закон!</g:Button>
-			
-			
-<!-- 			<br/><br/> -->
-<!-- 			<g:Label>Original Upload ::</g:Label> -->
-<!-- 			<g:FormPanel ui:field="original_upload"> -->
-<!-- 				<g:FileUpload ui:field="fileUpload"> -->
-<!-- 				</g:FileUpload> -->
-<!-- 			</g:FormPanel> -->
-<!--         	<g:Button ui:field="submitOriginalUpload">Submit original upload</g:Button> -->
+
 		</div>
 	</g:HTMLPanel>
-	
-<!--	<g:FormPanel ui:field="formPanel">-->
-<!--		<g:Button ui:field="submitButton"> Добавить SPSS файл</g:Button>-->
-<!--	</g:FormPanel>-->
 </ui:UiBinder> 

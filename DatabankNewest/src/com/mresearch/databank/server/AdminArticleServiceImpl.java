@@ -68,7 +68,9 @@ import com.mresearch.databank.shared.OrgDTO;
 import com.mresearch.databank.shared.PublicationDTO;
 import com.mresearch.databank.shared.PublicationDTO_Light;
 import com.mresearch.databank.shared.PublicationsBundleDTO;
+import com.mresearch.databank.shared.ResearchFilesDTO;
 import com.mresearch.databank.shared.SocioResearchDTO;
+import com.mresearch.databank.shared.SocioResearchFilesDTO;
 import com.mresearch.databank.shared.TopicDTO;
 import com.mresearch.databank.shared.ZaconDTO;
 import com.mresearch.databank.shared.ZaconDTO_Light;
@@ -258,6 +260,33 @@ public JuryBundleDTO getJuryStartup() {
 @Override
 public PublicationsBundleDTO getPubStartup() {
 	return eao2.getStartup();
+}
+
+@Override
+public Boolean addFileToAccessor(long id_research, long id_file, String desc,
+		String category) {
+	return eao.addFileToAccessor(id_research, id_file, desc, category);
+}
+
+@Override
+public Boolean deleteFileFromAccessor(long id_research, long id_file) {
+	return eao.deleteFileFromAccessor(id_research, id_file);
+}
+
+@Override
+public Boolean updateFileAccessor(long research_id, ResearchFilesDTO dto) {
+	return eao.updateFileAccessor(research_id, dto);
+}
+
+@Override
+public ResearchFilesDTO getFiles(long research_id) {
+	return null;
+}
+
+@Override
+public SocioResearchFilesDTO getFilesInCategory(long research_id,
+		String category) {
+	return eao.getFilesInCategory(research_id, category);
 }
 
 

@@ -22,7 +22,8 @@
 				</div>
 				<div class="dark-red right">
 				<g:HorizontalPanel spacing="10">
-					<g:HorizontalPanel ui:field="link_panel"></g:HorizontalPanel>
+<!-- 					<g:HorizontalPanel ui:field="link_panel"></g:HorizontalPanel> -->
+					<g:Anchor ui:field="show_files" text="Файлы"></g:Anchor>
 					<g:Anchor ui:field="show_meta" text="Доп. информация"></g:Anchor>
 				</g:HorizontalPanel>
 				</div>

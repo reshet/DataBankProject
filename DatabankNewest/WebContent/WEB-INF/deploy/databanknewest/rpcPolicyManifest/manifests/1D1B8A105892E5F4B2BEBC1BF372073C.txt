@@ -1,0 +1,2 @@
+serviceClass: com.mresearch.databank.client.service.AdminSocioResearchService
+path: 290B42A809308DDA6862B8DF0F004263.gwt.rpc

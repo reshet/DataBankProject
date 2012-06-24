@@ -65,10 +65,10 @@ public interface AdminSocioResearchService extends RemoteService {
 
   long addOrgImpl(OrgDTO dto);
 
-  
+  Boolean addSSE(String clas,String kind,String value);
+   
   Boolean addFileToAccessor(long id_research,long id_file,String desc,String category);
   Boolean deleteFileFromAccessor(long id_research,long id_file);
-  Boolean addSSE(String clas,String kind,String value);
   Boolean updateFileAccessor(long research_id,ResearchFilesDTO dto);
   void updateMetaUnitStructure(MetaUnitDTO dto);
   void addMetaUnit(MetaUnitDTO dto,Long parent_unit_id);

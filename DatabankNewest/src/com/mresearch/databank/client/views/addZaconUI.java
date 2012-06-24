@@ -43,6 +43,7 @@ import com.mresearch.databank.client.views.DBfillers.MultiValuedField;
 import com.mresearch.databank.client.views.DBviewers.MultiValuedFieldViewer;
 import com.mresearch.databank.shared.JSON_Representation;
 import com.mresearch.databank.shared.MetaUnitMultivaluedEntityDTO;
+import com.mresearch.databank.shared.SocioResearchFilesDTO;
 import com.mresearch.databank.shared.ZaconDTO;
 import com.smartgwt.client.types.Overflow;
 import com.smartgwt.client.widgets.RichTextEditor;
@@ -72,8 +73,8 @@ public class addZaconUI extends Composite {
 //	@UiField
 //	FormPanel formPanel;
 	
-	@UiField
-	VerticalPanel uploadPanel;
+//	@UiField
+//	VerticalPanel uploadPanel;
 	
 	//@UiField
 	//TextBox _name,_number;
@@ -150,23 +151,24 @@ public class addZaconUI extends Composite {
 	public addZaconUI(String root_concept_sysname,Long root_concept,String root_concept_name) {
 		initWidget(uiBinder.createAndBindUi(this));
 		this.root_concept = root_concept;
-		status = new Label("Добавить документ...");
-		SingleUploader up = new SingleUploader();
-		up.addOnFinishUploadHandler(new OnFinishUploaderHandler() {
-			
-			@Override
-			public void onFinish(IUploader uploader) {
-				//Window.alert(uploader.getStatus());
-				//Window.alert(uploader.getInputName());
-				//Window.alert(uploader.getServerResponse());
-				String response = uploader.getServerResponse();
-				status.setText("Документ загружен");
-				Window.alert(response);
-				processUploadResponse(response);
-			}
-		});
-		uploadPanel.add(status);
-		uploadPanel.add(up);
+//		status = new Label("Добавить документ...");
+//		SingleUploader up = new SingleUploader();
+//		up.addOnFinishUploadHandler(new OnFinishUploaderHandler() {
+//			
+//			@Override
+//			public void onFinish(IUploader uploader) {
+//				//Window.alert(uploader.getStatus());
+//				//Window.alert(uploader.getInputName());
+//				//Window.alert(uploader.getServerResponse());
+//				String response = uploader.getServerResponse();
+//				status.setText("Документ загружен");
+//				Window.alert(response);
+//				processUploadResponse(response);
+//			}
+//		});
+//		uploadPanel.add(status);
+//
+		//uploadPanel.add(new AdminResearchFilesEditView(0, "", new SocioResearchFilesDTO()));
 		
 		//BlobstoreService b_serv = BlobstoreServiceFactory.getBlobstoreService();
 	//	original_upload.setAction(b_serv.createUploadUrl("/upload"));
@@ -226,40 +228,40 @@ public class addZaconUI extends Composite {
 		
 	}
 
-	private void processUploadResponse(String response)
-	{
-		try
-		{
-			int start = response.indexOf("<RxStoreId>")+11;
-			int end = response.indexOf("</RxStoreId>");
-			String keyy = response.substring(start,end);
-		//	int start2 = response.indexOf("<totalBytes>")+12;
-		//	int end2 = response.lastIndexOf("</totalBytes>");
-			int start2 = response.indexOf("<size>")+6;
-			int end2 = response.indexOf("</size>");
-			String len = response.substring(start2,end2);
-			if(keyy != null)
-			{
-				Long id = Long.parseLong(keyy);
-				if(!uploaded_files.contains(id))
-				{
-					uploaded_files.add(id);
-					this.blobkey = id;
-					this.blob_length = Integer.parseInt(len);
-					doc_uploaded = true;
-				}
-			}
-		}catch(Exception ex)
-		{
-			ex.printStackTrace();
-		}
+//	private void processUploadResponse(String response)
+//	{
+//		try
+//		{
+//			int start = response.indexOf("<RxStoreId>")+11;
+//			int end = response.indexOf("</RxStoreId>");
+//			String keyy = response.substring(start,end);
+//		//	int start2 = response.indexOf("<totalBytes>")+12;
+//		//	int end2 = response.lastIndexOf("</totalBytes>");
+//			int start2 = response.indexOf("<size>")+6;
+//			int end2 = response.indexOf("</size>");
+//			String len = response.substring(start2,end2);
+//			if(keyy != null)
+//			{
+//				Long id = Long.parseLong(keyy);
+//				if(!uploaded_files.contains(id))
+//				{
+//					uploaded_files.add(id);
+//					this.blobkey = id;
+//					this.blob_length = Integer.parseInt(len);
+//					doc_uploaded = true;
+//				}
+//			}
+//		}catch(Exception ex)
+//		{
+//			ex.printStackTrace();
+//		}
 		
 		//Window.alert(response);
 //		int start = response.indexOf("<blobkey>")+9;
 //		int end = response.lastIndexOf("</blobkey>");
 //		
-		
-	}
+//		
+//	}
 	
 	@UiHandler("submitButton")
 	void onSubmitClicked(ClickEvent e)

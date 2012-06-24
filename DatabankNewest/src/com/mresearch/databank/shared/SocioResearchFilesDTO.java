@@ -6,8 +6,8 @@ import java.util.ArrayList;
 @SuppressWarnings("serial")
 public class SocioResearchFilesDTO implements Serializable{
 	private long id;
-	private ArrayList<String> files_descs;
-	private ArrayList<Long> files_ids;
+	private ArrayList<String> files_descs = new ArrayList<String>();
+	private ArrayList<Long> files_ids = new ArrayList<Long>();
 	public SocioResearchFilesDTO(ArrayList<Long> files_ids,ArrayList<String> files_descs)
 	{
 		this.setFiles_ids(files_ids);

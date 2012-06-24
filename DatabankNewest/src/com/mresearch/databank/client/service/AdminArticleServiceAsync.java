@@ -12,7 +12,9 @@ import com.mresearch.databank.shared.OrgDTO;
 import com.mresearch.databank.shared.PublicationDTO;
 import com.mresearch.databank.shared.PublicationDTO_Light;
 import com.mresearch.databank.shared.PublicationsBundleDTO;
+import com.mresearch.databank.shared.ResearchFilesDTO;
 import com.mresearch.databank.shared.SocioResearchDTO;
+import com.mresearch.databank.shared.SocioResearchFilesDTO;
 import com.mresearch.databank.shared.TopicDTO;
 import com.mresearch.databank.shared.ZaconDTO;
 import com.mresearch.databank.shared.ZaconDTO_Light;
@@ -89,4 +91,18 @@ public interface AdminArticleServiceAsync {
 	void getJuryStartup(AsyncCallback<JuryBundleDTO> callback);
 
 	void getPubStartup(AsyncCallback<PublicationsBundleDTO> callback);
+
+	void addFileToAccessor(long id_research, long id_file, String desc,
+			String category, AsyncCallback<Boolean> callback);
+
+	void deleteFileFromAccessor(long id_research, long id_file,
+			AsyncCallback<Boolean> callback);
+
+	void updateFileAccessor(long research_id, ResearchFilesDTO dto,
+			AsyncCallback<Boolean> callback);
+
+	void getFiles(long research_id, AsyncCallback<ResearchFilesDTO> callback);
+
+	void getFilesInCategory(long research_id, String category,
+			AsyncCallback<SocioResearchFilesDTO> callback);
 }

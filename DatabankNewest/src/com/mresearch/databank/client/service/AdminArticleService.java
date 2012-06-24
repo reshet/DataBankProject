@@ -33,6 +33,7 @@ import com.mresearch.databank.shared.PublicationDTO_Light;
 import com.mresearch.databank.shared.PublicationsBundleDTO;
 import com.mresearch.databank.shared.ResearchFilesDTO;
 import com.mresearch.databank.shared.SocioResearchDTO;
+import com.mresearch.databank.shared.SocioResearchFilesDTO;
 import com.mresearch.databank.shared.TopicDTO;
 import com.mresearch.databank.shared.ZaconDTO;
 import com.mresearch.databank.shared.ZaconDTO_Light;
@@ -93,4 +94,13 @@ public interface AdminArticleService extends RemoteService {
 
   JuryBundleDTO getJuryStartup();
    PublicationsBundleDTO getPubStartup();
+   
+   
+   Boolean addFileToAccessor(long id_research,long id_file,String desc,String category);
+   Boolean deleteFileFromAccessor(long id_research,long id_file);
+   Boolean updateFileAccessor(long research_id,ResearchFilesDTO dto);
+   
+   ResearchFilesDTO getFiles(long research_id);
+   SocioResearchFilesDTO getFilesInCategory(long research_id,String category);
+   
 }

@@ -21,6 +21,15 @@ public class SocioResearchDTO implements Serializable,ICatalogizable,IPickableEl
 	private ArrayList<Long> var_ids = new ArrayList<Long>();
 	private Date start_date,end_date;
 	private Long file_accessor_id;
+	public Long getFile_accessor_id() {
+		return file_accessor_id;
+	}
+
+	public void setFile_accessor_id(Long file_accessor_id) {
+		this.file_accessor_id = file_accessor_id;
+	}
+
+	
 	private HashMap<String,String> filling;
         private String json_descriptor;
 
@@ -131,13 +140,6 @@ public class SocioResearchDTO implements Serializable,ICatalogizable,IPickableEl
 
 	
 
-	public Long getFile_accessor_id() {
-		return file_accessor_id;
-	}
-
-	public void setFile_accessor_id(Long file_accessor_id) {
-		this.file_accessor_id = file_accessor_id;
-	}
 
     /**
      * @return the filling
