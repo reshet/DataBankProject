@@ -39,12 +39,13 @@ public class SearchResultsGenericGrid extends VerticalPanel
     
 
     ListGrid countryGrid = new ListGrid();
-    countryGrid.setWidth("768");
+    countryGrid.setWidth("1024");
     countryGrid.setHeight("100%");
     countryGrid.setShowAllRecords(Boolean.valueOf(true));
     countryGrid.setWrapCells(Boolean.valueOf(true));
     countryGrid.setCellHeight(46);
 
+    
     final ListGridRecord[] records = new ListGridRecord[hits.size()];
     int i = 0;
     for (JSONObject hit_c : hits)
@@ -54,6 +55,14 @@ public class SearchResultsGenericGrid extends VerticalPanel
       ListGridRecord rec = new ListGridRecord();
       rec.setAttribute("_id", ((JSONString)hit_c.get("_id")).stringValue());
       rec.setAttribute("_type", ((JSONString)hit_c.get("_type")).stringValue());
+      rec.setAttribute("_type_vis", ((JSONString)hit_c.get("_type")).stringValue());
+      
+      if(rec.getAttribute("_type_vis").equals("research"))rec.setAttribute("_type_vis", "исследование");
+      if(rec.getAttribute("_type_vis").equals("sociovar"))rec.setAttribute("_type_vis", "переменная");
+      if(rec.getAttribute("_type_vis").equals("law"))rec.setAttribute("_type_vis", "закон");
+      if(rec.getAttribute("_type_vis").equals("publication"))rec.setAttribute("_type_vis", "публикация");
+      if(rec.getAttribute("_type_vis").equals("consultation"))rec.setAttribute("_type_vis", "консультация");
+      
       StringBuilder contents = new StringBuilder();
       for(String key:hit.keySet())
       {
@@ -64,17 +73,17 @@ public class SearchResultsGenericGrid extends VerticalPanel
     }
 
     ListGridField[] fields = new ListGridField[3];
-    ListGridField id_f = new ListGridField("_id", "ID");
-    ListGridField type_f = new ListGridField("_type", "Тип сущности");
+    //ListGridField id_f = new ListGridField("_id", "ID");
+    ListGridField type_f = new ListGridField("_type_vis", "Тип сущности");
     ListGridField contents_f = new ListGridField("_contents", "Содержание");
 
-    id_f.setWidth(25);
+   // id_f.setWidth(25);
     type_f.setWidth(120);
    // contents_f.setWidth(600);
     
-    fields[0] = id_f;
-    fields[1] = type_f;
-    fields[2] = contents_f;
+    //fields[0] = id_f;
+    fields[0] = type_f;
+    fields[1] = contents_f;
 
     countryGrid.setFields(fields);
     countryGrid.setData(records);

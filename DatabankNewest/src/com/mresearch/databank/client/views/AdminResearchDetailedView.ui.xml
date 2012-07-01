@@ -9,19 +9,16 @@
 			<g:header>
 				Просмотр
 			</g:header>
-			<g:ScrollPanel width="100%" height="100%">
 				<g:VerticalPanel ui:field="viewPanel">
 				</g:VerticalPanel>
-			</g:ScrollPanel>
 		</g:tab>
 		<g:tab>
+		
 			<g:header>
 				Редактирование
 			</g:header>
-			<g:ScrollPanel width="100%" height="100%">
 				<g:VerticalPanel ui:field="editPanel">
 				</g:VerticalPanel>
-			</g:ScrollPanel>
 		</g:tab>
 		<g:tab>
 			<g:header>

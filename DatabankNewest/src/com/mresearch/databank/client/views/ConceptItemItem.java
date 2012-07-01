@@ -55,28 +55,28 @@ public class ConceptItemItem extends ConceptItemEntity
 	private void displayResearchList(ArrayList<SocioResearchDTO_Light> researchList)
 	{
 		//simpleResearchListItem.removeItems();
-		TreeItem res = new TreeItem("Исследования");
+		//TreeItem res = new TreeItem("Исследования");
 		for(SocioResearchDTO_Light dto:researchList)
 		{
 			ResearchDescItem research_node = new ResearchDescItem(dto);
 			research_node.addItem(new ResearchVarList(dto));
 			//for(String )
-			res.addItem(research_node);
+			this.addItem(research_node);
 		}
-		this.addItem(res);
+		//this.addItem(res);
 	}
 	private void displayVarList(ArrayList<VarDTO_Light> varList)
 	{
 		//simpleResearchListItem.removeItems();
-		TreeItem res = new TreeItem("Переменные");
+		//TreeItem res = new TreeItem("Переменные");
 		for(VarDTO_Light dto:varList)
 		{
 			VarDescItem var_node = new VarDescItem(dto);
 			//var_node.addItem(new ResearchVarList(dto));
 			//for(String )
-			res.addItem(var_node);
+			this.addItem(var_node);
 		}
-		this.addItem(res);
+	//	this.addItem(res);
 	}
 	private void displayZaconList(ArrayList<ZaconDTO_Light> zList)
 	{
@@ -130,6 +130,11 @@ public class ConceptItemItem extends ConceptItemEntity
 	
 	public void refreshTaggedEntitiesIDs()
 	{
+		
+		
+		
+		
+		
 	    new RPCCall<MetaUnitEntityItemDTO>() {
 			@Override
 			public void onFailure(Throwable arg0) {

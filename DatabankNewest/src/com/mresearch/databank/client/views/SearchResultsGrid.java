@@ -38,9 +38,10 @@ public class SearchResultsGrid extends VerticalPanel
     //g.setFilt
     
     
+    
 
     ListGrid countryGrid = new ListGrid();
-    countryGrid.setWidth("100%");
+    countryGrid.setWidth("1024");
     countryGrid.setHeight("100%");
     countryGrid.setShowAllRecords(Boolean.valueOf(true));
     countryGrid.setWrapCells(Boolean.valueOf(true));
@@ -57,6 +58,15 @@ public class SearchResultsGrid extends VerticalPanel
       ListGridRecord rec = new ListGridRecord();
       rec.setAttribute("_id", ((JSONString)hit_c.get("_id")).stringValue());
       rec.setAttribute("_type", ((JSONString)hit_c.get("_type")).stringValue());
+      rec.setAttribute("_type_vis", ((JSONString)hit_c.get("_type")).stringValue());
+      
+      if(rec.getAttribute("_type_vis").equals("research"))rec.setAttribute("_type_vis", "исследование");
+      if(rec.getAttribute("_type_vis").equals("sociovar"))rec.setAttribute("_type_vis", "переменная");
+      if(rec.getAttribute("_type_vis").equals("law"))rec.setAttribute("_type_vis", "закон");
+      if(rec.getAttribute("_type_vis").equals("publication"))rec.setAttribute("_type_vis", "публикация");
+      if(rec.getAttribute("_type_vis").equals("consultation"))rec.setAttribute("_type_vis", "консультация");
+      
+      
       for (String key : map.keySet())
       {
         if (!hit.containsKey(key))
@@ -72,16 +82,16 @@ public class SearchResultsGrid extends VerticalPanel
       records[(i++)] = rec;
     }
 
-    ListGridField[] fields = new ListGridField[2 + used_map.size()];
-    ListGridField id_f = new ListGridField("_id", "ID");
-    ListGridField type_f = new ListGridField("_type", "Тип сущности");
+    ListGridField[] fields = new ListGridField[1 + used_map.size()];
+    //ListGridField id_f = new ListGridField("_id", "ID");
+    ListGridField type_f = new ListGridField("_type_vis", "Тип сущности");
     
-    id_f.setWidth(25);
+    //id_f.setWidth(25);
     type_f.setWidth(140);
     
-    int j = 2;
-    fields[0] = id_f;
-    fields[1] = type_f;
+    int j = 1;
+    //fields[0] = id_f;
+    fields[0] = type_f;
 
     for (String key : used_map.keySet())
     {

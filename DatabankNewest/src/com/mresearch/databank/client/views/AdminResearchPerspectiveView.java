@@ -55,8 +55,8 @@ public class AdminResearchPerspectiveView extends Composite implements AdminRese
 	private boolean rootConceptUpdateMode = false;
 	public AdminResearchPerspectiveView(SimpleEventBus bus) {
 		initWidget(uiBinder.createAndBindUi(this));
-		centerPanel.setWidth("800px");
-		centerPanel.setHeight("500px");
+		centerPanel.setWidth("1300px");
+		centerPanel.setHeight("900px");
 		centerPanel.setVisible(true);
 		this.bus = bus;
 		

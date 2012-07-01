@@ -116,6 +116,8 @@ public class UserResearchPerspectiveView extends Composite implements UserResear
 		
 		
 		
+		
+		
 		rootVarConcepts = new RootConceptsList("sociovar","Концепты каталогизации переменных");
 		//rootVarConcepts.setState(true);
 		tree.addItem(rootVarConcepts);
