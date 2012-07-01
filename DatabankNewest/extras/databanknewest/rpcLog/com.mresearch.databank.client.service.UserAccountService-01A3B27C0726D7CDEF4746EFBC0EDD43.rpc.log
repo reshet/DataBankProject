@@ -1,0 +1,272 @@
+====================================
+Types potentially sent from browser:
+====================================
+
+Reachable types computed on: Sun Jul 01 21:05:22 FET 2012
+E
+   Serialization status
+      Not serializable
+   Path
+      'E' is reachable from field 'exposeElement' of type 'java.util.ArrayList<E>'
+      'java.util.ArrayList<java.lang.String>' is reachable as a subtype of type 'class java.util.ArrayList<java.lang.String>'
+      'java.util.ArrayList<java.lang.String>' is reachable from field 'filters' of type 'com.mresearch.databank.shared.UserAccountDTO'
+      'com.mresearch.databank.shared.UserAccountDTO' is reachable as a subtype of type 'class com.mresearch.databank.shared.UserAccountDTO'
+      Started from 'com.mresearch.databank.shared.UserAccountDTO'
+
+com.google.gwt.user.client.rpc.IncompatibleRemoteServiceException
+   Serialization status
+      Instantiable
+   Path
+      Started from 'com.google.gwt.user.client.rpc.IncompatibleRemoteServiceException'
+
+com.google.gwt.user.client.rpc.XsrfToken
+   Serialization status
+      Instantiable
+   Path
+      Started from 'com.google.gwt.user.client.rpc.XsrfToken'
+
+com.mresearch.databank.shared.UserAccountDTO
+   Serialization status
+      Instantiable
+   Path
+      Started from 'com.mresearch.databank.shared.UserAccountDTO'
+
+int
+   Serialization status
+      Not serializable
+   Path
+      'int' is reachable from field 'size' of type 'java.util.ArrayList<E>'
+      'java.util.ArrayList<java.lang.String>' is reachable as a subtype of type 'class java.util.ArrayList<java.lang.String>'
+      'java.util.ArrayList<java.lang.String>' is reachable from field 'filters' of type 'com.mresearch.databank.shared.UserAccountDTO'
+      'com.mresearch.databank.shared.UserAccountDTO' is reachable as a subtype of type 'class com.mresearch.databank.shared.UserAccountDTO'
+      Started from 'com.mresearch.databank.shared.UserAccountDTO'
+
+java.lang.Exception
+   Serialization status
+      Field serializable
+   Path
+      'java.lang.Exception' is reachable as a supertype of type 'class java.lang.RuntimeException'
+      'java.lang.RuntimeException' is reachable as a supertype of type 'class com.google.gwt.user.client.rpc.IncompatibleRemoteServiceException'
+      'com.google.gwt.user.client.rpc.IncompatibleRemoteServiceException' is reachable as a subtype of type 'class com.google.gwt.user.client.rpc.IncompatibleRemoteServiceException'
+      Started from 'com.google.gwt.user.client.rpc.IncompatibleRemoteServiceException'
+
+java.lang.Integer
+   Serialization status
+      Instantiable
+   Path
+      'java.lang.Integer' is reachable from field 'weights_use' of type 'com.mresearch.databank.shared.UserAccountDTO'
+      'com.mresearch.databank.shared.UserAccountDTO' is reachable as a subtype of type 'class com.mresearch.databank.shared.UserAccountDTO'
+      Started from 'com.mresearch.databank.shared.UserAccountDTO'
+
+java.lang.Long
+   Serialization status
+      Instantiable
+   Path
+      'java.lang.Long' is reachable from type argument 0 of type 'java.util.ArrayList<E>'
+      'java.util.ArrayList<java.lang.Long>' is reachable as a subtype of type 'class java.util.ArrayList<java.lang.Long>'
+      'java.util.ArrayList<java.lang.Long>' is reachable from field 'filters_categories' of type 'com.mresearch.databank.shared.UserAccountDTO'
+      'com.mresearch.databank.shared.UserAccountDTO' is reachable as a subtype of type 'class com.mresearch.databank.shared.UserAccountDTO'
+      Started from 'com.mresearch.databank.shared.UserAccountDTO'
+
+java.lang.Number
+   Serialization status
+      Field serializable
+   Path
+      'java.lang.Number' is reachable as a supertype of type 'class java.lang.Integer'
+      'java.lang.Integer' is reachable as a subtype of type 'class java.lang.Integer'
+      'java.lang.Integer' is reachable from field 'weights_use' of type 'com.mresearch.databank.shared.UserAccountDTO'
+      'com.mresearch.databank.shared.UserAccountDTO' is reachable as a subtype of type 'class com.mresearch.databank.shared.UserAccountDTO'
+      Started from 'com.mresearch.databank.shared.UserAccountDTO'
+
+java.lang.RuntimeException
+   Serialization status
+      Field serializable
+   Path
+      'java.lang.RuntimeException' is reachable as a supertype of type 'class com.google.gwt.user.client.rpc.IncompatibleRemoteServiceException'
+      'com.google.gwt.user.client.rpc.IncompatibleRemoteServiceException' is reachable as a subtype of type 'class com.google.gwt.user.client.rpc.IncompatibleRemoteServiceException'
+      Started from 'com.google.gwt.user.client.rpc.IncompatibleRemoteServiceException'
+
+java.lang.String
+   Serialization status
+      Instantiable
+   Path
+      Started from 'java.lang.String'
+
+java.lang.Throwable
+   Serialization status
+      Field serializable
+   Path
+      'java.lang.Throwable' is reachable as a supertype of type 'class java.lang.Exception'
+      'java.lang.Exception' is reachable as a supertype of type 'class java.lang.RuntimeException'
+      'java.lang.RuntimeException' is reachable as a supertype of type 'class com.google.gwt.user.client.rpc.IncompatibleRemoteServiceException'
+      'com.google.gwt.user.client.rpc.IncompatibleRemoteServiceException' is reachable as a subtype of type 'class com.google.gwt.user.client.rpc.IncompatibleRemoteServiceException'
+      Started from 'com.google.gwt.user.client.rpc.IncompatibleRemoteServiceException'
+
+java.util.ArrayList<java.lang.Long>
+   Serialization status
+      Instantiable
+   Path
+      'java.util.ArrayList<java.lang.Long>' is reachable from field 'filters_categories' of type 'com.mresearch.databank.shared.UserAccountDTO'
+      'com.mresearch.databank.shared.UserAccountDTO' is reachable as a subtype of type 'class com.mresearch.databank.shared.UserAccountDTO'
+      Started from 'com.mresearch.databank.shared.UserAccountDTO'
+
+java.util.ArrayList<java.lang.String>
+   Serialization status
+      Instantiable
+   Path
+      'java.util.ArrayList<java.lang.String>' is reachable from field 'filters' of type 'com.mresearch.databank.shared.UserAccountDTO'
+      'com.mresearch.databank.shared.UserAccountDTO' is reachable as a subtype of type 'class com.mresearch.databank.shared.UserAccountDTO'
+      Started from 'com.mresearch.databank.shared.UserAccountDTO'
+
+java.util.ArrayList<java.lang.Integer>
+   Serialization status
+      Instantiable
+   Path
+      'java.util.ArrayList<java.lang.Integer>' is reachable from field 'filters_usage' of type 'com.mresearch.databank.shared.UserAccountDTO'
+      'com.mresearch.databank.shared.UserAccountDTO' is reachable as a subtype of type 'class com.mresearch.databank.shared.UserAccountDTO'
+      Started from 'com.mresearch.databank.shared.UserAccountDTO'
+
+long
+   Serialization status
+      Not serializable
+   Path
+      'long' is reachable from field 'id' of type 'com.mresearch.databank.shared.UserAccountDTO'
+      'com.mresearch.databank.shared.UserAccountDTO' is reachable as a subtype of type 'class com.mresearch.databank.shared.UserAccountDTO'
+      Started from 'com.mresearch.databank.shared.UserAccountDTO'
+
+===================================
+Types potentially sent from server:
+===================================
+
+Reachable types computed on: Sun Jul 01 21:05:22 FET 2012
+E
+   Serialization status
+      Not serializable
+   Path
+      'E' is reachable from field 'exposeElement' of type 'java.util.ArrayList<E>'
+      'java.util.ArrayList<java.lang.String>' is reachable as a subtype of type 'class java.util.ArrayList<java.lang.String>'
+      'java.util.ArrayList<java.lang.String>' is reachable from field 'filters' of type 'com.mresearch.databank.shared.UserAccountDTO'
+      'com.mresearch.databank.shared.UserAccountDTO' is reachable as a subtype of type 'class com.mresearch.databank.shared.UserAccountDTO'
+      Started from 'com.mresearch.databank.shared.UserAccountDTO'
+
+com.google.gwt.user.client.rpc.IncompatibleRemoteServiceException
+   Serialization status
+      Instantiable
+   Path
+      Started from 'com.google.gwt.user.client.rpc.IncompatibleRemoteServiceException'
+
+com.google.gwt.user.client.rpc.RpcTokenException
+   Serialization status
+      Instantiable
+   Path
+      Started from 'com.google.gwt.user.client.rpc.RpcTokenException'
+
+com.mresearch.databank.shared.UserAccountDTO
+   Serialization status
+      Instantiable
+   Path
+      Started from 'com.mresearch.databank.shared.UserAccountDTO'
+
+int
+   Serialization status
+      Not serializable
+   Path
+      'int' is reachable from field 'size' of type 'java.util.ArrayList<E>'
+      'java.util.ArrayList<java.lang.String>' is reachable as a subtype of type 'class java.util.ArrayList<java.lang.String>'
+      'java.util.ArrayList<java.lang.String>' is reachable from field 'filters' of type 'com.mresearch.databank.shared.UserAccountDTO'
+      'com.mresearch.databank.shared.UserAccountDTO' is reachable as a subtype of type 'class com.mresearch.databank.shared.UserAccountDTO'
+      Started from 'com.mresearch.databank.shared.UserAccountDTO'
+
+java.lang.Exception
+   Serialization status
+      Field serializable
+   Path
+      'java.lang.Exception' is reachable as a supertype of type 'class java.lang.RuntimeException'
+      'java.lang.RuntimeException' is reachable as a supertype of type 'class com.google.gwt.user.client.rpc.IncompatibleRemoteServiceException'
+      'com.google.gwt.user.client.rpc.IncompatibleRemoteServiceException' is reachable as a subtype of type 'class com.google.gwt.user.client.rpc.IncompatibleRemoteServiceException'
+      Started from 'com.google.gwt.user.client.rpc.IncompatibleRemoteServiceException'
+
+java.lang.Integer
+   Serialization status
+      Instantiable
+   Path
+      'java.lang.Integer' is reachable from field 'weights_use' of type 'com.mresearch.databank.shared.UserAccountDTO'
+      'com.mresearch.databank.shared.UserAccountDTO' is reachable as a subtype of type 'class com.mresearch.databank.shared.UserAccountDTO'
+      Started from 'com.mresearch.databank.shared.UserAccountDTO'
+
+java.lang.Long
+   Serialization status
+      Instantiable
+   Path
+      'java.lang.Long' is reachable from type argument 0 of type 'java.util.ArrayList<E>'
+      'java.util.ArrayList<java.lang.Long>' is reachable as a subtype of type 'class java.util.ArrayList<java.lang.Long>'
+      'java.util.ArrayList<java.lang.Long>' is reachable from field 'filters_categories' of type 'com.mresearch.databank.shared.UserAccountDTO'
+      'com.mresearch.databank.shared.UserAccountDTO' is reachable as a subtype of type 'class com.mresearch.databank.shared.UserAccountDTO'
+      Started from 'com.mresearch.databank.shared.UserAccountDTO'
+
+java.lang.Number
+   Serialization status
+      Field serializable
+   Path
+      'java.lang.Number' is reachable as a supertype of type 'class java.lang.Integer'
+      'java.lang.Integer' is reachable as a subtype of type 'class java.lang.Integer'
+      'java.lang.Integer' is reachable from field 'weights_use' of type 'com.mresearch.databank.shared.UserAccountDTO'
+      'com.mresearch.databank.shared.UserAccountDTO' is reachable as a subtype of type 'class com.mresearch.databank.shared.UserAccountDTO'
+      Started from 'com.mresearch.databank.shared.UserAccountDTO'
+
+java.lang.RuntimeException
+   Serialization status
+      Field serializable
+   Path
+      'java.lang.RuntimeException' is reachable as a supertype of type 'class com.google.gwt.user.client.rpc.IncompatibleRemoteServiceException'
+      'com.google.gwt.user.client.rpc.IncompatibleRemoteServiceException' is reachable as a subtype of type 'class com.google.gwt.user.client.rpc.IncompatibleRemoteServiceException'
+      Started from 'com.google.gwt.user.client.rpc.IncompatibleRemoteServiceException'
+
+java.lang.String
+   Serialization status
+      Instantiable
+   Path
+      Started from 'java.lang.String'
+
+java.lang.Throwable
+   Serialization status
+      Field serializable
+   Path
+      'java.lang.Throwable' is reachable as a supertype of type 'class java.lang.Exception'
+      'java.lang.Exception' is reachable as a supertype of type 'class java.lang.RuntimeException'
+      'java.lang.RuntimeException' is reachable as a supertype of type 'class com.google.gwt.user.client.rpc.IncompatibleRemoteServiceException'
+      'com.google.gwt.user.client.rpc.IncompatibleRemoteServiceException' is reachable as a subtype of type 'class com.google.gwt.user.client.rpc.IncompatibleRemoteServiceException'
+      Started from 'com.google.gwt.user.client.rpc.IncompatibleRemoteServiceException'
+
+java.util.ArrayList<java.lang.Long>
+   Serialization status
+      Instantiable
+   Path
+      'java.util.ArrayList<java.lang.Long>' is reachable from field 'filters_categories' of type 'com.mresearch.databank.shared.UserAccountDTO'
+      'com.mresearch.databank.shared.UserAccountDTO' is reachable as a subtype of type 'class com.mresearch.databank.shared.UserAccountDTO'
+      Started from 'com.mresearch.databank.shared.UserAccountDTO'
+
+java.util.ArrayList<java.lang.String>
+   Serialization status
+      Instantiable
+   Path
+      'java.util.ArrayList<java.lang.String>' is reachable from field 'filters' of type 'com.mresearch.databank.shared.UserAccountDTO'
+      'com.mresearch.databank.shared.UserAccountDTO' is reachable as a subtype of type 'class com.mresearch.databank.shared.UserAccountDTO'
+      Started from 'com.mresearch.databank.shared.UserAccountDTO'
+
+java.util.ArrayList<java.lang.Integer>
+   Serialization status
+      Instantiable
+   Path
+      'java.util.ArrayList<java.lang.Integer>' is reachable from field 'filters_usage' of type 'com.mresearch.databank.shared.UserAccountDTO'
+      'com.mresearch.databank.shared.UserAccountDTO' is reachable as a subtype of type 'class com.mresearch.databank.shared.UserAccountDTO'
+      Started from 'com.mresearch.databank.shared.UserAccountDTO'
+
+long
+   Serialization status
+      Not serializable
+   Path
+      'long' is reachable from field 'id' of type 'com.mresearch.databank.shared.UserAccountDTO'
+      'com.mresearch.databank.shared.UserAccountDTO' is reachable as a subtype of type 'class com.mresearch.databank.shared.UserAccountDTO'
+      Started from 'com.mresearch.databank.shared.UserAccountDTO'
+

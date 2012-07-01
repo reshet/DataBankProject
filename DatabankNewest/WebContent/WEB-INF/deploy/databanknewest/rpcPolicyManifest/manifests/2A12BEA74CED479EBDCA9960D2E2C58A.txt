@@ -1,0 +1,2 @@
+serviceClass: com.mresearch.databank.client.service.CatalogService
+path: F0320C4C49F87CDE39BBA7FB1D49AF24.gwt.rpc

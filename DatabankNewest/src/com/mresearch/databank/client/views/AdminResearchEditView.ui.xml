@@ -20,12 +20,15 @@
 			vertical-align: text-top;
 		}
 	</ui:style>
-	<g:VerticalPanel>
+
+	<g:ScrollPanel width="1400px" height="2000px">
+	<g:VerticalPanel width="1400px" height="2000px">
 	<g:HTMLPanel>
 		<h3>Редактирование метаданных исследования...</h3>
 	</g:HTMLPanel>
+	
 			<g:VerticalPanel ui:field="descriptionEditor"></g:VerticalPanel>	
-			<g:VerticalPanel ui:field="elasticDBfields"></g:VerticalPanel>	
+			<g:VerticalPanel ui:field="elasticDBfields" width="1400px" height="2000px"></g:VerticalPanel>	
 			
 			<g:HorizontalPanel>
 				<g:Label styleName="{style.category}">Взвешивание:</g:Label>
@@ -36,4 +39,6 @@
 			    <g:Button ui:field="deleteBtn">Удалить</g:Button>
 			</g:HorizontalPanel>
 	</g:VerticalPanel>
+	</g:ScrollPanel>
+	
 </ui:UiBinder> 

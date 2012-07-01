@@ -1,0 +1,216 @@
+====================================
+Types potentially sent from browser:
+====================================
+
+Reachable types computed on: Sun Jul 01 21:05:26 FET 2012
+boolean
+   Serialization status
+      Not serializable
+   Path
+      'boolean' is reachable from field 'ambiguousYear' of type 'com.google.gwt.i18n.shared.impl.DateRecord'
+      'com.google.gwt.i18n.shared.impl.DateRecord' is reachable as a subtype of type 'class java.util.Date'
+      'java.util.Date' is reachable from field 'date_from' of type 'com.mresearch.databank.shared.SearchTaskLawDTO'
+      'com.mresearch.databank.shared.SearchTaskLawDTO' is reachable as a subtype of type 'class com.mresearch.databank.shared.SearchTaskLawDTO'
+      Started from 'com.mresearch.databank.shared.SearchTaskLawDTO'
+
+com.google.gwt.i18n.shared.impl.DateRecord
+   Serialization status
+      Instantiable
+   Path
+      'com.google.gwt.i18n.shared.impl.DateRecord' is reachable as a subtype of type 'class java.util.Date'
+      'java.util.Date' is reachable from field 'date_from' of type 'com.mresearch.databank.shared.SearchTaskLawDTO'
+      'com.mresearch.databank.shared.SearchTaskLawDTO' is reachable as a subtype of type 'class com.mresearch.databank.shared.SearchTaskLawDTO'
+      Started from 'com.mresearch.databank.shared.SearchTaskLawDTO'
+
+com.google.gwt.user.client.rpc.IncompatibleRemoteServiceException
+   Serialization status
+      Instantiable
+   Path
+      Started from 'com.google.gwt.user.client.rpc.IncompatibleRemoteServiceException'
+
+com.google.gwt.user.client.rpc.XsrfToken
+   Serialization status
+      Instantiable
+   Path
+      Started from 'com.google.gwt.user.client.rpc.XsrfToken'
+
+com.mresearch.databank.shared.SearchTaskLawDTO
+   Serialization status
+      Instantiable
+   Path
+      Started from 'com.mresearch.databank.shared.SearchTaskLawDTO'
+
+com.mresearch.databank.shared.SearchTaskResearchDTO
+   Serialization status
+      Instantiable
+   Path
+      Started from 'com.mresearch.databank.shared.SearchTaskResearchDTO'
+
+int
+   Serialization status
+      Not serializable
+   Path
+      'int' is reachable from field 'nanos' of type 'java.sql.Timestamp'
+      'java.sql.Timestamp' is reachable as a subtype of type 'class java.util.Date'
+      'java.util.Date' is reachable from field 'date_from' of type 'com.mresearch.databank.shared.SearchTaskLawDTO'
+      'com.mresearch.databank.shared.SearchTaskLawDTO' is reachable as a subtype of type 'class com.mresearch.databank.shared.SearchTaskLawDTO'
+      Started from 'com.mresearch.databank.shared.SearchTaskLawDTO'
+
+java.lang.Exception
+   Serialization status
+      Field serializable
+   Path
+      'java.lang.Exception' is reachable as a supertype of type 'class java.lang.RuntimeException'
+      'java.lang.RuntimeException' is reachable as a supertype of type 'class com.google.gwt.user.client.rpc.IncompatibleRemoteServiceException'
+      'com.google.gwt.user.client.rpc.IncompatibleRemoteServiceException' is reachable as a subtype of type 'class com.google.gwt.user.client.rpc.IncompatibleRemoteServiceException'
+      Started from 'com.google.gwt.user.client.rpc.IncompatibleRemoteServiceException'
+
+java.lang.RuntimeException
+   Serialization status
+      Field serializable
+   Path
+      'java.lang.RuntimeException' is reachable as a supertype of type 'class com.google.gwt.user.client.rpc.IncompatibleRemoteServiceException'
+      'com.google.gwt.user.client.rpc.IncompatibleRemoteServiceException' is reachable as a subtype of type 'class com.google.gwt.user.client.rpc.IncompatibleRemoteServiceException'
+      Started from 'com.google.gwt.user.client.rpc.IncompatibleRemoteServiceException'
+
+java.lang.String
+   Serialization status
+      Instantiable
+   Path
+      Started from 'java.lang.String'
+
+java.lang.Throwable
+   Serialization status
+      Field serializable
+   Path
+      'java.lang.Throwable' is reachable as a supertype of type 'class java.lang.Exception'
+      'java.lang.Exception' is reachable as a supertype of type 'class java.lang.RuntimeException'
+      'java.lang.RuntimeException' is reachable as a supertype of type 'class com.google.gwt.user.client.rpc.IncompatibleRemoteServiceException'
+      'com.google.gwt.user.client.rpc.IncompatibleRemoteServiceException' is reachable as a subtype of type 'class com.google.gwt.user.client.rpc.IncompatibleRemoteServiceException'
+      Started from 'com.google.gwt.user.client.rpc.IncompatibleRemoteServiceException'
+
+java.sql.Date
+   Serialization status
+      Instantiable
+   Path
+      'java.sql.Date' is reachable as a subtype of type 'class java.util.Date'
+      'java.util.Date' is reachable from field 'date_from' of type 'com.mresearch.databank.shared.SearchTaskLawDTO'
+      'com.mresearch.databank.shared.SearchTaskLawDTO' is reachable as a subtype of type 'class com.mresearch.databank.shared.SearchTaskLawDTO'
+      Started from 'com.mresearch.databank.shared.SearchTaskLawDTO'
+
+java.sql.Time
+   Serialization status
+      Instantiable
+   Path
+      'java.sql.Time' is reachable as a subtype of type 'class java.util.Date'
+      'java.util.Date' is reachable from field 'date_from' of type 'com.mresearch.databank.shared.SearchTaskLawDTO'
+      'com.mresearch.databank.shared.SearchTaskLawDTO' is reachable as a subtype of type 'class com.mresearch.databank.shared.SearchTaskLawDTO'
+      Started from 'com.mresearch.databank.shared.SearchTaskLawDTO'
+
+java.sql.Timestamp
+   Serialization status
+      Instantiable
+   Path
+      'java.sql.Timestamp' is reachable as a subtype of type 'class java.util.Date'
+      'java.util.Date' is reachable from field 'date_from' of type 'com.mresearch.databank.shared.SearchTaskLawDTO'
+      'com.mresearch.databank.shared.SearchTaskLawDTO' is reachable as a subtype of type 'class com.mresearch.databank.shared.SearchTaskLawDTO'
+      Started from 'com.mresearch.databank.shared.SearchTaskLawDTO'
+
+java.util.Date
+   Serialization status
+      Instantiable
+   Path
+      'java.util.Date' is reachable from field 'date_from' of type 'com.mresearch.databank.shared.SearchTaskLawDTO'
+      'com.mresearch.databank.shared.SearchTaskLawDTO' is reachable as a subtype of type 'class com.mresearch.databank.shared.SearchTaskLawDTO'
+      Started from 'com.mresearch.databank.shared.SearchTaskLawDTO'
+
+===================================
+Types potentially sent from server:
+===================================
+
+Reachable types computed on: Sun Jul 01 21:05:26 FET 2012
+E
+   Serialization status
+      Not serializable
+   Path
+      'E' is reachable from field 'exposeElement' of type 'java.util.ArrayList<E>'
+      'java.util.ArrayList<com.mresearch.databank.shared.SearchResultDTO>' is reachable as a subtype of type 'class java.util.ArrayList<com.mresearch.databank.shared.SearchResultDTO>'
+      Started from 'java.util.ArrayList<com.mresearch.databank.shared.SearchResultDTO>'
+
+com.google.gwt.user.client.rpc.IncompatibleRemoteServiceException
+   Serialization status
+      Instantiable
+   Path
+      Started from 'com.google.gwt.user.client.rpc.IncompatibleRemoteServiceException'
+
+com.google.gwt.user.client.rpc.RpcTokenException
+   Serialization status
+      Instantiable
+   Path
+      Started from 'com.google.gwt.user.client.rpc.RpcTokenException'
+
+com.mresearch.databank.shared.SearchResultDTO
+   Serialization status
+      Instantiable
+   Path
+      'com.mresearch.databank.shared.SearchResultDTO' is reachable from type argument 0 of type 'java.util.ArrayList<E>'
+      'java.util.ArrayList<com.mresearch.databank.shared.SearchResultDTO>' is reachable as a subtype of type 'class java.util.ArrayList<com.mresearch.databank.shared.SearchResultDTO>'
+      Started from 'java.util.ArrayList<com.mresearch.databank.shared.SearchResultDTO>'
+
+double
+   Serialization status
+      Not serializable
+   Path
+      'double' is reachable from field 'rank' of type 'com.mresearch.databank.shared.SearchResultDTO'
+      'com.mresearch.databank.shared.SearchResultDTO' is reachable as a subtype of type 'class com.mresearch.databank.shared.SearchResultDTO'
+      'com.mresearch.databank.shared.SearchResultDTO' is reachable from type argument 0 of type 'java.util.ArrayList<E>'
+      'java.util.ArrayList<com.mresearch.databank.shared.SearchResultDTO>' is reachable as a subtype of type 'class java.util.ArrayList<com.mresearch.databank.shared.SearchResultDTO>'
+      Started from 'java.util.ArrayList<com.mresearch.databank.shared.SearchResultDTO>'
+
+int
+   Serialization status
+      Not serializable
+   Path
+      'int' is reachable from field 'size' of type 'java.util.ArrayList<E>'
+      'java.util.ArrayList<com.mresearch.databank.shared.SearchResultDTO>' is reachable as a subtype of type 'class java.util.ArrayList<com.mresearch.databank.shared.SearchResultDTO>'
+      Started from 'java.util.ArrayList<com.mresearch.databank.shared.SearchResultDTO>'
+
+java.lang.Exception
+   Serialization status
+      Field serializable
+   Path
+      'java.lang.Exception' is reachable as a supertype of type 'class java.lang.RuntimeException'
+      'java.lang.RuntimeException' is reachable as a supertype of type 'class com.google.gwt.user.client.rpc.IncompatibleRemoteServiceException'
+      'com.google.gwt.user.client.rpc.IncompatibleRemoteServiceException' is reachable as a subtype of type 'class com.google.gwt.user.client.rpc.IncompatibleRemoteServiceException'
+      Started from 'com.google.gwt.user.client.rpc.IncompatibleRemoteServiceException'
+
+java.lang.RuntimeException
+   Serialization status
+      Field serializable
+   Path
+      'java.lang.RuntimeException' is reachable as a supertype of type 'class com.google.gwt.user.client.rpc.IncompatibleRemoteServiceException'
+      'com.google.gwt.user.client.rpc.IncompatibleRemoteServiceException' is reachable as a subtype of type 'class com.google.gwt.user.client.rpc.IncompatibleRemoteServiceException'
+      Started from 'com.google.gwt.user.client.rpc.IncompatibleRemoteServiceException'
+
+java.lang.String
+   Serialization status
+      Instantiable
+   Path
+      Started from 'java.lang.String'
+
+java.lang.Throwable
+   Serialization status
+      Field serializable
+   Path
+      'java.lang.Throwable' is reachable as a supertype of type 'class java.lang.Exception'
+      'java.lang.Exception' is reachable as a supertype of type 'class java.lang.RuntimeException'
+      'java.lang.RuntimeException' is reachable as a supertype of type 'class com.google.gwt.user.client.rpc.IncompatibleRemoteServiceException'
+      'com.google.gwt.user.client.rpc.IncompatibleRemoteServiceException' is reachable as a subtype of type 'class com.google.gwt.user.client.rpc.IncompatibleRemoteServiceException'
+      Started from 'com.google.gwt.user.client.rpc.IncompatibleRemoteServiceException'
+
+java.util.ArrayList<com.mresearch.databank.shared.SearchResultDTO>
+   Serialization status
+      Instantiable
+   Path
+      Started from 'java.util.ArrayList<com.mresearch.databank.shared.SearchResultDTO>'
+

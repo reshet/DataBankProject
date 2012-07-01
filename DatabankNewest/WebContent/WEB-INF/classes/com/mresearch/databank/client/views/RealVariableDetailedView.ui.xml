@@ -2,57 +2,109 @@
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
 	xmlns:g="urn:import:com.google.gwt.user.client.ui">
 	<ui:style>
+		.tableStyle table {
+		    font-family: 'Trebuchet MS', Verdana, Arial, Helvetica;
+		    font-size: 14px;
+		    color: #4d4d4d;
+		    border-collapse: collapse;
+		}
+		
+		.tableStyle th {
+		    text-align: right;
+		    min-width: 100px;
+		    font-weight: normal;
+		    padding: 2px 5px;
+		    border-right: #cccccc solid 1px;
+		    /*border-bottom: #e5e5e5 solid 1px;*/
+		}
+		
+		.tableStyle td {
+		    color: #656565;
+		    text-align: right;
+		    border-right: #cccccc solid 1px;
+		    border-bottom: #e5e5e5 solid 1px;
+		    padding: 2px 5px;
+		
+		}
+		
+		.tableStyle tr > th:first-child, .tableStyle  tr > td:first-child  {
+		    color: #4d4d4d;
+		    text-align: left;
+		    border-right: #cccccc solid 3px;
+		    
+		 
+		}
 		.analisys{
 			text-align: right;
 		
 		}
+		.text_f
+		{
+			font-weight: bold;
+		}
+
 	</ui:style>
 	<g:HTMLPanel>
 		<g:HorizontalPanel ui:field="analysis_bar" styleName="{style.analisys}">
 		</g:HorizontalPanel>
 			
 		<h2>Просмотр переменной</h2>
-		<g:HTMLPanel ui:field="content_panel">
+		<g:HorizontalPanel spacing="5">
+					<g:Label styleName="{style.text_f}">Текст вопроса:  </g:Label>
+					<g:Label ui:field="varText"></g:Label>
+		</g:HorizontalPanel>
+		<g:HorizontalPanel spacing="5">
+					<g:Label styleName="{style.text_f}">Кол-во записей:  </g:Label>
+					<g:Label ui:field="number_of_records"></g:Label>
+		</g:HorizontalPanel>
+		<br/>
+		<HTMLPanel styleName="{style.tableStyle}">
+			<h3>Характеристики ряда:</h3>
+			<table>
+				<tr>
+					<td>Мода: </td><td><g:Label ui:field="moda_txt"></g:Label></td>
+				</tr>
+				<tr>
+					<td>Медиана: </td><td><g:Label ui:field="median_txt"></g:Label></td>
+				</tr>
+				<tr>
+					<td>Среднее: </td><td><g:Label ui:field="average_txt"></g:Label></td>
+				</tr>
+				<tr>
+					<td>Дисперсия: </td><td><g:Label ui:field="dispersion_txt"></g:Label></td>
+				</tr>
+				<tr>
+					<td>Корень дисперсии: </td><td><g:Label ui:field="dispersion_root_txt"></g:Label></td>
+				</tr>	
+			</table>
+		</HTMLPanel>
+<!-- 		<h3>Список значений:</h3> -->
+<!-- 		<g:FlexTable ui:field="values_table" styleName="{style.tableStyle}"></g:FlexTable> -->
+<!-- 		<br/> -->
+		<h3>Перейти к исследованию:</h3>
+		<g:VerticalPanel ui:field="research_link"></g:VerticalPanel>
+		<h3>Переменная использовалась как:</h3>
+		<g:FlexTable ui:field="generalizedTbl"></g:FlexTable>
+		<br/>
 		<table>
 			<tr>
-				<td>Имя переменной: </td><td><g:Label ui:field="varCode"></g:Label></td>
+				<th>
+					<div class="gray25 bold">
+						<g:Label ui:field="concept_name"></g:Label>
+					</div>
+				</th>
+				
+				<th>
+					<div class="gray40">
+						<g:Label ui:field="concept_value"></g:Label>
+					</div>
+				</th>
 			</tr>
-			<tr>
-				<td>Текст вопроса: </td><td><g:Label ui:field="varText"></g:Label></td>
-			</tr>
-			<tr>
-				<td>Кол-во записей: </td><td><g:Label ui:field="number_of_records"></g:Label></td>
-			</tr>
-			<tr>
-				<td>Характеристики ряда:</td>
-				<td>
-					<table>
-						<tr>
-							<td>Мода: </td><td><g:Label ui:field="moda_txt"></g:Label></td>
-						</tr>
-						<tr>
-							<td>Медиана: </td><td><g:Label ui:field="median_txt"></g:Label></td>
-						</tr>
-						<tr>
-							<td>Среднее: </td><td><g:Label ui:field="average_txt"></g:Label></td>
-						</tr>
-						<tr>
-							<td>Дисперсия: </td><td><g:Label ui:field="dispersion_txt"></g:Label></td>
-						</tr>
-						<tr>
-							<td>Корень дисперсии: </td><td><g:Label ui:field="dispersion_root_txt"></g:Label></td>
-						</tr>	
-					</table>
-				</td>
-			</tr>
-			<tr>
-				<td><g:VerticalPanel ui:field="elasticDBfields"></g:VerticalPanel></td>
-			</tr>
-			<tr>
-				<td>Переменная использовалась:</td><td><g:FlexTable ui:field="generalizedTbl"></g:FlexTable></td>
-			</tr>	
 		</table>
+	
+	
+	
+		
+		
 		</g:HTMLPanel>
-		<g:HorizontalPanel ui:field="target_panel"></g:HorizontalPanel>
-	</g:HTMLPanel>
 </ui:UiBinder> 

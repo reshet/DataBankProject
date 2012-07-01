@@ -62,7 +62,10 @@
 				
 				<g:FlexTable ui:field="codeSchemeTbl" styleName="{style.tableStyle}"></g:FlexTable>
 				<br/>
-				Переменная использовалась:
+				<br/>
+				Перейти к исследованию:
+				<g:VerticalPanel ui:field="research_link"></g:VerticalPanel>
+				Переменная использовалась как:
 				<g:FlexTable ui:field="generalizedTbl"></g:FlexTable>
 			<br/>
 			<table>

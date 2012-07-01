@@ -5,9 +5,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.mresearch.databank.client.views.DBfillers.MetaUnitCollector;
-import com.mresearch.databank.client.views.DBfillers.MetaUnitFiller;
-
 @SuppressWarnings("serial")
 public class VarDTO_Detailed extends VarDTO implements Serializable{
 	public static String real_var_type = "REAL_VAR_TYPE";
@@ -20,6 +17,7 @@ public class VarDTO_Detailed extends VarDTO implements Serializable{
 	private ArrayList<String> gen_research_names;
 	private ArrayList<Long> gen_research_ids;
 	private HashMap<String,String> filling;
+        private String research_name;
 	public HashMap<String, String> getFilling() {
 		return filling;
 	}
@@ -27,7 +25,6 @@ public class VarDTO_Detailed extends VarDTO implements Serializable{
 	public void setFilling(HashMap<String, String> filling) {
 		this.filling = filling;
 	}
-
 	private String var_type;
 	
 	public VarDTO_Detailed()
@@ -91,6 +88,19 @@ public class VarDTO_Detailed extends VarDTO implements Serializable{
 		this.gen_research_ids = gen_research_ids;
 	}
 
+    /**
+     * @return the research_name
+     */
+    public String getResearch_name() {
+        return research_name;
+    }
+
+    /**
+     * @param research_name the research_name to set
+     */
+    public void setResearch_name(String research_name) {
+        this.research_name = research_name;
+    }
 
 	
 	

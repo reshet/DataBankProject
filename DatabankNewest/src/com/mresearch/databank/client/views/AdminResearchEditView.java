@@ -204,10 +204,38 @@ public class AdminResearchEditView extends Composite implements AdminResearchDet
 	public MetaUnitFiller getDBfiller() {
 		return mv;
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	@Override
 	public MetaUnitCollector getDBcollector() {
 		return mv;
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	@Override
 	public MetaUnitEntityItemRegistrator getDBregistrator() {
 		return mv;

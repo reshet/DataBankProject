@@ -57,16 +57,19 @@ public class SearchResultsGenericGrid extends VerticalPanel
       rec.setAttribute("_type", ((JSONString)hit_c.get("_type")).stringValue());
       rec.setAttribute("_type_vis", ((JSONString)hit_c.get("_type")).stringValue());
       
-      if(rec.getAttribute("_type_vis").equals("research"))rec.setAttribute("_type_vis", "исследование");
-      if(rec.getAttribute("_type_vis").equals("sociovar"))rec.setAttribute("_type_vis", "переменная");
-      if(rec.getAttribute("_type_vis").equals("law"))rec.setAttribute("_type_vis", "закон");
-      if(rec.getAttribute("_type_vis").equals("publication"))rec.setAttribute("_type_vis", "публикация");
-      if(rec.getAttribute("_type_vis").equals("consultation"))rec.setAttribute("_type_vis", "консультация");
+      if(rec.getAttribute("_type_vis").equals("research"))rec.setAttribute("_type_vis", "Исследование");
+      if(rec.getAttribute("_type_vis").equals("sociovar"))rec.setAttribute("_type_vis", "Переменная");
+      if(rec.getAttribute("_type_vis").equals("law"))rec.setAttribute("_type_vis", "Закон");
+      if(rec.getAttribute("_type_vis").equals("publication"))rec.setAttribute("_type_vis", "Публикация");
+      if(rec.getAttribute("_type_vis").equals("consultation"))rec.setAttribute("_type_vis", "Консультация");
       
       StringBuilder contents = new StringBuilder();
       for(String key:hit.keySet())
       {
-    	  contents.append(hit.get(key)+".");
+    	  if(!key.equals("sociovar_alt_codes") && !key.equals("sociovar_ID"))
+    	  {
+    	 	  contents.append(hit.get(key)+".");
+    	  }
       }
       rec.setAttribute("_contents", contents.toString());
       records[(i++)] = rec;

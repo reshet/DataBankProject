@@ -20,6 +20,8 @@ public class SocioResearchDTO_Light implements Serializable,ICatalogizable,IPick
 	}
 	
 	
+	
+	
 	public SocioResearchDTO_Light(Long id,String name)
 	{
 		this();

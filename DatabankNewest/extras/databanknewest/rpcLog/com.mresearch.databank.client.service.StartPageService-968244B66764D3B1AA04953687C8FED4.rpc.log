@@ -1,0 +1,389 @@
+====================================
+Types potentially sent from browser:
+====================================
+
+Reachable types computed on: Sun Jul 01 21:05:22 FET 2012
+com.google.gwt.user.client.rpc.IncompatibleRemoteServiceException
+   Serialization status
+      Instantiable
+   Path
+      Started from 'com.google.gwt.user.client.rpc.IncompatibleRemoteServiceException'
+
+com.google.gwt.user.client.rpc.XsrfToken
+   Serialization status
+      Instantiable
+   Path
+      Started from 'com.google.gwt.user.client.rpc.XsrfToken'
+
+java.lang.Exception
+   Serialization status
+      Field serializable
+   Path
+      'java.lang.Exception' is reachable as a supertype of type 'class java.lang.RuntimeException'
+      'java.lang.RuntimeException' is reachable as a supertype of type 'class com.google.gwt.user.client.rpc.IncompatibleRemoteServiceException'
+      'com.google.gwt.user.client.rpc.IncompatibleRemoteServiceException' is reachable as a subtype of type 'class com.google.gwt.user.client.rpc.IncompatibleRemoteServiceException'
+      Started from 'com.google.gwt.user.client.rpc.IncompatibleRemoteServiceException'
+
+java.lang.RuntimeException
+   Serialization status
+      Field serializable
+   Path
+      'java.lang.RuntimeException' is reachable as a supertype of type 'class com.google.gwt.user.client.rpc.IncompatibleRemoteServiceException'
+      'com.google.gwt.user.client.rpc.IncompatibleRemoteServiceException' is reachable as a subtype of type 'class com.google.gwt.user.client.rpc.IncompatibleRemoteServiceException'
+      Started from 'com.google.gwt.user.client.rpc.IncompatibleRemoteServiceException'
+
+java.lang.String
+   Serialization status
+      Instantiable
+   Path
+      Started from 'java.lang.String'
+
+java.lang.Throwable
+   Serialization status
+      Field serializable
+   Path
+      'java.lang.Throwable' is reachable as a supertype of type 'class java.lang.Exception'
+      'java.lang.Exception' is reachable as a supertype of type 'class java.lang.RuntimeException'
+      'java.lang.RuntimeException' is reachable as a supertype of type 'class com.google.gwt.user.client.rpc.IncompatibleRemoteServiceException'
+      'com.google.gwt.user.client.rpc.IncompatibleRemoteServiceException' is reachable as a subtype of type 'class com.google.gwt.user.client.rpc.IncompatibleRemoteServiceException'
+      Started from 'com.google.gwt.user.client.rpc.IncompatibleRemoteServiceException'
+
+===================================
+Types potentially sent from server:
+===================================
+
+Reachable types computed on: Sun Jul 01 21:05:22 FET 2012
+E
+   Serialization status
+      Not serializable
+   Path
+      'E' is reachable from field 'exposeElement' of type 'java.util.ArrayList<E>'
+      'java.util.ArrayList<com.mresearch.databank.shared.NewsDTO>' is reachable as a subtype of type 'class java.util.ArrayList<com.mresearch.databank.shared.NewsDTO>'
+      Started from 'java.util.ArrayList<com.mresearch.databank.shared.NewsDTO>'
+
+K
+   Serialization status
+      Not serializable
+   Path
+      'K' is reachable from field 'exposeKey' of type 'java.util.HashMap<K, V>'
+      'java.util.HashMap<java.lang.String, java.lang.String>' is reachable as a subtype of type 'class java.util.HashMap<java.lang.String, java.lang.String>'
+      'java.util.HashMap<java.lang.String, java.lang.String>' is reachable from field 'filling' of type 'com.mresearch.databank.shared.PublicationDTO'
+      'com.mresearch.databank.shared.PublicationDTO' is reachable as a subtype of type 'class com.mresearch.databank.shared.PublicationDTO_Light'
+      'com.mresearch.databank.shared.PublicationDTO_Light' is reachable from type argument 0 of type 'java.util.ArrayList<E>'
+      'java.util.ArrayList<com.mresearch.databank.shared.PublicationDTO_Light>' is reachable as a subtype of type 'class java.util.ArrayList<com.mresearch.databank.shared.PublicationDTO_Light>'
+      'java.util.ArrayList<com.mresearch.databank.shared.PublicationDTO_Light>' is reachable from field 'index_last' of type 'com.mresearch.databank.shared.StartupBundleDTO'
+      'com.mresearch.databank.shared.StartupBundleDTO' is reachable as a subtype of type 'class com.mresearch.databank.shared.StartupBundleDTO'
+      Started from 'com.mresearch.databank.shared.StartupBundleDTO'
+
+V
+   Serialization status
+      Not serializable
+   Path
+      'V' is reachable from field 'exposeValue' of type 'java.util.HashMap<K, V>'
+      'java.util.HashMap<java.lang.String, java.lang.String>' is reachable as a subtype of type 'class java.util.HashMap<java.lang.String, java.lang.String>'
+      'java.util.HashMap<java.lang.String, java.lang.String>' is reachable from field 'filling' of type 'com.mresearch.databank.shared.PublicationDTO'
+      'com.mresearch.databank.shared.PublicationDTO' is reachable as a subtype of type 'class com.mresearch.databank.shared.PublicationDTO_Light'
+      'com.mresearch.databank.shared.PublicationDTO_Light' is reachable from type argument 0 of type 'java.util.ArrayList<E>'
+      'java.util.ArrayList<com.mresearch.databank.shared.PublicationDTO_Light>' is reachable as a subtype of type 'class java.util.ArrayList<com.mresearch.databank.shared.PublicationDTO_Light>'
+      'java.util.ArrayList<com.mresearch.databank.shared.PublicationDTO_Light>' is reachable from field 'index_last' of type 'com.mresearch.databank.shared.StartupBundleDTO'
+      'com.mresearch.databank.shared.StartupBundleDTO' is reachable as a subtype of type 'class com.mresearch.databank.shared.StartupBundleDTO'
+      Started from 'com.mresearch.databank.shared.StartupBundleDTO'
+
+boolean
+   Serialization status
+      Not serializable
+   Path
+      'boolean' is reachable from field 'ambiguousYear' of type 'com.google.gwt.i18n.shared.impl.DateRecord'
+      'com.google.gwt.i18n.shared.impl.DateRecord' is reachable as a subtype of type 'class java.util.Date'
+      'java.util.Date' is reachable from field 'date' of type 'com.mresearch.databank.shared.NewsDTO'
+      'com.mresearch.databank.shared.NewsDTO' is reachable as a subtype of type 'class com.mresearch.databank.shared.NewsDTO'
+      'com.mresearch.databank.shared.NewsDTO' is reachable from type argument 0 of type 'java.util.ArrayList<E>'
+      'java.util.ArrayList<com.mresearch.databank.shared.NewsDTO>' is reachable as a subtype of type 'class java.util.ArrayList<com.mresearch.databank.shared.NewsDTO>'
+      Started from 'java.util.ArrayList<com.mresearch.databank.shared.NewsDTO>'
+
+com.google.gwt.i18n.shared.impl.DateRecord
+   Serialization status
+      Instantiable
+   Path
+      'com.google.gwt.i18n.shared.impl.DateRecord' is reachable as a subtype of type 'class java.util.Date'
+      'java.util.Date' is reachable from field 'date' of type 'com.mresearch.databank.shared.NewsDTO'
+      'com.mresearch.databank.shared.NewsDTO' is reachable as a subtype of type 'class com.mresearch.databank.shared.NewsDTO'
+      'com.mresearch.databank.shared.NewsDTO' is reachable from type argument 0 of type 'java.util.ArrayList<E>'
+      'java.util.ArrayList<com.mresearch.databank.shared.NewsDTO>' is reachable as a subtype of type 'class java.util.ArrayList<com.mresearch.databank.shared.NewsDTO>'
+      Started from 'java.util.ArrayList<com.mresearch.databank.shared.NewsDTO>'
+
+com.google.gwt.user.client.rpc.IncompatibleRemoteServiceException
+   Serialization status
+      Instantiable
+   Path
+      Started from 'com.google.gwt.user.client.rpc.IncompatibleRemoteServiceException'
+
+com.google.gwt.user.client.rpc.RpcTokenException
+   Serialization status
+      Instantiable
+   Path
+      Started from 'com.google.gwt.user.client.rpc.RpcTokenException'
+
+com.mresearch.databank.shared.ArticleDTO
+   Serialization status
+      Instantiable
+   Path
+      Started from 'com.mresearch.databank.shared.ArticleDTO'
+
+com.mresearch.databank.shared.NewsDTO
+   Serialization status
+      Instantiable
+   Path
+      'com.mresearch.databank.shared.NewsDTO' is reachable from type argument 0 of type 'java.util.ArrayList<E>'
+      'java.util.ArrayList<com.mresearch.databank.shared.NewsDTO>' is reachable as a subtype of type 'class java.util.ArrayList<com.mresearch.databank.shared.NewsDTO>'
+      Started from 'java.util.ArrayList<com.mresearch.databank.shared.NewsDTO>'
+
+com.mresearch.databank.shared.NewsSummaryDTO
+   Serialization status
+      Instantiable
+   Path
+      'com.mresearch.databank.shared.NewsSummaryDTO' is reachable from type argument 0 of type 'java.util.ArrayList<E>'
+      'java.util.ArrayList<com.mresearch.databank.shared.NewsSummaryDTO>' is reachable as a subtype of type 'class java.util.ArrayList<com.mresearch.databank.shared.NewsSummaryDTO>'
+      Started from 'java.util.ArrayList<com.mresearch.databank.shared.NewsSummaryDTO>'
+
+com.mresearch.databank.shared.PublicationDTO
+   Serialization status
+      Instantiable
+   Path
+      'com.mresearch.databank.shared.PublicationDTO' is reachable as a subtype of type 'class com.mresearch.databank.shared.PublicationDTO_Light'
+      'com.mresearch.databank.shared.PublicationDTO_Light' is reachable from type argument 0 of type 'java.util.ArrayList<E>'
+      'java.util.ArrayList<com.mresearch.databank.shared.PublicationDTO_Light>' is reachable as a subtype of type 'class java.util.ArrayList<com.mresearch.databank.shared.PublicationDTO_Light>'
+      'java.util.ArrayList<com.mresearch.databank.shared.PublicationDTO_Light>' is reachable from field 'index_last' of type 'com.mresearch.databank.shared.StartupBundleDTO'
+      'com.mresearch.databank.shared.StartupBundleDTO' is reachable as a subtype of type 'class com.mresearch.databank.shared.StartupBundleDTO'
+      Started from 'com.mresearch.databank.shared.StartupBundleDTO'
+
+com.mresearch.databank.shared.PublicationDTO_Light
+   Serialization status
+      Instantiable
+   Path
+      'com.mresearch.databank.shared.PublicationDTO_Light' is reachable from type argument 0 of type 'java.util.ArrayList<E>'
+      'java.util.ArrayList<com.mresearch.databank.shared.PublicationDTO_Light>' is reachable as a subtype of type 'class java.util.ArrayList<com.mresearch.databank.shared.PublicationDTO_Light>'
+      'java.util.ArrayList<com.mresearch.databank.shared.PublicationDTO_Light>' is reachable from field 'index_last' of type 'com.mresearch.databank.shared.StartupBundleDTO'
+      'com.mresearch.databank.shared.StartupBundleDTO' is reachable as a subtype of type 'class com.mresearch.databank.shared.StartupBundleDTO'
+      Started from 'com.mresearch.databank.shared.StartupBundleDTO'
+
+com.mresearch.databank.shared.SocioResearchDTO_Light
+   Serialization status
+      Instantiable
+   Path
+      'com.mresearch.databank.shared.SocioResearchDTO_Light' is reachable from type argument 0 of type 'java.util.ArrayList<E>'
+      'java.util.ArrayList<com.mresearch.databank.shared.SocioResearchDTO_Light>' is reachable as a subtype of type 'class java.util.ArrayList<com.mresearch.databank.shared.SocioResearchDTO_Light>'
+      'java.util.ArrayList<com.mresearch.databank.shared.SocioResearchDTO_Light>' is reachable from field 'top_researchs' of type 'com.mresearch.databank.shared.StartupBundleDTO'
+      'com.mresearch.databank.shared.StartupBundleDTO' is reachable as a subtype of type 'class com.mresearch.databank.shared.StartupBundleDTO'
+      Started from 'com.mresearch.databank.shared.StartupBundleDTO'
+
+com.mresearch.databank.shared.StartupBundleDTO
+   Serialization status
+      Instantiable
+   Path
+      Started from 'com.mresearch.databank.shared.StartupBundleDTO'
+
+com.mresearch.databank.shared.ZaconDTO
+   Serialization status
+      Instantiable
+   Path
+      'com.mresearch.databank.shared.ZaconDTO' is reachable as a subtype of type 'class com.mresearch.databank.shared.ZaconDTO_Light'
+      'com.mresearch.databank.shared.ZaconDTO_Light' is reachable from type argument 0 of type 'java.util.ArrayList<E>'
+      'java.util.ArrayList<com.mresearch.databank.shared.ZaconDTO_Light>' is reachable as a subtype of type 'class java.util.ArrayList<com.mresearch.databank.shared.ZaconDTO_Light>'
+      'java.util.ArrayList<com.mresearch.databank.shared.ZaconDTO_Light>' is reachable from field 'important_laws' of type 'com.mresearch.databank.shared.StartupBundleDTO'
+      'com.mresearch.databank.shared.StartupBundleDTO' is reachable as a subtype of type 'class com.mresearch.databank.shared.StartupBundleDTO'
+      Started from 'com.mresearch.databank.shared.StartupBundleDTO'
+
+com.mresearch.databank.shared.ZaconDTO_Light
+   Serialization status
+      Instantiable
+   Path
+      'com.mresearch.databank.shared.ZaconDTO_Light' is reachable from type argument 0 of type 'java.util.ArrayList<E>'
+      'java.util.ArrayList<com.mresearch.databank.shared.ZaconDTO_Light>' is reachable as a subtype of type 'class java.util.ArrayList<com.mresearch.databank.shared.ZaconDTO_Light>'
+      'java.util.ArrayList<com.mresearch.databank.shared.ZaconDTO_Light>' is reachable from field 'important_laws' of type 'com.mresearch.databank.shared.StartupBundleDTO'
+      'com.mresearch.databank.shared.StartupBundleDTO' is reachable as a subtype of type 'class com.mresearch.databank.shared.StartupBundleDTO'
+      Started from 'com.mresearch.databank.shared.StartupBundleDTO'
+
+int
+   Serialization status
+      Not serializable
+   Path
+      'int' is reachable from field 'nanos' of type 'java.sql.Timestamp'
+      'java.sql.Timestamp' is reachable as a subtype of type 'class java.util.Date'
+      'java.util.Date' is reachable from field 'date' of type 'com.mresearch.databank.shared.NewsDTO'
+      'com.mresearch.databank.shared.NewsDTO' is reachable as a subtype of type 'class com.mresearch.databank.shared.NewsDTO'
+      'com.mresearch.databank.shared.NewsDTO' is reachable from type argument 0 of type 'java.util.ArrayList<E>'
+      'java.util.ArrayList<com.mresearch.databank.shared.NewsDTO>' is reachable as a subtype of type 'class java.util.ArrayList<com.mresearch.databank.shared.NewsDTO>'
+      Started from 'java.util.ArrayList<com.mresearch.databank.shared.NewsDTO>'
+
+java.lang.Exception
+   Serialization status
+      Field serializable
+   Path
+      'java.lang.Exception' is reachable as a supertype of type 'class java.lang.RuntimeException'
+      'java.lang.RuntimeException' is reachable as a supertype of type 'class com.google.gwt.user.client.rpc.IncompatibleRemoteServiceException'
+      'com.google.gwt.user.client.rpc.IncompatibleRemoteServiceException' is reachable as a subtype of type 'class com.google.gwt.user.client.rpc.IncompatibleRemoteServiceException'
+      Started from 'com.google.gwt.user.client.rpc.IncompatibleRemoteServiceException'
+
+java.lang.Long
+   Serialization status
+      Instantiable
+   Path
+      'java.lang.Long' is reachable from field 'enclosure_key' of type 'com.mresearch.databank.shared.PublicationDTO'
+      'com.mresearch.databank.shared.PublicationDTO' is reachable as a subtype of type 'class com.mresearch.databank.shared.PublicationDTO_Light'
+      'com.mresearch.databank.shared.PublicationDTO_Light' is reachable from type argument 0 of type 'java.util.ArrayList<E>'
+      'java.util.ArrayList<com.mresearch.databank.shared.PublicationDTO_Light>' is reachable as a subtype of type 'class java.util.ArrayList<com.mresearch.databank.shared.PublicationDTO_Light>'
+      'java.util.ArrayList<com.mresearch.databank.shared.PublicationDTO_Light>' is reachable from field 'index_last' of type 'com.mresearch.databank.shared.StartupBundleDTO'
+      'com.mresearch.databank.shared.StartupBundleDTO' is reachable as a subtype of type 'class com.mresearch.databank.shared.StartupBundleDTO'
+      Started from 'com.mresearch.databank.shared.StartupBundleDTO'
+
+java.lang.Number
+   Serialization status
+      Field serializable
+   Path
+      'java.lang.Number' is reachable as a supertype of type 'class java.lang.Long'
+      'java.lang.Long' is reachable as a subtype of type 'class java.lang.Long'
+      'java.lang.Long' is reachable from field 'enclosure_key' of type 'com.mresearch.databank.shared.PublicationDTO'
+      'com.mresearch.databank.shared.PublicationDTO' is reachable as a subtype of type 'class com.mresearch.databank.shared.PublicationDTO_Light'
+      'com.mresearch.databank.shared.PublicationDTO_Light' is reachable from type argument 0 of type 'java.util.ArrayList<E>'
+      'java.util.ArrayList<com.mresearch.databank.shared.PublicationDTO_Light>' is reachable as a subtype of type 'class java.util.ArrayList<com.mresearch.databank.shared.PublicationDTO_Light>'
+      'java.util.ArrayList<com.mresearch.databank.shared.PublicationDTO_Light>' is reachable from field 'index_last' of type 'com.mresearch.databank.shared.StartupBundleDTO'
+      'com.mresearch.databank.shared.StartupBundleDTO' is reachable as a subtype of type 'class com.mresearch.databank.shared.StartupBundleDTO'
+      Started from 'com.mresearch.databank.shared.StartupBundleDTO'
+
+java.lang.RuntimeException
+   Serialization status
+      Field serializable
+   Path
+      'java.lang.RuntimeException' is reachable as a supertype of type 'class com.google.gwt.user.client.rpc.IncompatibleRemoteServiceException'
+      'com.google.gwt.user.client.rpc.IncompatibleRemoteServiceException' is reachable as a subtype of type 'class com.google.gwt.user.client.rpc.IncompatibleRemoteServiceException'
+      Started from 'com.google.gwt.user.client.rpc.IncompatibleRemoteServiceException'
+
+java.lang.String
+   Serialization status
+      Instantiable
+   Path
+      Started from 'java.lang.String'
+
+java.lang.Throwable
+   Serialization status
+      Field serializable
+   Path
+      'java.lang.Throwable' is reachable as a supertype of type 'class java.lang.Exception'
+      'java.lang.Exception' is reachable as a supertype of type 'class java.lang.RuntimeException'
+      'java.lang.RuntimeException' is reachable as a supertype of type 'class com.google.gwt.user.client.rpc.IncompatibleRemoteServiceException'
+      'com.google.gwt.user.client.rpc.IncompatibleRemoteServiceException' is reachable as a subtype of type 'class com.google.gwt.user.client.rpc.IncompatibleRemoteServiceException'
+      Started from 'com.google.gwt.user.client.rpc.IncompatibleRemoteServiceException'
+
+java.sql.Date
+   Serialization status
+      Instantiable
+   Path
+      'java.sql.Date' is reachable as a subtype of type 'class java.util.Date'
+      'java.util.Date' is reachable from field 'date' of type 'com.mresearch.databank.shared.NewsDTO'
+      'com.mresearch.databank.shared.NewsDTO' is reachable as a subtype of type 'class com.mresearch.databank.shared.NewsDTO'
+      'com.mresearch.databank.shared.NewsDTO' is reachable from type argument 0 of type 'java.util.ArrayList<E>'
+      'java.util.ArrayList<com.mresearch.databank.shared.NewsDTO>' is reachable as a subtype of type 'class java.util.ArrayList<com.mresearch.databank.shared.NewsDTO>'
+      Started from 'java.util.ArrayList<com.mresearch.databank.shared.NewsDTO>'
+
+java.sql.Time
+   Serialization status
+      Instantiable
+   Path
+      'java.sql.Time' is reachable as a subtype of type 'class java.util.Date'
+      'java.util.Date' is reachable from field 'date' of type 'com.mresearch.databank.shared.NewsDTO'
+      'com.mresearch.databank.shared.NewsDTO' is reachable as a subtype of type 'class com.mresearch.databank.shared.NewsDTO'
+      'com.mresearch.databank.shared.NewsDTO' is reachable from type argument 0 of type 'java.util.ArrayList<E>'
+      'java.util.ArrayList<com.mresearch.databank.shared.NewsDTO>' is reachable as a subtype of type 'class java.util.ArrayList<com.mresearch.databank.shared.NewsDTO>'
+      Started from 'java.util.ArrayList<com.mresearch.databank.shared.NewsDTO>'
+
+java.sql.Timestamp
+   Serialization status
+      Instantiable
+   Path
+      'java.sql.Timestamp' is reachable as a subtype of type 'class java.util.Date'
+      'java.util.Date' is reachable from field 'date' of type 'com.mresearch.databank.shared.NewsDTO'
+      'com.mresearch.databank.shared.NewsDTO' is reachable as a subtype of type 'class com.mresearch.databank.shared.NewsDTO'
+      'com.mresearch.databank.shared.NewsDTO' is reachable from type argument 0 of type 'java.util.ArrayList<E>'
+      'java.util.ArrayList<com.mresearch.databank.shared.NewsDTO>' is reachable as a subtype of type 'class java.util.ArrayList<com.mresearch.databank.shared.NewsDTO>'
+      Started from 'java.util.ArrayList<com.mresearch.databank.shared.NewsDTO>'
+
+java.util.ArrayList<com.mresearch.databank.shared.ZaconDTO_Light>
+   Serialization status
+      Instantiable
+   Path
+      'java.util.ArrayList<com.mresearch.databank.shared.ZaconDTO_Light>' is reachable from field 'important_laws' of type 'com.mresearch.databank.shared.StartupBundleDTO'
+      'com.mresearch.databank.shared.StartupBundleDTO' is reachable as a subtype of type 'class com.mresearch.databank.shared.StartupBundleDTO'
+      Started from 'com.mresearch.databank.shared.StartupBundleDTO'
+
+java.util.ArrayList<com.mresearch.databank.shared.PublicationDTO_Light>
+   Serialization status
+      Instantiable
+   Path
+      'java.util.ArrayList<com.mresearch.databank.shared.PublicationDTO_Light>' is reachable from field 'index_last' of type 'com.mresearch.databank.shared.StartupBundleDTO'
+      'com.mresearch.databank.shared.StartupBundleDTO' is reachable as a subtype of type 'class com.mresearch.databank.shared.StartupBundleDTO'
+      Started from 'com.mresearch.databank.shared.StartupBundleDTO'
+
+java.util.ArrayList<com.mresearch.databank.shared.SocioResearchDTO_Light>
+   Serialization status
+      Instantiable
+   Path
+      'java.util.ArrayList<com.mresearch.databank.shared.SocioResearchDTO_Light>' is reachable from field 'top_researchs' of type 'com.mresearch.databank.shared.StartupBundleDTO'
+      'com.mresearch.databank.shared.StartupBundleDTO' is reachable as a subtype of type 'class com.mresearch.databank.shared.StartupBundleDTO'
+      Started from 'com.mresearch.databank.shared.StartupBundleDTO'
+
+java.util.ArrayList<com.mresearch.databank.shared.NewsSummaryDTO>
+   Serialization status
+      Instantiable
+   Path
+      Started from 'java.util.ArrayList<com.mresearch.databank.shared.NewsSummaryDTO>'
+
+java.util.ArrayList<com.mresearch.databank.shared.NewsDTO>
+   Serialization status
+      Instantiable
+   Path
+      Started from 'java.util.ArrayList<com.mresearch.databank.shared.NewsDTO>'
+
+java.util.Date
+   Serialization status
+      Instantiable
+   Path
+      'java.util.Date' is reachable from field 'date' of type 'com.mresearch.databank.shared.NewsDTO'
+      'com.mresearch.databank.shared.NewsDTO' is reachable as a subtype of type 'class com.mresearch.databank.shared.NewsDTO'
+      'com.mresearch.databank.shared.NewsDTO' is reachable from type argument 0 of type 'java.util.ArrayList<E>'
+      'java.util.ArrayList<com.mresearch.databank.shared.NewsDTO>' is reachable as a subtype of type 'class java.util.ArrayList<com.mresearch.databank.shared.NewsDTO>'
+      Started from 'java.util.ArrayList<com.mresearch.databank.shared.NewsDTO>'
+
+java.util.HashMap<java.lang.String, java.lang.String>
+   Serialization status
+      Instantiable
+   Path
+      'java.util.HashMap<java.lang.String, java.lang.String>' is reachable from field 'filling' of type 'com.mresearch.databank.shared.PublicationDTO'
+      'com.mresearch.databank.shared.PublicationDTO' is reachable as a subtype of type 'class com.mresearch.databank.shared.PublicationDTO_Light'
+      'com.mresearch.databank.shared.PublicationDTO_Light' is reachable from type argument 0 of type 'java.util.ArrayList<E>'
+      'java.util.ArrayList<com.mresearch.databank.shared.PublicationDTO_Light>' is reachable as a subtype of type 'class java.util.ArrayList<com.mresearch.databank.shared.PublicationDTO_Light>'
+      'java.util.ArrayList<com.mresearch.databank.shared.PublicationDTO_Light>' is reachable from field 'index_last' of type 'com.mresearch.databank.shared.StartupBundleDTO'
+      'com.mresearch.databank.shared.StartupBundleDTO' is reachable as a subtype of type 'class com.mresearch.databank.shared.StartupBundleDTO'
+      Started from 'com.mresearch.databank.shared.StartupBundleDTO'
+
+java.util.LinkedHashMap<java.lang.String, java.lang.String>
+   Serialization status
+      Instantiable
+   Path
+      'java.util.LinkedHashMap<java.lang.String, java.lang.String>' is reachable as a subtype of type 'class java.util.HashMap<java.lang.String, java.lang.String>'
+      'java.util.HashMap<java.lang.String, java.lang.String>' is reachable from field 'filling' of type 'com.mresearch.databank.shared.PublicationDTO'
+      'com.mresearch.databank.shared.PublicationDTO' is reachable as a subtype of type 'class com.mresearch.databank.shared.PublicationDTO_Light'
+      'com.mresearch.databank.shared.PublicationDTO_Light' is reachable from type argument 0 of type 'java.util.ArrayList<E>'
+      'java.util.ArrayList<com.mresearch.databank.shared.PublicationDTO_Light>' is reachable as a subtype of type 'class java.util.ArrayList<com.mresearch.databank.shared.PublicationDTO_Light>'
+      'java.util.ArrayList<com.mresearch.databank.shared.PublicationDTO_Light>' is reachable from field 'index_last' of type 'com.mresearch.databank.shared.StartupBundleDTO'
+      'com.mresearch.databank.shared.StartupBundleDTO' is reachable as a subtype of type 'class com.mresearch.databank.shared.StartupBundleDTO'
+      Started from 'com.mresearch.databank.shared.StartupBundleDTO'
+
+long
+   Serialization status
+      Not serializable
+   Path
+      'long' is reachable from field 'id' of type 'com.mresearch.databank.shared.ArticleDTO'
+      'com.mresearch.databank.shared.ArticleDTO' is reachable as a subtype of type 'class com.mresearch.databank.shared.ArticleDTO'
+      Started from 'com.mresearch.databank.shared.ArticleDTO'
+

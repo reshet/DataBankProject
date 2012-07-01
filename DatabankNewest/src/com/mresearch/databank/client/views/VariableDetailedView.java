@@ -24,6 +24,7 @@ import com.google.gwt.json.client.JSONString;
 import com.google.gwt.json.client.JSONValue;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
+import com.google.gwt.user.client.ui.Anchor;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.DialogBox;
@@ -43,6 +44,7 @@ import com.mresearch.databank.client.views.DBviewers.MultiValuedFieldViewer;
 import com.mresearch.databank.client.views.DBviewers.VarMultiValuedFieldViewer;
 import com.mresearch.databank.shared.MetaUnitDTO;
 import com.mresearch.databank.shared.MetaUnitMultivaluedEntityDTO;
+import com.mresearch.databank.shared.SocioResearchDTO_Light;
 import com.mresearch.databank.shared.UserAccountDTO;
 import com.mresearch.databank.shared.VarDTO_Detailed;
 import com.rednels.ofcgwt.client.ChartWidget;
@@ -65,6 +67,7 @@ public class VariableDetailedView extends Composite {
 	//@UiField VerticalPanel elasticDBfields;
 	@UiField Label concept_name,concept_value;
 	@UiField HorizontalPanel analysis_bar;
+	@UiField VerticalPanel research_link;
 //	Hyperlink link;
 //	private FormPanel form;
 //	private TextBox hidden_box;
@@ -126,6 +129,8 @@ public class VariableDetailedView extends Composite {
 		this.db = dt;
 		this.dto = dto;
 		
+		
+		research_link.add(new ResearchDescItemView(new SocioResearchDTO_Light(dto.getResearch_id(),dto.getResearch_name())));
 		UserAccountDTO user = DatabankApp.get().getCurrentUser();
 		analysis_bar.add(new AnalisysBarView(bus, display,user.getFilters_use()>0?true:false,user.getWeights_use()>0?true:false));
 		//form.a

@@ -1,6 +1,7 @@
 package com.mresearch.databank.client.views;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Iterator;
 import java.util.Map;
 
@@ -22,8 +23,10 @@ import com.mresearch.databank.client.DatabankApp;
 import com.mresearch.databank.client.presenters.UserResearchPerspectivePresenter;
 import com.mresearch.databank.client.views.DBviewers.MultiValuedFieldViewer;
 import com.mresearch.databank.client.views.DBviewers.VarMultiValuedFieldViewer;
+import com.mresearch.databank.shared.MetaUnitDTO;
 import com.mresearch.databank.shared.MetaUnitMultivaluedEntityDTO;
 import com.mresearch.databank.shared.RealVarDTO_Detailed;
+import com.mresearch.databank.shared.SocioResearchDTO_Light;
 import com.mresearch.databank.shared.TextVarDTO_Detailed;
 import com.mresearch.databank.shared.UserAccountDTO;
 import com.mresearch.databank.shared.VarDTO;
@@ -38,12 +41,13 @@ public class TextVariableDetailedView extends Composite {
 			UiBinder<Widget, TextVariableDetailedView> {
 	}
 
-	@UiField Label varCode,varText,number_of_records;
+	@UiField Label varText,number_of_records;
 	@UiField FlexTable generalizedTbl,values_table;
 	private MetaUnitMultivaluedEntityDTO db;
 	private VarDTO_Detailed dto;
-	@UiField VerticalPanel elasticDBfields;
+	@UiField VerticalPanel research_link;
 	@UiField HorizontalPanel analysis_bar;
+	@UiField Label concept_name,concept_value;
 
 	public TextVariableDetailedView(TextVarDTO_Detailed dto,MetaUnitMultivaluedEntityDTO dt,SimpleEventBus bus,UserResearchPerspectivePresenter.Display display) {
 		initWidget(uiBinder.createAndBindUi(this));
@@ -52,7 +56,11 @@ public class TextVariableDetailedView extends Composite {
 		UserAccountDTO user = DatabankApp.get().getCurrentUser();
 		analysis_bar.add(new AnalisysBarView(bus, display,user.getFilters_use()>0?true:false,user.getWeights_use()>0?true:false));
 		
-		varCode.setText(dto.getCode());
+		research_link.add(new ResearchDescItemView(new SocioResearchDTO_Light(dto.getResearch_id(),dto.getResearch_name())));
+		
+		//varCode.setText(dto.getCode());
+		varText.setWidth("400px");
+		varText.setWordWrap(true);
 		varText.setText(dto.getLabel());
 		number_of_records.setText(String.valueOf(dto.getNumber_of_records()));
 		int i = 0;
@@ -77,8 +85,31 @@ public class TextVariableDetailedView extends Composite {
 	}
 	private void renderDBfillers()
 	{
-		elasticDBfields.clear();
-		VarMultiValuedFieldViewer mv = new VarMultiValuedFieldViewer(db,dto.getFilling(),"");
-		elasticDBfields.add(mv);
+		//elasticDBfields.clear();
+		//VarMultiValuedFieldViewer mv = new VarMultiValuedFieldViewer(db,dto.getFilling(),"");
+		//elasticDBfields.add(mv);
+		Collection<MetaUnitDTO> base = db.getSub_meta_units();
+		int i = 0;
+		if(base!=null)
+		for(MetaUnitDTO dto:base)
+		{
+			if(dto instanceof MetaUnitMultivaluedEntityDTO)
+			{
+				MetaUnitMultivaluedEntityDTO dto_str = (MetaUnitMultivaluedEntityDTO)dto;
+				concept_name.setText(dto_str.getDesc());
+				String base_name = this.db.getUnique_name()+"_"+dto.getUnique_name();
+				if(this.dto.getFilling()!=null)
+					if(this.dto.getFilling().containsKey(base_name))
+					{
+						  String val = (String)this.dto.getFilling().get(base_name);
+					      if (val != null)
+					      {
+					    	  concept_value.setText(val);
+					      }
+					}
+				break;
+			}
+		}
+	
 	}
 }

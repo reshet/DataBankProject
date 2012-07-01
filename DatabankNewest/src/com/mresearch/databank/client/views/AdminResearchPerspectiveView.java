@@ -72,6 +72,10 @@ public class AdminResearchPerspectiveView extends Composite implements AdminRese
 		tree.addItem(rootResearchConcepts);
 		tree.addItem(rootVarConcepts);
 		
+		
+		
+		
+		
 		//tree.addItem(db);
 		
 		
