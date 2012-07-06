@@ -32,6 +32,7 @@ public class AdminResearchPerspectiveView extends Composite implements AdminRese
 	private static AdminResearchPerspectiveViewUiBinder uiBinder = GWT
 			.create(AdminResearchPerspectiveViewUiBinder.class);
 
+	
 	interface AdminResearchPerspectiveViewUiBinder extends
 			UiBinder<Widget, AdminResearchPerspectiveView> {
 	}
@@ -55,10 +56,11 @@ public class AdminResearchPerspectiveView extends Composite implements AdminRese
 	private boolean rootConceptUpdateMode = false;
 	public AdminResearchPerspectiveView(SimpleEventBus bus) {
 		initWidget(uiBinder.createAndBindUi(this));
-		centerPanel.setWidth("1300px");
-		centerPanel.setHeight("900px");
+		//centerPanel.setWidth("1300px");
+		//centerPanel.setHeight("900px");
 		centerPanel.setVisible(true);
 		this.bus = bus;
+		
 		
 		
 		add_concept_popup = new AddConceptPopupView(this.bus);

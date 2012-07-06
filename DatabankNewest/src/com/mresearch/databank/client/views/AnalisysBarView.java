@@ -57,16 +57,18 @@ public class AnalisysBarView extends Composite implements UserResearchPerspectiv
 	final private SimpleEventBus eventBus;
 	private UserResearchPerspectivePresenter.Display display;
 	private Long current_research_id = null;
+	private int var_id = 0;
 	private boolean w_use,f_use;
 	private FormPanel form;
 	private TextBox content = new TextBox();
 	String realPath = GWT.getModuleBaseURL();
-	public AnalisysBarView(SimpleEventBus bus,UserResearchPerspectivePresenter.Display display,boolean f_use,boolean w_use) {
+	public AnalisysBarView(SimpleEventBus bus,UserResearchPerspectivePresenter.Display display,boolean f_use,boolean w_use,int var_id) {
 		initWidget(uiBinder.createAndBindUi(this));
 		this.eventBus = bus;
 		this.display = display;
 		this.w_use = w_use;
 		this.f_use = f_use;
+		this.var_id = var_id;
 		filters_add_btn = new Button("+");
 		filters_delete_btn = new Button("-");
 		initSaveOption();
@@ -105,7 +107,7 @@ public class AnalisysBarView extends Composite implements UserResearchPerspectiv
 		plotBtn.addClickHandler(new ClickHandler() {
 			@Override
 			public void onClick(ClickEvent arg0) {
-				eventBus.fireEvent(new ShowVarPlotEvent(0));
+				eventBus.fireEvent(new ShowVarPlotEvent(var_id));
 			}
 		});
 		

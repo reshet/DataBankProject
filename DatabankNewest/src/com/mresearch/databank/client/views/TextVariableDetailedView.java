@@ -54,7 +54,7 @@ public class TextVariableDetailedView extends Composite {
 		this.dto = dto;
 		this.db = dt;
 		UserAccountDTO user = DatabankApp.get().getCurrentUser();
-		analysis_bar.add(new AnalisysBarView(bus, display,user.getFilters_use()>0?true:false,user.getWeights_use()>0?true:false));
+		analysis_bar.add(new AnalisysBarView(bus, display,user.getFilters_use()>0?true:false,user.getWeights_use()>0?true:false,(int)dto.getId()));
 		
 		research_link.add(new ResearchDescItemView(new SocioResearchDTO_Light(dto.getResearch_id(),dto.getResearch_name())));
 		

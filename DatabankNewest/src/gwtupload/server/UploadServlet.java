@@ -110,7 +110,7 @@ public class UploadServlet extends HttpServlet implements Servlet {
   protected static final String ATTR_FILES = "FILES";
   protected static final String ATTR_LAST_FILES = "LAST_FILES";
   protected static final String CANCELED_TRUE = "<canceled>true</canceled>";
-  protected static final int DEFAULT_REQUEST_LIMIT_KB = 5 * 1024 * 1024;
+  protected static final int DEFAULT_REQUEST_LIMIT_KB = 50 * 1024 * 1024;
 
   protected static final int DEFAULT_SLOW_DELAY_MILLIS = 300;
   
@@ -126,7 +126,7 @@ public class UploadServlet extends HttpServlet implements Servlet {
 
   protected static String PARAM_BLOBSTORE = "blobstore";
 
-  protected static String PARAM_CANCEL = "cancel";
+  protected static String PARAM_CANCEL = "cancel";	
 
   protected static String PARAM_CLEAN = "clean";
 

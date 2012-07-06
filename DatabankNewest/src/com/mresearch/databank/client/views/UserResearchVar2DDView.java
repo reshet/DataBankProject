@@ -62,7 +62,7 @@ public class UserResearchVar2DDView extends Composite {
 		
 		DatabankApp.get().getCurrentUser().setCurrent_research(research_id);
 		UserAccountDTO user = DatabankApp.get().getCurrentUser();
-		analysis_bar.add(new AnalisysBarView(bus, display,user.getFilters_use()>0?true:false,user.getWeights_use()>0?true:false));
+		analysis_bar.add(new AnalisysBarView(bus, display,user.getFilters_use()>0?true:false,user.getWeights_use()>0?true:false,0));
 		new RPCCall<UserAccountDTO>() {
 			
 			@Override

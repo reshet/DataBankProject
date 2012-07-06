@@ -28,7 +28,7 @@
 				<g:Button ui:field="delButton"> Удалить!</g:Button>
 			</VerticalPanel>
 			
-			<g:VerticalPanel ui:field="elasticDBfields"/>
+			<g:VerticalPanel ui:field="elasticDBfields" width="1400px" height="100%"/>
 			<g:Label width="500px">Краткое содержание: </g:Label>
 			<g:VerticalPanel ui:field="descriptionEditor"></g:VerticalPanel>
 			<h2>Файлы:</h2>

@@ -45,7 +45,7 @@
 					</g:ScrollPanel>
 				</g:west>
 				<g:center>
-						<g:VerticalPanel ui:field="centerPanel" width="1700px" height="2000px">
+						<g:VerticalPanel ui:field="centerPanel" width="100%" height="100%">
 						</g:VerticalPanel>
 				</g:center>
 			</g:SplitLayoutPanel>

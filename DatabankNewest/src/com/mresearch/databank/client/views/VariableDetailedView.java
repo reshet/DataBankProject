@@ -2,32 +2,31 @@ package com.mresearch.databank.client.views;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Date;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Random;
+import java.util.Locale;
 
-import org.opendatafoundation.data.spss.mod.SPSSUtils;
+import org.moxieapps.gwt.highcharts.client.Chart;
+import org.moxieapps.gwt.highcharts.client.ChartTitle;
+import org.moxieapps.gwt.highcharts.client.Legend.Align;
+import org.moxieapps.gwt.highcharts.client.Point;
+import org.moxieapps.gwt.highcharts.client.Series;
+import org.moxieapps.gwt.highcharts.client.Style;
+import org.moxieapps.gwt.highcharts.client.ToolTip;
+import org.moxieapps.gwt.highcharts.client.ToolTipData;
+import org.moxieapps.gwt.highcharts.client.ToolTipFormatter;
+import org.moxieapps.gwt.highcharts.client.labels.PieDataLabels;
+import org.moxieapps.gwt.highcharts.client.plotOptions.PiePlotOptions;
+import org.moxieapps.gwt.highcharts.client.plotOptions.PlotOptions;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.core.client.JavaScriptObject;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.event.shared.SimpleEventBus;
-import com.google.gwt.http.client.URL;
 import com.google.gwt.i18n.client.NumberFormat;
-import com.google.gwt.json.client.JSONArray;
-import com.google.gwt.json.client.JSONBoolean;
-import com.google.gwt.json.client.JSONNumber;
-import com.google.gwt.json.client.JSONObject;
-import com.google.gwt.json.client.JSONString;
-import com.google.gwt.json.client.JSONValue;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
-import com.google.gwt.user.client.ui.Anchor;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.Composite;
-import com.google.gwt.user.client.ui.DialogBox;
 import com.google.gwt.user.client.ui.FlexTable;
 import com.google.gwt.user.client.ui.HTMLPanel;
 import com.google.gwt.user.client.ui.HorizontalPanel;
@@ -39,15 +38,12 @@ import com.mresearch.databank.client.DatabankApp;
 import com.mresearch.databank.client.event.ShowVarPlotEvent;
 import com.mresearch.databank.client.event.ShowVarPlotEventHandler;
 import com.mresearch.databank.client.presenters.UserResearchPerspectivePresenter;
-import com.mresearch.databank.client.views.DBviewers.MultiValuedEntityViewer;
-import com.mresearch.databank.client.views.DBviewers.MultiValuedFieldViewer;
-import com.mresearch.databank.client.views.DBviewers.VarMultiValuedFieldViewer;
 import com.mresearch.databank.shared.MetaUnitDTO;
 import com.mresearch.databank.shared.MetaUnitMultivaluedEntityDTO;
 import com.mresearch.databank.shared.SocioResearchDTO_Light;
 import com.mresearch.databank.shared.UserAccountDTO;
 import com.mresearch.databank.shared.VarDTO_Detailed;
-import com.rednels.ofcgwt.client.ChartWidget;
+import com.smartgwt.client.types.ChartType;
 
 public class VariableDetailedView extends Composite {
 
@@ -132,7 +128,7 @@ public class VariableDetailedView extends Composite {
 		
 		research_link.add(new ResearchDescItemView(new SocioResearchDTO_Light(dto.getResearch_id(),dto.getResearch_name())));
 		UserAccountDTO user = DatabankApp.get().getCurrentUser();
-		analysis_bar.add(new AnalisysBarView(bus, display,user.getFilters_use()>0?true:false,user.getWeights_use()>0?true:false));
+		analysis_bar.add(new AnalisysBarView(bus, display,user.getFilters_use()>0?true:false,user.getWeights_use()>0?true:false,(int)dto.getId()));
 		//form.a
 		
 		
@@ -207,7 +203,7 @@ public class VariableDetailedView extends Composite {
 		bus.addHandler(ShowVarPlotEvent.TYPE, new ShowVarPlotEventHandler() {
 			@Override
 			public void onShowVarPlot(ShowVarPlotEvent event) {
-				showPlot();
+				if(VariableDetailedView.this.dto.getId() == event.getVar_id())showPlot();
 			}
 		});
 	}
@@ -241,24 +237,97 @@ public class VariableDetailedView extends Composite {
 		//elasticDBfields.add(mv);
 	}
 	private boolean plot_viewed = false;
+	public static String wrap(String in,int len) {
+		in=in.trim();
+		if(in.length()<len) return in;
+		if(in.substring(0, len).contains("<br/>"))
+		return in.substring(0, in.indexOf("<br/>")).trim() + "\n\n" + wrap(in.substring(in.indexOf("<br/>") + 1), len);
+		int place=Math.max(Math.max(in.lastIndexOf(" ",len),in.lastIndexOf("\t",len)),in.lastIndexOf("-",len));
+		return in.substring(0,place).trim()+"<br/>"+wrap(in.substring(place),len);
+		}
 	private void showPlot()
 	{
 		if(!plot_viewed)
 		{
 			plot_viewed = true;
 			
-			ChartWidget widg = new ChartWidget();
-			//widg.s
-			//JavaScriptObject obj = getJSON();
-			//JSONObject obj_json = new JSONObject(obj);
-			JSONObject obj_json = new JSON_Construct(dto).getGraph();
-			//obj.toString();
-			String json = obj_json.toString();
-			widg.setJsonData(json);
-			widg.setPixelSize(600, 600);
+//			ChartWidget widg = new ChartWidget();
+//			JSONObject obj_json = new JSON_Construct(dto).getGraph();
+//			String json = obj_json.toString();
+//			widg.setJsonData(json);
+//			widg.setPixelSize(600, 600);
+//			
 			
+			//StringUtils.wordWrap(dto.getLabel(),50,Locale.getDefault());
+			double dum = 0;
+			for(Double d:dto.getDistribution())dum+=d;
+			Chart chart = new Chart()
+			   .setType(Series.Type.PIE)
+//			   .setChartTitleText(wrap(dto.getLabel(),70))
+	
+			   .setChartTitle(new ChartTitle().setText(wrap(dto.getLabel(),70)).setAlign(org.moxieapps.gwt.highcharts.client.ChartTitle.Align.LEFT))
+			   .setSizeToMatchContainer()
+			   .setMarginRight(10)
+//			   .setWidth100()
+//			   .setHeight100()
+////			    .setLegend(new Legend()
+//				      .setAlign(Legend.Align.RIGHT)
+//				      .setVerticalAlign(Legend.Align.)
+//				      .setBackgroundColor("#CCCCCC")
+//				      .setShadow(true)
+//				   )
+//				
+				   .setPlotBorderWidth(null)  
+            .setPlotShadow(true)  
+            .setPiePlotOptions(new PiePlotOptions()  
+                .setAllowPointSelect(true)  
+                .setCursor(PlotOptions.Cursor.POINTER)  
+                .setPieDataLabels(new PieDataLabels()  
+                    .setEnabled(false)  
+                )  
+                .setShowInLegend(true)  
+            )  
+            .setToolTip(new ToolTip()  
+                .setFormatter(new ToolTipFormatter() {  
+                    public String format(ToolTipData toolTipData) {  
+                        return "<b>" + toolTipData.getPointName() + "</b>: " + toolTipData.getYAsDouble() + " %";  
+                    }  
+                })  
+            )   
+				   ;
 			
-			final PopupPanel dialogBox = createDialogBox(widg);
+			Point [] points = new Point[dto.getV_label_codes().size()];
+			int i = 0;
+			for(String name:dto.getV_label_values())
+			{
+				  NumberFormat formatter = NumberFormat.getFormat("0.0");
+		          // formatter.
+		           //formatter.setMaximumFractionDigits(2);
+		           double myNumber = Double.parseDouble(formatter.format(new Double(dto.getDistribution().get(i)/dum)*100));
+		         
+		           
+				points[i] = (new Point(name,myNumber));
+				i++;
+			}
+			
+			points[0].setSelected(true).setSliced(true);
+//			new Point[]{  
+//	                new Point("Firefox", 45.0),  
+//	                new Point("IE", 26.8),  
+//	                new Point("Chrome", 12.8)  
+//	                    .setSliced(true)  
+//	                    .setSelected(true),  
+//	                new Point("Safari", 8.5),  
+//	                new Point("Opera", 6.2),  
+//	                new Point("Others", 0.7)  
+//	            } 
+//		   )
+			Series series = chart.createSeries()
+					   .setName("Варианты ответа")
+					   .setPoints(points);
+					chart.addSeries(series);
+			
+			final PopupPanel dialogBox = createDialogBox(chart);
 		    dialogBox.setGlassEnabled(true);
 		    dialogBox.setAnimationEnabled(true);
 		    
@@ -272,8 +341,10 @@ public class VariableDetailedView extends Composite {
 	    // Create a dialog box and set the caption text
 	    final PopupPanel dialogBox = new PopupPanel();
 	    //dialogBox.setText("График распределения");
-	    dialogBox.setHeight("600px");
+	    dialogBox.setHeight("450px");
 	    dialogBox.setWidth("700px");
+//	    dialogBox.setHeight("100%");
+//	    dialogBox.setWidth("100%");
 	    // Create a table to layout the content
 	    VerticalPanel dialogContents = new VerticalPanel();
 	    dialogContents.setWidth("100%");

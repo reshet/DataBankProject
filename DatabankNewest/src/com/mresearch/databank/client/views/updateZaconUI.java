@@ -104,10 +104,17 @@ public class updateZaconUI extends Composite {
 	private void renderDBfillers(ZaconDTO dto,MetaUnitMultivaluedEntityDTO res,String cat_sys_name,String catalogization_str)
 	{
 		
+		
+		
+		
+		
+		
+		
+		
 		descriptionEditor.clear();
 		
         richTextEditor = new RichTextEditor();
-        richTextEditor.setHeight(400);  
+        richTextEditor.setHeight(300);  
         richTextEditor.setWidth(600);
         //richTextEditor.setOverflow(Overflow.HIDDEN);  
         richTextEditor.setCanDragResize(true);  

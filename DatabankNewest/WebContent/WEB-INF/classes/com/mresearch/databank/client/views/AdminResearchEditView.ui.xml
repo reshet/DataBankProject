@@ -21,16 +21,12 @@
 		}
 	</ui:style>
 
-	<g:ScrollPanel width="1400px" height="2000px">
-	<g:VerticalPanel width="1400px" height="2000px">
+	<g:ScrollPanel width="100%" height="100%">
+	<g:VerticalPanel width="100%" height="100%">
 	<g:HTMLPanel>
 		<h3>Редактирование метаданных исследования...</h3>
 	</g:HTMLPanel>
-	
-			<g:VerticalPanel ui:field="descriptionEditor"></g:VerticalPanel>	
-			<g:VerticalPanel ui:field="elasticDBfields" width="1400px" height="2000px"></g:VerticalPanel>	
-			
-			<g:HorizontalPanel>
+					<g:HorizontalPanel>
 				<g:Label styleName="{style.category}">Взвешивание:</g:Label>
 				<g:ListBox ui:field="weights" />
 			</g:HorizontalPanel>
@@ -38,6 +34,11 @@
 				<g:Button ui:field="confirmBtn">Подтвердить</g:Button>
 			    <g:Button ui:field="deleteBtn">Удалить</g:Button>
 			</g:HorizontalPanel>
+	
+			<g:VerticalPanel ui:field="descriptionEditor"></g:VerticalPanel>	
+			<g:VerticalPanel ui:field="elasticDBfields" width="1400px" height="2000px"></g:VerticalPanel>	
+			
+	
 	</g:VerticalPanel>
 	</g:ScrollPanel>
 	

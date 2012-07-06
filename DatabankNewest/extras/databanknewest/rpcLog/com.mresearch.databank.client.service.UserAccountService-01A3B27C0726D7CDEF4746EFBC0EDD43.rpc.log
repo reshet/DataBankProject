@@ -2,7 +2,7 @@
 Types potentially sent from browser:
 ====================================
 
-Reachable types computed on: Sun Jul 01 21:05:22 FET 2012
+Reachable types computed on: Fri Jul 06 13:22:09 FET 2012
 E
    Serialization status
       Not serializable
@@ -102,6 +102,14 @@ java.lang.Throwable
       'com.google.gwt.user.client.rpc.IncompatibleRemoteServiceException' is reachable as a subtype of type 'class com.google.gwt.user.client.rpc.IncompatibleRemoteServiceException'
       Started from 'com.google.gwt.user.client.rpc.IncompatibleRemoteServiceException'
 
+java.util.ArrayList<java.lang.Integer>
+   Serialization status
+      Instantiable
+   Path
+      'java.util.ArrayList<java.lang.Integer>' is reachable from field 'filters_usage' of type 'com.mresearch.databank.shared.UserAccountDTO'
+      'com.mresearch.databank.shared.UserAccountDTO' is reachable as a subtype of type 'class com.mresearch.databank.shared.UserAccountDTO'
+      Started from 'com.mresearch.databank.shared.UserAccountDTO'
+
 java.util.ArrayList<java.lang.Long>
    Serialization status
       Instantiable
@@ -118,14 +126,6 @@ java.util.ArrayList<java.lang.String>
       'com.mresearch.databank.shared.UserAccountDTO' is reachable as a subtype of type 'class com.mresearch.databank.shared.UserAccountDTO'
       Started from 'com.mresearch.databank.shared.UserAccountDTO'
 
-java.util.ArrayList<java.lang.Integer>
-   Serialization status
-      Instantiable
-   Path
-      'java.util.ArrayList<java.lang.Integer>' is reachable from field 'filters_usage' of type 'com.mresearch.databank.shared.UserAccountDTO'
-      'com.mresearch.databank.shared.UserAccountDTO' is reachable as a subtype of type 'class com.mresearch.databank.shared.UserAccountDTO'
-      Started from 'com.mresearch.databank.shared.UserAccountDTO'
-
 long
    Serialization status
       Not serializable
@@ -138,7 +138,7 @@ long
 Types potentially sent from server:
 ===================================
 
-Reachable types computed on: Sun Jul 01 21:05:22 FET 2012
+Reachable types computed on: Fri Jul 06 13:22:09 FET 2012
 E
    Serialization status
       Not serializable
@@ -238,6 +238,14 @@ java.lang.Throwable
       'com.google.gwt.user.client.rpc.IncompatibleRemoteServiceException' is reachable as a subtype of type 'class com.google.gwt.user.client.rpc.IncompatibleRemoteServiceException'
       Started from 'com.google.gwt.user.client.rpc.IncompatibleRemoteServiceException'
 
+java.util.ArrayList<java.lang.Integer>
+   Serialization status
+      Instantiable
+   Path
+      'java.util.ArrayList<java.lang.Integer>' is reachable from field 'filters_usage' of type 'com.mresearch.databank.shared.UserAccountDTO'
+      'com.mresearch.databank.shared.UserAccountDTO' is reachable as a subtype of type 'class com.mresearch.databank.shared.UserAccountDTO'
+      Started from 'com.mresearch.databank.shared.UserAccountDTO'
+
 java.util.ArrayList<java.lang.Long>
    Serialization status
       Instantiable
@@ -251,14 +259,6 @@ java.util.ArrayList<java.lang.String>
       Instantiable
    Path
       'java.util.ArrayList<java.lang.String>' is reachable from field 'filters' of type 'com.mresearch.databank.shared.UserAccountDTO'
-      'com.mresearch.databank.shared.UserAccountDTO' is reachable as a subtype of type 'class com.mresearch.databank.shared.UserAccountDTO'
-      Started from 'com.mresearch.databank.shared.UserAccountDTO'
-
-java.util.ArrayList<java.lang.Integer>
-   Serialization status
-      Instantiable
-   Path
-      'java.util.ArrayList<java.lang.Integer>' is reachable from field 'filters_usage' of type 'com.mresearch.databank.shared.UserAccountDTO'
       'com.mresearch.databank.shared.UserAccountDTO' is reachable as a subtype of type 'class com.mresearch.databank.shared.UserAccountDTO'
       Started from 'com.mresearch.databank.shared.UserAccountDTO'
 

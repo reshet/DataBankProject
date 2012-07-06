@@ -8,7 +8,7 @@ public class ShowVarPlotEvent extends GwtEvent<ShowVarPlotEventHandler> {
 	private Long Var_id;  
 	public ShowVarPlotEvent(long res_id) {
 		this.Var_id = res_id;
-		DatabankApp.get().getCurrentUser().setCurrant_var(Var_id);
+	//	DatabankApp.get().getCurrentUser().setCurrant_var(Var_id);
 	}
 	@Override
 	public Type<ShowVarPlotEventHandler> getAssociatedType() {

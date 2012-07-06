@@ -21,6 +21,8 @@ import com.google.gwt.user.client.ui.MultiWordSuggestOracle;
 import com.google.gwt.user.client.ui.VerticalPanel;
 import com.google.gwt.user.client.ui.Widget;
 import com.mresearch.databank.client.DatabankApp;
+import com.mresearch.databank.client.event.ShowVarPlotEvent;
+import com.mresearch.databank.client.event.ShowVarPlotEventHandler;
 import com.mresearch.databank.client.presenters.UserResearchPerspectivePresenter;
 import com.mresearch.databank.client.views.DBviewers.MultiValuedFieldViewer;
 import com.mresearch.databank.client.views.DBviewers.VarMultiValuedFieldViewer;
@@ -59,7 +61,7 @@ public class RealVariableDetailedView extends Composite {
 		this.dto = dto;
 		this.db = dt;
 		UserAccountDTO user = DatabankApp.get().getCurrentUser();
-		analysis_bar.add(new AnalisysBarView(bus, display,user.getFilters_use()>0?true:false,user.getWeights_use()>0?true:false));
+		analysis_bar.add(new AnalisysBarView(bus, display,user.getFilters_use()>0?true:false,user.getWeights_use()>0?true:false,(int)dto.getId()));
 		
 		//target_panel.add(new SaveHTMLAddon(content_panel));
 		//varCode.setText(dto.getCode());
@@ -88,6 +90,12 @@ public class RealVariableDetailedView extends Composite {
 			generalizedTbl.setWidget(j, 2, new Label(" в исследовании "));
 			generalizedTbl.setWidget(j, 3, new Label(dto.getGen_research_names().get(j)));
 		}
+//		bus.addHandler(ShowVarPlotEvent.TYPE, new ShowVarPlotEventHandler() {
+//			@Override
+//			public void onShowVarPlot(ShowVarPlotEvent event) {
+//				if(RealVariableDetailedView.this.dto.getId() == event.getVar_id())showPlot();
+//			}
+//		});
 		renderDBfillers();
 	}
 	private void renderDBfillers()
