@@ -2,7 +2,7 @@
 Types potentially sent from browser:
 ====================================
 
-Reachable types computed on: Fri Jul 06 13:22:09 FET 2012
+Reachable types computed on: Thu Jul 12 20:00:58 FET 2012
 com.google.gwt.user.client.rpc.IncompatibleRemoteServiceException
    Serialization status
       Instantiable
@@ -52,7 +52,7 @@ java.lang.Throwable
 Types potentially sent from server:
 ===================================
 
-Reachable types computed on: Fri Jul 06 13:22:09 FET 2012
+Reachable types computed on: Thu Jul 12 20:00:58 FET 2012
 E
    Serialization status
       Not serializable
@@ -308,20 +308,6 @@ java.sql.Timestamp
       'java.util.ArrayList<com.mresearch.databank.shared.NewsDTO>' is reachable as a subtype of type 'class java.util.ArrayList<com.mresearch.databank.shared.NewsDTO>'
       Started from 'java.util.ArrayList<com.mresearch.databank.shared.NewsDTO>'
 
-java.util.ArrayList<com.mresearch.databank.shared.ZaconDTO_Light>
-   Serialization status
-      Instantiable
-   Path
-      'java.util.ArrayList<com.mresearch.databank.shared.ZaconDTO_Light>' is reachable from field 'important_laws' of type 'com.mresearch.databank.shared.StartupBundleDTO'
-      'com.mresearch.databank.shared.StartupBundleDTO' is reachable as a subtype of type 'class com.mresearch.databank.shared.StartupBundleDTO'
-      Started from 'com.mresearch.databank.shared.StartupBundleDTO'
-
-java.util.ArrayList<com.mresearch.databank.shared.NewsDTO>
-   Serialization status
-      Instantiable
-   Path
-      Started from 'java.util.ArrayList<com.mresearch.databank.shared.NewsDTO>'
-
 java.util.ArrayList<com.mresearch.databank.shared.SocioResearchDTO_Light>
    Serialization status
       Instantiable
@@ -343,6 +329,20 @@ java.util.ArrayList<com.mresearch.databank.shared.NewsSummaryDTO>
       Instantiable
    Path
       Started from 'java.util.ArrayList<com.mresearch.databank.shared.NewsSummaryDTO>'
+
+java.util.ArrayList<com.mresearch.databank.shared.ZaconDTO_Light>
+   Serialization status
+      Instantiable
+   Path
+      'java.util.ArrayList<com.mresearch.databank.shared.ZaconDTO_Light>' is reachable from field 'important_laws' of type 'com.mresearch.databank.shared.StartupBundleDTO'
+      'com.mresearch.databank.shared.StartupBundleDTO' is reachable as a subtype of type 'class com.mresearch.databank.shared.StartupBundleDTO'
+      Started from 'com.mresearch.databank.shared.StartupBundleDTO'
+
+java.util.ArrayList<com.mresearch.databank.shared.NewsDTO>
+   Serialization status
+      Instantiable
+   Path
+      Started from 'java.util.ArrayList<com.mresearch.databank.shared.NewsDTO>'
 
 java.util.Date
    Serialization status

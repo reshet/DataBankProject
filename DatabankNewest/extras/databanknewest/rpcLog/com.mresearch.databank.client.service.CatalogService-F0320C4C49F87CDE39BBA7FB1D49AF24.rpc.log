@@ -2,7 +2,7 @@
 Types potentially sent from browser:
 ====================================
 
-Reachable types computed on: Fri Jul 06 13:22:20 FET 2012
+Reachable types computed on: Thu Jul 12 20:01:09 FET 2012
 E
    Serialization status
       Not serializable
@@ -96,12 +96,6 @@ java.lang.Throwable
       'com.google.gwt.user.client.rpc.IncompatibleRemoteServiceException' is reachable as a subtype of type 'class com.google.gwt.user.client.rpc.IncompatibleRemoteServiceException'
       Started from 'com.google.gwt.user.client.rpc.IncompatibleRemoteServiceException'
 
-java.util.ArrayList<java.lang.Long>
-   Serialization status
-      Instantiable
-   Path
-      Started from 'java.util.ArrayList<java.lang.Long>'
-
 java.util.ArrayList<java.lang.String>
    Serialization status
       Instantiable
@@ -109,6 +103,12 @@ java.util.ArrayList<java.lang.String>
       'java.util.ArrayList<java.lang.String>' is reachable from field 'contents_keys' of type 'com.mresearch.databank.shared.CatalogConceptDTO'
       'com.mresearch.databank.shared.CatalogConceptDTO' is reachable as a subtype of type 'class com.mresearch.databank.shared.CatalogConceptDTO'
       Started from 'com.mresearch.databank.shared.CatalogConceptDTO'
+
+java.util.ArrayList<java.lang.Long>
+   Serialization status
+      Instantiable
+   Path
+      Started from 'java.util.ArrayList<java.lang.Long>'
 
 long
    Serialization status
@@ -122,7 +122,7 @@ long
 Types potentially sent from server:
 ===================================
 
-Reachable types computed on: Fri Jul 06 13:22:20 FET 2012
+Reachable types computed on: Thu Jul 12 20:01:09 FET 2012
 E
    Serialization status
       Not serializable
@@ -335,34 +335,6 @@ java.lang.Throwable
       'com.google.gwt.user.client.rpc.IncompatibleRemoteServiceException' is reachable as a subtype of type 'class com.google.gwt.user.client.rpc.IncompatibleRemoteServiceException'
       Started from 'com.google.gwt.user.client.rpc.IncompatibleRemoteServiceException'
 
-java.util.ArrayList<java.lang.Long>
-   Serialization status
-      Instantiable
-   Path
-      Started from 'java.util.ArrayList<java.lang.Long>'
-
-java.util.ArrayList<java.lang.String>
-   Serialization status
-      Instantiable
-   Path
-      'java.util.ArrayList<java.lang.String>' is reachable from field 'contents_keys' of type 'com.mresearch.databank.shared.CatalogConceptDTO'
-      'com.mresearch.databank.shared.CatalogConceptDTO' is reachable as a subtype of type 'class com.mresearch.databank.shared.CatalogConceptDTO'
-      'com.mresearch.databank.shared.CatalogConceptDTO' is reachable from type argument 0 of type 'java.util.ArrayList<E>'
-      'java.util.ArrayList<com.mresearch.databank.shared.CatalogConceptDTO>' is reachable as a subtype of type 'class java.util.ArrayList<com.mresearch.databank.shared.CatalogConceptDTO>'
-      Started from 'java.util.ArrayList<com.mresearch.databank.shared.CatalogConceptDTO>'
-
-java.util.ArrayList<com.mresearch.databank.shared.SocioResearchDTO_Light>
-   Serialization status
-      Instantiable
-   Path
-      Started from 'java.util.ArrayList<com.mresearch.databank.shared.SocioResearchDTO_Light>'
-
-java.util.ArrayList<com.mresearch.databank.shared.CatalogConceptDTO>
-   Serialization status
-      Instantiable
-   Path
-      Started from 'java.util.ArrayList<com.mresearch.databank.shared.CatalogConceptDTO>'
-
 java.util.ArrayList<java.lang.Integer>
    Serialization status
       Instantiable
@@ -374,11 +346,11 @@ java.util.ArrayList<java.lang.Integer>
       'java.util.ArrayList<com.mresearch.databank.shared.VarDTO>' is reachable as a subtype of type 'class java.util.ArrayList<com.mresearch.databank.shared.VarDTO>'
       Started from 'java.util.ArrayList<com.mresearch.databank.shared.VarDTO>'
 
-java.util.ArrayList<com.mresearch.databank.shared.VarDTO>
+java.util.ArrayList<com.mresearch.databank.shared.SocioResearchDTO_Light>
    Serialization status
       Instantiable
    Path
-      Started from 'java.util.ArrayList<com.mresearch.databank.shared.VarDTO>'
+      Started from 'java.util.ArrayList<com.mresearch.databank.shared.SocioResearchDTO_Light>'
 
 java.util.ArrayList<java.lang.Double>
    Serialization status
@@ -389,6 +361,34 @@ java.util.ArrayList<java.lang.Double>
       'com.mresearch.databank.shared.VarDTO' is reachable from type argument 0 of type 'java.util.ArrayList<E>'
       'java.util.ArrayList<com.mresearch.databank.shared.VarDTO>' is reachable as a subtype of type 'class java.util.ArrayList<com.mresearch.databank.shared.VarDTO>'
       Started from 'java.util.ArrayList<com.mresearch.databank.shared.VarDTO>'
+
+java.util.ArrayList<com.mresearch.databank.shared.VarDTO>
+   Serialization status
+      Instantiable
+   Path
+      Started from 'java.util.ArrayList<com.mresearch.databank.shared.VarDTO>'
+
+java.util.ArrayList<com.mresearch.databank.shared.CatalogConceptDTO>
+   Serialization status
+      Instantiable
+   Path
+      Started from 'java.util.ArrayList<com.mresearch.databank.shared.CatalogConceptDTO>'
+
+java.util.ArrayList<java.lang.String>
+   Serialization status
+      Instantiable
+   Path
+      'java.util.ArrayList<java.lang.String>' is reachable from field 'contents_keys' of type 'com.mresearch.databank.shared.CatalogConceptDTO'
+      'com.mresearch.databank.shared.CatalogConceptDTO' is reachable as a subtype of type 'class com.mresearch.databank.shared.CatalogConceptDTO'
+      'com.mresearch.databank.shared.CatalogConceptDTO' is reachable from type argument 0 of type 'java.util.ArrayList<E>'
+      'java.util.ArrayList<com.mresearch.databank.shared.CatalogConceptDTO>' is reachable as a subtype of type 'class java.util.ArrayList<com.mresearch.databank.shared.CatalogConceptDTO>'
+      Started from 'java.util.ArrayList<com.mresearch.databank.shared.CatalogConceptDTO>'
+
+java.util.ArrayList<java.lang.Long>
+   Serialization status
+      Instantiable
+   Path
+      Started from 'java.util.ArrayList<java.lang.Long>'
 
 java.util.HashMap<java.lang.String, java.lang.String>
    Serialization status

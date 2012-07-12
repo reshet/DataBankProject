@@ -2,7 +2,7 @@
 Types potentially sent from browser:
 ====================================
 
-Reachable types computed on: Fri Jul 06 13:22:09 FET 2012
+Reachable types computed on: Thu Jul 12 20:00:58 FET 2012
 E
    Serialization status
       Not serializable
@@ -110,19 +110,19 @@ java.util.ArrayList<java.lang.Integer>
       'com.mresearch.databank.shared.UserAccountDTO' is reachable as a subtype of type 'class com.mresearch.databank.shared.UserAccountDTO'
       Started from 'com.mresearch.databank.shared.UserAccountDTO'
 
-java.util.ArrayList<java.lang.Long>
-   Serialization status
-      Instantiable
-   Path
-      'java.util.ArrayList<java.lang.Long>' is reachable from field 'filters_categories' of type 'com.mresearch.databank.shared.UserAccountDTO'
-      'com.mresearch.databank.shared.UserAccountDTO' is reachable as a subtype of type 'class com.mresearch.databank.shared.UserAccountDTO'
-      Started from 'com.mresearch.databank.shared.UserAccountDTO'
-
 java.util.ArrayList<java.lang.String>
    Serialization status
       Instantiable
    Path
       'java.util.ArrayList<java.lang.String>' is reachable from field 'filters' of type 'com.mresearch.databank.shared.UserAccountDTO'
+      'com.mresearch.databank.shared.UserAccountDTO' is reachable as a subtype of type 'class com.mresearch.databank.shared.UserAccountDTO'
+      Started from 'com.mresearch.databank.shared.UserAccountDTO'
+
+java.util.ArrayList<java.lang.Long>
+   Serialization status
+      Instantiable
+   Path
+      'java.util.ArrayList<java.lang.Long>' is reachable from field 'filters_categories' of type 'com.mresearch.databank.shared.UserAccountDTO'
       'com.mresearch.databank.shared.UserAccountDTO' is reachable as a subtype of type 'class com.mresearch.databank.shared.UserAccountDTO'
       Started from 'com.mresearch.databank.shared.UserAccountDTO'
 
@@ -138,7 +138,7 @@ long
 Types potentially sent from server:
 ===================================
 
-Reachable types computed on: Fri Jul 06 13:22:09 FET 2012
+Reachable types computed on: Thu Jul 12 20:00:58 FET 2012
 E
    Serialization status
       Not serializable
@@ -246,19 +246,19 @@ java.util.ArrayList<java.lang.Integer>
       'com.mresearch.databank.shared.UserAccountDTO' is reachable as a subtype of type 'class com.mresearch.databank.shared.UserAccountDTO'
       Started from 'com.mresearch.databank.shared.UserAccountDTO'
 
-java.util.ArrayList<java.lang.Long>
-   Serialization status
-      Instantiable
-   Path
-      'java.util.ArrayList<java.lang.Long>' is reachable from field 'filters_categories' of type 'com.mresearch.databank.shared.UserAccountDTO'
-      'com.mresearch.databank.shared.UserAccountDTO' is reachable as a subtype of type 'class com.mresearch.databank.shared.UserAccountDTO'
-      Started from 'com.mresearch.databank.shared.UserAccountDTO'
-
 java.util.ArrayList<java.lang.String>
    Serialization status
       Instantiable
    Path
       'java.util.ArrayList<java.lang.String>' is reachable from field 'filters' of type 'com.mresearch.databank.shared.UserAccountDTO'
+      'com.mresearch.databank.shared.UserAccountDTO' is reachable as a subtype of type 'class com.mresearch.databank.shared.UserAccountDTO'
+      Started from 'com.mresearch.databank.shared.UserAccountDTO'
+
+java.util.ArrayList<java.lang.Long>
+   Serialization status
+      Instantiable
+   Path
+      'java.util.ArrayList<java.lang.Long>' is reachable from field 'filters_categories' of type 'com.mresearch.databank.shared.UserAccountDTO'
       'com.mresearch.databank.shared.UserAccountDTO' is reachable as a subtype of type 'class com.mresearch.databank.shared.UserAccountDTO'
       Started from 'com.mresearch.databank.shared.UserAccountDTO'
 

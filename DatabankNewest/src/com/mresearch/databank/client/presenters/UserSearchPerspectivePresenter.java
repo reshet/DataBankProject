@@ -305,7 +305,7 @@ public class UserSearchPerspectivePresenter implements Presenter
 	      obj_contains_too.put("should", arr_contains_too);
 	      obj_bool_contains_too.put("bool", obj_contains_too);
 
-	      obj_not_contains.put("should", arr_not_contains);
+	      obj_not_contains.put("must_not", arr_not_contains);
 	      obj_bool_not_contains.put("bool", obj_not_contains);
 
 	      if(arr_contains.size()>0)arr_must.set(0, obj_bool_contains);

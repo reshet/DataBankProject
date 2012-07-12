@@ -46,7 +46,7 @@ public class SearchResultsGrid extends VerticalPanel
     countryGrid.setShowAllRecords(Boolean.valueOf(true));
     countryGrid.setWrapCells(Boolean.valueOf(true));
     countryGrid.setCellHeight(46);
-    countryGrid.setAutoFitFieldWidths(true);
+   // countryGrid.setAutoFitFieldWidths(true);
 
     HashMap<String,String> used_map = new HashMap<String,String>();
     final ListGridRecord[] records = new ListGridRecord[hits.size()];
@@ -87,7 +87,7 @@ public class SearchResultsGrid extends VerticalPanel
     ListGridField type_f = new ListGridField("_type_vis", "Тип сущности");
     
     //id_f.setWidth(25);
-    type_f.setWidth(140);
+    type_f.setWidth(120);
     
     int j = 1;
     //fields[0] = id_f;

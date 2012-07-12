@@ -3,6 +3,9 @@ package com.mresearch.databank.shared;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+import com.google.gwt.json.client.JSONObject;
+import com.google.gwt.json.client.JSONString;
+
 
 public class FilterDateDiapasonDTO extends FilterDiapasonDTO{
 	/**
@@ -29,4 +32,17 @@ public class FilterDateDiapasonDTO extends FilterDiapasonDTO{
 		if(!toReturn1.equals("") && !toReturn2.equals("")) return toReturn1+" && "+toReturn2;
 		else return toReturn1+toReturn2;
 	}
+	@Override
+	public JSONObject getJSONFilter() {
+		  JSONObject obj = new JSONObject();
+		  JSONObject q = new JSONObject();
+		  JSONObject bounds = new JSONObject();
+		  if (filtering_value_start != null) bounds.put("from", new JSONString(filtering_value_start));
+		  if (filtering_value_end != null) bounds.put("to", new JSONString(filtering_value_end));
+
+		  q.put(super.getTarget_field_name(), bounds);
+		  obj.put("range", q);
+		  return obj;
+		}
+
 	}

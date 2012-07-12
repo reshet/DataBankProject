@@ -41,7 +41,9 @@ import com.mresearch.databank.shared.ZaconDTO_Light;
 @RemoteServiceRelativePath("adminArticleService")
 public interface AdminArticleService extends RemoteService {
 
+	
 
+	
 	public static class Util {
 		private static AdminArticleServiceAsync instance;
 		public static AdminArticleServiceAsync getInstance(){

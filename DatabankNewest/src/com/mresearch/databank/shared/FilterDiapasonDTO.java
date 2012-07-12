@@ -7,12 +7,12 @@ import com.google.gwt.json.client.JSONObject;
 import com.google.gwt.json.client.JSONString;
 
 
-public class FilterDiapasonDTO extends FilterBaseDTO
+public abstract class FilterDiapasonDTO extends FilterBaseDTO
 implements Serializable
 {
 private static final long serialVersionUID = -2443613870378329241L;
-private String filtering_value_start = "3.0";
-private String filtering_value_end = "4.0";
+protected String filtering_value_start = "3.0";
+protected String filtering_value_end = "4.0";
 private FilterMultiDTO multi_dto_proxy;
 
 public FilterMultiDTO getMulti_dto_proxy()
@@ -59,15 +59,20 @@ public String getFilter() {
   return toReturn1 + toReturn2;
 }
 
-public JSONObject getJSONFilter() {
-  JSONObject obj = new JSONObject();
-  JSONObject q = new JSONObject();
-  JSONObject bounds = new JSONObject();
-  if (this.filtering_value_start != null) bounds.put("from", new JSONString(this.filtering_value_start));
-  if (this.filtering_value_end != null) bounds.put("to", new JSONString(this.filtering_value_end));
+//public JSONObject getJSONFilter() {
+//  JSONObject obj = new JSONObject();
+//  JSONObject q = new JSONObject();
+//  JSONObject bounds = new JSONObject();
+//  if (this.filtering_value_start != null) bounds.put("from", new JSONString(this.filtering_value_start));
+//  if (this.filtering_value_end != null) bounds.put("to", new JSONString(this.filtering_value_end));
+//
+//  q.put(super.getTarget_field_name(), bounds);
+//  obj.put("range", q);
+//  return obj;
+//}
 
-  q.put(super.getTarget_field_name(), bounds);
-  obj.put("range", q);
-  return obj;
-}
+public abstract JSONObject getJSONFilter();
+
+
+
 }

@@ -51,6 +51,20 @@ body {
     margin: 0;
 }
 
+
+
+
+
+
+
+html { 
+	background: url(i/BG.jpg) no-repeat center center fixed; 
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+
 @font-face {
     font-family: 'NeoSansPro-Light';
     src: url('i/neosanspro-light.eot');

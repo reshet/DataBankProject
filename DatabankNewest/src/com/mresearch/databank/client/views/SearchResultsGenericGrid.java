@@ -44,7 +44,7 @@ public class SearchResultsGenericGrid extends VerticalPanel
     countryGrid.setShowAllRecords(Boolean.valueOf(true));
     countryGrid.setWrapCells(Boolean.valueOf(true));
     countryGrid.setCellHeight(46);
-
+    
     
     final ListGridRecord[] records = new ListGridRecord[hits.size()];
     int i = 0;
@@ -121,6 +121,7 @@ public class SearchResultsGenericGrid extends VerticalPanel
 			}
 		}
 	});
+    countryGrid.setGroupByField("_type_vis");
     add(countryGrid);
   }
 }

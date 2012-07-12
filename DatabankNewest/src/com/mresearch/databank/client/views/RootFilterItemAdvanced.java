@@ -30,6 +30,7 @@ import com.mresearch.databank.shared.FilterDateDiapasonDTO;
 import com.mresearch.databank.shared.FilterDiapasonDTO;
 import com.mresearch.databank.shared.FilterMatchDTO;
 import com.mresearch.databank.shared.FilterMultiDTO;
+import com.mresearch.databank.shared.FilterRealDiapasonDTO;
 import com.mresearch.databank.shared.MetaUnitDTO;
 import com.mresearch.databank.shared.MetaUnitDateDTO;
 import com.mresearch.databank.shared.MetaUnitDoubleDTO;
@@ -64,7 +65,7 @@ public class RootFilterItemAdvanced extends VerticalPanel
         FilterRealDiapasonView filtSelectionSize = new FilterRealDiapasonView(dto.getDesc(), base_name, dto)
         {
           public FilterDiapasonDTO getFilterDTO() {
-            FilterDiapasonDTO dt = new FilterDiapasonDTO(type_to_filter, this.base_name + this.dto.getUnique_name(), getFromValue(), getToValue());
+            FilterRealDiapasonDTO dt = new FilterRealDiapasonDTO(type_to_filter, this.base_name + this.dto.getUnique_name(), getFromValue(), getToValue());
             return dt;
           }
 

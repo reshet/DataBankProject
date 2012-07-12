@@ -188,7 +188,7 @@
 		background-color: #FFFFFF;
 	}
 	</ui:style>
-	<g:VerticalPanel width="100%" height="100%" horizontalAlignment="ALIGN_CENTER"  styleName="{style.back}">
+	<g:VerticalPanel width="100%" height="100%" horizontalAlignment="ALIGN_CENTER">
 		
 <!-- 		<g:HorizontalPanel styleName="{style.mm}"> -->
 			

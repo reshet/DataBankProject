@@ -91,6 +91,11 @@ import com.mresearch.databank.client.views.UserConsultationPerspectiveView;
 import com.mresearch.databank.client.views.UserResearchPerspectiveView;
 import com.mresearch.databank.client.views.UserSearchPerspectiveView;
 
+
+
+
+
+
 public class UserAppController implements ValueChangeHandler<String>, AppController {
   private final SimpleEventBus eventBus;
   private final StartPageServiceAsync startpageService;
@@ -108,6 +113,11 @@ public class UserAppController implements ValueChangeHandler<String>, AppControl
   interface UserAppControllerUiBinder extends
 	UiBinder<VerticalPanel, UserAppController> {
 }	
+  
+  
+  
+  
+  
   
   
 	

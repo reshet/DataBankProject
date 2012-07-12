@@ -2,7 +2,7 @@
 Types potentially sent from browser:
 ====================================
 
-Reachable types computed on: Fri Jul 06 13:22:13 FET 2012
+Reachable types computed on: Thu Jul 12 20:01:01 FET 2012
 boolean
    Serialization status
       Not serializable
@@ -128,7 +128,7 @@ java.util.Date
 Types potentially sent from server:
 ===================================
 
-Reachable types computed on: Fri Jul 06 13:22:13 FET 2012
+Reachable types computed on: Thu Jul 12 20:01:01 FET 2012
 E
    Serialization status
       Not serializable
