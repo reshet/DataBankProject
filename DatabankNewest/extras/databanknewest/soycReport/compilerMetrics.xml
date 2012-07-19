@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <metrics version="1" >
- <module elapsed="8879" >
+ <module elapsed="8158" >
   <sources count="3945">
    <source name="com/google/gwt/animation/client/Animation.java" />
    <source name="com/google/gwt/animation/client/AnimationScheduler.java" />
@@ -8637,7 +8637,7 @@
   </types>
  </module>
  <precompilations>
-  <precompilation base="0" ids="0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89" elapsed="79678" >
+  <precompilation base="0" ids="0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89" elapsed="80447" >
    <types kind="ast" count="9560">
     <type name="com.google.gwt.animation.client.Animation" />
     <type name="com.google.gwt.animation.client.Animation$1" />
@@ -25376,454 +25376,454 @@
  </precompilation>
  </precompilations>
  <compilations>
-  <compilation  id="0" elapsed="20446" totalElapsed="24039"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=default,user.agent=gecko1_8,videoElementSupport=maybe,audioElementSupport=maybe,canvasElementSupport=maybe,dragEventSupport=maybe,geolocationSupport=maybe,storageSupport=maybe,touchEventSupport=maybe">
-   <javascript size="746911" fragments="1">
-    <fragment initial="true" size="746911" />
+  <compilation  id="0" elapsed="19374" totalElapsed="23091"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=default,user.agent=gecko1_8,videoElementSupport=maybe,audioElementSupport=maybe,canvasElementSupport=maybe,dragEventSupport=maybe,geolocationSupport=maybe,storageSupport=maybe,touchEventSupport=maybe">
+   <javascript size="748591" fragments="1">
+    <fragment initial="true" size="748591" />
    </javascript>
   </compilation>
-  <compilation  id="1" elapsed="17304" totalElapsed="97352"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=de_DE,user.agent=gecko1_8,videoElementSupport=maybe,audioElementSupport=maybe,canvasElementSupport=maybe,dragEventSupport=maybe,geolocationSupport=maybe,storageSupport=maybe,touchEventSupport=maybe">
-   <javascript size="748494" fragments="1">
-    <fragment initial="true" size="748494" />
+  <compilation  id="1" elapsed="16017" totalElapsed="96797"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=de_DE,user.agent=gecko1_8,videoElementSupport=maybe,audioElementSupport=maybe,canvasElementSupport=maybe,dragEventSupport=maybe,geolocationSupport=maybe,storageSupport=maybe,touchEventSupport=maybe">
+   <javascript size="750173" fragments="1">
+    <fragment initial="true" size="750173" />
    </javascript>
   </compilation>
-  <compilation  id="10" elapsed="13336" totalElapsed="172926"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=it_CH,user.agent=gecko1_8,videoElementSupport=maybe,audioElementSupport=maybe,canvasElementSupport=maybe,dragEventSupport=maybe,geolocationSupport=maybe,storageSupport=maybe,touchEventSupport=maybe">
-   <javascript size="748875" fragments="1">
-    <fragment initial="true" size="748875" />
+  <compilation  id="10" elapsed="9387" totalElapsed="85030"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=it_CH,user.agent=gecko1_8,videoElementSupport=maybe,audioElementSupport=maybe,canvasElementSupport=maybe,dragEventSupport=maybe,geolocationSupport=maybe,storageSupport=maybe,touchEventSupport=maybe">
+   <javascript size="750560" fragments="1">
+    <fragment initial="true" size="750560" />
    </javascript>
   </compilation>
-  <compilation  id="11" elapsed="10720" totalElapsed="92098"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=it_IT,user.agent=gecko1_8,videoElementSupport=maybe,audioElementSupport=maybe,canvasElementSupport=maybe,dragEventSupport=maybe,geolocationSupport=maybe,storageSupport=maybe,touchEventSupport=maybe">
-   <javascript size="748764" fragments="1">
-    <fragment initial="true" size="748764" />
+  <compilation  id="11" elapsed="10399" totalElapsed="169265"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=it_IT,user.agent=gecko1_8,videoElementSupport=maybe,audioElementSupport=maybe,canvasElementSupport=maybe,dragEventSupport=maybe,geolocationSupport=maybe,storageSupport=maybe,touchEventSupport=maybe">
+   <javascript size="750443" fragments="1">
+    <fragment initial="true" size="750443" />
    </javascript>
   </compilation>
-  <compilation  id="12" elapsed="9676" totalElapsed="102475"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=pl_PL,user.agent=gecko1_8,videoElementSupport=maybe,audioElementSupport=maybe,canvasElementSupport=maybe,dragEventSupport=maybe,geolocationSupport=maybe,storageSupport=maybe,touchEventSupport=maybe">
-   <javascript size="749645" fragments="1">
-    <fragment initial="true" size="749645" />
+  <compilation  id="12" elapsed="9269" totalElapsed="94963"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=pl_PL,user.agent=gecko1_8,videoElementSupport=maybe,audioElementSupport=maybe,canvasElementSupport=maybe,dragEventSupport=maybe,geolocationSupport=maybe,storageSupport=maybe,touchEventSupport=maybe">
+   <javascript size="751324" fragments="1">
+    <fragment initial="true" size="751324" />
    </javascript>
   </compilation>
-  <compilation  id="13" elapsed="10384" totalElapsed="184019"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=pt_BR,user.agent=gecko1_8,videoElementSupport=maybe,audioElementSupport=maybe,canvasElementSupport=maybe,dragEventSupport=maybe,geolocationSupport=maybe,storageSupport=maybe,touchEventSupport=maybe">
-   <javascript size="748508" fragments="1">
-    <fragment initial="true" size="748508" />
+  <compilation  id="13" elapsed="11711" totalElapsed="181680"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=pt_BR,user.agent=gecko1_8,videoElementSupport=maybe,audioElementSupport=maybe,canvasElementSupport=maybe,dragEventSupport=maybe,geolocationSupport=maybe,storageSupport=maybe,touchEventSupport=maybe">
+   <javascript size="750187" fragments="1">
+    <fragment initial="true" size="750187" />
    </javascript>
   </compilation>
-  <compilation  id="14" elapsed="10236" totalElapsed="113496"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=pt_PT,user.agent=gecko1_8,videoElementSupport=maybe,audioElementSupport=maybe,canvasElementSupport=maybe,dragEventSupport=maybe,geolocationSupport=maybe,storageSupport=maybe,touchEventSupport=maybe">
-   <javascript size="748374" fragments="1">
-    <fragment initial="true" size="748374" />
+  <compilation  id="14" elapsed="9167" totalElapsed="104893"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=pt_PT,user.agent=gecko1_8,videoElementSupport=maybe,audioElementSupport=maybe,canvasElementSupport=maybe,dragEventSupport=maybe,geolocationSupport=maybe,storageSupport=maybe,touchEventSupport=maybe">
+   <javascript size="750053" fragments="1">
+    <fragment initial="true" size="750053" />
    </javascript>
   </compilation>
-  <compilation  id="15" elapsed="12359" totalElapsed="197131"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=default,user.agent=opera,videoElementSupport=maybe,audioElementSupport=maybe,canvasElementSupport=maybe,dragEventSupport=maybe,geolocationSupport=maybe,storageSupport=maybe,touchEventSupport=maybe">
-   <javascript size="741718" fragments="1">
-    <fragment initial="true" size="741718" />
+  <compilation  id="15" elapsed="10141" totalElapsed="192533"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=default,user.agent=opera,videoElementSupport=maybe,audioElementSupport=maybe,canvasElementSupport=maybe,dragEventSupport=maybe,geolocationSupport=maybe,storageSupport=maybe,touchEventSupport=maybe">
+   <javascript size="743397" fragments="1">
+    <fragment initial="true" size="743397" />
    </javascript>
   </compilation>
-  <compilation  id="16" elapsed="9826" totalElapsed="124021"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=de_DE,user.agent=opera,videoElementSupport=maybe,audioElementSupport=maybe,canvasElementSupport=maybe,dragEventSupport=maybe,geolocationSupport=maybe,storageSupport=maybe,touchEventSupport=maybe">
-   <javascript size="743301" fragments="1">
-    <fragment initial="true" size="743301" />
+  <compilation  id="16" elapsed="9753" totalElapsed="115361"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=de_DE,user.agent=opera,videoElementSupport=maybe,audioElementSupport=maybe,canvasElementSupport=maybe,dragEventSupport=maybe,geolocationSupport=maybe,storageSupport=maybe,touchEventSupport=maybe">
+   <javascript size="744986" fragments="1">
+    <fragment initial="true" size="744986" />
    </javascript>
   </compilation>
-  <compilation  id="17" elapsed="11251" totalElapsed="209038"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=de_CH,user.agent=opera,videoElementSupport=maybe,audioElementSupport=maybe,canvasElementSupport=maybe,dragEventSupport=maybe,geolocationSupport=maybe,storageSupport=maybe,touchEventSupport=maybe">
-   <javascript size="743299" fragments="1">
-    <fragment initial="true" size="743299" />
+  <compilation  id="17" elapsed="11044" totalElapsed="204270"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=de_CH,user.agent=opera,videoElementSupport=maybe,audioElementSupport=maybe,canvasElementSupport=maybe,dragEventSupport=maybe,geolocationSupport=maybe,storageSupport=maybe,touchEventSupport=maybe">
+   <javascript size="744984" fragments="1">
+    <fragment initial="true" size="744984" />
    </javascript>
   </compilation>
-  <compilation  id="18" elapsed="10470" totalElapsed="135365"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=en_UK,user.agent=opera,videoElementSupport=maybe,audioElementSupport=maybe,canvasElementSupport=maybe,dragEventSupport=maybe,geolocationSupport=maybe,storageSupport=maybe,touchEventSupport=maybe">
-   <javascript size="741672" fragments="1">
-    <fragment initial="true" size="741672" />
+  <compilation  id="18" elapsed="9695" totalElapsed="125743"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=en_UK,user.agent=opera,videoElementSupport=maybe,audioElementSupport=maybe,canvasElementSupport=maybe,dragEventSupport=maybe,geolocationSupport=maybe,storageSupport=maybe,touchEventSupport=maybe">
+   <javascript size="743352" fragments="1">
+    <fragment initial="true" size="743352" />
    </javascript>
   </compilation>
-  <compilation  id="19" elapsed="11541" totalElapsed="221385"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=en_GB,user.agent=opera,videoElementSupport=maybe,audioElementSupport=maybe,canvasElementSupport=maybe,dragEventSupport=maybe,geolocationSupport=maybe,storageSupport=maybe,touchEventSupport=maybe">
-   <javascript size="741803" fragments="1">
-    <fragment initial="true" size="741803" />
+  <compilation  id="19" elapsed="11510" totalElapsed="216510"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=en_GB,user.agent=opera,videoElementSupport=maybe,audioElementSupport=maybe,canvasElementSupport=maybe,dragEventSupport=maybe,geolocationSupport=maybe,storageSupport=maybe,touchEventSupport=maybe">
+   <javascript size="743483" fragments="1">
+    <fragment initial="true" size="743483" />
    </javascript>
   </compilation>
-  <compilation  id="2" elapsed="17686" totalElapsed="117639"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=de_CH,user.agent=gecko1_8,videoElementSupport=maybe,audioElementSupport=maybe,canvasElementSupport=maybe,dragEventSupport=maybe,geolocationSupport=maybe,storageSupport=maybe,touchEventSupport=maybe">
-   <javascript size="748492" fragments="1">
-    <fragment initial="true" size="748492" />
+  <compilation  id="2" elapsed="16999" totalElapsed="116160"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=de_CH,user.agent=gecko1_8,videoElementSupport=maybe,audioElementSupport=maybe,canvasElementSupport=maybe,dragEventSupport=maybe,geolocationSupport=maybe,storageSupport=maybe,touchEventSupport=maybe">
+   <javascript size="750171" fragments="1">
+    <fragment initial="true" size="750171" />
    </javascript>
   </compilation>
-  <compilation  id="20" elapsed="10302" totalElapsed="146456"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=fr,user.agent=opera,videoElementSupport=maybe,audioElementSupport=maybe,canvasElementSupport=maybe,dragEventSupport=maybe,geolocationSupport=maybe,storageSupport=maybe,touchEventSupport=maybe">
-   <javascript size="743624" fragments="1">
-    <fragment initial="true" size="743624" />
+  <compilation  id="20" elapsed="9638" totalElapsed="136113"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=fr,user.agent=opera,videoElementSupport=maybe,audioElementSupport=maybe,canvasElementSupport=maybe,dragEventSupport=maybe,geolocationSupport=maybe,storageSupport=maybe,touchEventSupport=maybe">
+   <javascript size="745309" fragments="1">
+    <fragment initial="true" size="745309" />
    </javascript>
   </compilation>
-  <compilation  id="21" elapsed="11564" totalElapsed="233615"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=fr_FR,user.agent=opera,videoElementSupport=maybe,audioElementSupport=maybe,canvasElementSupport=maybe,dragEventSupport=maybe,geolocationSupport=maybe,storageSupport=maybe,touchEventSupport=maybe">
-   <javascript size="743885" fragments="1">
-    <fragment initial="true" size="743885" />
+  <compilation  id="21" elapsed="10820" totalElapsed="228017"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=fr_FR,user.agent=opera,videoElementSupport=maybe,audioElementSupport=maybe,canvasElementSupport=maybe,dragEventSupport=maybe,geolocationSupport=maybe,storageSupport=maybe,touchEventSupport=maybe">
+   <javascript size="745570" fragments="1">
+    <fragment initial="true" size="745570" />
    </javascript>
   </compilation>
-  <compilation  id="22" elapsed="9708" totalElapsed="156849"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=fr_CA,user.agent=opera,videoElementSupport=maybe,audioElementSupport=maybe,canvasElementSupport=maybe,dragEventSupport=maybe,geolocationSupport=maybe,storageSupport=maybe,touchEventSupport=maybe">
-   <javascript size="743994" fragments="1">
-    <fragment initial="true" size="743994" />
+  <compilation  id="22" elapsed="9177" totalElapsed="146034"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=fr_CA,user.agent=opera,videoElementSupport=maybe,audioElementSupport=maybe,canvasElementSupport=maybe,dragEventSupport=maybe,geolocationSupport=maybe,storageSupport=maybe,touchEventSupport=maybe">
+   <javascript size="745675" fragments="1">
+    <fragment initial="true" size="745675" />
    </javascript>
   </compilation>
-  <compilation  id="23" elapsed="10503" totalElapsed="244733"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=fr_CH,user.agent=opera,videoElementSupport=maybe,audioElementSupport=maybe,canvasElementSupport=maybe,dragEventSupport=maybe,geolocationSupport=maybe,storageSupport=maybe,touchEventSupport=maybe">
-   <javascript size="743989" fragments="1">
-    <fragment initial="true" size="743989" />
+  <compilation  id="23" elapsed="9341" totalElapsed="156043"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=fr_CH,user.agent=opera,videoElementSupport=maybe,audioElementSupport=maybe,canvasElementSupport=maybe,dragEventSupport=maybe,geolocationSupport=maybe,storageSupport=maybe,touchEventSupport=maybe">
+   <javascript size="745670" fragments="1">
+    <fragment initial="true" size="745670" />
    </javascript>
   </compilation>
-  <compilation  id="24" elapsed="9238" totalElapsed="166852"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=hu_HU,user.agent=opera,videoElementSupport=maybe,audioElementSupport=maybe,canvasElementSupport=maybe,dragEventSupport=maybe,geolocationSupport=maybe,storageSupport=maybe,touchEventSupport=maybe">
-   <javascript size="744712" fragments="1">
-    <fragment initial="true" size="744712" />
+  <compilation  id="24" elapsed="10396" totalElapsed="239069"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=hu_HU,user.agent=opera,videoElementSupport=maybe,audioElementSupport=maybe,canvasElementSupport=maybe,dragEventSupport=maybe,geolocationSupport=maybe,storageSupport=maybe,touchEventSupport=maybe">
+   <javascript size="746391" fragments="1">
+    <fragment initial="true" size="746391" />
    </javascript>
   </compilation>
-  <compilation  id="25" elapsed="12315" totalElapsed="257778"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=it_CH,user.agent=opera,videoElementSupport=maybe,audioElementSupport=maybe,canvasElementSupport=maybe,dragEventSupport=maybe,geolocationSupport=maybe,storageSupport=maybe,touchEventSupport=maybe">
-   <javascript size="743690" fragments="1">
-    <fragment initial="true" size="743690" />
+  <compilation  id="25" elapsed="9497" totalElapsed="166212"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=it_CH,user.agent=opera,videoElementSupport=maybe,audioElementSupport=maybe,canvasElementSupport=maybe,dragEventSupport=maybe,geolocationSupport=maybe,storageSupport=maybe,touchEventSupport=maybe">
+   <javascript size="745369" fragments="1">
+    <fragment initial="true" size="745369" />
    </javascript>
   </compilation>
-  <compilation  id="26" elapsed="10382" totalElapsed="178775"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=it_IT,user.agent=opera,videoElementSupport=maybe,audioElementSupport=maybe,canvasElementSupport=maybe,dragEventSupport=maybe,geolocationSupport=maybe,storageSupport=maybe,touchEventSupport=maybe">
-   <javascript size="743576" fragments="1">
-    <fragment initial="true" size="743576" />
+  <compilation  id="26" elapsed="11979" totalElapsed="251730"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=it_IT,user.agent=opera,videoElementSupport=maybe,audioElementSupport=maybe,canvasElementSupport=maybe,dragEventSupport=maybe,geolocationSupport=maybe,storageSupport=maybe,touchEventSupport=maybe">
+   <javascript size="745255" fragments="1">
+    <fragment initial="true" size="745255" />
    </javascript>
   </compilation>
-  <compilation  id="27" elapsed="10556" totalElapsed="269300"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=pl_PL,user.agent=opera,videoElementSupport=maybe,audioElementSupport=maybe,canvasElementSupport=maybe,dragEventSupport=maybe,geolocationSupport=maybe,storageSupport=maybe,touchEventSupport=maybe">
-   <javascript size="744457" fragments="1">
-    <fragment initial="true" size="744457" />
+  <compilation  id="27" elapsed="9793" totalElapsed="176869"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=pl_PL,user.agent=opera,videoElementSupport=maybe,audioElementSupport=maybe,canvasElementSupport=maybe,dragEventSupport=maybe,geolocationSupport=maybe,storageSupport=maybe,touchEventSupport=maybe">
+   <javascript size="746136" fragments="1">
+    <fragment initial="true" size="746136" />
    </javascript>
   </compilation>
-  <compilation  id="28" elapsed="9504" totalElapsed="188988"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=pt_BR,user.agent=opera,videoElementSupport=maybe,audioElementSupport=maybe,canvasElementSupport=maybe,dragEventSupport=maybe,geolocationSupport=maybe,storageSupport=maybe,touchEventSupport=maybe">
-   <javascript size="743315" fragments="1">
-    <fragment initial="true" size="743315" />
+  <compilation  id="28" elapsed="10315" totalElapsed="262696"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=pt_BR,user.agent=opera,videoElementSupport=maybe,audioElementSupport=maybe,canvasElementSupport=maybe,dragEventSupport=maybe,geolocationSupport=maybe,storageSupport=maybe,touchEventSupport=maybe">
+   <javascript size="745000" fragments="1">
+    <fragment initial="true" size="745000" />
    </javascript>
   </compilation>
-  <compilation  id="29" elapsed="9724" totalElapsed="199413"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=pt_PT,user.agent=opera,videoElementSupport=maybe,audioElementSupport=maybe,canvasElementSupport=maybe,dragEventSupport=maybe,geolocationSupport=maybe,storageSupport=maybe,touchEventSupport=maybe">
-   <javascript size="743186" fragments="1">
-    <fragment initial="true" size="743186" />
+  <compilation  id="29" elapsed="9283" totalElapsed="186825"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=pt_PT,user.agent=opera,videoElementSupport=maybe,audioElementSupport=maybe,canvasElementSupport=maybe,dragEventSupport=maybe,geolocationSupport=maybe,storageSupport=maybe,touchEventSupport=maybe">
+   <javascript size="744867" fragments="1">
+    <fragment initial="true" size="744867" />
    </javascript>
   </compilation>
-  <compilation  id="3" elapsed="16569" totalElapsed="44015"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=en_UK,user.agent=gecko1_8,videoElementSupport=maybe,audioElementSupport=maybe,canvasElementSupport=maybe,dragEventSupport=maybe,geolocationSupport=maybe,storageSupport=maybe,touchEventSupport=maybe">
-   <javascript size="746866" fragments="1">
-    <fragment initial="true" size="746866" />
+  <compilation  id="3" elapsed="13987" totalElapsed="40448"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=en_UK,user.agent=gecko1_8,videoElementSupport=maybe,audioElementSupport=maybe,canvasElementSupport=maybe,dragEventSupport=maybe,geolocationSupport=maybe,storageSupport=maybe,touchEventSupport=maybe">
+   <javascript size="748546" fragments="1">
+    <fragment initial="true" size="748546" />
    </javascript>
   </compilation>
-  <compilation  id="30" elapsed="10805" totalElapsed="280782"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=default,user.agent=ie6,videoElementSupport=no,audioElementSupport=no,canvasElementSupport=no,dragEventSupport=no,geolocationSupport=no,storageSupport=no,touchEventSupport=no">
-   <javascript size="777625" fragments="1">
-    <fragment initial="true" size="777625" />
+  <compilation  id="30" elapsed="10605" totalElapsed="274004"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=default,user.agent=ie6,videoElementSupport=no,audioElementSupport=no,canvasElementSupport=no,dragEventSupport=no,geolocationSupport=no,storageSupport=no,touchEventSupport=no">
+   <javascript size="779535" fragments="1">
+    <fragment initial="true" size="779535" />
    </javascript>
   </compilation>
-  <compilation  id="31" elapsed="10020" totalElapsed="210193"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=de_DE,user.agent=ie6,videoElementSupport=no,audioElementSupport=no,canvasElementSupport=no,dragEventSupport=no,geolocationSupport=no,storageSupport=no,touchEventSupport=no">
-   <javascript size="779373" fragments="1">
-    <fragment initial="true" size="779373" />
+  <compilation  id="31" elapsed="9955" totalElapsed="197469"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=de_DE,user.agent=ie6,videoElementSupport=no,audioElementSupport=no,canvasElementSupport=no,dragEventSupport=no,geolocationSupport=no,storageSupport=no,touchEventSupport=no">
+   <javascript size="781283" fragments="1">
+    <fragment initial="true" size="781283" />
    </javascript>
   </compilation>
-  <compilation  id="32" elapsed="12355" totalElapsed="293902"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=de_CH,user.agent=ie6,videoElementSupport=no,audioElementSupport=no,canvasElementSupport=no,dragEventSupport=no,geolocationSupport=no,storageSupport=no,touchEventSupport=no">
-   <javascript size="779363" fragments="1">
-    <fragment initial="true" size="779363" />
+  <compilation  id="32" elapsed="11745" totalElapsed="286490"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=de_CH,user.agent=ie6,videoElementSupport=no,audioElementSupport=no,canvasElementSupport=no,dragEventSupport=no,geolocationSupport=no,storageSupport=no,touchEventSupport=no">
+   <javascript size="781273" fragments="1">
+    <fragment initial="true" size="781273" />
    </javascript>
   </compilation>
-  <compilation  id="33" elapsed="10119" totalElapsed="221044"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=en_UK,user.agent=ie6,videoElementSupport=no,audioElementSupport=no,canvasElementSupport=no,dragEventSupport=no,geolocationSupport=no,storageSupport=no,touchEventSupport=no">
-   <javascript size="777583" fragments="1">
-    <fragment initial="true" size="777583" />
+  <compilation  id="33" elapsed="9509" totalElapsed="208221"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=en_UK,user.agent=ie6,videoElementSupport=no,audioElementSupport=no,canvasElementSupport=no,dragEventSupport=no,geolocationSupport=no,storageSupport=no,touchEventSupport=no">
+   <javascript size="779495" fragments="1">
+    <fragment initial="true" size="779495" />
    </javascript>
   </compilation>
-  <compilation  id="34" elapsed="11328" totalElapsed="306072"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=en_GB,user.agent=ie6,videoElementSupport=no,audioElementSupport=no,canvasElementSupport=no,dragEventSupport=no,geolocationSupport=no,storageSupport=no,touchEventSupport=no">
-   <javascript size="777725" fragments="1">
-    <fragment initial="true" size="777725" />
+  <compilation  id="34" elapsed="11013" totalElapsed="298302"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=en_GB,user.agent=ie6,videoElementSupport=no,audioElementSupport=no,canvasElementSupport=no,dragEventSupport=no,geolocationSupport=no,storageSupport=no,touchEventSupport=no">
+   <javascript size="779635" fragments="1">
+    <fragment initial="true" size="779635" />
    </javascript>
   </compilation>
-  <compilation  id="35" elapsed="10100" totalElapsed="231866"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=fr,user.agent=ie6,videoElementSupport=no,audioElementSupport=no,canvasElementSupport=no,dragEventSupport=no,geolocationSupport=no,storageSupport=no,touchEventSupport=no">
-   <javascript size="779816" fragments="1">
-    <fragment initial="true" size="779816" />
+  <compilation  id="35" elapsed="9195" totalElapsed="218141"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=fr,user.agent=ie6,videoElementSupport=no,audioElementSupport=no,canvasElementSupport=no,dragEventSupport=no,geolocationSupport=no,storageSupport=no,touchEventSupport=no">
+   <javascript size="781726" fragments="1">
+    <fragment initial="true" size="781726" />
    </javascript>
   </compilation>
-  <compilation  id="36" elapsed="10601" totalElapsed="317417"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=fr_FR,user.agent=ie6,videoElementSupport=no,audioElementSupport=no,canvasElementSupport=no,dragEventSupport=no,geolocationSupport=no,storageSupport=no,touchEventSupport=no">
-   <javascript size="780077" fragments="1">
-    <fragment initial="true" size="780077" />
+  <compilation  id="36" elapsed="10625" totalElapsed="309646"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=fr_FR,user.agent=ie6,videoElementSupport=no,audioElementSupport=no,canvasElementSupport=no,dragEventSupport=no,geolocationSupport=no,storageSupport=no,touchEventSupport=no">
+   <javascript size="781987" fragments="1">
+    <fragment initial="true" size="781987" />
    </javascript>
   </compilation>
-  <compilation  id="37" elapsed="10165" totalElapsed="242744"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=fr_CA,user.agent=ie6,videoElementSupport=no,audioElementSupport=no,canvasElementSupport=no,dragEventSupport=no,geolocationSupport=no,storageSupport=no,touchEventSupport=no">
-   <javascript size="780195" fragments="1">
-    <fragment initial="true" size="780195" />
+  <compilation  id="37" elapsed="9472" totalElapsed="228337"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=fr_CA,user.agent=ie6,videoElementSupport=no,audioElementSupport=no,canvasElementSupport=no,dragEventSupport=no,geolocationSupport=no,storageSupport=no,touchEventSupport=no">
+   <javascript size="782105" fragments="1">
+    <fragment initial="true" size="782105" />
    </javascript>
   </compilation>
-  <compilation  id="38" elapsed="11453" totalElapsed="329889"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=fr_CH,user.agent=ie6,videoElementSupport=no,audioElementSupport=no,canvasElementSupport=no,dragEventSupport=no,geolocationSupport=no,storageSupport=no,touchEventSupport=no">
-   <javascript size="780174" fragments="1">
-    <fragment initial="true" size="780174" />
+  <compilation  id="38" elapsed="9314" totalElapsed="238367"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=fr_CH,user.agent=ie6,videoElementSupport=no,audioElementSupport=no,canvasElementSupport=no,dragEventSupport=no,geolocationSupport=no,storageSupport=no,touchEventSupport=no">
+   <javascript size="782084" fragments="1">
+    <fragment initial="true" size="782084" />
    </javascript>
   </compilation>
-  <compilation  id="39" elapsed="9419" totalElapsed="252854"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=hu_HU,user.agent=ie6,videoElementSupport=no,audioElementSupport=no,canvasElementSupport=no,dragEventSupport=no,geolocationSupport=no,storageSupport=no,touchEventSupport=no">
-   <javascript size="781073" fragments="1">
-    <fragment initial="true" size="781073" />
+  <compilation  id="39" elapsed="11659" totalElapsed="322063"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=hu_HU,user.agent=ie6,videoElementSupport=no,audioElementSupport=no,canvasElementSupport=no,dragEventSupport=no,geolocationSupport=no,storageSupport=no,touchEventSupport=no">
+   <javascript size="782983" fragments="1">
+    <fragment initial="true" size="782983" />
    </javascript>
   </compilation>
-  <compilation  id="4" elapsed="13013" totalElapsed="132125"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=en_GB,user.agent=gecko1_8,videoElementSupport=maybe,audioElementSupport=maybe,canvasElementSupport=maybe,dragEventSupport=maybe,geolocationSupport=maybe,storageSupport=maybe,touchEventSupport=maybe">
-   <javascript size="746990" fragments="1">
-    <fragment initial="true" size="746990" />
+  <compilation  id="4" elapsed="14833" totalElapsed="132593"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=en_GB,user.agent=gecko1_8,videoElementSupport=maybe,audioElementSupport=maybe,canvasElementSupport=maybe,dragEventSupport=maybe,geolocationSupport=maybe,storageSupport=maybe,touchEventSupport=maybe">
+   <javascript size="748671" fragments="1">
+    <fragment initial="true" size="748671" />
    </javascript>
   </compilation>
-  <compilation  id="40" elapsed="10816" totalElapsed="341459"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=it_CH,user.agent=ie6,videoElementSupport=no,audioElementSupport=no,canvasElementSupport=no,dragEventSupport=no,geolocationSupport=no,storageSupport=no,touchEventSupport=no">
-   <javascript size="779912" fragments="1">
-    <fragment initial="true" size="779912" />
+  <compilation  id="40" elapsed="9016" totalElapsed="248068"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=it_CH,user.agent=ie6,videoElementSupport=no,audioElementSupport=no,canvasElementSupport=no,dragEventSupport=no,geolocationSupport=no,storageSupport=no,touchEventSupport=no">
+   <javascript size="781822" fragments="1">
+    <fragment initial="true" size="781822" />
    </javascript>
   </compilation>
-  <compilation  id="41" elapsed="9941" totalElapsed="263738"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=it_IT,user.agent=ie6,videoElementSupport=no,audioElementSupport=no,canvasElementSupport=no,dragEventSupport=no,geolocationSupport=no,storageSupport=no,touchEventSupport=no">
-   <javascript size="779793" fragments="1">
-    <fragment initial="true" size="779793" />
+  <compilation  id="41" elapsed="10488" totalElapsed="333303"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=it_IT,user.agent=ie6,videoElementSupport=no,audioElementSupport=no,canvasElementSupport=no,dragEventSupport=no,geolocationSupport=no,storageSupport=no,touchEventSupport=no">
+   <javascript size="781703" fragments="1">
+    <fragment initial="true" size="781703" />
    </javascript>
   </compilation>
-  <compilation  id="42" elapsed="10633" totalElapsed="352917"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=pl_PL,user.agent=ie6,videoElementSupport=no,audioElementSupport=no,canvasElementSupport=no,dragEventSupport=no,geolocationSupport=no,storageSupport=no,touchEventSupport=no">
-   <javascript size="780690" fragments="1">
-    <fragment initial="true" size="780690" />
+  <compilation  id="42" elapsed="9510" totalElapsed="258290"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=pl_PL,user.agent=ie6,videoElementSupport=no,audioElementSupport=no,canvasElementSupport=no,dragEventSupport=no,geolocationSupport=no,storageSupport=no,touchEventSupport=no">
+   <javascript size="782600" fragments="1">
+    <fragment initial="true" size="782600" />
    </javascript>
   </compilation>
-  <compilation  id="43" elapsed="9645" totalElapsed="274097"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=pt_BR,user.agent=ie6,videoElementSupport=no,audioElementSupport=no,canvasElementSupport=no,dragEventSupport=no,geolocationSupport=no,storageSupport=no,touchEventSupport=no">
-   <javascript size="779531" fragments="1">
-    <fragment initial="true" size="779531" />
+  <compilation  id="43" elapsed="10967" totalElapsed="345021"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=pt_BR,user.agent=ie6,videoElementSupport=no,audioElementSupport=no,canvasElementSupport=no,dragEventSupport=no,geolocationSupport=no,storageSupport=no,touchEventSupport=no">
+   <javascript size="781441" fragments="1">
+    <fragment initial="true" size="781441" />
    </javascript>
   </compilation>
-  <compilation  id="44" elapsed="11882" totalElapsed="365515"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=pt_PT,user.agent=ie6,videoElementSupport=no,audioElementSupport=no,canvasElementSupport=no,dragEventSupport=no,geolocationSupport=no,storageSupport=no,touchEventSupport=no">
-   <javascript size="779395" fragments="1">
-    <fragment initial="true" size="779395" />
+  <compilation  id="44" elapsed="9203" totalElapsed="268210"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=pt_PT,user.agent=ie6,videoElementSupport=no,audioElementSupport=no,canvasElementSupport=no,dragEventSupport=no,geolocationSupport=no,storageSupport=no,touchEventSupport=no">
+   <javascript size="781305" fragments="1">
+    <fragment initial="true" size="781305" />
    </javascript>
   </compilation>
-  <compilation  id="45" elapsed="9637" totalElapsed="284498"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=default,user.agent=ie8,videoElementSupport=no,audioElementSupport=no,canvasElementSupport=no,dragEventSupport=no,geolocationSupport=maybe,storageSupport=maybe,touchEventSupport=maybe">
-   <javascript size="747675" fragments="1">
-    <fragment initial="true" size="747675" />
+  <compilation  id="45" elapsed="10617" totalElapsed="356370"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=default,user.agent=ie8,videoElementSupport=no,audioElementSupport=no,canvasElementSupport=no,dragEventSupport=no,geolocationSupport=maybe,storageSupport=maybe,touchEventSupport=maybe">
+   <javascript size="749370" fragments="1">
+    <fragment initial="true" size="749370" />
    </javascript>
   </compilation>
-  <compilation  id="46" elapsed="9734" totalElapsed="294913"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=de_DE,user.agent=ie8,videoElementSupport=no,audioElementSupport=no,canvasElementSupport=no,dragEventSupport=no,geolocationSupport=maybe,storageSupport=maybe,touchEventSupport=maybe">
-   <javascript size="749277" fragments="1">
-    <fragment initial="true" size="749277" />
+  <compilation  id="46" elapsed="9765" totalElapsed="278731"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=de_DE,user.agent=ie8,videoElementSupport=no,audioElementSupport=no,canvasElementSupport=no,dragEventSupport=no,geolocationSupport=maybe,storageSupport=maybe,touchEventSupport=maybe">
+   <javascript size="750973" fragments="1">
+    <fragment initial="true" size="750973" />
    </javascript>
   </compilation>
-  <compilation  id="47" elapsed="10711" totalElapsed="376955"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=de_CH,user.agent=ie8,videoElementSupport=no,audioElementSupport=no,canvasElementSupport=no,dragEventSupport=no,geolocationSupport=maybe,storageSupport=maybe,touchEventSupport=maybe">
-   <javascript size="749275" fragments="1">
-    <fragment initial="true" size="749275" />
+  <compilation  id="47" elapsed="11256" totalElapsed="368321"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=de_CH,user.agent=ie8,videoElementSupport=no,audioElementSupport=no,canvasElementSupport=no,dragEventSupport=no,geolocationSupport=maybe,storageSupport=maybe,touchEventSupport=maybe">
+   <javascript size="750971" fragments="1">
+    <fragment initial="true" size="750971" />
    </javascript>
   </compilation>
-  <compilation  id="48" elapsed="9511" totalElapsed="305099"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=en_UK,user.agent=ie8,videoElementSupport=no,audioElementSupport=no,canvasElementSupport=no,dragEventSupport=no,geolocationSupport=maybe,storageSupport=maybe,touchEventSupport=maybe">
-   <javascript size="747643" fragments="1">
-    <fragment initial="true" size="747643" />
+  <compilation  id="48" elapsed="9409" totalElapsed="288850"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=en_UK,user.agent=ie8,videoElementSupport=no,audioElementSupport=no,canvasElementSupport=no,dragEventSupport=no,geolocationSupport=maybe,storageSupport=maybe,touchEventSupport=maybe">
+   <javascript size="749342" fragments="1">
+    <fragment initial="true" size="749342" />
    </javascript>
   </compilation>
-  <compilation  id="49" elapsed="10283" totalElapsed="387922"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=en_GB,user.agent=ie8,videoElementSupport=no,audioElementSupport=no,canvasElementSupport=no,dragEventSupport=no,geolocationSupport=maybe,storageSupport=maybe,touchEventSupport=maybe">
-   <javascript size="747775" fragments="1">
-    <fragment initial="true" size="747775" />
+  <compilation  id="49" elapsed="10419" totalElapsed="379384"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=en_GB,user.agent=ie8,videoElementSupport=no,audioElementSupport=no,canvasElementSupport=no,dragEventSupport=no,geolocationSupport=maybe,storageSupport=maybe,touchEventSupport=maybe">
+   <javascript size="749469" fragments="1">
+    <fragment initial="true" size="749469" />
    </javascript>
   </compilation>
-  <compilation  id="5" elapsed="11139" totalElapsed="56646"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=fr,user.agent=gecko1_8,videoElementSupport=maybe,audioElementSupport=maybe,canvasElementSupport=maybe,dragEventSupport=maybe,geolocationSupport=maybe,storageSupport=maybe,touchEventSupport=maybe">
-   <javascript size="748817" fragments="1">
-    <fragment initial="true" size="748817" />
+  <compilation  id="5" elapsed="11422" totalElapsed="53281"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=fr,user.agent=gecko1_8,videoElementSupport=maybe,audioElementSupport=maybe,canvasElementSupport=maybe,dragEventSupport=maybe,geolocationSupport=maybe,storageSupport=maybe,touchEventSupport=maybe">
+   <javascript size="750496" fragments="1">
+    <fragment initial="true" size="750496" />
    </javascript>
   </compilation>
-  <compilation  id="50" elapsed="9280" totalElapsed="315053"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=fr,user.agent=ie8,videoElementSupport=no,audioElementSupport=no,canvasElementSupport=no,dragEventSupport=no,geolocationSupport=maybe,storageSupport=maybe,touchEventSupport=maybe">
-   <javascript size="749600" fragments="1">
-    <fragment initial="true" size="749600" />
+  <compilation  id="50" elapsed="9273" totalElapsed="298822"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=fr,user.agent=ie8,videoElementSupport=no,audioElementSupport=no,canvasElementSupport=no,dragEventSupport=no,geolocationSupport=maybe,storageSupport=maybe,touchEventSupport=maybe">
+   <javascript size="751296" fragments="1">
+    <fragment initial="true" size="751296" />
    </javascript>
   </compilation>
-  <compilation  id="51" elapsed="10607" totalElapsed="399203"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=fr_FR,user.agent=ie8,videoElementSupport=no,audioElementSupport=no,canvasElementSupport=no,dragEventSupport=no,geolocationSupport=maybe,storageSupport=maybe,touchEventSupport=maybe">
-   <javascript size="749861" fragments="1">
-    <fragment initial="true" size="749861" />
+  <compilation  id="51" elapsed="10816" totalElapsed="390849"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=fr_FR,user.agent=ie8,videoElementSupport=no,audioElementSupport=no,canvasElementSupport=no,dragEventSupport=no,geolocationSupport=maybe,storageSupport=maybe,touchEventSupport=maybe">
+   <javascript size="751557" fragments="1">
+    <fragment initial="true" size="751557" />
    </javascript>
   </compilation>
-  <compilation  id="52" elapsed="9950" totalElapsed="325688"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=fr_CA,user.agent=ie8,videoElementSupport=no,audioElementSupport=no,canvasElementSupport=no,dragEventSupport=no,geolocationSupport=maybe,storageSupport=maybe,touchEventSupport=maybe">
-   <javascript size="749965" fragments="1">
-    <fragment initial="true" size="749965" />
+  <compilation  id="52" elapsed="10009" totalElapsed="309522"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=fr_CA,user.agent=ie8,videoElementSupport=no,audioElementSupport=no,canvasElementSupport=no,dragEventSupport=no,geolocationSupport=maybe,storageSupport=maybe,touchEventSupport=maybe">
+   <javascript size="751661" fragments="1">
+    <fragment initial="true" size="751661" />
    </javascript>
   </compilation>
-  <compilation  id="53" elapsed="11240" totalElapsed="411139"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=fr_CH,user.agent=ie8,videoElementSupport=no,audioElementSupport=no,canvasElementSupport=no,dragEventSupport=no,geolocationSupport=maybe,storageSupport=maybe,touchEventSupport=maybe">
-   <javascript size="749960" fragments="1">
-    <fragment initial="true" size="749960" />
+  <compilation  id="53" elapsed="9526" totalElapsed="319714"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=fr_CH,user.agent=ie8,videoElementSupport=no,audioElementSupport=no,canvasElementSupport=no,dragEventSupport=no,geolocationSupport=maybe,storageSupport=maybe,touchEventSupport=maybe">
+   <javascript size="751656" fragments="1">
+    <fragment initial="true" size="751656" />
    </javascript>
   </compilation>
-  <compilation  id="54" elapsed="9444" totalElapsed="335789"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=hu_HU,user.agent=ie8,videoElementSupport=no,audioElementSupport=no,canvasElementSupport=no,dragEventSupport=no,geolocationSupport=maybe,storageSupport=maybe,touchEventSupport=maybe">
-   <javascript size="750683" fragments="1">
-    <fragment initial="true" size="750683" />
+  <compilation  id="54" elapsed="11719" totalElapsed="403352"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=hu_HU,user.agent=ie8,videoElementSupport=no,audioElementSupport=no,canvasElementSupport=no,dragEventSupport=no,geolocationSupport=maybe,storageSupport=maybe,touchEventSupport=maybe">
+   <javascript size="752377" fragments="1">
+    <fragment initial="true" size="752377" />
    </javascript>
   </compilation>
-  <compilation  id="55" elapsed="10714" totalElapsed="422533"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=it_CH,user.agent=ie8,videoElementSupport=no,audioElementSupport=no,canvasElementSupport=no,dragEventSupport=no,geolocationSupport=maybe,storageSupport=maybe,touchEventSupport=maybe">
-   <javascript size="749661" fragments="1">
-    <fragment initial="true" size="749661" />
+  <compilation  id="55" elapsed="9835" totalElapsed="330242"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=it_CH,user.agent=ie8,videoElementSupport=no,audioElementSupport=no,canvasElementSupport=no,dragEventSupport=no,geolocationSupport=maybe,storageSupport=maybe,touchEventSupport=maybe">
+   <javascript size="751355" fragments="1">
+    <fragment initial="true" size="751355" />
    </javascript>
   </compilation>
-  <compilation  id="56" elapsed="9622" totalElapsed="346066"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=it_IT,user.agent=ie8,videoElementSupport=no,audioElementSupport=no,canvasElementSupport=no,dragEventSupport=no,geolocationSupport=maybe,storageSupport=maybe,touchEventSupport=maybe">
-   <javascript size="749547" fragments="1">
-    <fragment initial="true" size="749547" />
+  <compilation  id="56" elapsed="10637" totalElapsed="414667"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=it_IT,user.agent=ie8,videoElementSupport=no,audioElementSupport=no,canvasElementSupport=no,dragEventSupport=no,geolocationSupport=maybe,storageSupport=maybe,touchEventSupport=maybe">
+   <javascript size="751241" fragments="1">
+    <fragment initial="true" size="751241" />
    </javascript>
   </compilation>
-  <compilation  id="57" elapsed="11083" totalElapsed="434283"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=pl_PL,user.agent=ie8,videoElementSupport=no,audioElementSupport=no,canvasElementSupport=no,dragEventSupport=no,geolocationSupport=maybe,storageSupport=maybe,touchEventSupport=maybe">
-   <javascript size="750420" fragments="1">
-    <fragment initial="true" size="750420" />
+  <compilation  id="57" elapsed="9063" totalElapsed="339956"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=pl_PL,user.agent=ie8,videoElementSupport=no,audioElementSupport=no,canvasElementSupport=no,dragEventSupport=no,geolocationSupport=maybe,storageSupport=maybe,touchEventSupport=maybe">
+   <javascript size="752114" fragments="1">
+    <fragment initial="true" size="752114" />
    </javascript>
   </compilation>
-  <compilation  id="58" elapsed="10132" totalElapsed="356914"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=pt_BR,user.agent=ie8,videoElementSupport=no,audioElementSupport=no,canvasElementSupport=no,dragEventSupport=no,geolocationSupport=maybe,storageSupport=maybe,touchEventSupport=maybe">
-   <javascript size="749291" fragments="1">
-    <fragment initial="true" size="749291" />
+  <compilation  id="58" elapsed="10346" totalElapsed="425686"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=pt_BR,user.agent=ie8,videoElementSupport=no,audioElementSupport=no,canvasElementSupport=no,dragEventSupport=no,geolocationSupport=maybe,storageSupport=maybe,touchEventSupport=maybe">
+   <javascript size="750987" fragments="1">
+    <fragment initial="true" size="750987" />
    </javascript>
   </compilation>
-  <compilation  id="59" elapsed="10799" totalElapsed="445748"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=pt_PT,user.agent=ie8,videoElementSupport=no,audioElementSupport=no,canvasElementSupport=no,dragEventSupport=no,geolocationSupport=maybe,storageSupport=maybe,touchEventSupport=maybe">
-   <javascript size="749157" fragments="1">
-    <fragment initial="true" size="749157" />
+  <compilation  id="59" elapsed="9311" totalElapsed="349946"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=pt_PT,user.agent=ie8,videoElementSupport=no,audioElementSupport=no,canvasElementSupport=no,dragEventSupport=no,geolocationSupport=maybe,storageSupport=maybe,touchEventSupport=maybe">
+   <javascript size="750853" fragments="1">
+    <fragment initial="true" size="750853" />
    </javascript>
   </compilation>
-  <compilation  id="6" elapsed="13044" totalElapsed="146041"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=fr_FR,user.agent=gecko1_8,videoElementSupport=maybe,audioElementSupport=maybe,canvasElementSupport=maybe,dragEventSupport=maybe,geolocationSupport=maybe,storageSupport=maybe,touchEventSupport=maybe">
-   <javascript size="749078" fragments="1">
-    <fragment initial="true" size="749078" />
+  <compilation  id="6" elapsed="10965" totalElapsed="144445"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=fr_FR,user.agent=gecko1_8,videoElementSupport=maybe,audioElementSupport=maybe,canvasElementSupport=maybe,dragEventSupport=maybe,geolocationSupport=maybe,storageSupport=maybe,touchEventSupport=maybe">
+   <javascript size="750757" fragments="1">
+    <fragment initial="true" size="750757" />
    </javascript>
   </compilation>
-  <compilation  id="60" elapsed="10020" totalElapsed="367635"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=default,user.agent=ie9,videoElementSupport=maybe,audioElementSupport=maybe,canvasElementSupport=maybe,dragEventSupport=maybe,geolocationSupport=maybe,storageSupport=maybe,touchEventSupport=maybe">
-   <javascript size="747978" fragments="1">
-    <fragment initial="true" size="747978" />
+  <compilation  id="60" elapsed="11842" totalElapsed="438193"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=default,user.agent=ie9,videoElementSupport=maybe,audioElementSupport=maybe,canvasElementSupport=maybe,dragEventSupport=maybe,geolocationSupport=maybe,storageSupport=maybe,touchEventSupport=maybe">
+   <javascript size="749679" fragments="1">
+    <fragment initial="true" size="749679" />
    </javascript>
   </compilation>
-  <compilation  id="61" elapsed="11774" totalElapsed="458183"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=de_DE,user.agent=ie9,videoElementSupport=maybe,audioElementSupport=maybe,canvasElementSupport=maybe,dragEventSupport=maybe,geolocationSupport=maybe,storageSupport=maybe,touchEventSupport=maybe">
-   <javascript size="749576" fragments="1">
-    <fragment initial="true" size="749576" />
+  <compilation  id="61" elapsed="10318" totalElapsed="360976"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=de_DE,user.agent=ie9,videoElementSupport=maybe,audioElementSupport=maybe,canvasElementSupport=maybe,dragEventSupport=maybe,geolocationSupport=maybe,storageSupport=maybe,touchEventSupport=maybe">
+   <javascript size="751276" fragments="1">
+    <fragment initial="true" size="751276" />
    </javascript>
   </compilation>
-  <compilation  id="62" elapsed="9570" totalElapsed="377902"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=de_CH,user.agent=ie9,videoElementSupport=maybe,audioElementSupport=maybe,canvasElementSupport=maybe,dragEventSupport=maybe,geolocationSupport=maybe,storageSupport=maybe,touchEventSupport=maybe">
-   <javascript size="749574" fragments="1">
-    <fragment initial="true" size="749574" />
+  <compilation  id="62" elapsed="10759" totalElapsed="449615"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=de_CH,user.agent=ie9,videoElementSupport=maybe,audioElementSupport=maybe,canvasElementSupport=maybe,dragEventSupport=maybe,geolocationSupport=maybe,storageSupport=maybe,touchEventSupport=maybe">
+   <javascript size="751274" fragments="1">
+    <fragment initial="true" size="751274" />
    </javascript>
   </compilation>
-  <compilation  id="63" elapsed="10309" totalElapsed="388864"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=en_UK,user.agent=ie9,videoElementSupport=maybe,audioElementSupport=maybe,canvasElementSupport=maybe,dragEventSupport=maybe,geolocationSupport=maybe,storageSupport=maybe,touchEventSupport=maybe">
-   <javascript size="747935" fragments="1">
-    <fragment initial="true" size="747935" />
+  <compilation  id="63" elapsed="9740" totalElapsed="371400"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=en_UK,user.agent=ie9,videoElementSupport=maybe,audioElementSupport=maybe,canvasElementSupport=maybe,dragEventSupport=maybe,geolocationSupport=maybe,storageSupport=maybe,touchEventSupport=maybe">
+   <javascript size="749630" fragments="1">
+    <fragment initial="true" size="749630" />
    </javascript>
   </compilation>
-  <compilation  id="64" elapsed="11227" totalElapsed="470048"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=en_GB,user.agent=ie9,videoElementSupport=maybe,audioElementSupport=maybe,canvasElementSupport=maybe,dragEventSupport=maybe,geolocationSupport=maybe,storageSupport=maybe,touchEventSupport=maybe">
-   <javascript size="748078" fragments="1">
-    <fragment initial="true" size="748078" />
+  <compilation  id="64" elapsed="10950" totalElapsed="461250"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=en_GB,user.agent=ie9,videoElementSupport=maybe,audioElementSupport=maybe,canvasElementSupport=maybe,dragEventSupport=maybe,geolocationSupport=maybe,storageSupport=maybe,touchEventSupport=maybe">
+   <javascript size="749777" fragments="1">
+    <fragment initial="true" size="749777" />
    </javascript>
   </compilation>
-  <compilation  id="65" elapsed="9896" totalElapsed="399389"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=fr,user.agent=ie9,videoElementSupport=maybe,audioElementSupport=maybe,canvasElementSupport=maybe,dragEventSupport=maybe,geolocationSupport=maybe,storageSupport=maybe,touchEventSupport=maybe">
-   <javascript size="749899" fragments="1">
-    <fragment initial="true" size="749899" />
+  <compilation  id="65" elapsed="9640" totalElapsed="381693"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=fr,user.agent=ie9,videoElementSupport=maybe,audioElementSupport=maybe,canvasElementSupport=maybe,dragEventSupport=maybe,geolocationSupport=maybe,storageSupport=maybe,touchEventSupport=maybe">
+   <javascript size="751599" fragments="1">
+    <fragment initial="true" size="751599" />
    </javascript>
   </compilation>
-  <compilation  id="66" elapsed="11018" totalElapsed="481832"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=fr_FR,user.agent=ie9,videoElementSupport=maybe,audioElementSupport=maybe,canvasElementSupport=maybe,dragEventSupport=maybe,geolocationSupport=maybe,storageSupport=maybe,touchEventSupport=maybe">
-   <javascript size="750160" fragments="1">
-    <fragment initial="true" size="750160" />
+  <compilation  id="66" elapsed="11546" totalElapsed="473457"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=fr_FR,user.agent=ie9,videoElementSupport=maybe,audioElementSupport=maybe,canvasElementSupport=maybe,dragEventSupport=maybe,geolocationSupport=maybe,storageSupport=maybe,touchEventSupport=maybe">
+   <javascript size="751860" fragments="1">
+    <fragment initial="true" size="751860" />
    </javascript>
   </compilation>
-  <compilation  id="67" elapsed="9774" totalElapsed="409827"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=fr_CA,user.agent=ie9,videoElementSupport=maybe,audioElementSupport=maybe,canvasElementSupport=maybe,dragEventSupport=maybe,geolocationSupport=maybe,storageSupport=maybe,touchEventSupport=maybe">
-   <javascript size="750275" fragments="1">
-    <fragment initial="true" size="750275" />
+  <compilation  id="67" elapsed="10659" totalElapsed="393047"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=fr_CA,user.agent=ie9,videoElementSupport=maybe,audioElementSupport=maybe,canvasElementSupport=maybe,dragEventSupport=maybe,geolocationSupport=maybe,storageSupport=maybe,touchEventSupport=maybe">
+   <javascript size="751971" fragments="1">
+    <fragment initial="true" size="751971" />
    </javascript>
   </compilation>
-  <compilation  id="68" elapsed="11932" totalElapsed="494455"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=fr_CH,user.agent=ie9,videoElementSupport=maybe,audioElementSupport=maybe,canvasElementSupport=maybe,dragEventSupport=maybe,geolocationSupport=maybe,storageSupport=maybe,touchEventSupport=maybe">
-   <javascript size="750270" fragments="1">
-    <fragment initial="true" size="750270" />
+  <compilation  id="68" elapsed="12284" totalElapsed="486499"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=fr_CH,user.agent=ie9,videoElementSupport=maybe,audioElementSupport=maybe,canvasElementSupport=maybe,dragEventSupport=maybe,geolocationSupport=maybe,storageSupport=maybe,touchEventSupport=maybe">
+   <javascript size="751966" fragments="1">
+    <fragment initial="true" size="751966" />
    </javascript>
   </compilation>
-  <compilation  id="69" elapsed="9748" totalElapsed="420245"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=hu_HU,user.agent=ie9,videoElementSupport=maybe,audioElementSupport=maybe,canvasElementSupport=maybe,dragEventSupport=maybe,geolocationSupport=maybe,storageSupport=maybe,touchEventSupport=maybe">
-   <javascript size="750991" fragments="1">
-    <fragment initial="true" size="750991" />
+  <compilation  id="69" elapsed="10456" totalElapsed="404239"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=hu_HU,user.agent=ie9,videoElementSupport=maybe,audioElementSupport=maybe,canvasElementSupport=maybe,dragEventSupport=maybe,geolocationSupport=maybe,storageSupport=maybe,touchEventSupport=maybe">
+   <javascript size="752687" fragments="1">
+    <fragment initial="true" size="752687" />
    </javascript>
   </compilation>
-  <compilation  id="7" elapsed="11327" totalElapsed="68876"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=fr_CA,user.agent=gecko1_8,videoElementSupport=maybe,audioElementSupport=maybe,canvasElementSupport=maybe,dragEventSupport=maybe,geolocationSupport=maybe,storageSupport=maybe,touchEventSupport=maybe">
-   <javascript size="749182" fragments="1">
-    <fragment initial="true" size="749182" />
+  <compilation  id="7" elapsed="9932" totalElapsed="64124"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=fr_CA,user.agent=gecko1_8,videoElementSupport=maybe,audioElementSupport=maybe,canvasElementSupport=maybe,dragEventSupport=maybe,geolocationSupport=maybe,storageSupport=maybe,touchEventSupport=maybe">
+   <javascript size="750861" fragments="1">
+    <fragment initial="true" size="750861" />
    </javascript>
   </compilation>
-  <compilation  id="70" elapsed="11244" totalElapsed="506370"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=it_CH,user.agent=ie9,videoElementSupport=maybe,audioElementSupport=maybe,canvasElementSupport=maybe,dragEventSupport=maybe,geolocationSupport=maybe,storageSupport=maybe,touchEventSupport=maybe">
-   <javascript size="749970" fragments="1">
-    <fragment initial="true" size="749970" />
+  <compilation  id="70" elapsed="9927" totalElapsed="414837"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=it_CH,user.agent=ie9,videoElementSupport=maybe,audioElementSupport=maybe,canvasElementSupport=maybe,dragEventSupport=maybe,geolocationSupport=maybe,storageSupport=maybe,touchEventSupport=maybe">
+   <javascript size="751664" fragments="1">
+    <fragment initial="true" size="751664" />
    </javascript>
   </compilation>
-  <compilation  id="71" elapsed="10368" totalElapsed="431289"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=it_IT,user.agent=ie9,videoElementSupport=maybe,audioElementSupport=maybe,canvasElementSupport=maybe,dragEventSupport=maybe,geolocationSupport=maybe,storageSupport=maybe,touchEventSupport=maybe">
-   <javascript size="749855" fragments="1">
-    <fragment initial="true" size="749855" />
+  <compilation  id="71" elapsed="11393" totalElapsed="498567"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=it_IT,user.agent=ie9,videoElementSupport=maybe,audioElementSupport=maybe,canvasElementSupport=maybe,dragEventSupport=maybe,geolocationSupport=maybe,storageSupport=maybe,touchEventSupport=maybe">
+   <javascript size="751551" fragments="1">
+    <fragment initial="true" size="751551" />
    </javascript>
   </compilation>
-  <compilation  id="72" elapsed="11336" totalElapsed="518374"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=pl_PL,user.agent=ie9,videoElementSupport=maybe,audioElementSupport=maybe,canvasElementSupport=maybe,dragEventSupport=maybe,geolocationSupport=maybe,storageSupport=maybe,touchEventSupport=maybe">
-   <javascript size="750736" fragments="1">
-    <fragment initial="true" size="750736" />
+  <compilation  id="72" elapsed="9579" totalElapsed="425135"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=pl_PL,user.agent=ie9,videoElementSupport=maybe,audioElementSupport=maybe,canvasElementSupport=maybe,dragEventSupport=maybe,geolocationSupport=maybe,storageSupport=maybe,touchEventSupport=maybe">
+   <javascript size="752432" fragments="1">
+    <fragment initial="true" size="752432" />
    </javascript>
   </compilation>
-  <compilation  id="73" elapsed="10360" totalElapsed="442314"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=pt_BR,user.agent=ie9,videoElementSupport=maybe,audioElementSupport=maybe,canvasElementSupport=maybe,dragEventSupport=maybe,geolocationSupport=maybe,storageSupport=maybe,touchEventSupport=maybe">
-   <javascript size="749590" fragments="1">
-    <fragment initial="true" size="749590" />
+  <compilation  id="73" elapsed="10940" totalElapsed="510148"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=pt_BR,user.agent=ie9,videoElementSupport=maybe,audioElementSupport=maybe,canvasElementSupport=maybe,dragEventSupport=maybe,geolocationSupport=maybe,storageSupport=maybe,touchEventSupport=maybe">
+   <javascript size="751290" fragments="1">
+    <fragment initial="true" size="751290" />
    </javascript>
   </compilation>
-  <compilation  id="74" elapsed="11008" totalElapsed="530048"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=pt_PT,user.agent=ie9,videoElementSupport=maybe,audioElementSupport=maybe,canvasElementSupport=maybe,dragEventSupport=maybe,geolocationSupport=maybe,storageSupport=maybe,touchEventSupport=maybe">
-   <javascript size="749467" fragments="1">
-    <fragment initial="true" size="749467" />
+  <compilation  id="74" elapsed="9897" totalElapsed="435709"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=pt_PT,user.agent=ie9,videoElementSupport=maybe,audioElementSupport=maybe,canvasElementSupport=maybe,dragEventSupport=maybe,geolocationSupport=maybe,storageSupport=maybe,touchEventSupport=maybe">
+   <javascript size="751163" fragments="1">
+    <fragment initial="true" size="751163" />
    </javascript>
   </compilation>
-  <compilation  id="75" elapsed="9121" totalElapsed="452119"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=default,user.agent=safari,videoElementSupport=maybe,audioElementSupport=maybe,canvasElementSupport=maybe,dragEventSupport=maybe,geolocationSupport=maybe,storageSupport=maybe,touchEventSupport=maybe">
-   <javascript size="748366" fragments="1">
-    <fragment initial="true" size="748366" />
+  <compilation  id="75" elapsed="10355" totalElapsed="521154"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=default,user.agent=safari,videoElementSupport=maybe,audioElementSupport=maybe,canvasElementSupport=maybe,dragEventSupport=maybe,geolocationSupport=maybe,storageSupport=maybe,touchEventSupport=maybe">
+   <javascript size="750046" fragments="1">
+    <fragment initial="true" size="750046" />
    </javascript>
   </compilation>
-  <compilation  id="76" elapsed="11933" totalElapsed="542656"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=de_DE,user.agent=safari,videoElementSupport=maybe,audioElementSupport=maybe,canvasElementSupport=maybe,dragEventSupport=maybe,geolocationSupport=maybe,storageSupport=maybe,touchEventSupport=maybe">
-   <javascript size="749977" fragments="1">
-    <fragment initial="true" size="749977" />
+  <compilation  id="76" elapsed="9517" totalElapsed="445912"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=de_DE,user.agent=safari,videoElementSupport=maybe,audioElementSupport=maybe,canvasElementSupport=maybe,dragEventSupport=maybe,geolocationSupport=maybe,storageSupport=maybe,touchEventSupport=maybe">
+   <javascript size="751657" fragments="1">
+    <fragment initial="true" size="751657" />
    </javascript>
   </compilation>
-  <compilation  id="77" elapsed="9722" totalElapsed="462536"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=de_CH,user.agent=safari,videoElementSupport=maybe,audioElementSupport=maybe,canvasElementSupport=maybe,dragEventSupport=maybe,geolocationSupport=maybe,storageSupport=maybe,touchEventSupport=maybe">
-   <javascript size="749975" fragments="1">
-    <fragment initial="true" size="749975" />
+  <compilation  id="77" elapsed="11494" totalElapsed="533333"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=de_CH,user.agent=safari,videoElementSupport=maybe,audioElementSupport=maybe,canvasElementSupport=maybe,dragEventSupport=maybe,geolocationSupport=maybe,storageSupport=maybe,touchEventSupport=maybe">
+   <javascript size="751655" fragments="1">
+    <fragment initial="true" size="751655" />
    </javascript>
   </compilation>
-  <compilation  id="78" elapsed="10712" totalElapsed="554069"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=en_UK,user.agent=safari,videoElementSupport=maybe,audioElementSupport=maybe,canvasElementSupport=maybe,dragEventSupport=maybe,geolocationSupport=maybe,storageSupport=maybe,touchEventSupport=maybe">
-   <javascript size="748348" fragments="1">
-    <fragment initial="true" size="748348" />
+  <compilation  id="78" elapsed="9088" totalElapsed="455638"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=en_UK,user.agent=safari,videoElementSupport=maybe,audioElementSupport=maybe,canvasElementSupport=maybe,dragEventSupport=maybe,geolocationSupport=maybe,storageSupport=maybe,touchEventSupport=maybe">
+   <javascript size="750027" fragments="1">
+    <fragment initial="true" size="750027" />
    </javascript>
   </compilation>
-  <compilation  id="79" elapsed="9827" totalElapsed="473115"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=en_GB,user.agent=safari,videoElementSupport=maybe,audioElementSupport=maybe,canvasElementSupport=maybe,dragEventSupport=maybe,geolocationSupport=maybe,storageSupport=maybe,touchEventSupport=maybe">
-   <javascript size="748474" fragments="1">
-    <fragment initial="true" size="748474" />
+  <compilation  id="79" elapsed="10491" totalElapsed="544491"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=en_GB,user.agent=safari,videoElementSupport=maybe,audioElementSupport=maybe,canvasElementSupport=maybe,dragEventSupport=maybe,geolocationSupport=maybe,storageSupport=maybe,touchEventSupport=maybe">
+   <javascript size="750153" fragments="1">
+    <fragment initial="true" size="750153" />
    </javascript>
   </compilation>
-  <compilation  id="8" elapsed="11665" totalElapsed="158775"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=fr_CH,user.agent=gecko1_8,videoElementSupport=maybe,audioElementSupport=maybe,canvasElementSupport=maybe,dragEventSupport=maybe,geolocationSupport=maybe,storageSupport=maybe,touchEventSupport=maybe">
-   <javascript size="749177" fragments="1">
-    <fragment initial="true" size="749177" />
+  <compilation  id="8" elapsed="12508" totalElapsed="157941"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=fr_CH,user.agent=gecko1_8,videoElementSupport=maybe,audioElementSupport=maybe,canvasElementSupport=maybe,dragEventSupport=maybe,geolocationSupport=maybe,storageSupport=maybe,touchEventSupport=maybe">
+   <javascript size="750856" fragments="1">
+    <fragment initial="true" size="750856" />
    </javascript>
   </compilation>
-  <compilation  id="80" elapsed="9552" totalElapsed="483396"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=fr,user.agent=safari,videoElementSupport=maybe,audioElementSupport=maybe,canvasElementSupport=maybe,dragEventSupport=maybe,geolocationSupport=maybe,storageSupport=maybe,touchEventSupport=maybe">
-   <javascript size="750300" fragments="1">
-    <fragment initial="true" size="750300" />
+  <compilation  id="80" elapsed="9826" totalElapsed="466145"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=fr,user.agent=safari,videoElementSupport=maybe,audioElementSupport=maybe,canvasElementSupport=maybe,dragEventSupport=maybe,geolocationSupport=maybe,storageSupport=maybe,touchEventSupport=maybe">
+   <javascript size="751980" fragments="1">
+    <fragment initial="true" size="751980" />
    </javascript>
   </compilation>
-  <compilation  id="81" elapsed="10747" totalElapsed="565644"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=fr_FR,user.agent=safari,videoElementSupport=maybe,audioElementSupport=maybe,canvasElementSupport=maybe,dragEventSupport=maybe,geolocationSupport=maybe,storageSupport=maybe,touchEventSupport=maybe">
-   <javascript size="750561" fragments="1">
-    <fragment initial="true" size="750561" />
+  <compilation  id="81" elapsed="10485" totalElapsed="555659"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=fr_FR,user.agent=safari,videoElementSupport=maybe,audioElementSupport=maybe,canvasElementSupport=maybe,dragEventSupport=maybe,geolocationSupport=maybe,storageSupport=maybe,touchEventSupport=maybe">
+   <javascript size="752241" fragments="1">
+    <fragment initial="true" size="752241" />
    </javascript>
   </compilation>
-  <compilation  id="82" elapsed="9353" totalElapsed="493599"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=fr_CA,user.agent=safari,videoElementSupport=maybe,audioElementSupport=maybe,canvasElementSupport=maybe,dragEventSupport=maybe,geolocationSupport=maybe,storageSupport=maybe,touchEventSupport=maybe">
-   <javascript size="750664" fragments="1">
-    <fragment initial="true" size="750664" />
+  <compilation  id="82" elapsed="9227" totalElapsed="476039"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=fr_CA,user.agent=safari,videoElementSupport=maybe,audioElementSupport=maybe,canvasElementSupport=maybe,dragEventSupport=maybe,geolocationSupport=maybe,storageSupport=maybe,touchEventSupport=maybe">
+   <javascript size="752343" fragments="1">
+    <fragment initial="true" size="752343" />
    </javascript>
   </compilation>
-  <compilation  id="83" elapsed="10306" totalElapsed="576627"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=fr_CH,user.agent=safari,videoElementSupport=maybe,audioElementSupport=maybe,canvasElementSupport=maybe,dragEventSupport=maybe,geolocationSupport=maybe,storageSupport=maybe,touchEventSupport=maybe">
-   <javascript size="750659" fragments="1">
-    <fragment initial="true" size="750659" />
+  <compilation  id="83" elapsed="10481" totalElapsed="566788"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=fr_CH,user.agent=safari,videoElementSupport=maybe,audioElementSupport=maybe,canvasElementSupport=maybe,dragEventSupport=maybe,geolocationSupport=maybe,storageSupport=maybe,touchEventSupport=maybe">
+   <javascript size="752338" fragments="1">
+    <fragment initial="true" size="752338" />
    </javascript>
   </compilation>
-  <compilation  id="84" elapsed="9398" totalElapsed="503659"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=hu_HU,user.agent=safari,videoElementSupport=maybe,audioElementSupport=maybe,canvasElementSupport=maybe,dragEventSupport=maybe,geolocationSupport=maybe,storageSupport=maybe,touchEventSupport=maybe">
-   <javascript size="751382" fragments="1">
-    <fragment initial="true" size="751382" />
+  <compilation  id="84" elapsed="9096" totalElapsed="485837"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=hu_HU,user.agent=safari,videoElementSupport=maybe,audioElementSupport=maybe,canvasElementSupport=maybe,dragEventSupport=maybe,geolocationSupport=maybe,storageSupport=maybe,touchEventSupport=maybe">
+   <javascript size="753061" fragments="1">
+    <fragment initial="true" size="753061" />
    </javascript>
   </compilation>
-  <compilation  id="85" elapsed="11394" totalElapsed="588715"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=it_CH,user.agent=safari,videoElementSupport=maybe,audioElementSupport=maybe,canvasElementSupport=maybe,dragEventSupport=maybe,geolocationSupport=maybe,storageSupport=maybe,touchEventSupport=maybe">
-   <javascript size="750357" fragments="1">
-    <fragment initial="true" size="750357" />
+  <compilation  id="85" elapsed="9573" totalElapsed="496101"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=it_CH,user.agent=safari,videoElementSupport=maybe,audioElementSupport=maybe,canvasElementSupport=maybe,dragEventSupport=maybe,geolocationSupport=maybe,storageSupport=maybe,touchEventSupport=maybe">
+   <javascript size="752038" fragments="1">
+    <fragment initial="true" size="752038" />
    </javascript>
   </compilation>
-  <compilation  id="86" elapsed="9809" totalElapsed="514148"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=it_IT,user.agent=safari,videoElementSupport=maybe,audioElementSupport=maybe,canvasElementSupport=maybe,dragEventSupport=maybe,geolocationSupport=maybe,storageSupport=maybe,touchEventSupport=maybe">
-   <javascript size="750246" fragments="1">
-    <fragment initial="true" size="750246" />
+  <compilation  id="86" elapsed="11719" totalElapsed="579192"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=it_IT,user.agent=safari,videoElementSupport=maybe,audioElementSupport=maybe,canvasElementSupport=maybe,dragEventSupport=maybe,geolocationSupport=maybe,storageSupport=maybe,touchEventSupport=maybe">
+   <javascript size="751925" fragments="1">
+    <fragment initial="true" size="751925" />
    </javascript>
   </compilation>
-  <compilation  id="87" elapsed="10540" totalElapsed="599918"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=pl_PL,user.agent=safari,videoElementSupport=maybe,audioElementSupport=maybe,canvasElementSupport=maybe,dragEventSupport=maybe,geolocationSupport=maybe,storageSupport=maybe,touchEventSupport=maybe">
-   <javascript size="751127" fragments="1">
-    <fragment initial="true" size="751127" />
+  <compilation  id="87" elapsed="9205" totalElapsed="506009"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=pl_PL,user.agent=safari,videoElementSupport=maybe,audioElementSupport=maybe,canvasElementSupport=maybe,dragEventSupport=maybe,geolocationSupport=maybe,storageSupport=maybe,touchEventSupport=maybe">
+   <javascript size="752806" fragments="1">
+    <fragment initial="true" size="752806" />
    </javascript>
   </compilation>
-  <compilation  id="88" elapsed="9486" totalElapsed="524318"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=pt_BR,user.agent=safari,videoElementSupport=maybe,audioElementSupport=maybe,canvasElementSupport=maybe,dragEventSupport=maybe,geolocationSupport=maybe,storageSupport=maybe,touchEventSupport=maybe">
-   <javascript size="749991" fragments="1">
-    <fragment initial="true" size="749991" />
+  <compilation  id="88" elapsed="10507" totalElapsed="590349"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=pt_BR,user.agent=safari,videoElementSupport=maybe,audioElementSupport=maybe,canvasElementSupport=maybe,dragEventSupport=maybe,geolocationSupport=maybe,storageSupport=maybe,touchEventSupport=maybe">
+   <javascript size="751671" fragments="1">
+    <fragment initial="true" size="751671" />
    </javascript>
   </compilation>
-  <compilation  id="89" elapsed="9644" totalElapsed="610226"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=pt_PT,user.agent=safari,videoElementSupport=maybe,audioElementSupport=maybe,canvasElementSupport=maybe,dragEventSupport=maybe,geolocationSupport=maybe,storageSupport=maybe,touchEventSupport=maybe">
-   <javascript size="749856" fragments="1">
-    <fragment initial="true" size="749856" />
+  <compilation  id="89" elapsed="8444" totalElapsed="515083"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=pt_PT,user.agent=safari,videoElementSupport=maybe,audioElementSupport=maybe,canvasElementSupport=maybe,dragEventSupport=maybe,geolocationSupport=maybe,storageSupport=maybe,touchEventSupport=maybe">
+   <javascript size="751535" fragments="1">
+    <fragment initial="true" size="751535" />
    </javascript>
   </compilation>
-  <compilation  id="9" elapsed="10624" totalElapsed="80580"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=hu_HU,user.agent=gecko1_8,videoElementSupport=maybe,audioElementSupport=maybe,canvasElementSupport=maybe,dragEventSupport=maybe,geolocationSupport=maybe,storageSupport=maybe,touchEventSupport=maybe">
-   <javascript size="749900" fragments="1">
-    <fragment initial="true" size="749900" />
+  <compilation  id="9" elapsed="9861" totalElapsed="74881"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=hu_HU,user.agent=gecko1_8,videoElementSupport=maybe,audioElementSupport=maybe,canvasElementSupport=maybe,dragEventSupport=maybe,geolocationSupport=maybe,storageSupport=maybe,touchEventSupport=maybe">
+   <javascript size="751579" fragments="1">
+    <fragment initial="true" size="751579" />
    </javascript>
   </compilation>
  </compilations>

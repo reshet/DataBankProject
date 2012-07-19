@@ -27,14 +27,15 @@
 			<VerticalPanel horizontalAlignment="ALIGN_RIGHT">
 				<g:Button ui:field="delButton"> Удалить!</g:Button>
 			</VerticalPanel>
-			
-			<g:VerticalPanel ui:field="elasticDBfields"/>
-			<g:Label width="500px">Краткое содержание: </g:Label>
-			<g:VerticalPanel ui:field="descriptionEditor"></g:VerticalPanel>
 			<g:VerticalPanel ui:field="uploadPanel">
 <!-- 				<g:Label ui:field="statusField">Выбрать файл...</g:Label> -->
 			</g:VerticalPanel>
 			<br/><br/>
+			
+			<g:VerticalPanel ui:field="elasticDBfields"/>
+			<g:Label width="500px">Краткое содержание: </g:Label>
+			<g:VerticalPanel ui:field="descriptionEditor"></g:VerticalPanel>
+
 			
 			
 <!-- 			<br/><br/> -->

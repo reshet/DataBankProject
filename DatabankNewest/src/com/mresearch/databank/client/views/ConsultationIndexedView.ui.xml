@@ -17,8 +17,8 @@
 					</p>
 				</div>
 				<div class="blue right">
-				<g:HorizontalPanel spacing="10" horizontalAlignment="ALIGN_RIGHT">
-					<g:Anchor ui:field="show_meta" text="Доп. информация"></g:Anchor>
+				<g:HorizontalPanel spacing="10" horizontalAlignment="ALIGN_RIGHT" width="100%">
+					<g:Anchor ui:field="show_meta" text="Дополнительная информация"></g:Anchor>
 				</g:HorizontalPanel>
 			</div>
 		</g:HTMLPanel>

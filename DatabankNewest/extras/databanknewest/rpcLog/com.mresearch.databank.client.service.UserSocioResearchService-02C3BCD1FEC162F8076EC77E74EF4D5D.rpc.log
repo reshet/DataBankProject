@@ -2,7 +2,7 @@
 Types potentially sent from browser:
 ====================================
 
-Reachable types computed on: Thu Jul 12 20:01:01 FET 2012
+Reachable types computed on: Thu Jul 19 18:08:02 FET 2012
 E
    Serialization status
       Not serializable
@@ -44,8 +44,8 @@ com.mresearch.databank.shared.FilterDiapasonDTO
    Serialization status
       Field serializable
    Path
-      'com.mresearch.databank.shared.FilterDiapasonDTO' is reachable as a supertype of type 'class com.mresearch.databank.shared.FilterRealDiapasonDTO'
-      'com.mresearch.databank.shared.FilterRealDiapasonDTO' is reachable as a subtype of type 'class com.mresearch.databank.shared.FilterBaseDTO'
+      'com.mresearch.databank.shared.FilterDiapasonDTO' is reachable as a supertype of type 'class com.mresearch.databank.shared.FilterDateDiapasonDTO'
+      'com.mresearch.databank.shared.FilterDateDiapasonDTO' is reachable as a subtype of type 'class com.mresearch.databank.shared.FilterBaseDTO'
       'com.mresearch.databank.shared.FilterBaseDTO' is reachable from type argument 0 of type 'java.util.ArrayList<E>'
       'java.util.ArrayList<com.mresearch.databank.shared.FilterBaseDTO>' is reachable as a subtype of type 'class java.util.ArrayList<com.mresearch.databank.shared.FilterBaseDTO>'
       Started from 'java.util.ArrayList<com.mresearch.databank.shared.FilterBaseDTO>'
@@ -138,23 +138,23 @@ java.lang.Throwable
       'com.google.gwt.user.client.rpc.IncompatibleRemoteServiceException' is reachable as a subtype of type 'class com.google.gwt.user.client.rpc.IncompatibleRemoteServiceException'
       Started from 'com.google.gwt.user.client.rpc.IncompatibleRemoteServiceException'
 
-java.util.ArrayList<com.mresearch.databank.shared.FilterBaseDTO>
-   Serialization status
-      Instantiable
-   Path
-      Started from 'java.util.ArrayList<com.mresearch.databank.shared.FilterBaseDTO>'
-
 java.util.ArrayList<java.lang.Long>
    Serialization status
       Instantiable
    Path
       Started from 'java.util.ArrayList<java.lang.Long>'
 
+java.util.ArrayList<com.mresearch.databank.shared.FilterBaseDTO>
+   Serialization status
+      Instantiable
+   Path
+      Started from 'java.util.ArrayList<com.mresearch.databank.shared.FilterBaseDTO>'
+
 ===================================
 Types potentially sent from server:
 ===================================
 
-Reachable types computed on: Thu Jul 12 20:01:01 FET 2012
+Reachable types computed on: Thu Jul 19 18:08:02 FET 2012
 E
    Serialization status
       Not serializable
@@ -383,8 +383,7 @@ com.mresearch.databank.shared.VarDTO
       Instantiable
    Path
       'com.mresearch.databank.shared.VarDTO' is reachable as a supertype of type 'class com.mresearch.databank.shared.VarDTO_Detailed'
-      'com.mresearch.databank.shared.VarDTO_Detailed' is reachable as a supertype of type 'class com.mresearch.databank.shared.RealVarDTO_Detailed'
-      'com.mresearch.databank.shared.RealVarDTO_Detailed' is reachable as a subtype of type 'class com.mresearch.databank.shared.VarDTO_Light'
+      'com.mresearch.databank.shared.VarDTO_Detailed' is reachable as a subtype of type 'class com.mresearch.databank.shared.VarDTO_Light'
       'com.mresearch.databank.shared.VarDTO_Light' is reachable from type argument 0 of type 'java.util.ArrayList<E>'
       'java.util.ArrayList<com.mresearch.databank.shared.VarDTO_Light>' is reachable as a subtype of type 'class java.util.ArrayList<com.mresearch.databank.shared.VarDTO_Light>'
       Started from 'java.util.ArrayList<com.mresearch.databank.shared.VarDTO_Light>'
@@ -393,8 +392,7 @@ com.mresearch.databank.shared.VarDTO_Detailed
    Serialization status
       Instantiable
    Path
-      'com.mresearch.databank.shared.VarDTO_Detailed' is reachable as a supertype of type 'class com.mresearch.databank.shared.RealVarDTO_Detailed'
-      'com.mresearch.databank.shared.RealVarDTO_Detailed' is reachable as a subtype of type 'class com.mresearch.databank.shared.VarDTO_Light'
+      'com.mresearch.databank.shared.VarDTO_Detailed' is reachable as a subtype of type 'class com.mresearch.databank.shared.VarDTO_Light'
       'com.mresearch.databank.shared.VarDTO_Light' is reachable from type argument 0 of type 'java.util.ArrayList<E>'
       'java.util.ArrayList<com.mresearch.databank.shared.VarDTO_Light>' is reachable as a subtype of type 'class java.util.ArrayList<com.mresearch.databank.shared.VarDTO_Light>'
       Started from 'java.util.ArrayList<com.mresearch.databank.shared.VarDTO_Light>'
@@ -449,8 +447,7 @@ java.lang.Integer
       'java.lang.Integer' is reachable from type argument 0 of type 'java.util.ArrayList<E>'
       'java.util.ArrayList<java.lang.Integer>' is reachable as a subtype of type 'class java.util.ArrayList<java.lang.Integer>'
       'java.util.ArrayList<java.lang.Integer>' is reachable from field 'filtered_indecies' of type 'com.mresearch.databank.shared.VarDTO_Detailed'
-      'com.mresearch.databank.shared.VarDTO_Detailed' is reachable as a supertype of type 'class com.mresearch.databank.shared.RealVarDTO_Detailed'
-      'com.mresearch.databank.shared.RealVarDTO_Detailed' is reachable as a subtype of type 'class com.mresearch.databank.shared.VarDTO_Light'
+      'com.mresearch.databank.shared.VarDTO_Detailed' is reachable as a subtype of type 'class com.mresearch.databank.shared.VarDTO_Light'
       'com.mresearch.databank.shared.VarDTO_Light' is reachable from type argument 0 of type 'java.util.ArrayList<E>'
       'java.util.ArrayList<com.mresearch.databank.shared.VarDTO_Light>' is reachable as a subtype of type 'class java.util.ArrayList<com.mresearch.databank.shared.VarDTO_Light>'
       Started from 'java.util.ArrayList<com.mresearch.databank.shared.VarDTO_Light>'
@@ -526,28 +523,13 @@ java.sql.Timestamp
       'com.mresearch.databank.shared.SocioResearchDTO' is reachable as a subtype of type 'class com.mresearch.databank.shared.SocioResearchDTO'
       Started from 'com.mresearch.databank.shared.SocioResearchDTO'
 
-java.util.ArrayList<java.lang.Integer>
+java.util.ArrayList<java.lang.String>
    Serialization status
       Instantiable
    Path
-      'java.util.ArrayList<java.lang.Integer>' is reachable from field 'filtered_indecies' of type 'com.mresearch.databank.shared.VarDTO_Detailed'
-      'com.mresearch.databank.shared.VarDTO_Detailed' is reachable as a supertype of type 'class com.mresearch.databank.shared.RealVarDTO_Detailed'
-      'com.mresearch.databank.shared.RealVarDTO_Detailed' is reachable as a subtype of type 'class com.mresearch.databank.shared.VarDTO_Light'
-      'com.mresearch.databank.shared.VarDTO_Light' is reachable from type argument 0 of type 'java.util.ArrayList<E>'
-      'java.util.ArrayList<com.mresearch.databank.shared.VarDTO_Light>' is reachable as a subtype of type 'class java.util.ArrayList<com.mresearch.databank.shared.VarDTO_Light>'
-      Started from 'java.util.ArrayList<com.mresearch.databank.shared.VarDTO_Light>'
-
-java.util.ArrayList<java.lang.Double>
-   Serialization status
-      Instantiable
-   Path
-      Started from 'java.util.ArrayList<java.lang.Double>'
-
-java.util.ArrayList<com.mresearch.databank.shared.SSE_DTO>
-   Serialization status
-      Instantiable
-   Path
-      Started from 'java.util.ArrayList<com.mresearch.databank.shared.SSE_DTO>'
+      'java.util.ArrayList<java.lang.String>' is reachable from field 'item_names' of type 'com.mresearch.databank.shared.MetaUnitMultivaluedEntityDTO'
+      'com.mresearch.databank.shared.MetaUnitMultivaluedEntityDTO' is reachable as a subtype of type 'class com.mresearch.databank.shared.MetaUnitMultivaluedEntityDTO'
+      Started from 'com.mresearch.databank.shared.MetaUnitMultivaluedEntityDTO'
 
 java.util.ArrayList<com.mresearch.databank.shared.MetaUnitDTO>
    Serialization status
@@ -557,6 +539,22 @@ java.util.ArrayList<com.mresearch.databank.shared.MetaUnitDTO>
       'com.mresearch.databank.shared.MetaUnitMultivaluedDTO' is reachable as a supertype of type 'class com.mresearch.databank.shared.MetaUnitMultivaluedEntityDTO'
       'com.mresearch.databank.shared.MetaUnitMultivaluedEntityDTO' is reachable as a subtype of type 'class com.mresearch.databank.shared.MetaUnitMultivaluedEntityDTO'
       Started from 'com.mresearch.databank.shared.MetaUnitMultivaluedEntityDTO'
+
+java.util.ArrayList<java.lang.Integer>
+   Serialization status
+      Instantiable
+   Path
+      'java.util.ArrayList<java.lang.Integer>' is reachable from field 'filtered_indecies' of type 'com.mresearch.databank.shared.VarDTO_Detailed'
+      'com.mresearch.databank.shared.VarDTO_Detailed' is reachable as a subtype of type 'class com.mresearch.databank.shared.VarDTO_Light'
+      'com.mresearch.databank.shared.VarDTO_Light' is reachable from type argument 0 of type 'java.util.ArrayList<E>'
+      'java.util.ArrayList<com.mresearch.databank.shared.VarDTO_Light>' is reachable as a subtype of type 'class java.util.ArrayList<com.mresearch.databank.shared.VarDTO_Light>'
+      Started from 'java.util.ArrayList<com.mresearch.databank.shared.VarDTO_Light>'
+
+java.util.ArrayList<com.mresearch.databank.shared.VarDTO_Light>
+   Serialization status
+      Instantiable
+   Path
+      Started from 'java.util.ArrayList<com.mresearch.databank.shared.VarDTO_Light>'
 
 java.util.ArrayList<java.lang.Long>
    Serialization status
@@ -573,17 +571,23 @@ java.util.ArrayList<com.mresearch.databank.shared.OrgDTO>
    Path
       Started from 'java.util.ArrayList<com.mresearch.databank.shared.OrgDTO>'
 
+java.util.ArrayList<com.mresearch.databank.shared.SSE_DTO>
+   Serialization status
+      Instantiable
+   Path
+      Started from 'java.util.ArrayList<com.mresearch.databank.shared.SSE_DTO>'
+
+java.util.ArrayList<java.lang.Double>
+   Serialization status
+      Instantiable
+   Path
+      Started from 'java.util.ArrayList<java.lang.Double>'
+
 java.util.ArrayList<com.mresearch.databank.shared.SocioResearchDTO_Light>
    Serialization status
       Instantiable
    Path
       Started from 'java.util.ArrayList<com.mresearch.databank.shared.SocioResearchDTO_Light>'
-
-java.util.ArrayList<com.mresearch.databank.shared.VarDTO_Light>
-   Serialization status
-      Instantiable
-   Path
-      Started from 'java.util.ArrayList<com.mresearch.databank.shared.VarDTO_Light>'
 
 java.util.ArrayList<com.mresearch.databank.shared.MetaUnitEntityItemDTO>
    Serialization status
@@ -592,14 +596,6 @@ java.util.ArrayList<com.mresearch.databank.shared.MetaUnitEntityItemDTO>
       'java.util.ArrayList<com.mresearch.databank.shared.MetaUnitEntityItemDTO>' is reachable from field 'subitems' of type 'com.mresearch.databank.shared.MetaUnitEntityItemDTO'
       'com.mresearch.databank.shared.MetaUnitEntityItemDTO' is reachable as a subtype of type 'class com.mresearch.databank.shared.MetaUnitEntityItemDTO'
       Started from 'com.mresearch.databank.shared.MetaUnitEntityItemDTO'
-
-java.util.ArrayList<java.lang.String>
-   Serialization status
-      Instantiable
-   Path
-      'java.util.ArrayList<java.lang.String>' is reachable from field 'item_names' of type 'com.mresearch.databank.shared.MetaUnitMultivaluedEntityDTO'
-      'com.mresearch.databank.shared.MetaUnitMultivaluedEntityDTO' is reachable as a subtype of type 'class com.mresearch.databank.shared.MetaUnitMultivaluedEntityDTO'
-      Started from 'com.mresearch.databank.shared.MetaUnitMultivaluedEntityDTO'
 
 java.util.Date
    Serialization status

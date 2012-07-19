@@ -106,7 +106,7 @@ public class UserResearchPerspectiveView extends Composite implements UserResear
 		
 		//split_panel.get
 		tree.setStyleName("research_section");
-		split_panel.setWidgetMinSize(centerChild, 800);
+		split_panel.setWidgetMinSize(centerChild, 720);
 		//split_panel.get
 		simpleResearchListItem = new SimpleResearchList();
 		tree.addItem(simpleResearchListItem);
@@ -188,6 +188,7 @@ public class UserResearchPerspectiveView extends Composite implements UserResear
 		}
 		int b = 2;
 	}
+	
 	@Override
 	public HasMouseDownHandlers getTree() {
 		return tree;

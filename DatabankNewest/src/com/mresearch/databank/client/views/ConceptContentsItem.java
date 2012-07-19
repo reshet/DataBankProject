@@ -27,7 +27,7 @@ public class ConceptContentsItem extends TreeItem implements WrappedCustomLabel{
 		int end = dto.getTextRepresent().length() > VarDescItem.LABEL_SHORTAGE_NUMBER? VarDescItem.LABEL_SHORTAGE_NUMBER:dto.getTextRepresent().length();
 		//this.setText(dto.getCode()+": "+dto.getLabel());
 		l.setWordWrap(true);
-		l.setWidth("200px");
+		l.setWidth("260px");
 		l.setText(dto.getTextRepresent().substring(0, end));
 		this.setWidget(l);
 		l.setStylePrimaryName("gwt-TreeItem");

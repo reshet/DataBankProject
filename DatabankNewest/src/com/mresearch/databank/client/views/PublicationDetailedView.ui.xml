@@ -6,6 +6,9 @@
 		{
 			margin-left: 30px;
 		}
+		.padded{
+   			 padding-left: 30px;
+		}
 	</ui:style>
 	<g:VerticalPanel>
 		<g:HTMLPanel styleName="{style.st}">
@@ -19,9 +22,9 @@
 					</p>
 				</div>
 				<div class="dark-yellow right">
-				<g:HorizontalPanel spacing="10">
+				<g:HorizontalPanel spacing="10" horizontalAlignment="ALIGN_RIGHT" width="100%">
 					<g:HorizontalPanel ui:field="link_panel"></g:HorizontalPanel>
-					<g:Anchor ui:field="show_meta" text="Доп. информация"></g:Anchor>
+					<g:Anchor ui:field="show_meta" text="Дополнительная информация" styleName="{style.padded}"></g:Anchor>
 				</g:HorizontalPanel>
 				</div>
 			</div>

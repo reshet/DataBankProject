@@ -43,7 +43,7 @@ public class UserJuryPerspectivePresenter implements Presenter
 				String path, MetaUnitMultivaluedEntityDTO meta);
 	 }
 	 
-	 public static String PRESENTER_PATH="Публикации";
+	 public static String PRESENTER_PATH="Консультации";
 	 private final AdminArticleServiceAsync rpcService;
 	 private final SimpleEventBus eventBus;
 	 private final Display display;

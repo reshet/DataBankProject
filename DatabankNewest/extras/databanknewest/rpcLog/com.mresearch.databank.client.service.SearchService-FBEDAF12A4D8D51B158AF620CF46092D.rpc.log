@@ -2,7 +2,7 @@
 Types potentially sent from browser:
 ====================================
 
-Reachable types computed on: Thu Jul 12 20:01:01 FET 2012
+Reachable types computed on: Thu Jul 19 18:08:02 FET 2012
 boolean
    Serialization status
       Not serializable
@@ -50,8 +50,8 @@ int
    Serialization status
       Not serializable
    Path
-      'int' is reachable from field 'nanos' of type 'java.sql.Timestamp'
-      'java.sql.Timestamp' is reachable as a subtype of type 'class java.util.Date'
+      'int' is reachable from field 'era' of type 'com.google.gwt.i18n.shared.impl.DateRecord'
+      'com.google.gwt.i18n.shared.impl.DateRecord' is reachable as a subtype of type 'class java.util.Date'
       'java.util.Date' is reachable from field 'date_from' of type 'com.mresearch.databank.shared.SearchTaskLawDTO'
       'com.mresearch.databank.shared.SearchTaskLawDTO' is reachable as a subtype of type 'class com.mresearch.databank.shared.SearchTaskLawDTO'
       Started from 'com.mresearch.databank.shared.SearchTaskLawDTO'
@@ -128,7 +128,7 @@ java.util.Date
 Types potentially sent from server:
 ===================================
 
-Reachable types computed on: Thu Jul 12 20:01:01 FET 2012
+Reachable types computed on: Thu Jul 19 18:08:02 FET 2012
 E
    Serialization status
       Not serializable

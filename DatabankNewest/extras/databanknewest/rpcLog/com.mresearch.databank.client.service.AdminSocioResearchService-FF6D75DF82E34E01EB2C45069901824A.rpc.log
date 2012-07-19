@@ -2,7 +2,7 @@
 Types potentially sent from browser:
 ====================================
 
-Reachable types computed on: Thu Jul 12 20:01:02 FET 2012
+Reachable types computed on: Thu Jul 19 18:08:03 FET 2012
 E
    Serialization status
       Not serializable
@@ -10,8 +10,7 @@ E
       'E' is reachable from field 'exposeElement' of type 'java.util.ArrayList<E>'
       'java.util.ArrayList<java.lang.Long>' is reachable as a subtype of type 'class java.util.ArrayList<java.lang.Long>'
       'java.util.ArrayList<java.lang.Long>' is reachable from field 'tagged_entities' of type 'com.mresearch.databank.shared.MetaUnitMultivaluedDTO'
-      'com.mresearch.databank.shared.MetaUnitMultivaluedDTO' is reachable as a supertype of type 'class com.mresearch.databank.shared.MetaUnitMultivaluedStructureDTO'
-      'com.mresearch.databank.shared.MetaUnitMultivaluedStructureDTO' is reachable as a subtype of type 'class com.mresearch.databank.shared.MetaUnitDTO'
+      'com.mresearch.databank.shared.MetaUnitMultivaluedDTO' is reachable as a subtype of type 'class com.mresearch.databank.shared.MetaUnitDTO'
       Started from 'com.mresearch.databank.shared.MetaUnitDTO'
 
 K
@@ -35,8 +34,7 @@ boolean
       Not serializable
    Path
       'boolean' is reachable from field 'isCatalogizable' of type 'com.mresearch.databank.shared.MetaUnitMultivaluedDTO'
-      'com.mresearch.databank.shared.MetaUnitMultivaluedDTO' is reachable as a supertype of type 'class com.mresearch.databank.shared.MetaUnitMultivaluedStructureDTO'
-      'com.mresearch.databank.shared.MetaUnitMultivaluedStructureDTO' is reachable as a subtype of type 'class com.mresearch.databank.shared.MetaUnitDTO'
+      'com.mresearch.databank.shared.MetaUnitMultivaluedDTO' is reachable as a subtype of type 'class com.mresearch.databank.shared.MetaUnitDTO'
       Started from 'com.mresearch.databank.shared.MetaUnitDTO'
 
 com.google.gwt.i18n.shared.impl.DateRecord
@@ -108,8 +106,7 @@ com.mresearch.databank.shared.MetaUnitMultivaluedDTO
    Serialization status
       Instantiable
    Path
-      'com.mresearch.databank.shared.MetaUnitMultivaluedDTO' is reachable as a supertype of type 'class com.mresearch.databank.shared.MetaUnitMultivaluedStructureDTO'
-      'com.mresearch.databank.shared.MetaUnitMultivaluedStructureDTO' is reachable as a subtype of type 'class com.mresearch.databank.shared.MetaUnitDTO'
+      'com.mresearch.databank.shared.MetaUnitMultivaluedDTO' is reachable as a subtype of type 'class com.mresearch.databank.shared.MetaUnitDTO'
       Started from 'com.mresearch.databank.shared.MetaUnitDTO'
 
 com.mresearch.databank.shared.MetaUnitMultivaluedEntityDTO
@@ -261,8 +258,7 @@ int
       'int' is reachable from field 'size' of type 'java.util.ArrayList<E>'
       'java.util.ArrayList<java.lang.Long>' is reachable as a subtype of type 'class java.util.ArrayList<java.lang.Long>'
       'java.util.ArrayList<java.lang.Long>' is reachable from field 'tagged_entities' of type 'com.mresearch.databank.shared.MetaUnitMultivaluedDTO'
-      'com.mresearch.databank.shared.MetaUnitMultivaluedDTO' is reachable as a supertype of type 'class com.mresearch.databank.shared.MetaUnitMultivaluedStructureDTO'
-      'com.mresearch.databank.shared.MetaUnitMultivaluedStructureDTO' is reachable as a subtype of type 'class com.mresearch.databank.shared.MetaUnitDTO'
+      'com.mresearch.databank.shared.MetaUnitMultivaluedDTO' is reachable as a subtype of type 'class com.mresearch.databank.shared.MetaUnitDTO'
       Started from 'com.mresearch.databank.shared.MetaUnitDTO'
 
 java.lang.Double
@@ -372,6 +368,30 @@ java.sql.Timestamp
       'com.mresearch.databank.shared.StartupBundleDTO' is reachable as a subtype of type 'class com.mresearch.databank.shared.StartupBundleDTO'
       Started from 'com.mresearch.databank.shared.StartupBundleDTO'
 
+java.util.ArrayList<java.lang.String>
+   Serialization status
+      Instantiable
+   Path
+      'java.util.ArrayList<java.lang.String>' is reachable from field 'item_names' of type 'com.mresearch.databank.shared.MetaUnitMultivaluedEntityDTO'
+      'com.mresearch.databank.shared.MetaUnitMultivaluedEntityDTO' is reachable as a subtype of type 'class com.mresearch.databank.shared.MetaUnitDTO'
+      Started from 'com.mresearch.databank.shared.MetaUnitDTO'
+
+java.util.ArrayList<com.mresearch.databank.shared.PublicationDTO_Light>
+   Serialization status
+      Instantiable
+   Path
+      'java.util.ArrayList<com.mresearch.databank.shared.PublicationDTO_Light>' is reachable from field 'index_last' of type 'com.mresearch.databank.shared.StartupBundleDTO'
+      'com.mresearch.databank.shared.StartupBundleDTO' is reachable as a subtype of type 'class com.mresearch.databank.shared.StartupBundleDTO'
+      Started from 'com.mresearch.databank.shared.StartupBundleDTO'
+
+java.util.ArrayList<com.mresearch.databank.shared.MetaUnitDTO>
+   Serialization status
+      Instantiable
+   Path
+      'java.util.ArrayList<com.mresearch.databank.shared.MetaUnitDTO>' is reachable from field 'sub_meta_units' of type 'com.mresearch.databank.shared.MetaUnitMultivaluedDTO'
+      'com.mresearch.databank.shared.MetaUnitMultivaluedDTO' is reachable as a subtype of type 'class com.mresearch.databank.shared.MetaUnitDTO'
+      Started from 'com.mresearch.databank.shared.MetaUnitDTO'
+
 java.util.ArrayList<java.lang.Integer>
    Serialization status
       Instantiable
@@ -380,22 +400,12 @@ java.util.ArrayList<java.lang.Integer>
       'com.mresearch.databank.shared.VarDTO_Detailed' is reachable as a subtype of type 'class com.mresearch.databank.shared.VarDTO_Detailed'
       Started from 'com.mresearch.databank.shared.VarDTO_Detailed'
 
-java.util.ArrayList<java.lang.Double>
+java.util.ArrayList<java.lang.Long>
    Serialization status
       Instantiable
    Path
-      'java.util.ArrayList<java.lang.Double>' is reachable from field 'v_label_codes' of type 'com.mresearch.databank.shared.VarDTO'
-      'com.mresearch.databank.shared.VarDTO' is reachable as a supertype of type 'class com.mresearch.databank.shared.VarDTO_Detailed'
-      'com.mresearch.databank.shared.VarDTO_Detailed' is reachable as a subtype of type 'class com.mresearch.databank.shared.VarDTO_Detailed'
-      Started from 'com.mresearch.databank.shared.VarDTO_Detailed'
-
-java.util.ArrayList<com.mresearch.databank.shared.MetaUnitDTO>
-   Serialization status
-      Instantiable
-   Path
-      'java.util.ArrayList<com.mresearch.databank.shared.MetaUnitDTO>' is reachable from field 'sub_meta_units' of type 'com.mresearch.databank.shared.MetaUnitMultivaluedDTO'
-      'com.mresearch.databank.shared.MetaUnitMultivaluedDTO' is reachable as a supertype of type 'class com.mresearch.databank.shared.MetaUnitMultivaluedStructureDTO'
-      'com.mresearch.databank.shared.MetaUnitMultivaluedStructureDTO' is reachable as a subtype of type 'class com.mresearch.databank.shared.MetaUnitDTO'
+      'java.util.ArrayList<java.lang.Long>' is reachable from field 'tagged_entities' of type 'com.mresearch.databank.shared.MetaUnitMultivaluedDTO'
+      'com.mresearch.databank.shared.MetaUnitMultivaluedDTO' is reachable as a subtype of type 'class com.mresearch.databank.shared.MetaUnitDTO'
       Started from 'com.mresearch.databank.shared.MetaUnitDTO'
 
 java.util.ArrayList<com.mresearch.databank.shared.ZaconDTO_Light>
@@ -406,28 +416,20 @@ java.util.ArrayList<com.mresearch.databank.shared.ZaconDTO_Light>
       'com.mresearch.databank.shared.StartupBundleDTO' is reachable as a subtype of type 'class com.mresearch.databank.shared.StartupBundleDTO'
       Started from 'com.mresearch.databank.shared.StartupBundleDTO'
 
-java.util.ArrayList<java.lang.Long>
+java.util.ArrayList<java.lang.Double>
    Serialization status
       Instantiable
    Path
-      'java.util.ArrayList<java.lang.Long>' is reachable from field 'tagged_entities' of type 'com.mresearch.databank.shared.MetaUnitMultivaluedDTO'
-      'com.mresearch.databank.shared.MetaUnitMultivaluedDTO' is reachable as a supertype of type 'class com.mresearch.databank.shared.MetaUnitMultivaluedStructureDTO'
-      'com.mresearch.databank.shared.MetaUnitMultivaluedStructureDTO' is reachable as a subtype of type 'class com.mresearch.databank.shared.MetaUnitDTO'
-      Started from 'com.mresearch.databank.shared.MetaUnitDTO'
+      'java.util.ArrayList<java.lang.Double>' is reachable from field 'v_label_codes' of type 'com.mresearch.databank.shared.VarDTO'
+      'com.mresearch.databank.shared.VarDTO' is reachable as a supertype of type 'class com.mresearch.databank.shared.VarDTO_Detailed'
+      'com.mresearch.databank.shared.VarDTO_Detailed' is reachable as a subtype of type 'class com.mresearch.databank.shared.VarDTO_Detailed'
+      Started from 'com.mresearch.databank.shared.VarDTO_Detailed'
 
 java.util.ArrayList<com.mresearch.databank.shared.SocioResearchDTO_Light>
    Serialization status
       Instantiable
    Path
       'java.util.ArrayList<com.mresearch.databank.shared.SocioResearchDTO_Light>' is reachable from field 'top_researchs' of type 'com.mresearch.databank.shared.StartupBundleDTO'
-      'com.mresearch.databank.shared.StartupBundleDTO' is reachable as a subtype of type 'class com.mresearch.databank.shared.StartupBundleDTO'
-      Started from 'com.mresearch.databank.shared.StartupBundleDTO'
-
-java.util.ArrayList<com.mresearch.databank.shared.PublicationDTO_Light>
-   Serialization status
-      Instantiable
-   Path
-      'java.util.ArrayList<com.mresearch.databank.shared.PublicationDTO_Light>' is reachable from field 'index_last' of type 'com.mresearch.databank.shared.StartupBundleDTO'
       'com.mresearch.databank.shared.StartupBundleDTO' is reachable as a subtype of type 'class com.mresearch.databank.shared.StartupBundleDTO'
       Started from 'com.mresearch.databank.shared.StartupBundleDTO'
 
@@ -438,14 +440,6 @@ java.util.ArrayList<com.mresearch.databank.shared.MetaUnitEntityItemDTO>
       'java.util.ArrayList<com.mresearch.databank.shared.MetaUnitEntityItemDTO>' is reachable from field 'subitems' of type 'com.mresearch.databank.shared.MetaUnitEntityItemDTO'
       'com.mresearch.databank.shared.MetaUnitEntityItemDTO' is reachable as a subtype of type 'class com.mresearch.databank.shared.MetaUnitEntityItemDTO'
       Started from 'com.mresearch.databank.shared.MetaUnitEntityItemDTO'
-
-java.util.ArrayList<java.lang.String>
-   Serialization status
-      Instantiable
-   Path
-      'java.util.ArrayList<java.lang.String>' is reachable from field 'item_names' of type 'com.mresearch.databank.shared.MetaUnitMultivaluedEntityDTO'
-      'com.mresearch.databank.shared.MetaUnitMultivaluedEntityDTO' is reachable as a subtype of type 'class com.mresearch.databank.shared.MetaUnitDTO'
-      Started from 'com.mresearch.databank.shared.MetaUnitDTO'
 
 java.util.Date
    Serialization status
@@ -484,7 +478,7 @@ long
 Types potentially sent from server:
 ===================================
 
-Reachable types computed on: Thu Jul 12 20:01:02 FET 2012
+Reachable types computed on: Thu Jul 19 18:08:03 FET 2012
 E
    Serialization status
       Not serializable
@@ -718,11 +712,12 @@ java.sql.Timestamp
       'com.mresearch.databank.shared.SocioResearchDTO' is reachable as a subtype of type 'class com.mresearch.databank.shared.SocioResearchDTO'
       Started from 'com.mresearch.databank.shared.SocioResearchDTO'
 
-java.util.ArrayList<java.lang.Integer>
+java.util.ArrayList<java.lang.String>
    Serialization status
       Instantiable
    Path
-      'java.util.ArrayList<java.lang.Integer>' is reachable from field 'filtered_indecies' of type 'com.mresearch.databank.shared.VarDTO_Detailed'
+      'java.util.ArrayList<java.lang.String>' is reachable from field 'v_label_values' of type 'com.mresearch.databank.shared.VarDTO'
+      'com.mresearch.databank.shared.VarDTO' is reachable as a supertype of type 'class com.mresearch.databank.shared.VarDTO_Detailed'
       'com.mresearch.databank.shared.VarDTO_Detailed' is reachable as a subtype of type 'class com.mresearch.databank.shared.VarDTO_Detailed'
       Started from 'com.mresearch.databank.shared.VarDTO_Detailed'
 
@@ -735,12 +730,11 @@ java.util.ArrayList<java.lang.Double>
       'com.mresearch.databank.shared.VarDTO_Detailed' is reachable as a subtype of type 'class com.mresearch.databank.shared.VarDTO_Detailed'
       Started from 'com.mresearch.databank.shared.VarDTO_Detailed'
 
-java.util.ArrayList<java.lang.String>
+java.util.ArrayList<java.lang.Integer>
    Serialization status
       Instantiable
    Path
-      'java.util.ArrayList<java.lang.String>' is reachable from field 'v_label_values' of type 'com.mresearch.databank.shared.VarDTO'
-      'com.mresearch.databank.shared.VarDTO' is reachable as a supertype of type 'class com.mresearch.databank.shared.VarDTO_Detailed'
+      'java.util.ArrayList<java.lang.Integer>' is reachable from field 'filtered_indecies' of type 'com.mresearch.databank.shared.VarDTO_Detailed'
       'com.mresearch.databank.shared.VarDTO_Detailed' is reachable as a subtype of type 'class com.mresearch.databank.shared.VarDTO_Detailed'
       Started from 'com.mresearch.databank.shared.VarDTO_Detailed'
 

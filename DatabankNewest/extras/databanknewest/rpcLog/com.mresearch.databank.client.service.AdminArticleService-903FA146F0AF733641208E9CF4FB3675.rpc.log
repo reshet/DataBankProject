@@ -2,7 +2,7 @@
 Types potentially sent from browser:
 ====================================
 
-Reachable types computed on: Thu Jul 12 20:01:01 FET 2012
+Reachable types computed on: Thu Jul 19 18:08:02 FET 2012
 E
    Serialization status
       Not serializable
@@ -255,7 +255,7 @@ long
 Types potentially sent from server:
 ===================================
 
-Reachable types computed on: Thu Jul 12 20:01:02 FET 2012
+Reachable types computed on: Thu Jul 19 18:08:02 FET 2012
 E
    Serialization status
       Not serializable
@@ -615,17 +615,27 @@ java.sql.Timestamp
       'com.mresearch.databank.shared.ConsultationDTO' is reachable as a subtype of type 'class com.mresearch.databank.shared.ConsultationDTO'
       Started from 'com.mresearch.databank.shared.ConsultationDTO'
 
-java.util.ArrayList<com.mresearch.databank.shared.ArticleDTO>
+java.util.ArrayList<com.mresearch.databank.shared.PublicationDTO_Light>
    Serialization status
       Instantiable
    Path
-      Started from 'java.util.ArrayList<com.mresearch.databank.shared.ArticleDTO>'
+      'java.util.ArrayList<com.mresearch.databank.shared.PublicationDTO_Light>' is reachable from field 'last_l_index_dtos' of type 'com.mresearch.databank.shared.PublicationsBundleDTO'
+      'com.mresearch.databank.shared.PublicationsBundleDTO' is reachable as a subtype of type 'class com.mresearch.databank.shared.PublicationsBundleDTO'
+      Started from 'com.mresearch.databank.shared.PublicationsBundleDTO'
 
-java.util.ArrayList<com.mresearch.databank.shared.ZaconDTO>
+java.util.ArrayList<java.lang.String>
    Serialization status
       Instantiable
    Path
-      Started from 'java.util.ArrayList<com.mresearch.databank.shared.ZaconDTO>'
+      'java.util.ArrayList<java.lang.String>' is reachable from field 'file_categs' of type 'com.mresearch.databank.shared.ResearchFilesDTO'
+      'com.mresearch.databank.shared.ResearchFilesDTO' is reachable as a subtype of type 'class com.mresearch.databank.shared.ResearchFilesDTO'
+      Started from 'com.mresearch.databank.shared.ResearchFilesDTO'
+
+java.util.ArrayList<com.mresearch.databank.shared.ConsultationDTO>
+   Serialization status
+      Instantiable
+   Path
+      Started from 'java.util.ArrayList<com.mresearch.databank.shared.ConsultationDTO>'
 
 java.util.ArrayList<com.mresearch.databank.shared.MetaUnitDTO>
    Serialization status
@@ -638,28 +648,6 @@ java.util.ArrayList<com.mresearch.databank.shared.MetaUnitDTO>
       'com.mresearch.databank.shared.JuryBundleDTO' is reachable as a subtype of type 'class com.mresearch.databank.shared.JuryBundleDTO'
       Started from 'com.mresearch.databank.shared.JuryBundleDTO'
 
-java.util.ArrayList<com.mresearch.databank.shared.ZaconDTO_Light>
-   Serialization status
-      Instantiable
-   Path
-      Started from 'java.util.ArrayList<com.mresearch.databank.shared.ZaconDTO_Light>'
-
-java.util.ArrayList<java.lang.Long>
-   Serialization status
-      Instantiable
-   Path
-      'java.util.ArrayList<java.lang.Long>' is reachable from field 'file_ids' of type 'com.mresearch.databank.shared.ResearchFilesDTO'
-      'com.mresearch.databank.shared.ResearchFilesDTO' is reachable as a subtype of type 'class com.mresearch.databank.shared.ResearchFilesDTO'
-      Started from 'com.mresearch.databank.shared.ResearchFilesDTO'
-
-java.util.ArrayList<com.mresearch.databank.shared.PublicationDTO_Light>
-   Serialization status
-      Instantiable
-   Path
-      'java.util.ArrayList<com.mresearch.databank.shared.PublicationDTO_Light>' is reachable from field 'last_l_index_dtos' of type 'com.mresearch.databank.shared.PublicationsBundleDTO'
-      'com.mresearch.databank.shared.PublicationsBundleDTO' is reachable as a subtype of type 'class com.mresearch.databank.shared.PublicationsBundleDTO'
-      Started from 'com.mresearch.databank.shared.PublicationsBundleDTO'
-
 java.util.ArrayList<com.mresearch.databank.shared.TopicDTO>
    Serialization status
       Instantiable
@@ -667,20 +655,6 @@ java.util.ArrayList<com.mresearch.databank.shared.TopicDTO>
       'java.util.ArrayList<com.mresearch.databank.shared.TopicDTO>' is reachable from field 'tops' of type 'com.mresearch.databank.shared.JuryBundleDTO'
       'com.mresearch.databank.shared.JuryBundleDTO' is reachable as a subtype of type 'class com.mresearch.databank.shared.JuryBundleDTO'
       Started from 'com.mresearch.databank.shared.JuryBundleDTO'
-
-java.util.ArrayList<com.mresearch.databank.shared.ConsultationDTO>
-   Serialization status
-      Instantiable
-   Path
-      Started from 'java.util.ArrayList<com.mresearch.databank.shared.ConsultationDTO>'
-
-java.util.ArrayList<java.lang.String>
-   Serialization status
-      Instantiable
-   Path
-      'java.util.ArrayList<java.lang.String>' is reachable from field 'file_categs' of type 'com.mresearch.databank.shared.ResearchFilesDTO'
-      'com.mresearch.databank.shared.ResearchFilesDTO' is reachable as a subtype of type 'class com.mresearch.databank.shared.ResearchFilesDTO'
-      Started from 'com.mresearch.databank.shared.ResearchFilesDTO'
 
 java.util.ArrayList<com.mresearch.databank.shared.PublicationDTO>
    Serialization status
@@ -695,6 +669,32 @@ java.util.ArrayList<com.mresearch.databank.shared.ConsultationDTO_Light>
       Instantiable
    Path
       Started from 'java.util.ArrayList<com.mresearch.databank.shared.ConsultationDTO_Light>'
+
+java.util.ArrayList<java.lang.Long>
+   Serialization status
+      Instantiable
+   Path
+      'java.util.ArrayList<java.lang.Long>' is reachable from field 'file_ids' of type 'com.mresearch.databank.shared.ResearchFilesDTO'
+      'com.mresearch.databank.shared.ResearchFilesDTO' is reachable as a subtype of type 'class com.mresearch.databank.shared.ResearchFilesDTO'
+      Started from 'com.mresearch.databank.shared.ResearchFilesDTO'
+
+java.util.ArrayList<com.mresearch.databank.shared.ZaconDTO_Light>
+   Serialization status
+      Instantiable
+   Path
+      Started from 'java.util.ArrayList<com.mresearch.databank.shared.ZaconDTO_Light>'
+
+java.util.ArrayList<com.mresearch.databank.shared.ArticleDTO>
+   Serialization status
+      Instantiable
+   Path
+      Started from 'java.util.ArrayList<com.mresearch.databank.shared.ArticleDTO>'
+
+java.util.ArrayList<com.mresearch.databank.shared.ZaconDTO>
+   Serialization status
+      Instantiable
+   Path
+      Started from 'java.util.ArrayList<com.mresearch.databank.shared.ZaconDTO>'
 
 java.util.Date
    Serialization status

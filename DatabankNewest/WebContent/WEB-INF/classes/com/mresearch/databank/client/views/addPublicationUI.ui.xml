@@ -23,15 +23,16 @@
 				<h2>Добавить публикацию в банк ...
 				</h2> 
 			</div>
-			
-			<g:VerticalPanel ui:field="elasticDBfields"/>
-			<g:Label width="500px">Краткое содержание: </g:Label>
-			<g:VerticalPanel ui:field="descriptionEditor"></g:VerticalPanel>
+			<g:Button ui:field="submitButton"> Добавить!</g:Button>
 			<g:VerticalPanel ui:field="uploadPanel">
 <!-- 				<g:Label ui:field="statusField">Выбрать файл...</g:Label> -->
 			</g:VerticalPanel>
 			<br/><br/>
-			<g:Button ui:field="submitButton"> Добавить!</g:Button>
+			<g:VerticalPanel ui:field="elasticDBfields"/>
+			<g:Label width="500px">Краткое содержание: </g:Label>
+			<g:VerticalPanel ui:field="descriptionEditor"></g:VerticalPanel>
+			
+			
 			
 			
 <!-- 			<br/><br/> -->
@@ -47,4 +48,6 @@
 <!--	<g:FormPanel ui:field="formPanel">-->
 <!--		<g:Button ui:field="submitButton"> Добавить SPSS файл</g:Button>-->
 <!--	</g:FormPanel>-->
+
+
 </ui:UiBinder> 

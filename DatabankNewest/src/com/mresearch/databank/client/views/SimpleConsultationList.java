@@ -56,6 +56,10 @@ public class SimpleConsultationList extends TreeItem implements ICatalogizationC
 				articleService.getConsultationsAll(cb);
 			}
 		}.retry(3);
+		
+		
+		
+		
 //		articleService.
 //		catalogService.getResearchList(new AsyncCallback<ArrayList<SocioResearchDTO>>() {
 //			@Override

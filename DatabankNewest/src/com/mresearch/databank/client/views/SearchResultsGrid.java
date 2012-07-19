@@ -46,6 +46,7 @@ public class SearchResultsGrid extends VerticalPanel
     countryGrid.setShowAllRecords(Boolean.valueOf(true));
     countryGrid.setWrapCells(Boolean.valueOf(true));
     countryGrid.setCellHeight(46);
+    
    // countryGrid.setAutoFitFieldWidths(true);
 
     HashMap<String,String> used_map = new HashMap<String,String>();

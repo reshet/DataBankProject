@@ -22,6 +22,10 @@ public class SimpleResearchList extends TreeItem implements ICatalogizationConce
 		addItem("Загрузка...");
 	}
 	
+	
+	
+	
+	
 	@Override
 	public void refreshContents() {
 		catalogService.getResearchList(new AsyncCallback<ArrayList<SocioResearchDTO_Light>>() {

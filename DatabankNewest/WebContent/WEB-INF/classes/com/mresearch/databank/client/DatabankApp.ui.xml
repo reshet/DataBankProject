@@ -9,41 +9,69 @@
 <!--   <ui:style src="../Resources/GlobalStyles.css" /> -->
    
    <ui:style>
-   	.back{
-		background-color: #898989;
+   	.black{
+		background-color: #060900;
+		opacity:0.8;
+  		filter:alpha(opacity=60); /* For IE8 and earlier */
+  		color: white;
+		font-weight: bold;
 	}
-	.foo { min-height: 768px; }
+	.white{
+		
+	}
+	.blue
+	{
+		color: #5bc7f6;
+		font-weight: bold;
+	}
+	.foo { 
+		min-height: 768px;
+		background-color: #fdfdff;
+		 }
+	.bottom
+	{
+		vertical-align: bottom;
+	}
 		
    </ui:style>
   <g:ScrollPanel width="100%" height="100%">
   	  <g:VerticalPanel width="100%" styleName="{style.foo}">
 	     		<g:VerticalPanel ui:field="verticalPanel" width="100%" height="100%">
 				</g:VerticalPanel>
-				<g:VerticalPanel horizontalAlignment="ALIGN_CENTER" width="100%" height="55px">
-						<g:HorizontalPanel>
-					      <g:HTMLPanel width="600px">
-					      	
-					        <table>
-					        	<tr>
-					        		<td>
-					        			<table>
-					        				<tr><td width="50%">&copy; 2012 "<a href="#" ><span class="info">Русский язык в Украине</span></a>"</td></tr>
-					        				<tr><td width="50%"><a href="#" ><span  class="info">contact@russian-language.org.ua</span ></a></td></tr>
-					        				<tr><td width="50%"><a href="#" ><span  class="info">Информация о проекте</span ></a></td></tr>
-					        			</table>
-					        		</td>
-					        		<td>
-					        			<table>
-					        				<tr><td width="50%">&copy; 2012 "<a href="http://www.russkiymir.ru/" target="_blank"><span  class="info">Фонд Русский Мир</span ></a>"</td> </tr>
-					        				<tr><td width="50%">&copy; 2012 "<a href="http://www.analitik.org.ua/" target="_blank"><span  class="info">Киевский центр политических исследований и конфликтологии</span ></a>"</td>  </tr>
-					        			</table>
-					        		</td>
-					        	</tr>
-					        </table>
-					        </g:HTMLPanel>
-					    </g:HorizontalPanel>
-			    </g:VerticalPanel>
-				         
+				
+					<g:HTMLPanel height="620px">
+						<div id="bottom">
+							<div class="{style.bottom}">
+						<g:VerticalPanel verticalAlignment="ALIGN_BOTTOM" width="100%" height="600px">
+								<g:VerticalPanel horizontalAlignment="ALIGN_CENTER" width="100%" height="55px">
+									<g:HorizontalPanel>
+								      <g:HTMLPanel width="700px">
+									        <table>
+									        	<tr>
+									        		<td>
+									        			<table>
+									        				<tr><td width="50%"><p class="{style.black}">&copy; 2012 "<a href="#" ><span class="info {style.blue}">Русский язык в Украине</span></a>"</p></td></tr>
+									        				<tr><td width="50%"><p class="{style.black}"><a href="#" ><span  class="info {style.blue}">contact@russian-language.org.ua</span ></a></p></td></tr>
+									        				<tr><td width="50%"><p class="{style.black}"><a href="#" ><span  class="info {style.blue}">Информация о проекте</span ></a></p></td></tr>
+									        			</table>
+									        		</td>
+									        		<td>
+									        			<table>
+									        				<tr><td width="50%"><p class="{style.black}">&copy; 2012 "<a href="http://www.russkiymir.ru/" target="_blank"><span  class="info {style.blue}">Фонд Русский Мир</span ></a>"</p></td> </tr>
+									        				<tr><td width="50%"><p class="{style.black}">&copy; 2012 "<a href="http://www.analitik.org.ua/" target="_blank"><span  class="info {style.blue}">Киевский центр политических исследований и конфликтологии</span ></a>"</p></td>  </tr>
+									        			</table>
+									        		</td>
+									        	</tr>
+									        </table>
+								        </g:HTMLPanel>
+								    </g:HorizontalPanel>
+						 	   </g:VerticalPanel>  
+					 	   </g:VerticalPanel>  
+					 	   </div>  
+						</div>
+					</g:HTMLPanel>
+				
+				 
 	  </g:VerticalPanel>
 	</g:ScrollPanel> 
 </ui:UiBinder> 

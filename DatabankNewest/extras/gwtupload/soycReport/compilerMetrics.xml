@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <metrics version="1" >
- <module elapsed="649588" >
+ <module elapsed="632531" >
   <sources count="2305">
    <source name="com/google/gwt/animation/client/Animation.java" />
    <source name="com/google/gwt/animation/client/AnimationScheduler.java" />
@@ -5190,7 +5190,7 @@
   </types>
  </module>
  <precompilations>
-  <precompilation base="0" ids="0,1,2,3,4,5" elapsed="650186" >
+  <precompilation base="0" ids="0,1,2,3,4,5" elapsed="633155" >
    <types kind="ast" count="60">
     <type name="com.google.gwt.core.client.GWT" />
     <type name="com.google.gwt.core.client.JavaScriptException" />
@@ -5265,32 +5265,32 @@
  </precompilation>
  </precompilations>
  <compilations>
-  <compilation  id="0" elapsed="225" totalElapsed="650431"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=default,user.agent=safari,videoElementSupport=maybe,audioElementSupport=maybe,canvasElementSupport=maybe,dragEventSupport=maybe,geolocationSupport=maybe,storageSupport=maybe,touchEventSupport=maybe">
+  <compilation  id="0" elapsed="179" totalElapsed="633348"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=default,user.agent=safari,videoElementSupport=maybe,audioElementSupport=maybe,canvasElementSupport=maybe,dragEventSupport=maybe,geolocationSupport=maybe,storageSupport=maybe,touchEventSupport=maybe">
    <javascript size="6881" fragments="1">
     <fragment initial="true" size="6881" />
    </javascript>
   </compilation>
-  <compilation  id="1" elapsed="1291" totalElapsed="2561"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=default,user.agent=gecko1_8,videoElementSupport=maybe,audioElementSupport=maybe,canvasElementSupport=maybe,dragEventSupport=maybe,geolocationSupport=maybe,storageSupport=maybe,touchEventSupport=maybe">
+  <compilation  id="1" elapsed="1216" totalElapsed="2416"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=default,user.agent=gecko1_8,videoElementSupport=maybe,audioElementSupport=maybe,canvasElementSupport=maybe,dragEventSupport=maybe,geolocationSupport=maybe,storageSupport=maybe,touchEventSupport=maybe">
    <javascript size="5631" fragments="1">
     <fragment initial="true" size="5631" />
    </javascript>
   </compilation>
-  <compilation  id="2" elapsed="253" totalElapsed="650726"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=default,user.agent=opera,videoElementSupport=maybe,audioElementSupport=maybe,canvasElementSupport=maybe,dragEventSupport=maybe,geolocationSupport=maybe,storageSupport=maybe,touchEventSupport=maybe">
+  <compilation  id="2" elapsed="248" totalElapsed="633641"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=default,user.agent=opera,videoElementSupport=maybe,audioElementSupport=maybe,canvasElementSupport=maybe,dragEventSupport=maybe,geolocationSupport=maybe,storageSupport=maybe,touchEventSupport=maybe">
    <javascript size="5707" fragments="1">
     <fragment initial="true" size="5707" />
    </javascript>
   </compilation>
-  <compilation  id="3" elapsed="210" totalElapsed="650966"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=default,user.agent=ie6,videoElementSupport=no,audioElementSupport=no,canvasElementSupport=no,dragEventSupport=no,geolocationSupport=no,storageSupport=no,touchEventSupport=no">
+  <compilation  id="3" elapsed="220" totalElapsed="633894"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=default,user.agent=ie6,videoElementSupport=no,audioElementSupport=no,canvasElementSupport=no,dragEventSupport=no,geolocationSupport=no,storageSupport=no,touchEventSupport=no">
    <javascript size="5925" fragments="1">
     <fragment initial="true" size="5925" />
    </javascript>
   </compilation>
-  <compilation  id="4" elapsed="217" totalElapsed="651222"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=default,user.agent=ie8,videoElementSupport=no,audioElementSupport=no,canvasElementSupport=no,dragEventSupport=no,geolocationSupport=maybe,storageSupport=maybe,touchEventSupport=maybe">
+  <compilation  id="4" elapsed="265" totalElapsed="634193"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=default,user.agent=ie8,videoElementSupport=no,audioElementSupport=no,canvasElementSupport=no,dragEventSupport=no,geolocationSupport=maybe,storageSupport=maybe,touchEventSupport=maybe">
    <javascript size="5763" fragments="1">
     <fragment initial="true" size="5763" />
    </javascript>
   </compilation>
-  <compilation  id="5" elapsed="199" totalElapsed="651449"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=default,user.agent=ie9,videoElementSupport=maybe,audioElementSupport=maybe,canvasElementSupport=maybe,dragEventSupport=maybe,geolocationSupport=maybe,storageSupport=maybe,touchEventSupport=maybe">
+  <compilation  id="5" elapsed="201" totalElapsed="634422"  description="ClientBundle.enableInlining=true,compiler.emulatedStack=false,compiler.predeclare.cross.fragment.references=false,compiler.stackMode=native,gwt.forceBidi=false,gwt.logging.enabled=FALSE,gwt.suppressNonStaticFinalFieldWarnings=false,locale=default,user.agent=ie9,videoElementSupport=maybe,audioElementSupport=maybe,canvasElementSupport=maybe,dragEventSupport=maybe,geolocationSupport=maybe,storageSupport=maybe,touchEventSupport=maybe">
    <javascript size="5763" fragments="1">
     <fragment initial="true" size="5763" />
    </javascript>

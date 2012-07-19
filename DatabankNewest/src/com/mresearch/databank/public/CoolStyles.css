@@ -58,8 +58,19 @@ body {
 
 
 html { 
-	background: url(i/BG.jpg) no-repeat center center fixed; 
-	-webkit-background-size: cover;
+/* 	background: url(i/BG.jpg) no-repeat center center fixed;  */
+/* 	-webkit-background-size: cover; */
+/* 	-moz-background-size: cover; */
+/* 	-o-background-size: cover; */
+/* 	background-size: cover; */
+}
+
+div#bottom
+{
+     	background: url(i/bg-jpg-72.jpg) no-repeat top center; 
+     	height: 600px;
+     	width: 100%;
+     		-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
 	background-size: cover;

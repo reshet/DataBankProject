@@ -19,7 +19,7 @@ import com.mresearch.databank.shared.VarDTO_Light;
 
 public class VarDescItem extends TreeItem implements WrappedCustomLabel{
 	private long var_id;
-	public static int LABEL_SHORTAGE_NUMBER = 45;
+	public static int LABEL_SHORTAGE_NUMBER = 70;
 	private Label l = new Label();
 	public Label getLabel(){return l;}
 	public VarDescItem(final VarDTO_Light dto)
@@ -30,10 +30,18 @@ public class VarDescItem extends TreeItem implements WrappedCustomLabel{
 		//this.setText(dto.getCode()+": "+dto.getLabel());
 		
 		l.setWordWrap(true);
-		l.setWidth("200px");
+		l.setWidth("265px");
 		l.setText(dto.getCode()+": "+dto.getLabel().substring(0, end));
 		this.setWidget(l);
 		l.setStylePrimaryName("gwt-TreeItem");
+		
+		
+		
+		
+		
+		
+		
+		
 		
 		this.setTitle(dto.getCode()+": "+dto.getLabel());
 		

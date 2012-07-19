@@ -21,7 +21,7 @@
 					<g:ScrollPanel   width="100%" height="100%">
 						<g:VerticalPanel width="100%" height="100%" horizontalAlignment="ALIGN_LEFT">
 						
-							<g:DecoratedTabPanel animationEnabled="true" height="600px" width="310px" ui:field="decortab">
+							<g:DecoratedTabPanel animationEnabled="true" height="600px" width="410px" ui:field="decortab">
 								<g:Tab text="Каталог" selected="true">
 										<g:VerticalPanel ui:field="catalogPanel" width="100%" height="100%">
 											<g:Tree ui:field="tree" animationEnabled="true">
@@ -97,7 +97,7 @@
 <!-- 						</g:Tree> -->
 <!-- 					</g:ScrollPanel> -->
 <!-- 				</g:west> -->
-				<g:east size = "780" unit='EM'>
+				<g:east size = "680" unit='EM'>
 						<g:ScrollPanel   width="100%" height="100%" ui:field="centerChild">
 						<g:VerticalPanel ui:field="centerPanel">
 						</g:VerticalPanel>
